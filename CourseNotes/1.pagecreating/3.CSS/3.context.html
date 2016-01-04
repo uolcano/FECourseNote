@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3 context</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="../../csslib/general.css">
+    <link rel="stylesheet" href="3.context.css">
+</head>
+
+<body>
+    <!-- 使用本文档时千万不要使用sublime的prettify插件调整版面，否则white-space属性实验部分的页面格式将被调整。 -->
+    <header>
+        <h2 id="top">文本</h2></header>
+    <nav>
+    	<ul>
+    		<li><a href="#font-family">font-family</a></li>
+    		<li><a href="#font-weight">font-weight</a></li>
+    		<li><a href="#font-size">font-size</a></li>
+    		<li><a href="#font-style">font-style</a></li>
+    		<li><a href="#font-variant">font-variant</a></li>
+    		<li><a href="#font-stretch">font-stretch</a></li>
+    		<li><a href="#font-size-adjust">font-size-adjust</a></li>
+    		<li><a href="#font">font</a></li>
+    		<li><a href="#text-indent">text-indent</a></li>
+    		<li><a href="#text-align">text-align</a></li>
+    		<li><a href="#line-height">line-height</a></li>
+    		<li><a href="#vertical-align">vertical-align</a></li>
+    		<li><a href="#word-spacing">word-spacing</a></li>
+    		<li><a href="#letter-spacing">letter-spacing</a></li>
+    		<li><a href="#text-transform">text-transform</a></li>
+    		<li><a href="#text-decoration">text-decoration</a></li>
+    		<li><a href="#text-shadow">text-shadow</a></li>
+    		<li><a href="#direction">direction</a></li>
+    		<li><a href="#unicode-bidi">unicode-bidi</a></li>
+    		<li><a href="#white-space">white-space</a></li>
+    		<li><a href="#word-wrap">word-wrap</a></li>
+    		<li><a href="#word-break">word-break</a></li>
+    		<li><a href="#text-overflow">text-overflow</a></li>
+    		<li><a href="#cursor">cursor</a></li>
+    		<li><a href="#top">回到顶部</a></li>
+    	</ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h3 id="font-family">字体系列|<a href="http://www.w3.org/TR/css-fonts-3/#font-family-prop">font-family</a></h3>
+                <div>
+                    <table class="propdef" id="namefont-familyvalue-ltfamily-namegt-ltg">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font-family" title="font-family!!property">font-family</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>[
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#family-name-value">
+                                        <var>&lt;family-name&gt;</var>
+                                    </a> |
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#generic-family-value">
+                                        <var>&lt;generic-family&gt;</var>
+                                    </a> ] #
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>depends on user agent
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>通用字体系列<a href="http://www.w3.org/TR/css-fonts-3/#generic-family-value">generic-family</a>： 'serif', 'sans-serif', 'cursive', 'fantasy', and 'monospace'。</p>
+                    <p>指定字体系列：Georgia, "Microsoft YaHei"等等。只有当一个字体名中有一个或多个空格，或者字体名包含#或$之类的符号时，字体名需要加引号，单引号和双引号都可以。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="font-weight">字体加粗|<a href="http://www.w3.org/TR/css-fonts-3/#font-weight-prop">font-weight</a></h3>
+                <div>
+                    <table class="propdef" id="namefont-weightvaluenormal-bold-bolder-l">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font-weight" title="font-weight!!property">font-weight</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td><a href="http://www.w3.org/TR/css-fonts-3/#font-weight-normal-value" title="normal!!font-weight">normal</a> | <a href="http://www.w3.org/TR/css-fonts-3/#bold">bold</a> | <a href="http://www.w3.org/TR/css-fonts-3/#bolder">bolder</a> | <a href="http://www.w3.org/TR/css-fonts-3/#lighter">lighter</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">100</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">200</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">300</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">400</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">500</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">600</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">700</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">800</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-weight-numeric-values" title="100...900 weight values">900</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>numeric weight value (see description)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://dev.w3.org/csswg/css-transitions/#animtype-font-weight">font weight</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>normal</code>是用户代理下的默认字体加粗，<code>bold</code>是相对于<em><code>normal</code></em>加粗。</p>
+                    <p><code>bolder</code>和<code>lighter</code>是相对于<em>从父元素继承而来的<code>font-weight</code></em>而言的。</p>
+                    <p>数值用于加粗分级，可对应<code>nornmal</code>和<code>bold</code>在不同的用户代理，数值对应不同的加粗并不全能看出来。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="font-size">字体大小|<a href="http://www.w3.org/TR/css-fonts-3/#font-size-prop">font-size</a></h3>
+                <div>
+                    <table class="propdef" id="namefont-sizevalueltabsolute-sizegt-ltre">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font-size">font-size</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#absolute-size-value">
+                                        <var>&lt;absolute-size&gt;</var>
+                                    </a>
+                                    |
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#relative-size-value">
+                                        <var>&lt;relative-size&gt;</var>
+                                    </a> |
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#length-size-value">
+                                        <var>&lt;length&gt;</var>
+                                    </a> |
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#percentage-size-value">
+                                        <var>&lt;percentage&gt;</var>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>medium
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to parent element's font size
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>absolute length
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://dev.w3.org/csswg/css-transitions/#animtype-length">length</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>绝对大小<code>absolute-size</code>：[ <code>xx-small</code> | <code>x-small</code> | <code>small</code> | <code>medium</code> | <code>large</code> | <code>x-large</code> | <code>xx-large</code> ]。这里的大小是由用户代理计算决定的，不同的用户代理，缩放因子可能不同。这个“绝对”一词是指相对于<em>指定用户代理</em>而言的。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    <p>相对大小<code>relative-size：</code>[ <code>larger</code> | <code>smaller</code> ]。这的大小是相对于<em>绝对大小</em>，再进行计算的。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?
+                        <!-- 相对值larger相对于绝对值x-large -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    </div>
+                    <p>百分数<code>percentage</code>和大小<code>length</code>。百分数是根据从父元素继承来的大小来计算的。在父元素字体大小确定的时候<code>em</code>和百分数有相同的效果。<code>px</code>则是由屏幕分辨率决定。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?
+                        <!-- 相对于父元素12px的字体大小设置字体大小2em -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                        <!-- 相对于父元素12px的字体大小设置百分比大小200% -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="font-style">字体风格|<a href="http://www.w3.org/TR/css-fonts-3/#font-style-prop">font-style</a></h3>
+                <div>
+                    <table class="propdef" id="namefont-stylevaluenormal-italic-oblique">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font-style" title="font-style!!property">font-style</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td><a href="http://www.w3.org/TR/css-fonts-3/#font-style-normal-value" title="normal!!font-style">normal</a> | <a href="http://www.w3.org/TR/css-fonts-3/#italic">italic</a> |
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#oblique">oblique</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>normal</code>是默认值，是指“竖直”的文本，最好描述为“非斜体或倾斜的文本”。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    <p>斜体<code>italic</code>是一种单独的字体风格，对每个字母的结构有一些小改动，来反映变化的外观。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                    <p>倾斜<code>oblique</code>则是正常竖直文本的一个倾斜版本。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tenetur?</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="font-variant">字体变形|<a href="http://www.w3.org/TR/css-fonts-3/#font-variant-prop">font-variant</a></h3>
+                <div>
+                    <table class="propdef" id="namefont-variantvaluenormal-none-ltcommo">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font-variant" title="font-variant!!property">font-variant</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td><a href="http://www.w3.org/TR/css-fonts-3/#font-variant-normal-value" title="normal!!font-variant">normal</a> | <a href="http://www.w3.org/TR/css-fonts-3/#font-variant-none-value" title="none!!font-variant">none</a> | [
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#common-lig-values">
+                                        <var>&lt;common-lig-values&gt;</var>
+                                    </a>
+                                    ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#discretionary-lig-values">
+                                        <var>&lt;discretionary-lig-values&gt;</var>
+                                    </a>
+                                    ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#historical-lig-values">
+                                        <var>&lt;historical-lig-values&gt;</var>
+                                    </a>
+                                    ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#contextual-alt-values">
+                                        <var>&lt;contextual-alt-values&gt;</var>
+                                    </a>
+                                    ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#stylistic">
+                                        <var title="stylistic">stylistic(&lt;feature-value-name&gt;)</var>
+                                    </a> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#historical-forms">
+                                        <var>historical-forms</var>
+                                    </a> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#styleset">
+                                        <var title="styleset">styleset(&lt;feature-value-name&gt; #)</var>
+                                    </a> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#character-variant">
+                                        <var title="character-variant">character-variant(&lt;feature-value-name&gt; #)
+                                        </var>
+                                    </a> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#swash">
+                                        <var title="swash">swash(&lt;feature-value-name&gt;)</var>
+                                    </a> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#ornaments">
+                                        <var title="ornaments">ornaments(&lt;feature-value-name&gt;)</var>
+                                    </a> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#annotation">
+                                        <var title="annotation">annotation(&lt;feature-value-name&gt;)</var>
+                                    </a> || [
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#small-caps"><i>small-caps</i></a> | <a href="http://www.w3.org/TR/css-fonts-3/#all-small-caps"><i>all-small-caps</i></a> | <a href="http://www.w3.org/TR/css-fonts-3/#petite-caps"><i>petite-caps</i></a> | <a href="http://www.w3.org/TR/css-fonts-3/#all-petite-caps"><i>all-petite-caps</i></a> | <a href="http://www.w3.org/TR/css-fonts-3/#unicase"><i>unicase</i></a> | <a href="http://www.w3.org/TR/css-fonts-3/#titling-caps"><i>titling-caps</i></a> ] ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#numeric-figure-values">
+                                        <var>&lt;numeric-figure-values&gt;</var>
+                                    </a>
+                                    ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#numeric-spacing-values">
+                                        <var>&lt;numeric-spacing-values&gt;</var>
+                                    </a>
+                                    ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#numeric-fraction-values">
+                                        <var>&lt;numeric-fraction-values&gt;</var>
+                                    </a>
+                                    || <a href="http://www.w3.org/TR/css-fonts-3/#ordinal"><i>ordinal</i></a> || <a href="http://www.w3.org/TR/css-fonts-3/#slashed-zero"><i>slashed-zero</i></a> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#east-asian-variant-values">
+                                        <var>&lt;east-asian-variant-values&gt;</var>
+                                    </a>
+                                    ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#east-asian-width-values">
+                                        <var>&lt;east-asian-width-values&gt;</var>
+                                    </a>
+                                    || <a href="http://www.w3.org/TR/css-fonts-3/#ruby"><i>ruby</i></a> ]
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>normal</code>描述正常文本，<code>small-caps</code>要求使用小型大写字母文本。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="font-stretch">字体拉伸|<a href="http://www.w3.org/TR/css-fonts-3/#font-stretch-prop">font-stretch</a></h3>
+                <div>
+                    <table class="propdef" id="namefont-stretchvalue-normal-ultra-conde">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font-stretch" title="font-stretch!!property">font-stretch</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td> <a href="http://www.w3.org/TR/css-fonts-3/#font-stretch-normal-value" title="normal!!font-stretch">normal</a> | wider | narrower | <a href="http://www.w3.org/TR/css-fonts-3/#ultra-condensed">ultra-condensed</a> | <a href="http://www.w3.org/TR/css-fonts-3/#extra-condensed">extra-condensed</a> | <a href="http://www.w3.org/TR/css-fonts-3/#condensed">condensed</a> | <a href="http://www.w3.org/TR/css-fonts-3/#semi-condensed-">semi-condensed</a> | <a href="http://www.w3.org/TR/css-fonts-3/#semi-expanded">semi-expanded</a> | <a href="http://www.w3.org/TR/css-fonts-3/#expanded">expanded</a> | <a href="http://www.w3.org/TR/css-fonts-3/#extra-expanded">extra-expanded</a> | <a href="http://www.w3.org/TR/css-fonts-3/#ultra-expanded">ultra-expanded</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css-fonts-3/#font-stretch-animation">font stretch</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>顾名思义，这个属性用于让一种字体的字符更胖或更瘦。<em>可能浏览器不支持。</em></p>
+                    <div class="example"><strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong>
+                        <strong>e</strong></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="font-size-adjust">字体调整|<a href="http://www.w3.org/TR/css-fonts-3/#font-size-adjust-prop">font-size-adjust</a></h3>
+                <div>
+                    <table class="propdef" id="namefont-size-adjustvaluenone-ltnumbergt">
+                        <!-- 对第一列进行宽度设置 -->
+                        <colgroup width="15%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font-size-adjust">font-size-adjust</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td><a href="http://www.w3.org/TR/css-fonts-3/#font-size-adjust-none-value" title="none!!font-size-adjust">none</a> |
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#aspect-ratio-value">
+                                        <var>&lt;number&gt;</var>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://dev.w3.org/csswg/css-transitions/#animtype-number">number</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>由于字体外观上的差异，一种字体在某个大小时可能可以辨识，而另一种同样大小的字体则可能很难辨识，甚至无法阅读。这个时候就需要用到字体调整<code>font-size-adjust</code>了。<em>可能浏览器不支持。</em></p>
+                </div>
+            </article>
+            <article>
+                <h3 id="font">简写字体|<a href="http://www.w3.org/TR/css-fonts-3/#font-prop">font</a></h3>
+                <div>
+                    <table class="propdef" id="namefontvalue-ltlsquofont-stylersquogt-l">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="propdef-font">font</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>[ [
+                                    <var>&lt;<a href="http://www.w3.org/TR/css-fonts-3/#propdef-font-style" title="font-style!!property">'font-style'</a>&gt;</var> ||
+                                    <a href="http://www.w3.org/TR/css-fonts-3/#font-variant-css21-values">
+                                        <var>&lt;font-variant-css21&gt;</var>
+                                    </a>
+                                    ||
+                                    <var>&lt;<a href="http://www.w3.org/TR/css-fonts-3/#propdef-font-weight" title="font-weight!!property">'font-weight'</a>&gt;</var> ||
+                                    <var>&lt;<a href="http://www.w3.org/TR/css-fonts-3/#propdef-font-stretch" title="font-stretch!!property">'font-stretch'</a></var> ]?
+                                    <var>&lt;'<a href="http://www.w3.org/TR/css-fonts-3/#propdef-font-size">font-size</a>'&gt;</var> [ /
+                                    <var>&lt;'line-height'&gt;</var> ]?
+                                    <var>&lt;<a href="http://www.w3.org/TR/css-fonts-3/#propdef-font-family" title="font-family!!property">'font-family'</a>&gt;</var> ] | caption | icon | menu | message-box | small-caption | status-bar
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>font</code>是以上所有属性的简写shorthand形式。</p>
+                    <p>当使用开发者自定义简写字体时，<code>font-size</code>和<code>font-family</code>必须出现而且要求按照先后顺序，否则设置<code>font</code>将失效。当行高<code>line-height</code>一同写入<code>font</code>时，<code>line-height</code>属性值必须写在<code>font-size</code>属性值之后，且要用斜杠<code>&sol;</code>隔开。</p>
+                    <pre><code class="css">p { font: 12px/2 "Microsoft YaHei", serif; }</code></pre>
+                    <p><strong>注意：</strong>使用简写shorthand会使省略的部分属性值都会重置为默认值。所以不要在单个字体属性值设置后，又把简写字体属性<code>font</code>放于最后。</p>
+                </div>
+                <div>
+                    <h4>使用系统字体</h4>
+                    <p>使用系统字体，会通过获取系统某些部件的字体大小、字体系列、习题加粗、字体风格和字体变形等默认设置，并将其应用到某个元素上。而不需要再对每个属性进行设置，一旦设置了系统设置，可以通过单个字体属性对字体进行设置。</p>
+                    <ol>
+                        <li>
+                            <h5>caption</h5>
+                            <p>用于有标签的控件</p>
+                            <pre><code class="css">p { font: caption; }</code></pre>
+                        </li>
+                        <li>
+                            <h5>icon</h5>
+                            <p>用于对图标加标签</p>
+                            <pre><code class="css">p { font: icon; }</code></pre>
+                        </li>
+                        <li>
+                            <h5>menu</h5>
+                            <p>用于菜单，即下拉菜单和菜单列表</p>
+                            <pre><code class="css">p { font: menu; }</code></pre>
+                        </li>
+                        <li>
+                            <h5>message-box</h5>
+                            <p>用于对话框</p>
+                            <pre><code class="css">p { font: message-box; }</code></pre>
+                        </li>
+                        <li>
+                            <h5>small-caption</h5>
+                            <p>用于对小控件加标签</p>
+                            <pre><code class="css">p { font: small-caption; }</code></pre>
+                        </li>
+                        <li>
+                            <h5>status-bar</h5>
+                            <p>用于窗口状态条</p>
+                            <pre><code class="css">p { font: status-bar; }</code></pre>
+                        </li>
+                    </ol>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h3 id="text-indent">文本缩进|<a href="http://www.w3.org/TR/css-text-3/#text-indent-property">text-indent</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="text-indent">text-indent</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>[ <span class="value-inst-length"><a href="http://www.w3.org/TR/CSS21/syndata.html#value-def-length">&lt;length&gt;</a></span> | <span class="value-inst-percentage"><a href="http://www.w3.org/TR/CSS21/syndata.html#value-def-percentage">&lt;percentage&gt;</a></span> ] &amp;&amp; hanging? &amp;&amp; each-line?
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>block containers
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refers to width of containing block
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>the percentage as specified or the absolute length, plus any keywords as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-lpcalc">length, percentage, or calc</a>, but only if keywords match
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">per grammar
+                                    </abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>text-indent</code>只用于<em>块级元素</em>，行内元素可以通过左内边距<code>padding-left</code>和外边距<code>margin</code>达到同样效果：</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quod minus laudantium doloribus. Facilis dolorem molestiae dolorum sint porro mollitia, minima, veniam fugit molestias in quasi quas ipsum doloremque, dicta!</div>
+                    <div class="example"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quod minus laudantium doloribus. Facilis dolorem molestiae dolorum sint porro mollitia, minima, veniam fugit molestias in quasi quas ipsum doloremque, dicta!</span></div>
+                    <div class="example"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quod minus laudantium doloribus. Facilis dolorem molestiae dolorum sint porro mollitia, minima, veniam fugit molestias in quasi quas ipsum doloremque, dicta!</span></div>
+                    <p><code>text-indent</code>还可以设置为<em>负值</em>，利用这一技术，可以实现很多有意思的效果。最常见的用途是一种“悬挂缩进”，即第一行悬挂在元素余下部分的左边：</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quod minus laudantium doloribus. Facilis dolorem molestiae dolorum sint porro mollitia, minima, veniam fugit molestias in quasi quas ipsum doloremque, dicta!</div>
+                    <p><code>text-indent</code>可以使用所有长度单位，<code>em</code>要相对于元素当前<em>字号</em>计算，百分数要相对于<em>父元素的宽度</em>：</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quod minus laudantium doloribus. Facilis dolorem molestiae dolorum sint porro mollitia, minima, veniam fugit molestias in quasi quas ipsum doloremque, dicta!</div>
+                    <p><strong>注意：</strong>即使是插入了分隔符，这种缩进也至应用于一个元素的第一行。另外，有意思的是，<code>text-indent</code>是可以继承的：</p>
+                    <div class="outer example">
+                        <div class="inner example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, blanditiis, nostrum explicabo deleniti veritatis dolorem laborum delectus quos molestiae! Expedita nostrum delectus hic eaque praesentium amet, eum dolores quia quam.
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit eum magni assumenda, non eligendi porro est voluptates natus eaque fugiat maxime placeat nemo, repudiandae voluptas facere at, architecto sapiente! Iusto.</p>
+                        </div>
+                    </div>
+                    <p>用<code>text-indent: -9999px;</code>在SEO中隐藏测试数据。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="text-align">水平对齐|<a href="http://www.w3.org/TR/css-text-3/#text-align-property">text-align</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="text-align">text-align</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>start | end | left | right | center | justify | match-parent | start end
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>start
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>block containers
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>specified value, except for 'match-parent' which computes as defined below
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>order of appearance in the formal grammar of the values
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>text-align</code>只能应用于块级元素，使得块级元素内部的文本进行对齐。</p>
+                    <p>属性值<code>center</code>和HTML元素<code>&lt;center&gt;</code>不同，属性值<code>center</code>只会使得元素内的文本居中，而<code>&lt;center&gt;</code>元素则会使的整个元素居中。</p>
+                    <div class="example">
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, quidem, cum! Minima illum voluptatem alias ad, provident officiis rerum quas, optio deleniti suscipit, delectus cum tenetur maiores ratione, vitae corporis.</div>
+                        <center>
+                            <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, quidem, cum! Minima illum voluptatem alias ad, provident officiis rerum quas, optio deleniti suscipit, delectus cum tenetur maiores ratione, vitae corporis.</div>
+                        </center>
+                    </div>
+                    <p><strong>注意：</strong>IE浏览器在IE6以前版本会把<code>text-align: center;</code>处理为<code>&lt;center&gt;</code>元素。</p>
+                    <p><code>left</code>和<code>right</code>分别对应左、右对齐.</p>
+                    <div class="example">
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+                    </div>
+                    <p><code>justify</code>两端对齐，常用于打印领域。</p>
+                    <div class="example">
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="line-height">行高|<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-line-height">line-height</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="line-height">line-height</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>normal | <span class="value-inst-number"><a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-number">&lt;number&gt;</a></span> | <span class="value-inst-length"><a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-length">&lt;length&gt;</a></span> | <span class="value-inst-percentage"><a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-percentage">&lt;percentage&gt;</a></span> | inherit
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refers to the font size of the element itself
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td><a href="http://www.w3.org/TR/CSS2/media.html#visual-media-group" class="noxref">visual</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>for <a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;length&gt;</span></a> and <a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage">&lt;percentage&gt;</span></a> the absolute value; otherwise as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>yes, as a <a href="http://www.w3.org/TR/css3-transitions/#animtype-number">number</a>, a <a href="http://www.w3.org/TR/css3-transitions/#animtype-lpcalc">length</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">the unique non-ambiguous order defined by the formal grammar
+                                    </abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>在应用到块级元素时，<code>line-height</code>定义了元素中文本基线之间的最小距离。注意，它定义的是最小距离，而不是一个绝对数值，文本基线拉开的距离可能比<code>line-height</code>值更大。</p>
+                    <p>文本行中的每个元素都会生成一个内容区，这由字体的大小确定。这个内容区则会生成一个行内框，如果不存在其他因素，这个行内框就完全等于该元素的内容区，由<code>line-height</code>产生的行间距就是增加或减少各行内框高度的因素之一。</p>
+                    <p>要确定一个给定元素的行间距，只需要将<code>line-height</code>的计算值减去<code>font-size</code>的计算值。这个值是总得行间距。而且<em>行间距可能是负的</em>。然后再除2，将行间距的一般分别应用到内容区的顶部和底部。其结果就是该元素的行内框。</p>
+                    <div class="example">
+                        <!-- 继承父元素默认的10px，以此计算出line-height的计算值10px -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus blanditiis ullam, recusandae quos eligendi!
+                            <!-- 虽然字体大小提高了，但是继承的line-height并未重新计算，字体大小大于了行高 -->
+                            <div class="example">Nisi molestiae fugit, enim, libero impedit magni temporibus commodi facere repellendus mollitia cum laboriosam vel! Sed.</div>
+                        </div>
+                    </div>
+                    <p>对于<code>line-height</code>的属性值，<code>px</code>是直接设置，<code>em</code>和百分比是<em>继承父类的<code>line-height</code>计算后的值</em>，纯数值是只<em>继承父类的数值(缩放因子)而后自行计算</em>。都是相对于字号而言，<code>px</code>在字号变大时虽然行高不变行但间距会缩小，<code>em</code>、百分比和纯数值都是随着字体大小变化的，只不过要考虑到继承的差异。总而言之，要让父类的行高被继承下去，父类就用<code>em</code>、<code>ex</code>和百分比；只让父类相对字号的比例被继承，父类就用作为缩放因子的纯数值。对于设置在元素本身的行高，只要相对字体大小<code>font-size</code>进行计算就好了。</p>
+                    <div class="example">
+                        <!-- 继承父元素的字体大小10px，以此计算出来的行高是10px -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            <!-- 直接继承了父元素的行高10px，而不是按照自身的字体进行在计算 -->
+                            <div class="example">Quasi asperiores unde, tempore vero accusamus laboriosam debitis eius dicta, architecto molestiae voluptate.</div>
+                            <div class="example">Tenetur atque maiores, vitae placeat repellendus fuga ratione blanditiis.</div>
+                        </div>
+                        <!-- 继承父元素的字体大小10px，以此计算出来的行高是10px -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            <!-- 只继承了父元素的缩放因子1，然后结合自身字体大小计算出行高15px -->
+                            <div class="example">Quasi asperiores unde, tempore vero accusamus laboriosam debitis eius dicta, architecto molestiae voluptate.</div>
+                            <!-- 只继承了父元素的缩放因子1，然后结合自身字体大小计算出行高20px -->
+                            <div class="example">Tenetur atque maiores, vitae placeat repellendus fuga ratione blanditiis.</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="vertical-align">垂直对齐|<a href="http://www.w3.org/TR/CSS2/visudet.html#propdef-vertical-align">vertical-align</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="vertical-align">vertical-align</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>baseline | sub | super | top | text-top | middle | bottom | text-bottom | <span class="value-inst-percentage"><a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-percentage">&lt;percentage&gt;</a></span> | <span class="value-inst-length"><a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-length">&lt;length&gt;</a></span> | inherit
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>baseline
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>inline-level and 'table-cell' elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refers to the 'line-height' of the element itself
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td><a href="http://www.w3.org/TR/CSS2/media.html#visual-media-group" class="noxref">visual</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>for <a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-percentage" class="noxref"><span class="value-inst-percentage">&lt;percentage&gt;</span></a> and <a href="http://www.w3.org/TR/CSS2/syndata.html#value-def-length" class="noxref"><span class="value-inst-length">&lt;length&gt;</span></a> the absolute value; otherwise as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>yes, as a <a href="http://www.w3.org/TR/css3-transitions/#animtype-lpcalc">length</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">the unique non-ambiguous order defined by the formal grammar
+                                    </abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><strong>注意：</strong><code>vertical-align</code>不影响块级元素中内容的对齐，但可以影响行内元素和表单元格中元素的垂直对齐。</p>
+                    <p>基线对齐。<code>baseline</code>作为初始值，要求一个元素的基线与其父元素的基线对齐。如果一个垂直对齐元素没有基线————比如一个图片或表格输入元素或是其他替换元素(需要文档另行加载的元素，如图片)————那么钙元素的底端与其父元素的基线对齐。</p>
+                    <div class="example">this image found in this paragraph <img src="../../imglib/icon.png" height="10" width="10" alt="pic" /> has its bootom edge aligned with the baseline of the text in the paragraph.</div>
+                    <p>上下标。<code>sub</code>会使得一个元素编程下标，这意味着其基线（或者如果这事一个替换元素，则是其底端）相对于其父元素的基线降低。规范并没有定义元素降低的距离，不同用户代理，这个距离可能不同。<code>super</code>刚好与<code>sub</code>相反。</p>
+                    <div class="example">Lorem ipsum dolor <span>sit</span> amet, consectetur adipisicing elit. Maxime dolorum nemo, officiis, facere minus, molestiae eveniet id fugiat neque amet voluptas quidem dolorem ex modi rerum aut, saepe doloribus quas.</div>
+                    <p>底端对齐和顶端对齐。<code>bottom</code>将元素行内框的底端与行框的底端对齐。<code>top</code>跟<code>bottom</code>刚好相反。</p>
+                    <div class="example">
+                        <div class="example">This paragraph, as you can see quite clearly, contains a <img src="../../imglib/red.png" height="30" width="30" alt="bigpic" class="feeder" /> image and a <img src="../../imglib/icon.png" height="10" width="10" alt="pic" class="feeder" /> image, and then some text that is not tall.</div>
+                        <div class="example">This paragraph, as you can see quite clearly, contains a <img src="../../imglib/red.png" height="30" width="30" alt="bigpic" class="feeder" /> image and a <img src="../../imglib/icon.png" height="10" width="10" alt="pic" class="feeder" /> image, and then some text that is not tall.</div>
+                    </div>
+                    <p>文本底端对齐<code>text-top</code>和文本顶端对齐<code>bottom</code>。</p>
+                    <div class="example">Here: a <img src="../../imglib/red.png" height="30" width="30" alt="bigpic" class="texttop" /> image that's been vertically aligned, and then a <img src="../../imglib/icon.png" height="10" width="10" alt="pic" class="texttop" /> image that's similarly aligned.</div>
+                    <p>居中对齐<code>middle</code>。这会把行内元素框的中点与父元素基线上方0.5ex处的一个点对齐，这里的1ex相对于父元素的<code>font-size</code>定义。</p>
+                    <div class="example">containers a <img src="../../imglib/red.png" height="30" width="30" alt="bigpic" /> tall image</div>
+                    <p>百分数对齐。设置百分数对齐，会把元素的基线（或替换元素的底边）相对于父元素的基线升高或降低制定的量（这里指定的百分数要计算为钙元素line-height的百分数，而不是相对于其父元素的line-height）正值升高，负值降低。可能会看上去跑到了相邻的行上。</p>
+                    <div class="example">We can either <sup>soar to new heights</sup> or, instead, <sub>sink into despair...</sub></div>
+                    <p>长度对齐。这会把一个元素升高或降低指定的距离。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="word-spacing">字间隔|<a href="http://www.w3.org/TR/css-text-3/#word-spacing-property">word-spacing</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="word-spacing">word-spacing</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>[ normal |
+                                    <var>&lt;length&gt;</var> |
+                                    <var>&lt;percentage&gt;</var>]
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refers to width of the affected glyph
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>an absolute length
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-lpcalc">length, percentage, or calc</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>the unique non-ambiguous order defined by the formal grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>word-spacing</code>用于修改字间间隔。其计算值是相对于当前元素的字体大小<code>font-size</code>的。</p>
+                    <!-- 字间间隔缩小0.5em -->
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic velit dolore cupiditate, quasi incidunt eveniet libero error sequi voluptates deleniti, nobis, fugit! Possimus suscipit culpa debitis amet voluptas nemo cupiditate.</div>
+                    <!-- 字间间隔扩大0.5em -->
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic velit dolore cupiditate, quasi incidunt eveniet libero error sequi voluptates deleniti, nobis, fugit! Possimus suscipit culpa debitis amet voluptas nemo cupiditate.</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="letter-spacing">字母间隔|<a href="http://www.w3.org/TR/css-text-3/#letter-spacing-property">letter-spacing</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="letter-spacing">letter-spacing</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>normal |
+                                    <var>&lt;length&gt;</var>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>an absolute length
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-length">length</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>the unique non-ambiguous order defined by the formal grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>letter-spacing</code>与<code>word-spacing</code>相似，其计算值是相对于当前元素的字体大小<code>font-size</code>的。唯一的区别是，<code>letter-spacing</code>修改的字母或者字符之间的间隔。</p>
+                    <!-- letter-spacing减少0.1em -->
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores cum id quaerat commodi voluptas iste omnis recusandae saepe! Iste rerum hic beatae voluptates tempore ipsum, ad molestiae quo a laboriosam!</div>
+                    <!-- letter-spacing增加0.1em -->
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores cum id quaerat commodi voluptas iste omnis recusandae saepe! Iste rerum hic beatae voluptates tempore ipsum, ad molestiae quo a laboriosam!</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="text-transform">文本转换|<a href="http://www.w3.org/TR/css-text-3/#text-transform-property">text-transform</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="text-transform">text-transform</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>none | capitalize | uppercase | lowercase | full-width
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements.It also applies to ::first-letter and ::first-line.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>the unique non-ambiguous order defined by the formal grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>将文本转换为大写<code>uppercase</code>或小写<code>lowercase</code>。</p>
+                    <div class="example">
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ullam ipsam provident dolore laborum impedit asperiores libero, facilis voluptate perspiciatis porro nam quidem vero ad velit dolor. Ex, porro, reprehenderit?</div>
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita ullam ipsam provident dolore laborum impedit asperiores libero, facilis voluptate perspiciatis porro nam quidem vero ad velit dolor. Ex, porro, reprehenderit?</div>
+                    </div>
+                    <p>将文本中每个单词的首字母大写<code>capitalize</code>。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente enim architecto facere aspernatur ratione hic animi quae eius fuga itaque, odit minima ipsa, laborum nostrum dolore, rerum quasi quam consequatur.</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="text-decoration">文本装饰|<a href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-property">text-decoration</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="text-decoration">text-decoration</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-decor-3/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <var><a href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-line">&lt;text-decoration-line&gt;</a></var> ||
+                                    <var><a href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-style">&lt;text-decoration-style&gt;</a></var>
+                                    ||
+                                    <var><a href="http://www.w3.org/TR/css-text-decor-3/#text-decoration-color">&lt;text-decoration-color&gt;</a></var>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>underline</code>给文本添加下划线。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dicta, iusto culpa dolorem quisquam tenetur quae deleniti eligendi, voluptates eveniet inventore sunt illo facere iste fugiat asperiores doloremque vero dignissimos.</div>
+                    <p><code>overline</code>给文本顶部添加一个上划线。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias labore, temporibus facilis incidunt sapiente recusandae fuga nemo molestias at qui. Fugit possimus id, perspiciatis. Ut laborum eum fugiat laudantium iure?</div>
+                    <p><code>line-through</code>在文本中间画一个贯穿线。等价于HTML中的S和strike元素。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla delectus mollitia aliquid, ex corrupti labore enim a quos totam ad id. Quae at velit beatae, possimus quod facere illo reiciendis.</div>
+                    <p><code>blink</code>会让文本闪烁，类似于Netscape支持的blink标记。某些浏览器可能不支持，比如IE。这个属性因为CSS3动画的原因，已经被废止。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="text-shadow">文本阴影|<a href="http://www.w3.org/TR/css-text-decor-3/#text-shadow-property">text-shadow</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="text-shadow">text-shadow</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-decor-3/#values">Value</a>:
+                                </th>
+                                <td>none | [ &lt;length&gt;{2,3} &amp;&amp; &lt;color&gt;? ]#
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>a color plus three absolute &lt;length&gt;s
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-shadow-list">shadow list</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>文本阴影，可以设置三个长度值和一个颜色值。第一、二个长度值分别对应水平、垂直方向的阴影位移（必选）。第三个长度值则是阴影的模糊半径（可选），默认为0。颜色值（可选），默认是当前元素字体颜色，可以放在所有长度值的前面与后面，但是不能插在它们中间，否则声明无效。</p>
+                    <p>设置水平和垂直方向阴影位移：</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil dolores, quam sequi consectetur reiciendis, et, tenetur ad ut modi porro quo alias magnam illum aspernatur! Autem ex, nobis reiciendis nulla?</div>
+                    <p>设置水平和垂直方向阴影位移以及模糊半径：</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic provident, ex blanditiis tempora, architecto et asperiores cumque fugiat ad quasi magni, enim necessitatibus iure, dolorum veniam omnis! Officiis eaque, ipsum.</div>
+                    <p>设置水平和垂直方向阴影位移以及模糊半径，颜色：</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet natus voluptates animi voluptatum, deleniti ad commodi dolorum vitae a harum tenetur odit ut, ullam eveniet ab assumenda maxime fugiat delectus!</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="direction">文本方向|<a href="http://www.w3.org/TR/css-writing-modes-3/#direction">direction</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="direction">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-direction">direction
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">ltr <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> rtl
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>ltr
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>the unique non-ambiguous order defined by the formal grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性影响块级元素中的文本书写方向、表中列布局的方向、内容水平填充其元素框的方向，以及两端对齐元素中最后一行的位置。对于行内元素，只有当unicode-bidi属性设置为embed或bidi-override时才会应用direction属性。</p>
+                    <p><strong>注意：</strong>在CSS3之前，CSS规范中没有涵盖从上到下读的语言。作为候选推荐的CSS3 Text Module引入了一个新的属性writing-mode，来解决这一问题。</p>
+                    <div class="example">Hello world! 我是谁？</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="unicode-bidi">Unicode文本方向|<a href="http://www.w3.org/TR/css-writing-modes-3/#unicode-bidi">unicode-bidi</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="unicode-bidi">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-unicode-bidi">unicode-bidi
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">normal <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> embed <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> isolate <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> bidi-override <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> isolate-override <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> plaintext
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, but see prose
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>normal</code>，元素不会对双向算法打开附加的一层嵌套。对于行内元素，顺序的隐式重拍会跨元素边界进行。</p>
+                    <p><code>embed</code>，如果是一个行内元素，这个值对于沙un共享算法会打开附加的一层嵌套。这个嵌套层的方向由direction属性指定。</p>
+                    <p><code>bidi-override</code>，这会为行内元素创建一个覆盖。对于块级元素，将为不在另一块中的行内后代创建一个覆盖。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="white-space">处理空白符|<a href="http://www.w3.org/TR/css-text-3/#white-space-property">white-space</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="white-space">white-space</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>normal | pre | nowrap | pre-wrap | pre-line
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>the unique non-ambiguous order defined by the formal grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>以下是各属性值介绍：</p>
+                    <div>
+                        <table>
+                            <!-- 对第一列进行宽度设置 -->
+                            <colgroup width="15%"></colgroup>
+                            <thead>
+                                <tr>
+                                    <th>属性值</th>
+                                    <th>描述</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><code>normal</code></th>
+                                    <td>作为<code>white-space</code>的初始值。浏览器在处理HTML文档时会把所有连续的空白符合并为一个空格，把强制换行符转换为一个空格。当然，如果一行的文本太多，仍旧会自动换行显示，但是这跟使用强制换行符有本质区别。</td>
+                                </tr>
+                                <tr>
+                                    <th><code>pre</code></th>
+                                    <td>这个值会保留多余的空白符和强制换行符，所以对于设置了<code>white-space: pre;</code>的元素相当于拥有了HTML中pre元素的效果。并且不允许自动换行。</td>
+                                </tr>
+                                <tr>
+                                    <th><code>nowrap</code></th>
+                                    <td>这个值像<code>normal</code>一样会合并强制换行符、空白符和缩进符，又像<code>pre</code>不允许自动换行。除非使用br元素，否则设置这个值会防止元素中的文本换行。常与<code>overflow:hidden;</code>和<code>text-overflow: ellipsis;</code>一起使用，来达到文本溢出时的省略效果。</td>
+                                </tr>
+                                <tr>
+                                    <th><code>pre-wrap</code></th>
+                                    <td>这个值像<code>pre</code>会保留多余的强制换行符、空白符和缩进符，又像<code>normal</code>允许自动换行。</td>
+                                </tr>
+                                <tr>
+                                    <th><code>pre-line</code></th>
+                                    <td>这个值像<code>normal</code>会合并空白符和缩进符，且允许自动换行。但是会保留强制换行符。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>下表总结了white-space的不同值的行为：</p>
+                    <div>
+                        <table class="data">
+                            <!-- 对第一列进行宽度设置 -->
+                            <colgroup width="15%"></colgroup>
+                            <thead>
+                                <tr>
+                                    <th>值\行为
+                                    </th>
+                                    <th>强制换行符(New Lines)
+                                    </th>
+                                    <th>空白符和缩进符(tabs)
+                                    </th>
+                                    <th>自动换行(Text Wrapping)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th><code class="css">normal</code>
+                                    </th>
+                                    <td>合并
+                                    </td>
+                                    <td>合并
+                                    </td>
+                                    <td>是
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><code class="css">pre</code>
+                                    </th>
+                                    <td>维持
+                                    </td>
+                                    <td>维持
+                                    </td>
+                                    <td>否
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><code class="css">nowrap</code>
+                                    </th>
+                                    <td>合并
+                                    </td>
+                                    <td>合并
+                                    </td>
+                                    <td>否
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><code class="css">pre-wrap</code>
+                                    </th>
+                                    <td>维持
+                                    </td>
+                                    <td>维持
+                                    </td>
+                                    <td>是
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><code class="css">pre-line</code>
+                                    </th>
+                                    <td>维持
+                                    </td>
+                                    <td>合并
+                                    </td>
+                                    <td>是
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>我们来试试各属性值的效果：</p>
+                    <div>
+                        <!-- 设置为normal，这是默认的，这里是为了明显标示出来。 -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque iste quo, impedit veniam quia voluptates, tenetur, porro ut, expedita aspernatur quod quis eligendi deleniti quasi! Quo accusamus sint, itaque dolorem.</div>
+                        <!-- 设置为pre -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque iste quo, impedit veniam quia voluptates, tenetur, porro ut, expedita aspernatur quod quis eligendi deleniti quasi! Quo accusamus sint, itaque dolorem.</div>
+                        <!-- 设置为nowrap -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque iste quo, impedit veniam quia voluptates, tenetur, porro ut, expedita aspernatur quod quis eligendi deleniti quasi! Quo accusamus sint, itaque dolorem.</div>
+                        <!-- 设置为pre-wrap -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque iste quo, impedit veniam quia voluptates, tenetur, porro ut, expedita aspernatur quod quis eligendi deleniti quasi! Quo accusamus sint, itaque dolorem.</div>
+                        <!-- 设置为pre-line -->
+                        <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque iste quo, impedit veniam quia voluptates, tenetur, porro ut, expedita aspernatur quod quis eligendi deleniti quasi! Quo accusamus sint, itaque dolorem.</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="word-wrap">长单词换行|<a href="http://www.w3.org/TR/css-text-3/#overflow-wrap-property">word-wrap</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="overflow-wrap">overflow-wrap</dfn>/
+                                    <dfn id="word-wrap">word-wrap</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>normal | break-word
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>the unique non-ambiguous order defined by the formal grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性决定了，当一个单词过长时，用户代理是否强制截断一个单词以防止文本溢出行框。它只有在<code>white-space</code>设置了允许自动换行时才有效。</p>
+                    <p>设置<code>normal</code>属性值会在一行内一个合适的断点换行，不会截断单词。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consecteturadipisicingelitnumquamdignissimosquisvoluptate eius ex fugit rem assumenda qui, ab, quae sit placeat maxime at quas consectetur, accusamus optio suscipit. Sapiente.</div>
+                    <p>设置<code>break-word</code>属性会让不可截断的单词强制截断，并换行处理。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consecteturadipisicingelitnumquamdignissimosquisvoluptate eius ex fugit rem assumenda qui, ab, quae sit placeat maxime at quas consectetur, accusamus optio suscipit. Sapiente.</div>
+                    <p><strong>注意：</strong>这里的第二个实验，在宽屏时是看不出效果的，但是将屏幕宽度收缩即可看出来。对于一个超长的单词，在文本设置为<code>normal</code>时是会溢出而不是截断的，但是设置<code>break-word</code>会截断这个单词。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="word-break">单词截断|<a href="http://www.w3.org/TR/css-text-3/#word-break-property">word-break</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="word-break">word-break</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css-text-3/#values">Value</a>:
+                                </th>
+                                <td>normal | keep-all | break-all
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>the unique non-ambiguous order defined by the formal grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性用于设置字母之间的自动软换行。</p>
+                    <p><code>normal</code>根据文本在行内的使用情况截断单词。</p>
+                    <p><code>break-all</code>对于任何字母之间都可进行截断和换行。</p>
+                    <p><code>keep-all</code>所有连在一块的单词都不截断。</p>
+                    <div class="example">
+                        <p>这里直接使用w3.org上的示例：
+                        </p><pre>这是一些汉字, and some Latin, و کمی نوشتنن عربی, และตัวอย่างการเขียนภาษาไทย.</pre>
+                        <p>下面的断点以‘·’符号决定：
+                        </p>
+                        <dl>
+                            <dt><code class="css">word-break: normal</code>
+                            </dt>
+                            <dd>
+                                <pre>这·是·一·些·汉·字,·and·some·Latin,·و·کمی·نوشتنن·عربی·และ·ตัวอย่าง·การเขียน·ภาษาไทย.</pre>
+                            </dd>
+                            <dt><code class="css">word-break: break-all</code>
+                            </dt>
+                            <dd>
+                                <pre>这·是·一·些·汉·字,·a·n·d·s·o·m·e·L·a·t·i·n,·و·ﮐ·ﻤ·ﻰ·ﻧ·ﻮ·ﺷ·ﺘ·ﻦ·ﻋ·ﺮ·ﺑ·ﻰ,·แ·ล·ะ·ตั·ว·อ·ย่·า·ง·ก·า·ร·เ·ขี·ย·น·ภ·า·ษ·า·ไ·ท·ย.</pre>
+                            </dd>
+                            <dt><code class="css">word-break: keep-all</code>
+                            </dt>
+                            <dd>
+                                <pre>这是一些汉字,·and·some·Latin,·و·کمی·نوشتنن·عربی,·และตัวอย่างการเขียนภาษาไทย.</pre>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="text-overflow">文本省略|<a href="http://www.w3.org/TR/css-ui-3/#text-overflow">text-overflow</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="15%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-text-overflow">text-overflow
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td> [ clip | ellipsis |
+                                    <a class="production css" data-link-type="type" href="http://www.w3.org/TR/css3-values/#string-value">&lt;string&gt;</a> ]{1,2}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>clip
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>block containers
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性可以设置行内内容从它的块级容器边界时的显示方式。常与<code>white-space: nowrap;</code>和<code>overflow: hidden;</code>一起使用来达到预期的效果。</p>
+                    <p>当元素设置<code>clip</code>属性值时，会使超出块级容器的内容被截掉。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda voluptates provident reprehenderit delectus.</div>
+                    <p>当元素设置<code>ellipsis</code>属性值时，会使超出块级容器的内容被显示为省略符"..."。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda voluptates provident reprehenderit delectus.</div>
+                    <p>当然，也可以设置自定义的字符串作为超出部分的替代表示。不过可能会有兼容性风险。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda voluptates provident reprehenderit delectus.</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="cursor">鼠标指针|<a href="http://www.w3.org/TR/css-ui-3/#cursor">cursor</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-cursor">cursor
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    [ [<a class="production css" data-link-type="type" href="http://www.w3.org/TR/css3-values/#url-value">&lt;url&gt;</a> [&lt;x&gt; &lt;y&gt;]?,]*
+                                    <br> [ auto | default | none |
+                                    <br> context-menu | help | pointer | progress | wait |
+                                    <br> cell | crosshair | text | vertical-text |
+                                    <br> alias | copy | move | no-drop | not-allowed | grab | grabbing |
+                                    <br> e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out
+                                    <br> ] ]
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual, interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified, except with any relative URLs converted to absolute
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>cursor</code>属性用于当鼠标指针悬停在某个元素区域内时控制鼠标的显示方式。</p>
+                    <p>以下是<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor">MDN</a>上的常用关键字描述：</p>
+                    <div>
+                        <table class="standard-table">
+                            <tbody>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>CSS value</th>
+                                    <th>&nbsp;</th>
+                                    <th>Description</th>
+                                </tr>
+                                <tr style="cursor: auto;">
+                                    <th rowspan="3">General</th>
+                                    <td><code>auto</code></td>
+                                    <td>&nbsp;</td>
+                                    <td>浏览器根据当前文本决定如何显示鼠标指针.</td>
+                                </tr>
+                                <tr style="cursor: default;">
+                                    <td><code>default</code></td>
+                                    <td><img src="../../imglib/files/16/default.gif" style="height: 26px; width: 26px;" alt="default.gif"></td>
+                                    <td>默认鼠标指针，常见的是箭头。</td>
+                                </tr>
+                                <tr style="cursor: none;">
+                                    <td><code>none</code></td>
+                                    <td>&nbsp;</td>
+                                    <td>无鼠标指针。</td>
+                                </tr>
+                                <tr style="cursor: context-menu;">
+                                    <th rowspan="5" style="cursor: auto;">Links &amp; status</th>
+                                    <td><code>context-menu</code></td>
+                                    <td><img src="../../imglib/files/13/context-menu.png" style="height: 26px; width: 26px;" alt="context-menu.png"></td>
+                                    <td>一段内容菜单显示于鼠标指针下方。
+                                        <br> 在Windows上只有IE10及以上版本实现了此项功能: <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=258960" class="external external-icon" title="'context-menu' cursor glyph missing for Windows">bug&nbsp;258960</a>.</td>
+                                </tr>
+                                <tr style="cursor: help;">
+                                    <td><code>help</code></td>
+                                    <td><img src="../../imglib/files/20/help.gif" style="height: 26px; width: 26px;" alt="help.gif"></td>
+                                    <td>显示帮助。</td>
+                                </tr>
+                                <tr style="cursor: pointer;">
+                                    <td><code>pointer</code></td>
+                                    <td><img src="../../imglib/files/27/pointer.gif" style="height: 26px; width: 26px;" alt="pointer.gif"></td>
+                                    <td>通常是，当鼠标悬停于连接上时，显示为一个手的模样。</td>
+                                </tr>
+                                <tr style="cursor: progress;">
+                                    <td><code>progress</code></td>
+                                    <td><img src="../../imglib/files/28/progress.gif" style="height: 26px; width: 26px;" alt="progress.gif"></td>
+                                    <td>程序在后台正在处理，但是用户仍然可以进行交互 (不同于 <code>wait</code>)。</td>
+                                </tr>
+                                <tr style="cursor: wait;">
+                                    <td><code>wait</code></td>
+                                    <td><img src="../../imglib/files/36/wait.gif" style="height: 26px; width: 26px;" alt="wait.gif"></td>
+                                    <td>程序正在处理（有时是个沙漏或一个表环）。</td>
+                                </tr>
+                                <tr style="cursor: cell;">
+                                    <th rowspan="4" style="cursor: auto;">Selection</th>
+                                    <td><code>cell</code></td>
+                                    <td><img src="../../imglib/files/11/cell.gif" style="height: 26px; width: 26px;" alt="cell.gif"></td>
+                                    <td>表示某个单元格可以被选中。</td>
+                                </tr>
+                                <tr style="cursor: crosshair;">
+                                    <td><code>crosshair</code></td>
+                                    <td><img src="../../imglib/files/15/crosshair.gif" style="height: 26px; width: 26px;" alt="crosshair.gif"></td>
+                                    <td>十字指针，常用于表示一个可选中的位图。</td>
+                                </tr>
+                                <tr style="cursor: text;">
+                                    <td><code>text</code></td>
+                                    <td><img src="../../imglib/files/3809/text.gif" style="height: 26px; width: 26px;" class="default" alt="text.gif"></td>
+                                    <td>表示文本可被选中，常见的是I型标志。</td>
+                                </tr>
+                                <tr style="cursor: vertical-text;">
+                                    <td><code>vertical-text</code></td>
+                                    <td><img src="../../imglib/files/34/vertical-text.gif" style="height: 26px; width: 26px;" alt="vertical-text.gif"></td>
+                                    <td>表示一个垂直文本能够被选中，常见的是躺着的I型标志。</td>
+                                </tr>
+                                <tr style="cursor: alias;">
+                                    <th rowspan="5" style="cursor: auto;">Drag and drop</th>
+                                    <td><code>alias</code></td>
+                                    <td><img src="../../imglib/files/9/alias.gif" style="height: 26px; width: 26px;" alt="alias.gif"></td>
+                                    <td>表示快捷方式将被创建。</td>
+                                </tr>
+                                <tr style="cursor: copy;">
+                                    <td><code>copy</code></td>
+                                    <td><img src="../../imglib/files/14/copy.gif" style="height: 26px; width: 26px;" class="default" alt="copy.gif"></td>
+                                    <td>表示可被复制。</td>
+                                </tr>
+                                <tr style="cursor: move;">
+                                    <td><code>move</code></td>
+                                    <td><img src="../../imglib/files/21/move.gif" style="height: 26px; width: 26px;" alt="move.gif"></td>
+                                    <td>表示可被移动。</td>
+                                </tr>
+                                <tr style="cursor: no-drop;">
+                                    <td><code>no-drop</code></td>
+                                    <td><img src="../../imglib/files/24/no-drop.gif" style="float: left; height: 26px; width: 33px;" class="lwrap" alt="no-drop.gif"></td>
+                                    <td>表示所在区域不可被拖拽。
+                                        <br>
+                                        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=275173" class="external external-icon" title="Cursor glyph for CSS3 'no-drop' is the same as for 'not-allowed'">bug&nbsp;275173</a> 在 Windows 和 Mac OS X，<code>no-drop</code> 跟<code>not-allowed</code> 有一样的效果。</td>
+                                </tr>
+                                <tr style="cursor: not-allowed;">
+                                    <td><code>not-allowed</code></td>
+                                    <td><img src="../../imglib/files/25/not-allowed.gif" style="height: 26px; width: 26px;" alt="not-allowed.gif"></td>
+                                    <td>表示不能操作。</td>
+                                </tr>
+                                <tr style="cursor: all-scroll;">
+                                    <th rowspan="15" style="cursor: auto;">Resize &amp; scrolling</th>
+                                    <td><code>all-scroll</code></td>
+                                    <td><img src="../../imglib/files/10/all-scroll.gif" style="height: 26px; width: 26px;" alt="all-scroll.gif"></td>
+                                    <td>表示所处区域可以朝任意方向滚动。
+                                        <br>
+                                        <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=275174" class="external external-icon" title="Cursor glyph for CSS3 'all-scroll' is the same as for 'move'">bug&nbsp;275174</a> 在 Windows 上，<code>all-scroll</code> 跟 <code>move</code> 有一样的效果。</td>
+                                </tr>
+                                <tr style="cursor: col-resize;">
+                                    <td><code>col-resize</code></td>
+                                    <td><img src="../../imglib/files/12/col-resize.gif" style="height: 26px; width: 26px;" alt="col-resize.gif"></td>
+                                    <td>一个项或者列可以被水平拉伸。</td>
+                                </tr>
+                                <tr style="cursor: row-resize;">
+                                    <td><code>row-resize</code></td>
+                                    <td><img src="../../imglib/files/29/row-resize.gif" style="height: 26px; width: 26px;" alt="row-resize.gif"></td>
+                                    <td>一个项或者列可以被垂直拉伸。</td>
+                                </tr>
+                                <tr style="cursor: n-resize;">
+                                    <td><code>n-resize</code></td>
+                                    <td><img src="../../imglib/files/4083/n-resize.gif" style="border-style: solid; border-width: 0px; height: 26px; width: 26px;" alt="Example of a resize towards the top cursor"></td>
+                                    <td rowspan="8" style="cursor: auto;">用于拖动某些区域边界。比如：要从右下角开始拖动时，就用 <code>se-resize</code> 。</td>
+                                </tr>
+                                <tr style="cursor: e-resize;">
+                                    <td><code>e-resize</code></td>
+                                    <td><img src="../../imglib/files/4085/e-resize.gif" style="height: 26px; width: 26px;" alt="Example of a resize towards the right cursor"></td>
+                                </tr>
+                                <tr style="cursor: s-resize;">
+                                    <td><code>s-resize</code></td>
+                                    <td><img src="../../imglib/files/4087/s-resize.gif" style="height: 26px; width: 26px;" alt="Example of a resize towards the bottom cursor "></td>
+                                </tr>
+                                <tr style="cursor: w-resize;">
+                                    <td><code>w-resize</code></td>
+                                    <td><img src="../../imglib/files/4089/w-resize.gif" style="height: 26px; width: 26px;" alt="Example of a resize towards the left cursor"></td>
+                                </tr>
+                                <tr style="cursor: ne-resize;">
+                                    <td><code>ne-resize</code></td>
+                                    <td><img src="../../imglib/files/4091/ne-resize.gif" style="height: 26px; width: 26px;" alt="Example of a resize towards the top-right corner cursor"></td>
+                                </tr>
+                                <tr style="cursor: nw-resize;">
+                                    <td><code>nw-resize</code></td>
+                                    <td><img src="../../imglib/files/4093/nw-resize.gif" style="height: 26px; width: 26px;" alt="Example of a resize towards the top-left corner cursor"></td>
+                                </tr>
+                                <tr style="cursor: se-resize;">
+                                    <td><code>se-resize</code></td>
+                                    <td><img src="../../imglib/files/4097/se-resize.gif" style="height: 26px; width: 26px;" alt="Example of a resize towards the bottom-right corner cursor"></td>
+                                </tr>
+                                <tr style="cursor: sw-resize;">
+                                    <td><code>sw-resize</code></td>
+                                    <td><img src="../../imglib/files/4095/sw-resize.gif" style="height: 26px; width: 26px;" alt="Example of a resize towards the bottom-left corner cursor"></td>
+                                </tr>
+                                <tr style="cursor: ew-resize;">
+                                    <td><code>ew-resize</code></td>
+                                    <td><img src="../../imglib/files/3806/3-resize.gif" style="height: 26px; width: 26px;" class="default" alt="3-resize.gif"></td>
+                                    <td rowspan="4" style="cursor: auto;">表示双向拉伸。</td>
+                                </tr>
+                                <tr style="cursor: ns-resize;">
+                                    <td><code>ns-resize</code></td>
+                                    <td><img src="../../imglib/files/3808/6-resize.gif" style="height: 26px; width: 26px;" class="default" alt="6-resize.gif"></td>
+                                </tr>
+                                <tr style="cursor: nesw-resize;">
+                                    <td><code>nesw-resize</code></td>
+                                    <td><img src="../../imglib/files/3805/1-resize.gif" alt="1-resize.gif" class="default"></td>
+                                </tr>
+                                <tr style="cursor: nwse-resize;">
+                                    <td><code>nwse-resize</code></td>
+                                    <td><img src="../../imglib/files/3807/4-resize.gif" style="height: 26px; width: 26px;" class="default" alt="4-resize.gif"></td>
+                                </tr>
+                                <tr style="cursor: -webkit-zoom-in; cursor: zoom-in;">
+                                    <th rowspan="2">Zoom</th>
+                                    <td><code>zoom-in</code></td>
+                                    <td><img src="../../imglib/files/37/zoom-in.gif" alt="zoom-in.gif" class="default"></td>
+                                    <td rowspan="2" style="cursor: auto;">
+                                        <p>表示可以放大或缩小。</p>
+                                    </td>
+                                </tr>
+                                <tr style="cursor: -webkit-zoom-out; cursor: zoom-out;">
+                                    <td><code>zoom-out</code></td>
+                                    <td><img src="../../imglib/files/38/zoom-out.gif" alt="zoom-out.gif" class="default"></td>
+                                </tr>
+                                <tr id="grab" style="cursor: -moz-grab; cursor: -webkit-grab; cursor: grab;">
+                                    <th rowspan="2">Grab</th>
+                                    <td><code>grab</code></td>
+                                    <td><img src="../../imglib/files/18/grab.gif" alt="grab.gif" class="default"></td>
+                                    <td rowspan="2" style="cursor: auto;">
+                                        <p>表示可被拖起和放置。</p>
+                                    </td>
+                                </tr>
+                                <tr style="cursor: -moz-grabbing; cursor: -webkit-grabbing; cursor: grabbing;">
+                                    <td><code>grabbing</code></td>
+                                    <td><img src="../../imglib/files/19/grabbing.gif" alt="grabbing.gif" class="default"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>也可以自定义图标样式。不过需要通过资源定位器<code>url</code>来指定，图片格式可以是PNG、SVG和其他非动态图片，在2015年春发布的标准中普通桌面浏览器只持支.ico和.cur后缀的格式。另外还可以设置水平x（相对右边往左偏移）和垂直y（相对下边往上偏移）方向的偏移量，但是这两个值不能为负，否则无效果。</p>
+                    <div>鼠标放过来，看看。</div>
+                    <p><strong>注意：</strong>在自定义的鼠标指针时，最好后面接一个默认的<code>cursor</code>属性值关键字，以逗号分隔开。</p>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h3 id="reference">参考</h3>
+            <ol>
+            	<li><a href="http://www.w3.org/TR/#tr_CSS">All Standards and Drafts - W3C</a></li>
+            	<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS reference - CSS | MDN</a></li>
+            	<li><a href="http://book.douban.com/subject/2308234/">CSS权威指南（第三版）</a></li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <h3>声明</h3>
+        <p>本文是结合书籍与W3官网等信息并辅以自己的理解与实践而成。或有错漏之处，还望指出以促进更进一步的交流与学习。</p>
+        <p>为尊重劳动成果，如要转载或引用请著名出处并附上链接。</p>
+		<p>我的github：
+		<a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a></p>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

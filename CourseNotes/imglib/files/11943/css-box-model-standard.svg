@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+<style type="text/css">
+	.st0{fill:none;stroke:#999999;stroke-dasharray:10 10;stroke-dashoffset:5;}
+	.st1{fill:none;stroke:#000000;stroke-width:30;}
+	.st2{fill:none;stroke:#000000;stroke-width:4;}
+	.st3{font-family:sans-serif;font-weight:bold;font-size:18px;text-anchor:middle;}
+	.st4{fill:#FFFFFF;font-size:17px;}
+	.st5{fill:#B3B3B3;font-family:sans-serif;font-style:italic;font-size:24px;text-anchor:middle;}
+</style>
+<g id="Forms">
+	<rect id="content_box" x="160" y="150" class="st0" width="320" height="180"/>
+	<rect id="border_box" x="80" y="80" class="st1" width="480" height="320"/>
+	<rect id="margin_box" x="10" y="10" class="st0" width="620" height="460"/>
+	<g id="height">
+		<line id="height_line" class="st2" x1="189" y1="155" x2="189" y2="325"/>
+		<polygon points="189,161 182.649,161 185.824,155.493 189,150 192.176,155.5 195.351,161 		"/>
+		<polygon points="189,319 195.351,319 192.176,324.507 189,330 185.824,324.5 182.649,319 		"/>
+	</g>
+	<g id="width">
+		<line class="st2" x1="170" y1="180" x2="470" y2="180"/>
+		<polygon points="171,180 171,186.351 165.493,183.176 160,180 165.5,176.824 171,173.649 		"/>
+		<polygon points="469,180 469,173.649 474.507,176.824 480,180 474.5,183.176 469,186.351 		"/>
+	</g>
+</g>
+<g id="Text">
+	<text x="430" y="201.9668" class="st3">width</text>
+	<text x="225" y="293.8211" class="st3">height</text>
+	<text x="320" y="87.2582"  class="st3 st4">border</text>
+	<text x="320" y="127.1655" class="st3">padding</text>
+	<text x="320" y="45.0264"  class="st3">margin</text>
+	<text x="320" y="246.1833" class="st5">content</text>
+</g>
+</svg>

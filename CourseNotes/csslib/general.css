@@ -1,0 +1,146 @@
+/*从本地文件引入highlight.js*/
+
+@import url("../highlight.js/monokai-sublime.css") screen,
+projection;
+
+/*从bootcdn引入highlight.js*/
+
+@import url("http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css") screen,
+projection;
+
+/*中间内容框自适应*/
+
+header,
+main {
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+/*主信息框*/
+
+main {
+    background-color: #F5F5F5;
+    border-radius: 5px/5px;
+    box-shadow: 1px 1px 2px 2px #e5e5e5;
+    padding: 5px;
+}
+
+
+/*直接内容框*/
+
+article {
+    border-bottom: 1px dotted gray;
+    padding-bottom: 5px;
+}
+
+
+/*页面底部信息栏*/
+
+footer {
+    text-align: center;
+    background-color: #311E1E;
+    color: white;
+}
+
+footer a {
+    color: #54E039;
+}
+
+
+/*导航栏*/
+
+nav {
+    position: fixed;
+    top: 0;
+    left: -30px;
+    overflow: auto;
+    height: 100%;
+    width: 200px;
+}
+
+
+/*导航栏计数器*/
+
+nav ul {
+    counter-reset: navcounter;
+}
+
+nav a:before {
+    content: counter(navcounter)".";
+    counter-increment: navcounter;
+}
+
+
+/*去除列表前缀标记样式*/
+
+nav li {
+    list-style-type: none;
+    margin-top: 3px;
+    margin-right: 1px;
+}
+
+nav a {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    background-color: #F0C2FF;
+    border-radius: 1/10px;
+    box-shadow: 0 0 1px 1px #AA78A9;
+}
+
+
+/*去除已访问链接的颜色变化*/
+
+nav a:visited {
+    color: blue;
+}
+
+
+/*结合选择器，定位非highlight的code*/
+
+div code {
+    background-color: #222;
+    color: #eee;
+    display: inline-block;
+    padding: 0 4px;
+    border-radius: 3px/3px;
+    box-shadow: 0 0 1px 1px #4D4D4D;
+}
+
+
+/*样例代码区样式*/
+
+div.example {
+    padding: 2px;
+    border-radius: 3px/3px;
+    box-shadow: 1px 1px 1px 1px #a5a5a5;
+}
+
+
+/*表格样式*/
+
+table,
+thead,
+tbody,
+tfoot,
+th,
+td {
+    border: 1px solid #D9D7D7;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #BAC5FF;
+}
+
+th[colspan] {
+    background-color: #DEF8F3;
+}
+
+tr:nth-child(even) {
+    background-color: #B2B0BF;
+}

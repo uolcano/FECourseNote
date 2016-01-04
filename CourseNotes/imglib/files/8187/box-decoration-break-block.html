@@ -1,0 +1,57 @@
+<html><!-- Mirrored from mdn.mozillademos.org/files/8187/box-decoration-break-block.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2015 18:00:47 GMT --><!-- Added by HTTrack --><head><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+
+    <meta charset="utf-8">
+    <title>box-decoration-break for blocks</title>
+<style>
+.clone {
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -o-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+span {
+  display: block;
+  background: linear-gradient(to bottom right, yellow, green);
+  box-shadow: inset 8px 8px 10px 0px deeppink, inset -5px -5px 5px 0px blue, inset 5px 5px 15px 0px yellow;
+  padding: 0em 2em;
+  border-radius: 250px;
+  border-style: solid;
+  margin-left: 10px;
+  font: 24px sans-serif;
+  line-height: 1.8;
+}
+
+.columns {
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  -ms-columns: 3;
+  -o-columns: 3;
+  columns: 3;
+}
+
+div { 
+  background: grey;
+  width: 63em;
+}
+</style>
+</head><body>
+
+<div style="width:20em">
+  <span>The<br>quick<br>orange fox</span>
+</div>
+<br>
+
+<h2>'box-decoration-break: slice'</h2>
+<div class="columns">
+  <span>The<br>quick<br>orange fox</span>
+</div>
+
+<h2>'box-decoration-break: clone'</h2>
+<div class="columns">
+  <span class="clone">The<br>quick<br>orange fox</span>
+</div>
+
+<!-- Mirrored from mdn.mozillademos.org/files/8187/box-decoration-break-block.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Dec 2015 18:00:47 GMT -->
+
+</body></html>

@@ -1,0 +1,498 @@
+/*font-size属性实验*/
+
+#font-size~div:last-child>:nth-child(2) {
+    font-size: medium;
+    background-color: lime;
+}
+
+#font-size~div:last-child>:nth-child(3) {
+    font-size: x-large;
+    background-color: orange;
+}
+
+#font-size~div:last-child>:nth-child(4) {
+    font-size: xx-large;
+    background-color: silver;
+}
+
+#font-size~div:last-child>:nth-child(6) {
+    font-size: medium;
+    background-color: aqua;
+}
+
+#font-size~div:last-child>:nth-child(7) {
+    font-size: x-large;
+    background-color: teal;
+}
+
+#font-size~div:last-child>:nth-child(7)>div {
+    font-size: larger;
+    /*相对值larger相对于绝对值x-large*/
+    background-color: fuchsia;
+}
+
+#font-size~div:last-child>:nth-child(9) {
+    font-size: 12px;
+    background-color: silver;
+}
+
+#font-size~div:last-child>:nth-child(9)>:first-child {
+    font-size: 2em;
+    /*相对于父元素12px的字体大小设置字体大小2em*/
+    background-color: orange;
+}
+
+#font-size~div:last-child>:nth-child(9)>:last-child {
+    font-size: 200%;
+    /*相对于父元素12px的字体大小设置百分比大小200%*/
+    background-color: olive;
+}
+
+
+/*font-style属性实验*/
+
+#font-style~div:last-child>:nth-child(2) {
+    font-style: normal;
+    background-color: orange;
+}
+
+#font-style~div:last-child>:nth-child(4) {
+    font-style: italic;
+    background-color: fuchsia;
+}
+
+#font-style~div:last-child>:nth-child(6) {
+    font-style: oblique;
+    background-color: aqua;
+}
+
+
+/*font-variant属性实验*/
+
+#font-variant~div:last-child>:nth-child(2) {
+    font-variant: normal;
+    background-color: silver;
+}
+
+#font-variant~div:last-child>:nth-child(3) {
+    font-variant: small-caps;
+    background-color: lime;
+}
+
+
+/*font-stretch属性实验，可能浏览器不支持*/
+
+#font-stretch~div:last-child>div {
+    background-color: lime;
+}
+
+#font-stretch~div:last-child>div>:first-child {
+    font-stretch: normal;
+}
+
+#font-stretch~div:last-child>div>:nth-child(2) {
+    font-stretch: wider;
+}
+
+#font-stretch~div:last-child>div>:nth-child(3) {
+    font-stretch: narrower;
+}
+
+#font-stretch~div:last-child>div>:nth-child(4) {
+    font-stretch: ultra-condensed;
+}
+
+#font-stretch~div:last-child>div>:nth-child(5) {
+    font-stretch: extra-condensed;
+}
+
+#font-stretch~div:last-child>div>:nth-child(6) {
+    font-stretch: condensed;
+}
+
+#font-stretch~div:last-child>div>:nth-child(7) {
+    font-stretch: semi-condensed;
+    background-color: orange;
+}
+
+#font-stretch~div:last-child>div>:nth-child(8) {
+    font-stretch: semi-expanded;
+}
+
+#font-stretch~div:last-child>div>:nth-child(9) {
+    font-stretch: expanded;
+}
+
+#font-stretch~div:last-child>div>:nth-child(10) {
+    font-stretch: extra-expanded;
+}
+
+#font-stretch~div:last-child>div>:last-child {
+    font-stretch: ultra-expanded;
+}
+
+
+/*text-indent属性实验*/
+
+#text-indent~div:last-child>:nth-child(2) {
+    text-indent: 2em;
+    background-color: lime;
+    font-size: inherit;
+}
+
+#text-indent~div:last-child>:nth-child(3)>span {
+    padding-left: 2em;
+    background-color: orange;
+}
+
+#text-indent~div:last-child>:nth-child(4)>span {
+    margin: 2em;
+    background-color: silver;
+}
+
+#text-indent~div:last-child>:nth-child(6) {
+    text-indent: -4em;
+    padding-left: 4em;
+    background-color: aqua;
+}
+
+#text-indent~div:last-child>:nth-child(8) {
+    text-indent: 50%;
+    background-color: teal;
+}
+
+#text-indent~div:last-child>:nth-child(10).outer {
+    width: 500px;
+    background-color: fuchsia;
+}
+
+#text-indent~div:last-child>:nth-child(10) .inner {
+    text-indent: 10%;
+    background-color: lime;
+}
+
+#text-indent~div:last-child>:nth-child(10) .inner>p {
+    width: 400px;
+    background-color: orange;
+}
+
+
+/*text-align属性实验*/
+
+#text-align~div:last-child>:nth-child(3) div {
+    width: 80%;
+}
+
+#text-align~div:last-child>:nth-child(3)>div {
+    text-align: center;
+    background-color: orange;
+}
+
+#text-align~div:last-child>:nth-child(3)>center {
+    background-color: teal;
+    width: 80%;
+}
+
+#text-align~div:last-child>:nth-child(3)>center>div {
+    background-color: lime;
+}
+
+#text-align~div:last-child>:nth-child(6)>:first-child {
+    text-align: left;
+    background-color: aqua;
+}
+
+#text-align~div:last-child>:nth-child(6)>:last-child {
+    text-align: right;
+    background-color: fuchsia;
+}
+
+#text-align~div:last-child>:nth-child(8)>div {
+    text-align: justify;
+    background-color: orange;
+}
+
+
+/*line-height属性实验*/
+
+#line-height~div:last-child>:nth-child(4) {
+    font-size: 10px;
+    background-color: aqua;
+}
+
+#line-height~div:last-child>:nth-child(4)>div {
+    line-height: 1em;
+    /*继承父元素默认的10px，以此计算出line-height的计算值10px*/
+}
+
+#line-height~div:last-child>:nth-child(4)>div>div {
+    font-size: 18px;
+    /*虽然字体大小提高了，但是继承的line-height并未重新计算，字体大小大于了行高*/
+}
+
+#line-height~div:last-child>:nth-child(6) {
+    font-size: 10px;
+}
+
+#line-height~div:last-child>:nth-child(6)>div:first-child {
+    line-height: 1em;
+    /*继承父元素的字体大小10px，以此计算出来的行高是10px*/
+    background-color: fuchsia;
+    margin-bottom: 10px;
+}
+
+#line-height~div:last-child>:nth-child(6)>div:last-child {
+    line-height: 1;
+    /*继承父元素的字体大小10px，以此计算出来的行高是10px*/
+    background-color: lime;
+}
+
+#line-height~div:last-child>:nth-child(6)>div>div:first-child {
+    font-size: 15px;
+    background-color: orange;
+}
+
+#line-height~div:last-child>:nth-child(6)>div>div:last-child {
+    font-size: 20px;
+    background-color: yellow;
+}
+
+
+/*vertical-align属性实验*/
+
+#vertical-align~div:last-child>:nth-child(3) {
+    vertical-align: baseline;
+    text-decoration: underline;
+    background-color: silver;
+}
+
+#vertical-align~div:last-child>:nth-child(5) {
+    text-decoration: underline;
+    background-color: yellow;
+}
+
+#vertical-align~div:last-child>:nth-child(5)>span {
+    vertical-align: sub;
+}
+
+#vertical-align~div:last-child>:nth-child(7)>:first-child {
+    text-decoration: underline;
+    background-color: lime;
+}
+
+#vertical-align~div:last-child>:nth-child(7)>:first-child>.feeder {
+    vertical-align: bottom;
+}
+
+#vertical-align~div:last-child>:nth-child(7)>:last-child {
+    text-decoration: overline;
+    background-color: orange;
+}
+
+#vertical-align~div:last-child>:nth-child(7)>:last-child>.feeder {
+    vertical-align: top;
+}
+
+#vertical-align~div:last-child>:nth-child(9) {
+    text-decoration: underline;
+    background-color: yellow;
+}
+
+#vertical-align~div:last-child>:nth-child(9)>.texttop {
+    vertical-align: text-top;
+}
+
+#vertical-align~div:last-child>:nth-child(11) {
+    text-decoration: underline line-through overline;
+    background-color: aqua;
+}
+
+#vertical-align~div:last-child>:nth-child(11)>img {
+    vertical-align: middle;
+}
+
+#vertical-align~div:last-child>:nth-child(13) {
+    text-decoration: underline;
+    background-color: fuchsia;
+}
+
+#vertical-align~div:last-child>:nth-child(13)>sup {
+    vertical-align: 100%;
+}
+
+#vertical-align~div:last-child>:nth-child(13)>sub {
+    vertical-align: -100%;
+}
+
+
+/*word-spacing属性实验*/
+
+#word-spacing~div:last-child>:nth-child(2) {
+    word-spacing: -0.5em;
+    background-color: aqua;
+}
+
+#word-spacing~div:last-child>:nth-child(3) {
+    word-spacing: 0.5em;
+    background-color: lime;
+}
+
+
+/*letter-spacing属性实验*/
+
+#letter-spacing~div:last-child>:nth-child(2) {
+    letter-spacing: -0.1em;
+    background-color: aqua;
+}
+
+#letter-spacing~div:last-child>:nth-child(3) {
+    letter-spacing: 0.1em;
+    background-color: lime;
+}
+
+
+/*text-transform属性实验*/
+
+#text-transform~div:last-child>:nth-child(2)>:first-child {
+    text-transform: uppercase;
+    background-color: fuchsia;
+}
+
+#text-transform~div:last-child>:nth-child(2)>:last-child {
+    text-transform: lowercase;
+    background-color: lime;
+}
+
+#text-transform~div:last-child>:nth-child(4) {
+    text-transform: capitalize;
+    background-color: orange;
+}
+
+
+/*text-decoration属性实验*/
+
+#text-decoration~div:last-child>:nth-child(2) {
+    text-decoration: underline;
+    background-color: green;
+}
+
+#text-decoration~div:last-child>:nth-child(4) {
+    text-decoration: overline;
+    background-color: orange;
+}
+
+#text-decoration~div:last-child>:nth-child(6) {
+    text-decoration: line-through;
+    background-color: red;
+}
+
+
+/*text-shadow属性实验*/
+
+#text-shadow~div:last-child>:nth-child(3) {
+    text-shadow: 1px 1px;
+}
+
+#text-shadow~div:last-child>:nth-child(5) {
+    text-shadow: 1px 1px 1px;
+}
+
+#text-shadow~div:last-child>:nth-child(7) {
+    text-shadow: 1px 1px 1px red;
+}
+
+
+/*white-space属性实验*/
+
+#white-space~div:last-child>:nth-child(6)>:first-child {
+    white-space: normal;
+    background-color: aqua;
+}
+
+#white-space~div:last-child>:nth-child(6)>:nth-child(2) {
+    white-space: pre;
+    background-color: orange;
+}
+
+#white-space~div:last-child>:nth-child(6)>:nth-child(3) {
+    white-space: nowrap;
+    background-color: lime;
+}
+
+#white-space~div:last-child>:nth-child(6)>:nth-child(4) {
+    white-space: pre-wrap;
+    background-color: fuchsia;
+}
+
+#white-space~div:last-child>:nth-child(6)>:last-child {
+    white-space: pre-line;
+    background-color: teal;
+}
+
+
+/*direction属性实验*/
+
+#direction~div:last-child>:last-child {
+    direction: rtl;
+    background-color: lime;
+}
+
+
+/*word-wrap属性实验*/
+
+#word-wrap~div:last-child>:nth-child(3) {
+    word-wrap: normal;
+    background-color: orange;
+}
+
+#word-wrap~div:last-child>:nth-child(5) {
+    word-wrap: break-word;
+    background-color: aqua;
+}
+
+
+/*word-break样例设置*/
+
+#word-break~div:last-child>:nth-child(5) {
+    background-color: silver;
+}
+
+#word-break~div:last-child>:nth-child(5) pre {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/*text-overflow属性实验*/
+
+#text-overflow~div:last-child>div {
+    width: 80%;
+}
+
+#text-overflow~div:last-child>:nth-child(3) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    background-color: orange;
+}
+
+#text-overflow~div:last-child>:nth-child(5) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: lime;
+}
+
+#text-overflow~div:last-child>:nth-child(7) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: '~' ellipsis;
+    background-color: fuchsia;
+}
+
+/*cursor自定义鼠标指针实验*/
+#cursor~div:last-child>:nth-child(5) {
+	cursor: url("../../imglib/cur.cur") 0 0, auto;
+	max-width: 200px;
+	background-color: teal;
+}

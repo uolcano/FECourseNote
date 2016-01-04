@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>2 Selector</title>
+	<!-- 包含highlight.js引入 -->
+	<link rel="stylesheet" href="../../csslib/general.css" />
+	<link rel="stylesheet" href="2.selector.css" />
+</head>
+<body>
+	<header><h2 id="top">选择器</h2></header>
+	<nav></nav>
+	<main><div>
+		<section>
+			<article>
+				<h3 id="universal">通配选择器</h3>
+				<p><code>* { property: value; }</code>，这个选择器与HTML文档中的所有元素名匹配。</p>
+				css:<pre><code class="css">* { text-shadow: 1px 1px red; }</code></pre>
+			</article>
+			<article>
+				<h3 id="typeselector">类型/标签选择器</h3>
+				<p><code>element { property: value; }</code>，这个选择器与HTML文档中的一个元素名匹配</p>
+				css:<pre><code class="css">p { font-style: italic; }</code></pre>
+			</article>
+			<article>
+				<h3 id="classselector">类选择器</h3>
+				<p><code>element.classname { property: value; }</code>，这个选择器选择器需要与与HTML文档中有class属性的元素名匹配,通常英文句号前的标签选择器可以省略。</p>
+				css:<pre><code class="css">p.class_selector { text-shadow: none; font-family: fantasy; }</code></pre>
+				html:<pre><code class="html">&lt;p class="class_selector"&gt;test content&lt;&sol;p&gt;</code></pre>
+			</article>
+			<article>
+				<h3 id="compound">多重条件选择器</h5>
+				<p><code>element1element2 { property: value; }</code>，匹配同时满足多个选择器的元素。两个选择器之间没有空格等其他符号。常用于拥有类名列表的元素。</p>
+				css:<pre><code class="css">.clearfix.warning { color: red; }</code></pre>
+				html: <pre><code class="html">&lt;div class="clearfix example warning"&gt;a clearfix and warning container&lt;&sol;div&gt;</code></pre>
+			</article>
+			<article>
+				<h3 id="IDselector">ID选择器</h3>
+				<p><code>element#idname { property: value; }</code>这个选择器需要与与HTML文档中有id属性的元素名匹配,通常英文句号前的标签选择器可以省略。</p>
+				css:<pre><code class="css">p#id_selector { text-align: center; }</code></pre>
+				html:<pre><code class="html">&lt;p id="id_selector"&gt;test content&lt;&sol;p&gt;</code></pre>
+			</article>
+			<article>
+				<h3 id="attrselector">属性选择器</h3>
+				<div><!-- 结合选择器，定位非highlight的code -->
+				<ol>
+					<li>
+						<h5>简单属性选择器</h5>
+						<p><code>element[attr] { property: value; }</code>，根据属性名来匹配元素。</p>
+						css: <pre><code class="css">span[contenteditable] { text-transform: uppercase; }</code></pre>
+						<p>example:</p><div>
+						<span contenteditable>a test link content.</span></div>
+					</li>
+					<li>
+						<h5>具体属性值选择器</h5>
+						<p><code>element[attr="val"] { property: value; }</code>，根据属性的具体值匹配元素。</p>
+						css: <pre><code class="css">input[type="text"] { text-shadow: 1px 1px 2px red; }</code></pre>
+						<p>example:</p><div>
+						<input type="text" value="a test link content."/></div>
+					</li>
+					<li>
+						<h5>部分属性值选择器</h5>
+						<p><code>element[attr~="val"] { property: value; }</code>，根据属性值列表中的部分属性值匹配元素。相当于类选择器。</p>
+						css: <pre><code class="css">span[class~="part"] { background-color: red; }</code></pre>
+						<p>example:</p><div>
+						<span class="part property example">a test link content.</span></div>
+					</li>
+					<li>
+						<h5>开始子串属性值选择器</h5>
+						<p><code>element[attr^="val"] { property: value; }</code>，根据属性值的开头子串匹配元素。</p>
+						css: <pre><code>a[href^="http://blog"] { font-style: italic; }</code></pre>
+						<p>example:</p><div>
+						<a href="http://blog/example.cn">a test link content.</a></div>
+					</li>
+					<li>
+						<h5>结束子串属性值选择器</h5>
+						<p><code>element[attr$="val"] { property: value; }</code>，根据属性值的结尾子串匹配元素。</p>
+						css: <pre><code>a[href1=".org"] { font-variant: small-caps; }</code></pre>
+						<p>example:</p><div>
+						<a href="https://blog/example.org">a test link content.</a></div>
+					</li>
+					<li>
+						<h5>任意子串属性值选择器</h5>
+						<p><code>element[attr*="val"] { property: value; }</code>，根据属性值的任意部分子串匹配元素。</p>
+						css: <pre><code>a[href*="/example.com."] { color: red; }</code></pre>
+						<p>example:</p><div>
+						<a href="page/test/example.com.cn">a test link content.</a></div>
+					</li>
+					<li>
+						<h5>语言属性选择器</h5>
+						<p><code>element[attr|="val"] { property: value; }</code>，匹配有lang属性的元素，lang的属性值是一个用连字符分隔的值列表，而且最前面的值是选择器提供的属性值val。</p>
+						css: <pre><code>span[lang|="en"] { font-size: 2em; }</code></pre>
+						<p>example:</p><div>
+						<span lang="en-UK">a test link content.</span></div>
+					</li>
+				</ol></div>
+				</article>
+			<article>
+				<h3 id="combinator">结合符</h3>
+				<div>
+					<ol>
+						<li>
+							<h5>子选择器</h5>
+							<p><code>E>F</code>，仅匹配到E元素的直接子元素</p>
+						</li>
+						<li>
+							<h5>后代选择器</h5>
+							<p><code>E&nbsp;F</code>，匹配到E元素所有的后代F元素，包括子元素和子元素的子元素，依此类推。</p>
+						</li>
+						<li>
+							<h5>下一个兄弟选择器</h5>
+							<p><code>E+F</code>，匹配E元素的下一个兄弟元素F。</p>
+						</li>
+						<li>
+							<h5>后续兄弟选择器</h5>
+							<p><code>E~F</code>，匹配E元素的后续兄弟F元素</p>
+						</li>
+					</ol>
+				</div>
+			</article>
+			<article>
+				<h3 id="pseudo-class">伪类选择器</h3>
+				<div><table><tbody>
+					<tr>
+						<th rowspan="2">链接伪类</th>
+						<td><code>:link</code></td>
+						<td>未访问的链接</td>
+					</tr>
+					<tr>
+						<td><code>:visited</code></td>
+						<td>已访问的链接</td>
+					</tr>
+					<tr>
+						<th rowspan="3">动态伪类</th>
+						<td><code>:focus</code></td>
+						<td>用户输入焦点</td>
+					</tr>
+					<tr>
+						<td><code>:hover</code></td>
+						<td>鼠标悬停</td>
+					</tr>
+					<tr>
+						<td><code>:active</code></td>
+						<td>元素处于激活状态</td>
+					</tr>
+					<tr>
+						<th rowspan="10">结构伪类</th>
+						<td><code>:first-child</code></td>
+						<td>父元素的第一个子元素</td>
+					</tr>
+					<tr>
+						<td><code>:nth-child(n)</code></td>
+						<td>父元素的第n个子元素</td>
+					</tr>
+					<tr>
+						<td><code>:last-child</code></td>
+						<td>父元素的最后一个子元素</td>
+					</tr>
+					<tr>
+						<td><code>:nth-last-child(n)</code></td>
+						<td>父元素的倒数第n个子元素</td>
+					</tr>
+					<tr>
+						<td><code>:only-child</code></td>
+						<td>一个子元素，它的父元素仅有一个子元素</td>
+					</tr>
+					<tr>
+						<td><code>:first-of-type</code></td>
+						<td>第一个指定标签类型的元素</td>
+					</tr>
+					<tr>
+						<td><code>:nth-of-type(n)</code></td>
+						<td>第n个指定标签类型的元素</td>
+					</tr>
+					<tr>
+						<td><code>:last-of-type</code></td>
+						<td>最后一个指定标签类型的元素</td>
+					</tr>
+					<tr>
+						<td><code>:nth-last-of-type(n)</code></td>
+						<td>倒数第n个指定标签类型的元素</td>
+					</tr>
+					<tr>
+						<td><code>:empty</code></td>
+						<td>无子元素的元素</td>
+					</tr>
+					<tr>
+						<th rowspan="6">其他伪类</th>
+						<td><code>:enabled</code></td>
+						<td>元素可用的状态</td>
+					</tr>
+					<tr>
+						<td><code>:disabled</code></td>
+						<td>元素不可用的状态</td>
+					</tr>
+					<tr>
+						<td><code>:checked</code></td>
+						<td>以选中的状态</td>
+					</tr>
+					<tr>
+						<td><code>:not()</code></td>
+						<td>不包含某个或某些选择器的元素</td>
+					</tr>
+					<tr>
+						<td><code>:target</code></td>
+						<td>被锚点选中的目标元素</td>
+					</tr>
+					<tr>
+						<td><code>:lang()</code></td>
+						<td>选中lang属性值是对应的语言名称代码的元素</td>
+					</tr>
+				</tbody></table></div>
+			</article>
+			<article>
+				<h3 id="pseudo-element">伪元素选择器</h3>
+				<div><table><tbody>
+					<tr>
+						<th><code>::first-line</code></th>
+						<td>首行(只用于块级元素)</td>
+					</tr>
+					<tr>
+						<th><code>::first-letter</code></th>
+						<td>首字母(只用于块级元素)</td>
+					</tr>
+					<tr>
+						<th><code>::before</code></th>
+						<td>元素前插入伪元素</td>
+					</tr>
+					<tr>
+						<th><code>::after</code></th>
+						<td>元素后插入伪元素</td>
+					</tr>
+				</tbody></table></div>
+			</article>
+		</section>
+		<section>
+			<h3 id="reference">参考</h3>
+			<ol>
+				<li><a href="http://www.w3.org/TR/selectors4/#overview">Selectors Level 4</a></li>
+				<li><a href="http://www.w3.org/TR/css-pseudo-4/">CSS Pseudo-Elements Module Level 4</a></li>
+				<li><a href="http://dev.w3.org/html5/html-author/charref">Character Entity Reference Chart</a></li>
+				<li><a href=""></a></li>
+			</ol>
+		</section></div>
+	</main>
+	<footer>
+		<h3>声明</h3>
+		<p>暂未完成，暂时参考我在segmentfault上的学习笔记</p>
+		<a href="https://segmentfault.com/n/1330000004233056">【CSS学习笔记】叠层-特殊性、权重、继承、选择器 - SegmentFault</a>
+	</footer>
+	<!-- 情景一，从本地文件引入 -->
+<!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- 情景二，从bootcdn引入 -->
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

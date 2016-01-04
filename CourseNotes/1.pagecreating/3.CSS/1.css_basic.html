@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>1 Css Basic</title>
+	<!-- 包含highlight.js引入 -->
+	<link rel="stylesheet" href="../../csslib/general.css">
+</head>
+<body>
+	<header><h2 id="top">CSS基本概念</h2></header>
+	<nav>
+		<ul>
+			<li><a href="#structure">基本结构</a></li>
+			<li><a href="#proprietarypre">浏览器私有属性前缀</a></li>
+			<li><a href="#valsyntax">属性值定义语法</a></li>
+			<li><a href="#refercss">样式引入方式</a></li>
+			<li><a href="#top">回到顶部</a></li>
+		</ul>
+	</nav>
+	<main>
+		<section>
+			<article>
+				<h3 id="structure">基本结构</h3>
+<pre><code class="css">div p, #id:first-letter {
+	color: white;
+	background-color: red;
+}</code></pre>
+			<p>以上代码逐级分析如下<a class="ref" href="#ref01">&sup1;</a>&colon;</p>
+			<div><!-- 结合选择器，定位非highlight的code -->
+			<dl>
+				<dt>CSS声明(declaration)</dt>
+				<dd><code>color&colon;white&semi;&nbsp;</code>是一个CSS声明。其中<code>color</code>是属性，<code>white</code>是属性值，两者一起构成一个名值对，以英文冒号<code>&colon;</code>分隔，以英文分号结束<code>&semi;</code>。<code>background-color: red;</code>亦是如此。</dd>
+				<dt>CSS声明块(declaration block)</dt>
+				<dd>大括号<code>&lbrace;</code>和<code>&rbrace;</code>包围的部分，称之为声明块。声明块中可包含多个声明</dd>
+				<dt>选择器集合(group of selectors)</dt>
+				<dd><code>div p, #id:first-letter</code>是一个选择器集合。具体内容在<span class="linkfrom selector">选择器</span>中详细讲述。</dd><!-- span用于后期定位与替换 -->
+				<dt>CSS规则集(ruleset)</dt>
+				<dd>一对选择器(集合)和声明块，构成一个CSS规则集，简称CSS规则(rule)</dd>
+				<dt>CSS语句(statements)</dt>
+				<dd>规则和部分at规则，可以作为语句。具体内容在<span class="linkfrom atrule">at规则</span>中详细讲述。</dd><!-- span用于后期定位与替换 -->
+			</dl></div>
+			</article>
+			<article>
+				<h3 id="proprietarypre">浏览器私有属性前缀</h3>
+				<div><!-- 结合选择器，定位非highlight的code -->
+				<table>
+					<thead>
+						<tr>
+							<th>相应浏览器</th>
+							<th>私有前缀</th>
+							<th>样例</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>chrome/safari</td>
+							<td><code>-webkit-</code></td>
+							<td>-webkit-transform:rotate(-3deg);</td>
+						</tr>
+						<tr>
+							<td>firefox</td>
+							<td><code>-moz-</code></td>
+							<td>-moz-transform:rotate(-3deg);</td>
+						</tr>
+						<tr>
+							<td>IE</td>
+							<td><code>-ms-</code></td>
+							<td>-ms-transform:rotate(-3deg);</td>
+						</tr>
+						<tr>
+							<td>opera</td>
+							<td><code>-o-</code></td>
+							<td>-o-transform:rotate(-3deg);</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">标准属性</td>
+							<td>transform:rotate(-3deg);</td>
+						</tr>
+					</tfoot>
+				</table>
+				</div>
+			</article>
+			<article>
+				<h3 id="valsyntax">属性值定义语法</h3>
+				<div><!-- 结合选择器，定位非highlight的code -->
+				<table>
+					<thead>
+						<tr>
+							<th>符号<a class="ref" href="#ref02">&sup2;</a></th>
+							<th>名称</th>
+							<th>描述</th>
+							<th>示例</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						    <th colspan="4">组合符号(组合优先级往后递减)</th>
+						</tr>
+						<tr>
+						    <td><code>&nbsp;</code></td>
+						    <td>并置</td>
+						    <td>各部分必须出现且按顺序出现</td>
+						    <td><code>solid &lt;length&gt;</code></td>
+						</tr>
+						<tr>
+						    <td><code>&amp;&amp;</code></td>
+						    <td>“与”组合符</td>
+						    <td>各部分必须出现，但可以不按顺序</td>
+						    <td><code>&lt;length&gt; &amp;&amp; &lt;string&gt;</code></td>
+						</tr>
+						<tr>
+						    <td><code>||</code></td>
+						    <td>“或”组合符</td>
+						    <td>各部分至少出现一个，可以不按顺序</td>
+						    <td><code>&lt;'border-image-outset'&gt; || &lt;'border-image-slice'&gt;</code></td>
+						</tr>
+						<tr>
+						    <td><code>|</code></td>
+						    <td>“互斥”组合符</td>
+						    <td>各部分恰好出现一个</td>
+						    <td><code>smaller | small | normal | big | bigger</code></td>
+						</tr>
+						<tr>
+						    <td><code>[ ]</code></td>
+						    <td>方括号</td>
+						    <td>强调优先级</td>
+						    <td><code>bold [ thin &amp;&amp; &lt;length&gt; ]</code></td>
+						</tr>
+						<tr>
+						    <th colspan="4">数量符号</th>
+						</tr>
+						<tr>
+						    <td>&nbsp;</td>
+						    <td>无数量符号</td>
+						    <td>恰好一次</td>
+						    <td><code>solid</code></td>
+						</tr>
+						<tr>
+						    <td><code>*</code></td>
+						    <td>星号</td>
+						    <td>零次、一次或多次</td>
+						    <td><code>bold smaller*</code></td>
+						</tr>
+						<tr>
+						    <td><code>+</code></td>
+						    <td>加号</td>
+						    <td>一次或多次</td>
+						    <td><code>bold smaller+</code></td>
+						</tr>
+						<tr>
+						    <td><code>?</code></td>
+						    <td>问号</td>
+						    <td>零次或一次（即可选）</td>
+						    <td><code>bold smaller?</code></td>
+						</tr>
+						<tr>
+						    <td><code>{A,B}</code></td>
+						    <td>大括号</td>
+						    <td>至少<code>A</code>次，至多<code>B</code>次</td>
+						    <td><code>bold smaller{1,3}</code></td>
+						</tr>
+						<tr>
+						    <td><code>#</code></td>
+						    <td>井号</td>
+						    <td>一次或多次，但多次出现必须以逗号分隔</td>
+						    <td><code>bold smaller#</code></td>
+						</tr>
+					</tbody>
+				</table></div>
+			</article>
+			<article>
+			<h3 id="refercss">样式引入方式</h3>
+			<div><!-- 结合选择器，定位非highlight的code -->
+			<dl>
+				<dt>内联样式</dt>
+				<dd>将样式直接写在元素的<code>style</code>属性中。如：
+				<pre><code>&lt;span&nbsp;style=&quot;font-size&colon;18px&semi;&nbsp;color&colon;red&semi;&quot;&gt;some&nbsp;contents&lt;&sol;span&gt;</code></pre></dd>
+				<dt>内部样式表</dt>
+				<dd>在head元素里的最后部分写入<code>style</code>元素，其中直接写入CSS规则集。如：
+<pre><code class="css">&lt;head&gt;
+	&lt;style type="text/css" media="screen"&gt;
+		span {
+			font-style: 18px;
+			color: red;
+		}
+	&lt;/style&gt;
+&lt;/head&gt;</code></pre></dd>
+				<dt>外部样式表</dt>
+				<dd>在head元素里的link元素引入外部css文件。如：
+<pre><code class="css">&lt;link rel="stylesheet" href="/default.css"&gt;</code></pre></dd>
+			</dl></div>
+			</article>
+		</section>
+		<section>
+			<h3 id="reference">参考</h3>
+			<ol>
+				<li id="ref01"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Syntax" target="_blank">Syntax - CSS | MDN</a></li>
+				<li id="ref02"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Value_definition_syntax">Value definition syntax - CSS | MDN</a></li>
+			</ol>
+		</section>
+	</main>
+	<footer>
+		<h3>声明</h3>
+		<p>本文是结合网络资料和自己理解简化而成，更详细的资料可查看：
+		<a href="http://www.w3.org/TR/#tr_CSS">All Standards and Drafts - W3C</a>
+		<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS">CSS | MDN</a></p>
+		<p>总结内容可看：
+		<a href="http://wiki.jikexueyuan.com/project/fend_note/">前端开发笔记本-极客学院Wiki</a>
+		<a href="http://www.xifengxx.com/web-front-end">Web前端 - 西风博客</a></p>
+		<p>我的github：
+		<a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a></p>
+	</footer>
+	<!-- 情景一，从本地文件引入 -->
+<!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+	<!-- 情景二，从bootcdn引入 -->
+<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+span[contenteditable] { text-transform: uppercase; }
+input[type="text"] { text-shadow: 1px 1px 2px red; }
+span[class~="part"] { background-color: red; }
+a[href^="http://blog"] { font-style: italic; }
+a[href$=".org"] { font-variant: small-caps; }
+a[href*="/example.com."] { color: red; }
+span[lang|="en"] { font-size: 2em; }
