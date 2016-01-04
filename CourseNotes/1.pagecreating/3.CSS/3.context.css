@@ -477,8 +477,11 @@
 }
 
 #text-overflow~div:last-child>:nth-child(5) {
+    /*不换行*/
     white-space: nowrap;
+    /*隐藏超出部分*/
     overflow: hidden;
+    /*将超出部分显示为省略符...*/
     text-overflow: ellipsis;
     background-color: lime;
 }
