@@ -1,0 +1,30 @@
+body {
+	margin: 0 10px;
+	background-color: #F6F6F6;
+}
+header {
+	text-align: center;
+	font: 20px Monaco, 'Microsoft Yahei', sans-serif;
+}
+main {
+	border: 1px solid #DED2F1;
+	border-radius: 1em/1em;
+	box-shadow: inset 1px 1px 5px 5px #DED2F1;
+	background-color: #C7DBF6;
+}
+section {
+	margin: 10px;
+}
+article {
+	margin: 1px;
+	border-bottom: 1px dotted gray;
+}
+footer {
+	text-align: center;
+	color: white;
+	background-color: #212834;
+	border-radius: 5px/5px
+}
+footer p {
+	color: lime;
+}

@@ -1105,7 +1105,7 @@
                 </div>
                 <div>
                     <p><strong>注意：</strong><code>vertical-align</code>不影响块级元素中内容的对齐，但可以影响行内元素和表单元格中元素的垂直对齐。</p>
-                    <p>基线对齐。<code>baseline</code>作为初始值，要求一个元素的基线与其父元素的基线对齐。如果一个垂直对齐元素没有基线————比如一个图片或表格输入元素或是其他替换元素(需要文档另行加载的元素，如图片)————那么钙元素的底端与其父元素的基线对齐。</p>
+                    <p>基线对齐。<code>baseline</code>作为初始值，要求一个元素的基线与其父元素的基线对齐。如果一个垂直对齐元素没有基线————比如一个图片或表格输入元素或是其他替换元素(需要文档另行加载的元素，如图片)————那么该元素的底端与其父元素的基线对齐。</p>
                     <div class="example">this image found in this paragraph <img src="../../imglib/icon.png" height="10" width="10" alt="pic" /> has its bootom edge aligned with the baseline of the text in the paragraph.</div>
                     <p>上下标。<code>sub</code>会使得一个元素编程下标，这意味着其基线（或者如果这事一个替换元素，则是其底端）相对于其父元素的基线降低。规范并没有定义元素降低的距离，不同用户代理，这个距离可能不同。<code>super</code>刚好与<code>sub</code>相反。</p>
                     <div class="example">Lorem ipsum dolor <span>sit</span> amet, consectetur adipisicing elit. Maxime dolorum nemo, officiis, facere minus, molestiae eveniet id fugiat neque amet voluptas quidem dolorem ex modi rerum aut, saepe doloribus quas.</div>
@@ -1118,7 +1118,7 @@
                     <div class="example">Here: a <img src="../../imglib/red.png" height="30" width="30" alt="bigpic" class="texttop" /> image that's been vertically aligned, and then a <img src="../../imglib/icon.png" height="10" width="10" alt="pic" class="texttop" /> image that's similarly aligned.</div>
                     <p>居中对齐<code>middle</code>。这会把行内元素框的中点与父元素基线上方0.5ex处的一个点对齐，这里的1ex相对于父元素的<code>font-size</code>定义。</p>
                     <div class="example">containers a <img src="../../imglib/red.png" height="30" width="30" alt="bigpic" /> tall image</div>
-                    <p>百分数对齐。设置百分数对齐，会把元素的基线（或替换元素的底边）相对于父元素的基线升高或降低制定的量（这里指定的百分数要计算为钙元素line-height的百分数，而不是相对于其父元素的line-height）正值升高，负值降低。可能会看上去跑到了相邻的行上。</p>
+                    <p>百分数对齐。设置百分数对齐，会把元素的基线（或替换元素的底边）相对于父元素的基线升高或降低制定的量（这里指定的百分数要计算为该元素line-height的百分数，而不是相对于其父元素的line-height）正值升高，负值降低。可能会看上去跑到了相邻的行上。</p>
                     <div class="example">We can either <sup>soar to new heights</sup> or, instead, <sub>sink into despair...</sub></div>
                     <p>长度对齐。这会把一个元素升高或降低指定的距离。</p>
                 </div>

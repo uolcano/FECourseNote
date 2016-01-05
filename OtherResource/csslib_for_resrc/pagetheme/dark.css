@@ -1,0 +1,28 @@
+body {
+	background: #0B0B39;
+	margin: 0 10px;
+}
+header {
+	text-align: center;
+	font: 20px Monaco, 'Microsoft Yahei', sans-serif;
+	color: orange;
+}
+section {
+	color: navy;
+}
+section:last-child {
+	background-color: silver;
+}
+tr {
+	background: lightskyblue !important;
+	border-radius: 5px/5px;
+}
+footer {
+	background-color: deepskyblue;
+	border-radius: 5px/5px;
+	text-align: center;
+	color: navy;
+}
+footer p {
+	color: red;
+}

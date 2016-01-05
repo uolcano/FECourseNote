@@ -1,0 +1,26 @@
+body {
+	background: fixed repeating-linear-gradient(45deg, red, red 10px, orange 10px, orange 20px, yellow 20px, yellow 30px, lime 30px, lime 40px, aqua 40px, aqua 50px, fuchsia 50px, fuchsia 60px);
+	margin: 0 10px;
+}
+header {
+	text-align: center;
+	font: 20px Monaco, 'Microsoft Yahei', sans-serif;
+	color: navy;
+	text-shadow: 2px 2px 3px aqua;
+}
+tr {
+	background-color: rgba(173,255,47, 0.90) !important;
+	border-radius: 5px/5px;
+}
+section:last-child a {
+	color: black;
+}
+footer {
+	text-align: center;
+	color: white;
+	background-color: rgba(33,40,52,0.8);
+	border-radius: 5px/5px;
+}
+footer p {
+	color: yellow;
+}
