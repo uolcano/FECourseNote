@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vertical &amp; horizontal flow</title>
+    <!-- 引入基础样式 -->
+    <link rel="stylesheet" href="ver_hor_flow.css" />
+    <!-- 引入默认修改样式 -->
+    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css" title="default theme" />
+    <!-- 引入备选修改样式 -->
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/dark.css" title="dark theme" />
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/rainbow.css" title="rainbow theme" />
+</head>
+
+<body>
+    <header>
+        <h3>块级流中水平流和垂直流对盒模型百分比计算的影响</h3></header>
+    <main>
+        <section>
+            <div class="outer">test contet
+                <div class="inner">test content</div>
+            </div>
+        </section>
+        <section>
+            <h3>参考</h3>
+            <a href="http://www.w3.org/TR/css-writing-modes-3/#block-flow">block-flow - CSS Writing Modes Level 3</a>
+        </section>
+    </main>
+    <footer>
+        <h3>说明</h3>
+        <p>此模型用于测试块级父元素水平流（英文/中文默认的）和垂直流对块级子元素margin/padding/width/height的影响。</p>
+        <p>&copy;uolcano</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+/*width解释*/
+
+#width~:last-child li {
+    list-style-type: lower-roman;
+}
+
+#width~:last-child li li {
+    list-style-type: lower-alpha;
+}
+
+
+/*height解释*/
+
+#height~:last-child li {
+    list-style-type: lower-roman;
+}
+
+#height~:last-child li li {
+    list-style-type: lower-alpha;
+}
+
+#height~:last-child li li li {
+    list-style-type: decimal;
+    white-space: pre-line;
+}
+
+
+/*border-radius属性实验*/
+
+#border-radius~div:last-child>ol div {
+    background-color: lime;
+    float: left;
+    text-align: center;
+    line-height: 100px;
+    height: 100px;
+    width: 100px;
+    margin: 1px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(1)>:nth-child(2) {
+    border-radius: 0 5px 20px 30px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(1)>:nth-child(3) {
+    border-radius: 0 15px 40px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(1)>:nth-child(4) {
+    border-radius: 15px 40px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(1)>:nth-child(5) {
+    border-radius: 25px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(1)>:nth-child(6) {
+    border-radius: 25%;
+}
+
+#border-radius~div:last-child>ol>:nth-child(1)>:nth-child(7) {
+    border-radius: 50%;
+}
+
+#border-radius~div:last-child>ol>:nth-child(2)>:nth-child(2) {
+    border-radius: 0 5px 20px 30px / 20px 25px 40px 50px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(2)>:nth-child(3) {
+    border-radius: 0 15px 40px / 50px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(2)>:nth-child(4) {
+    border-radius: 15px / 40px 30px;
+}
+
+#border-radius~div:last-child>ol>:nth-child(2)>:nth-child(5) {
+    border-radius: 15px / 40px;
+}
+
+#border-radius~div:last-child>ol li::after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+/*box-shadow*/
+#box-shadow~div:last-child>:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    box-shadow: 2px 2px 2px 2px red;
+}
+#box-shadow~div:last-child>:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 2px 2px 2px 2px red, 1px 1px 2px 2px fuchsia;
+}
+/*outline*/
+#outline~div:last-child>div {
+    background-color: lime;
+    height: 300px;
+    width: 300px;
+    border: 1px solid;
+}
+#outline~div:last-child>div>div {
+    background-color: orange;
+    height: 20%;
+    width: 20%;
+    margin: auto;
+    margin-top: 50%;
+    outline: 4px dashed;
+}
+
+/*overflow*/
+#overflow~div:last-child div {
+    width: 300px;
+    height: 100px;
+    background-color: lime;
+}
+#overflow~div:last-child>:nth-child(3) {
+    overflow: visible;
+}
+#overflow~div:last-child>:nth-child(5) {
+    overflow: hidden;
+}
+#overflow~div:last-child>:nth-child(7) {
+    overflow: scroll;
+}
+#overflow~div:last-child>:nth-child(9) {
+    overflow: auto;
+}
+
+/*box model 最外层盒子*/
+
+#boxmodel {
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    height: 300px;
+    width: 300px;
+    background-color: silver;
+    /*margin: 0 auto;*/
+    float: left;
+    /*设浮动以便右边添加文本解释图形*/
+}
+
+
+/*内套盒子的每个边*/
+
+#boxmodel span {
+    direction: ltr;
+    text-align: center;
+    position: absolute;
+}
+
+
+/*内套盒子的每个偶数边*/
+
+#boxmodel span:nth-child(odd) {
+    -webkit-writing-mode: horizontal-tb;
+    -ms-writing-mode: horizontal-tb;
+    writing-mode: horizontal-tb;
+    left: 0;
+    right: 0;
+    height: 30px;
+}
+
+
+/*内部盒子的每个奇数边*/
+
+#boxmodel span:nth-child(even) {
+    -webkit-writing-mode: vertical-lr;
+    -ms-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+}
+
+
+/*每个内套盒子的上右下左四个边*/
+
+#boxmodel span:nth-child(1) {
+    top: 0;
+}
+
+#boxmodel span:nth-child(2) {
+    right: 0;
+}
+
+#boxmodel span:nth-child(3) {
+    bottom: 0;
+}
+
+#boxmodel span:nth-child(4) {
+    left: 0;
+}
+
+
+/*每个内套盒子*/
+
+#boxmodel div {
+    position: relative;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+}
+
+
+/*外套盒子的内边*/
+
+#boxmodel>span {
+    background-color: aqua;
+}
+
+
+/*第一层内套盒子*/
+
+#boxmodel>div {
+    width: 240px;
+    height: 240px;
+}
+
+
+/*第一层内套盒子的内边*/
+
+#boxmodel>div>span {
+    background-color: lime;
+}
+
+
+/*第二层内套盒子*/
+
+#boxmodel>div>div {
+    width: 180px;
+    height: 180px;
+}
+
+
+/*第二层内套盒子的内边*/
+
+#boxmodel>div>div>span {
+    background-color: orange;
+}
+
+#boxmodel>div>div>div {
+    width: 120px;
+    line-height: 120px;
+    text-align: center;
+    background-color: yellow;
+}
+
+
+/*盒模型说明*/
+
+#boxmodel+div {
+    border: 1px solid #ececec;
+    /*background-color: lime;*/
+}
+
+
+/*清除盒模型图的浮动影响*/
+
+#boxmodel+div::after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}

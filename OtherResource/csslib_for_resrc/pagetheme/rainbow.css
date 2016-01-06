@@ -9,7 +9,7 @@ header {
 	text-shadow: 2px 2px 3px aqua;
 }
 tr {
-	background-color: rgba(173,255,47, 0.90) !important;
+	background-color: rgba(173,255,47, 0.90);
 	border-radius: 5px/5px;
 }
 section:last-child a {

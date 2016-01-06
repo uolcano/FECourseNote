@@ -4,24 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>实体字符索引表</title>
-    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css" title="default theme"/>
-    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/dark.css" title="dark theme"/>
-    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/rainbow.css" title="rainbow theme"/>
-    <style>
-	    table { font: .8em Monaco; display: block; }
-	    tr { background: #EEE; display: inline-block; text-align: center; width: 10em; height: 10em; margin: .5em; padding: 1px; position: relative; }
-	    td { display: block; }
-	    .character { font: 4em "Georgia", "Apple Symbols", serif; line-height: 1.1; }
-	    .hex, .dec { visibility: hidden; }
-	    .desc { display: none; position: absolute; text-align: center; background: silver; color: black; }
-	    tr:hover .character { font-size: 2em; }
-	    tr:hover .hex, tr:hover .dec { visibility: visible; }
-	    xtr:hover .desc { display: block; top: 100%; left: 0; }
-    </style>
+    <!-- 引入索引表基础样式 -->
+    <link rel="stylesheet" href="entity_char_ref.css" />
+    <!-- 引入默认修改样式 -->
+    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css" title="default theme" />
+    <!-- 引入备选修改样式 -->
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/dark.css" title="dark theme" />
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/rainbow.css" title="rainbow theme" />
 </head>
 
 <body>
-    <header><h3 id="top">实体字符索引表</h3></header>
+    <header>
+        <h3 id="top">实体字符索引表</h3></header>
     <nav></nav>
     <main>
         <section>
@@ -11624,8 +11618,8 @@
         </section>
     </main>
     <footer>
-    	<h3>声明</h3>
-    	<p>本索引表，只为方便查询，并非原创，侵删。</p>
+        <h3>声明</h3>
+        <p>本索引表，只为方便查询，并非原创，侵删。</p>
     </footer>
 </body>
 

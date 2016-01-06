@@ -1,0 +1,35 @@
+.outer {
+    background-color: fuchsia;
+    height: 300px;
+    width: 500px;
+    /*-webkit-writing-mode: vertical-lr;*/
+    direction: ltr;
+    /*-webkit-writing-mode: horizontal-tb;*/
+    /*-ms-writing-mode: vertical-lr;*/
+    /*writing-mode: vertical-lr;*/
+}
+
+.inner {
+    background-color: lime;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 8%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 8%;
+    /*决定内容区*/
+    /*width: 50%;*/
+    /*height: 10%;*/
+    /*font-size: inherit;*/
+    /*line-height: 1em;*/
+    /*box-sizing: border-box;*/
+    /*决定书写方向*/
+    /*-webkit-writing-mode: vertical-lr;*/
+    /*-webkit-writing-mode: horizontal-tb;*/
+    /*-ms-writing-mode: vertical-lr;*/
+    /*writing-mode: vertical-lr;*/
+    /*变形不影响margin/padding/content的宽高*/
+    /*transform: rotate(-90deg);*/
+}

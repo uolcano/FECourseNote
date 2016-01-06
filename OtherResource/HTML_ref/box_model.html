@@ -4,96 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Box model</title>
-    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css">
-    <style type="text/css" media="screen">
-    /*box model*/
-    /*最外层盒子*/    
-    #boxmodel {
-        position: relative;
-        font-size: 12px;
-        font-weight: bold;
-        height: 300px;
-        width: 300px;
-        background-color: silver;
-        /*margin: 0 auto;*/    }
-    /*内套盒子的每个边*/    
-    #boxmodel span {
-        direction: ltr;
-        text-align: center;
-        position: absolute;
-    }
-    /*内套盒子的每个偶数边*/    
-    #boxmodel span:nth-child(odd) {
-        -webkit-writing-mode: horizontal-tb;
-        -ms-writing-mode: horizontal-tb;
-        writing-mode: horizontal-tb;
-        left: 0;
-        right: 0;
-        height: 30px;
-    }
-    /*内部盒子的每个奇数边*/    
-    #boxmodel span:nth-child(even) {
-        -webkit-writing-mode: vertical-lr;
-        -ms-writing-mode: vertical-lr;
-        writing-mode: vertical-lr;
-        top: 0;
-        bottom: 0;
-        width: 30px;
-    }
-    /*每个内套盒子的上右下左四个边*/    
-    #boxmodel span:nth-child(1) {
-        top: 0;
-    }
-    
-    #boxmodel span:nth-child(2) {
-        right: 0;
-    }
-    
-    #boxmodel span:nth-child(3) {
-        bottom: 0;
-    }
-    
-    #boxmodel span:nth-child(4) {
-        left: 0;
-    }
-    /*每个内套盒子*/    
-    #boxmodel div {
-        position: relative;
-        top: 30px;
-        right: 30px;
-        bottom: 30px;
-        left: 30px;
-    }
-    /*外套盒子的内边*/    
-    #boxmodel>span {
-        background-color: aqua;
-    }
-    /*第一层内套盒子*/    
-    #boxmodel>div {
-        width: 240px;
-        height: 240px;
-    }
-    /*第一层内套盒子的内边*/    
-    #boxmodel>div>span {
-        background-color: lime;
-    }
-    /*第二层内套盒子*/    
-    #boxmodel>div>div {
-        width: 180px;
-        height: 180px;
-    }
-    /*第二层内套盒子的内边*/    
-    #boxmodel>div>div>span {
-        background-color: orange;
-    }
-    
-    #boxmodel>div>div>div {
-        width: 120px;
-        line-height: 120px;
-        text-align: center;
-        background-color: yellow;
-    }
-    </style>
+    <!-- 引入盒模型基础样式 -->
+    <link rel="stylesheet" href="box_model.css" />
+    <!-- 引入默认修改样式 -->
+    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css" title="default theme" />
+    <!-- 引入备选修改样式 -->
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/dark.css" title="dark theme" />
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/rainbow.css" title="rainbow theme" />
 </head>
 
 <body>
@@ -126,6 +43,7 @@
     <footer>
         <h3>说明</h3>
         <p>此文本用于存档制作的网页效果代码。</p>
+        <p>&copy;uolcano</p>
     </footer>
 </body>
 

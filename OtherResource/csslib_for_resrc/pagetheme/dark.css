@@ -14,7 +14,7 @@ section:last-child {
 	background-color: silver;
 }
 tr {
-	background: lightskyblue !important;
+	background: lightskyblue;
 	border-radius: 5px/5px;
 }
 footer {

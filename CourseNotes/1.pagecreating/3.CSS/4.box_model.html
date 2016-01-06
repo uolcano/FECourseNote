@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>4 box model</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="../../csslib/general.css">
+    <link rel="stylesheet" href="4.box_model.css">
+</head>
+
+<body>
+    <header>
+        <h2 id="top">盒模型</h2></header>
+    <nav></nav>
+    <main>
+        <section>
+            <article>
+                <h3 id="width">宽度|<a href="http://www.w3.org/TR/css3-box/#the-lsquo0" title="width">width</a></h3>
+                <div>
+                    <table class="propdef" id="namewidth">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="width">width</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    <var>&lt;length&gt;</var> |
+                                    <var>&lt;percentage&gt;</var> | auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements but non-replaced inline elements, table rows, and row groups
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to width of containing block
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>the percentage or '<code class="css">auto</code>' as specified or the absolute length; '<code class="css">auto</code>' if the property does not apply
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>auto</code> 的真实含义：对于行内元素在无内容时宽度则为0，有内容时则为内容区宽度；对于块级元素，设置 <code>auto</code> 要考虑多重因素： <code>box-sizing</code> 、 <code>border</code> 和 <code>padding</code> 。</p>
+                    <ol>
+                        <li><span>在该元素的 <code>box-sizing</code> 取初始值 <code>content-box</code> 的情况下：</span>
+                            <ol>
+                                <li>如果未设置内边距和边框，元素的宽度会达到父元素/根元素的内容区宽度。</li>
+                                <li>如果设置了内边距和边框，元素的宽度则要用父元素/根元素的内容区宽度减去左右内边距和左右边框的厚度来得到。</li>
+                            </ol>
+                        </li>
+                        <li>在该元素的 <code>box-sizing</code> 取 <code>border-box</code> 的情况下，不论设不设置内边距和边框，元素的宽度都是等于父元素/根元素的内容区宽度。</li>
+                    </ol>
+                    <p>一个元素以百分比计算时，以父容器的宽为基数。要跟 <code>auto</code> 区分， <code>auto</code> 是不会超出父元素边框的，而设置百分比是会超出的。如果父容器的宽度取决于这个子元素的宽度（也就是被子元素撑起来的），则得不到正确宽度。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="height">高度|<a href="http://www.w3.org/TR/css3-box/#the-lsquo0" title="height">height</a></h3>
+                <div>
+                    <table class="propdef" id="nameheight">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="height">height</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    <var>&lt;length&gt;</var> |
+                                    <var>&lt;percentage&gt;</var> | auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements but non-replaced inline elements, table columns, and column groups
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>see prose
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>the percentage or '<code class="css">auto</code>' (see prose under &lt;percentage&gt;) or the absolute length; '<code class="css">auto</code>' if the property does not apply
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><code>auto</code> 的真实含义：对于行内元素，如果有内容高度为内容区高度，如果没内容高度为当前字体大小撑起的内容区；对于块级元素，设置 <code>auto</code> 要考虑多重因素： <code>box-sizing</code> 、 <code>border</code> 和 <code>padding</code> 。</p>
+                    <ol>
+                        <li><span>在 <code>box-sizing</code> 取初始值 <code>content-box</code> 的情况下:</span>
+                            <ol>
+                                <li>当无内容时，高度为<em>0</em>；</li>
+                                <li>当有内容时，高度为<em>内容区高度</em>。</li>
+                            </ol>
+                        </li>
+                        <li><span>在 <code>box-sizing</code> 取 <code>border-box</code> 的情况下:</span>
+                            <ol>
+                                <li><span>当无内容时，</span>
+                                    <ol>
+                                        <li>如果未设置边框和内边距则高度为<em>0</em>；</li>
+                                        <li>如果设置了边框和内边距则高度为<em>上下边框厚度与垂直内边距的和</em>。
+                                            <code>height</code> = <code>border-top-width</code> + <code>padding-top</code> + <code>padding-bottom</code> + <code>border-bottom-width</code></li>
+                                    </ol>
+                                </li>
+                                <li><span>当有内容时，</span>
+                                    <ol>
+                                        <li>如果未设置边框和内边距则高度为<em>内容区高度</em>；</li>
+                                        <li>如果设置了边框和内边距则高度为<em>内容区高度、上下边框厚度和垂直内边距三项的总和</em>。
+                                            <code>height</code> = <code>border-top-width</code> + <code>padding-top</code> + 内容区高度 + <code>border-bottom-width</code> + <code>padding-bottom</code></li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <p></p>
+                    <p></p>
+                    <div></div>
+                    <p></p>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="min">最小宽高|<a href="http://www.w3.org/TR/css3-box/#min-max" title="">min-width/min-height</a></h3>
+                <div>
+                    <table class="propdef" id="namemin-width">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="min-width">min-width</dfn>,
+                                    <dfn id="min-height">min-height</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    <var><a href="http://www.w3.org/TR/css3-box/#ltlengthgt">&lt;length&gt;</a></var> |
+                                    <var>&lt;percentage&gt;</var> | inherit
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements but non-replaced inline elements, table rows, and row groups
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to width, resp. height of containing block
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>the percentage as specified or the absolute length
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="min">最大宽高|<a href="http://www.w3.org/TR/css3-box/#min-max" title="">max-width/max-height</a></h3>
+                <div>
+                    <table class="propdef" id="namemax-width">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="max-width">max-width</dfn>,
+                                    <dfn id="max-height">max-height</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    <var><a href="http://www.w3.org/TR/css3-box/#ltlengthgt">&lt;length&gt;</a></var> |
+                                    <var>&lt;percentage&gt;</var> | none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements but non-replaced inline elements, table rows, and row groups
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to width, resp. height of containing block
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>the percentage as specified or the absolute length or '<code class="css"><a href="http://www.w3.org/TR/css3-box/#none0">none</a></code>'
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>最大宽高的 <code>none</code> 属性表示对于宽高都没限定。</p>
+                    <p>最大、最小宽高都可以设置百分比，计算时以容器的对应宽高为基数。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="padding">内边距|<a href="http://www.w3.org/TR/css3-box/#the-padding" title="padding">padding</a></h3>
+                <div>
+                    <table class="propdef" id="namepadding">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="padding1">padding</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>[
+                                    <vhr><a href="http://wwwhw3.org/TR/css3-box/#ltlengthgt">&lt;length&gt;</a></var> |
+                                        <var>&lt;percentage&gt;</var> ]{1,4}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies&nbsp;to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>width* of containing block
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>&lt;length&gt;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="footnote" colspan="2">*) if the <em><h href="http://www.w3.orghTR/css3-box/#containing">containing block</a></em> ih <em><a href="http://wwwhw3.org/TR/css3-box/#horizontal">horizontal,</a></em> otherwise the height
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p></p>
+                    <div></div>
+                    <p></p>
+                    <div></div>
+                    <p></p>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="margin">外边距|<a href="http://www.w3.org/TR/css3-box/#margins" title="margin">margin</a></h3>
+                <div>
+                    <table class="propdef" id="namemargin">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="margin1">margin</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>[
+                                    <var><a href="http://www.w3.org/TR/css3-box/#ltlengthgt">&lt;length&gt;</a></var> |
+                                    <var>&lt;percentage&gt;</var> | auto ]{1,4}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies&nbsp;to:
+                                </th>
+                                <td>see text
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>width* of containing block
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>the percentage as specified or the absolute length or ‘auto’
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="footnote" colspan="2">*) if the <em><a href="http://www.w3.org/TR/css3-box/#containing">containing block</a></em> is <em><a href="http://www.w3.org/TR/css3-box/#horizontal">horizontal,</a></em> otherwise the height
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>块级元素外边距垂直合并，水平的就不会合并。</p>
+                    <div></div>
+                    <p>块级子元素对父元素设置垂直外边距。只有当父元素有明确的边框设置时才有效，否则子元素的垂直外边距会向上传递到父元素，从而表征为父元素的垂直外边距增加了。</p>
+                    <div></div>
+                    <p>块级元素水平居中：<code>margin: 0 auto;</code>。即使初始值是0，然而对于从右向左、从上至下书写的语言而言， <code>margin-right</code> 和 <code>margin-bottom</code>将被强制设置为auto。</p>
+                    <div></div>
+                    <p>负外边距，可表现出假的布局效果。</p>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="border">简写边框|<a href="http://www.w3.org/TR/css3-background/#the-border-shorthands" title="border">border</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="border">border</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltline-widthgt">
+                                        <var>&lt;line-width&gt;</var>
+                                    </a> ||
+                                    <a href="http://www.w3.org/TR/css3-background/#ltline-stylegt">
+                                        <var>&lt;line-style&gt;</var>
+                                    </a> ||
+                                    <var>&lt;color&gt;</var>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>See individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>border的每个方向的单独属性还有<code>border-width</code> / <code>border-style</code> / <code>border-color</code>三个单独属性。</p>
+                    <p><code>border-width</code> : [ <code>&lt;length&gt;</code> | <code>thin</code> | <code>medium</code> | <code>thick</code> ]{1,4}。初始值是 <code>medium</code> 。</p>
+                    <p><code>border-style</code> : [ <code>none</code> | <code>hidden</code> | <code>dotted</code> | <code>dashed</code> | <code>solid</code> | <code>double</code> | <code>groove</code> | <code>ridge</code> | <code>inset</code> | <code>outset</code> ]{1,4}。初始值是 <code>none</code> 。</p>
+                    <p><code>border-color</code> : [ <code>&lt;color&gt;</code> | <code>transparent</code> ]{1,4}。初始值是当前元素字体颜色 <code>color</code> 。</p>
+                    <p>虽说以上三个属性都有默认值，但是只要 <code>border-style</code> 是默认的 <code>none</code> ，边框就不会出现，也就是不存在颜色和厚度了。</p>
+                    <p>这里每个单独属性后面的{1,4}说明了它们都可以设置 <a href="#TRBL">TRBL</a> 四个方向各自单独属性。</p>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="border-radius">边框圆角|<a href="http://www.w3.org/TR/css3-background/#the-border-radius" title="border-radius">border-radius</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>border-radius&lpar;
+                                    <dfn id="border-top-left-radius">border-top-left-radius</dfn>,
+                                    <dfn id="border-top-right-radius">border-top-right-radius</dfn>,
+                                    <dfn id="border-bottom-right-radius">border-bottom-right-radius</dfn>,
+                                    <dfn id="border-bottom-left-radius">border-bottom-left-radius</dfn>&rpar;
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>[
+                                    <var>&lt;length&gt;</var> |
+                                    <var>&lt;percentage&gt;</var> ]{1,4} [ / [
+                                    <var>&lt;length&gt;</var> |
+                                    <var>&lt;percentage&gt;</var> ]{1,4} ]?
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements (but see prose)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>Refer to corresponding dimension of the <a href="http://www.w3.org/TR/CSS21/box.html#box-dimensions">border box</a>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>two absolute &lt;length&gt; or percentages
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as two values of <a href="http://www.w3.org/TR/css3-transitions/#animtype-lpcalc">length, percentage, or calc</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>边框圆角也可以分成四个角的单独属性，类似<a href="#TRBL">TRBL</a>。也可以按照水平/垂直分成两个单独属性，一般同时出现时水平的各方向角属性在前，垂直的各方向角属性在后，中间以斜杠 <code>&sol;</code> 隔开。两种单独属性一共可以划分出8个单独属性。幅度可以设置百分比，百分比的计算是以对应水平/垂直方向的宽/高为基数的。</p>
+                    <ol>
+                        <li>
+                            <p>同设水平垂直属性：</p>
+                            <!-- 设置上左、上右、下右、下左四个角的圆角幅度 -->
+                            <div>instance</div>
+                            <!-- 设置上左、上右和下左、下右的圆角幅度 -->
+                            <div>instance</div>
+                            <!-- 设置上左和下右、上右和下左的圆角幅度 -->
+                            <div>instance</div>
+                            <!-- 四个角同时设置 -->
+                            <div>instance</div>
+                            <!-- 设置百分比 -->
+                            <div>instance</div>
+                            <!-- 造一个圆 -->
+                            <div>instance</div>
+                        </li>
+                        <li>
+                            <p>分设水平垂直属性：</p>
+                            <!-- 水平属性设置四个角，垂直属性也设置四个角 -->
+                            <div>instance</div>
+                            <!-- 水平属性设置上左、上右和下左、下右的圆角幅度，炊事属性同时设置四个角 -->
+                            <div>instance</div>
+                            <!-- 水平属性同时设置四个角，垂直属性设置上左和下右、上右和下左的圆角幅度 -->
+                            <div>instance</div>
+                            <!-- 水平和垂直属性都同时设置四个角 -->
+                            <div>instance</div>
+                        </li>
+                    </ol>
+                </div>
+            </article>
+            <article>
+                <h3 id="box-shadow">盒子阴影|<a href="http://www.w3.org/TR/css3-background/#the-box-shadow" title="box-shadow">box-shadow</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="box-shadow">box-shadow</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>none |
+                                    <a href="http://www.w3.org/TR/css3-background/#ltshadowgt">
+                                        <var>&lt;shadow&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltshadowgt">
+                                        <var>&lt;shadow&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>any &lt;length&gt; made absolute; any specified color computed; otherwise as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-shadow-list">shadow list</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性用于设置盒子的阴影。第一个值设置水平偏移，第二个值设置垂直偏移，第三个值是模糊半径（可省略，为0），第四个值是阴影大小（可省略，为0），第五个值是颜色（可省略，默认是当前字体颜色）</p>
+                    <div></div>
+                    <p><code>inset</code> 是设置内阴影。不设置这一项时，就是外阴影。可以叠加多个阴影效果，用英文逗号分隔。阴影不占空间，只作为修饰效果。</p>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="outline">外描边|<a href="http://www.w3.org/TR/css-ui-3/#outline" title="">outline</a></h3>
+                <div>
+                    <table class="propdef">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-outline">outline
+                                        <a class="self-link" href="#propdef-outline"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    [ &lt;<a class="property" data-link-type="propdesc" href="http://www.w3.org/TR/css-ui-3/#propdef-outline-color">outline-color</a>&gt; || &lt;<a class="property" data-link-type="propdesc" href="http://www.w3.org/TR/css-ui-3/#propdef-outline-style">outline-style</a>&gt; || &lt;
+                                    <a class="property" data-link-type="propdesc" href="http://www.w3.org/TR/css-ui-3/#propdef-outline-width">outline-width</a>&gt; ]
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>设置这个属性并不会占据空间。</p>
+                    <p>这个属性跟<code>border</code>的width、style和color设置相似。只不过不能单独设置四个边。并且多了一个<code>invert</code>来显示与背景色相反的颜色。</p>
+                    <div>
+                        <div></div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="overflow">溢出|<a href="http://www.w3.org/TR/css3-box/#overflow" title="overflow">overflow</a></h3>
+                <div>
+                    <table class="propdef" id="nameoverflow">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="overflow0">overflow</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>[ visible | hidden | scroll | auto | no-display | no-content ]{1,2}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>non-replaced <em><a href="http://www.w3.org/TR/css3-box/#block-level">block-level</a></em> elements and non-replaced '<code class="css"><a href="http://www.w3.org/TR/css3-box/#inline-block">inline-block</a></code>' elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>as specified, except '<a class="property" href="http://www.w3.org/TR/css3-box/#visible0">visible</a>', see text
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性可以设置水平 <code>overflow-x</code> 和垂直方向 <code>overflow-y</code> 上内容溢出容器时，以何种方式表现出来。</p>
+                    <p><code>visible</code>是初始值，超出容器的内容会正常显示出来。</p>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur libero ipsam veniam saepe quibusdam, dolores, fuga distinctio doloribus voluptatum impedit hic placeat beatae nobis culpa cum fugit sit! Porro, aut.</div>
+                    <p><code>hidden</code>，会将超出容器的内容隐藏。</p>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ipsam architecto fugit reiciendis, blanditiis numquam est enim et pariatur iusto ex aut aliquid minus consectetur perferendis aliquam vel, esse iure.</div>
+                    <p><code>scroll</code>，始终显示滚动条，可以单独设置水平和垂直上内容超出时的滚动条，如果一起设置，则水平和垂直方向的滚动条都会出现。</p>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa quis error, minus iure velit ullam. Mollitia vero officia dignissimos maiores illo perferendis, repellendus, reprehenderit velit, commodi nisi, aperiam dolorum et.</div>
+                    <p><code>auto</code>，会判断内容是否超出容器，如果没有超出则不显示滚动条，如果出现超出则跟 <code>scroll</code> 效果一样。</p>
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo provident quisquam aspernatur, molestias fuga repudiandae vitae culpa excepturi, omnis eveniet, quo expedita neque, sapiente beatae fugit nesciunt ipsam maxime minima!</div>
+                </div>
+            </article>
+            <article>
+                <h3>行高|box-sizing</h3>
+                <div>to insert syntax</div>
+                <div>
+                    <p>这个属性用于指定 <code>width</code>和<code>height</code> 设置的区域。</p>
+                    <p>由于 <code>box-sizing</code> 的初始值是 <code>content-box</code> ，所以一般一个元素的<code>width</code>和<code>height</code>都是设置的的内容区的宽高。</p>
+                    <div></div>
+                    <p><code>border-box</code>，则是让 <code>width</code>和<code>height</code> 设置的是包括内容区、内边距和边框在内的所有宽高。</p>
+                    <div></div>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h3 id="details">细节要点分析</h3>
+                <div id="boxmodel">
+                    <span>margintop</span>
+                    <span>marginright</span>
+                    <span>marginbottom</span>
+                    <span>marginleft</span>
+                    <div>
+                        <span>bordertop</span>
+                        <span>borderright</span>
+                        <span>borderbottom</span>
+                        <span>borderleft</span>
+                        <div>
+                            <span>paddingtop</span>
+                            <span>paddingright</span>
+                            <span>paddingbottom</span>
+                            <span>paddingleft</span>
+                            <div>content</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p>盒模型，</p>
+                    <p>整个盒子的宽高计算。</p>
+                </div>
+                <h4 id="TRBL">TRBL</h4>
+                <p><code>margin</code> / <code>border</code> / <code>padding</code> / <code>border-radius</code> 都有上右下左四个方向的单独属性。</p>
+                <div></div>
+                <h4>撑开盒子</h4>
+                <p>内容区宽/高固定，<code>padding</code> / <code>margin</code> 撑开盒子宽/高。仅对块级元素。</p>
+                <div></div>
+                <h4>拉伸内容区</h4>
+                <p>盒子宽/高固定，<code>padding</code> / <code> margin</code> 拉伸内容区宽/高。仅对块级元素。</p>
+                <div></div>
+                <h4>行高的影响</h4>
+                <div>
+                    <ol>
+                        <li><span>行内非替换元素</span>
+                            <ol>
+                                <li>margin/border/padding</li>
+                                <li></li>
+                                <li></li>
+                            </ol>
+                        </li>
+                        <li><span>行内替换元素</span>
+                            <ol>
+                                <li>margin/border/padding</li>
+                                <li></li>
+                                <li></li>
+                            </ol>
+                        </li>
+                        <li><span>块级元素</span>
+                            <ol>
+                                <li>margin/border/padding</li>
+                                <li></li>
+                                <li></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+                <div></div>
+                <h4>块级元素水平流/垂直流</h4>
+                <p>对于块级元素而言，是水平流还是垂直流，直接会影响到margin/padding的百分数计算。</p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+                <h4></h4>
+                <p></p>
+                <div></div>
+            </article>
+        </section>
+        <section>
+            <h3 id="reference">参考</h3> ol>
+        </section>
+    </main>
+    <footer>
+        <h3>声明</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta autem qui eos ullam incidunt reprehenderit ea ducimus, tenetur quam nobis omnis molestiae accusamus. Fugit ullam, eius voluptas quisquam eaque, atque.</p>
+        <a href="https://example.com">link content</a>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+table {
+    font: .8em Monaco;
+    display: block;
+}
+
+tr {
+    background: #EEE;
+    display: inline-block;
+    text-align: center;
+    width: 10em;
+    height: 10em;
+    margin: .5em;
+    padding: 1px;
+    position: relative;
+}
+
+td {
+    display: block;
+}
+
+.character {
+    font: 4em "Georgia", "Apple Symbols", serif;
+    line-height: 1.1;
+}
+
+.hex,
+.dec {
+    visibility: hidden;
+}
+
+.desc {
+    display: none;
+    position: absolute;
+    text-align: center;
+    background: silver;
+    color: black;
+}
+
+tr:hover .character {
+    font-size: 2em;
+}
+
+tr:hover .hex,
+tr:hover .dec {
+    visibility: visible;
+}
+
+xtr:hover .desc {
+    display: block;
+    top: 100%;
+    left: 0;
+}
