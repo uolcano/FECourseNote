@@ -12,7 +12,30 @@
 <body>
     <header>
         <h2 id="top">盒模型</h2></header>
-    <nav></nav>
+    <nav>
+        <ul>
+            <li><a href="#width" title="width">width</a></li>
+            <li><a href="#height" title="height">height</a></li>
+            <li><a href="#min" title="min-width/min-height">min-width/min-height</a></li>
+            <li><a href="#max" title="max-width/max-height">max-width/max-height</a></li>
+            <li><a href="#padding" title="padding">padding</a></li>
+            <li><a href="#margin" title="margin">margin</a></li>
+            <li><a href="#border" title="border">border</a></li>
+            <li><a href="#border-radius" title=""border-radius>border-radius</a></li>
+            <li><a href="#box-shadow" title="box-shadow">box-shadow</a></li>
+            <li><a href="#outline" title="outline">outline</a></li>
+            <li><a href="#overflow" title="overflow">overflow</a></li>
+            <li><a href="#box-sizing" title="box-sizing">box-sizing</a></li>
+            <li><a href="#details" title="details">details</a></li>
+            <li><a href="#TRBL" title="TRBL">TRBL</a></li>
+            <li><a href="#holdup_box" title="撑开盒子">撑开盒子</a></li>
+            <li><a href="#cover_content" title="内容覆盖">内容覆盖</a></li>
+            <li><a href="#effect_line-height" title="行高的影响">行高的影响</a></li>
+            <li><a href="#blockflow" title="blockflow">blockflow</a></li>
+            <li><a href="#reference" title="参考">参考</a></li>
+            <li><a href="#top">回到顶部</a></li>
+        </ul>
+    </nav>
     <main>
         <section>
             <article>
@@ -245,7 +268,7 @@
                         </tbody>
                     </table>
                 </div>
-                <h3 id="min">最大宽高|<a href="http://www.w3.org/TR/css3-box/#min-max" title="">max-width/max-height</a></h3>
+                <h3 id="max">最大宽高|<a href="http://www.w3.org/TR/css3-box/#min-max" title="">max-width/max-height</a></h3>
                 <div>
                     <table class="propdef" id="namemax-width">
                         <colgroup width="20%"></colgroup>
@@ -375,8 +398,7 @@
                     </table>
                 </div>
                 <div>
-                    <p></p>
-                    <div></div>
+                    <p>需要注意的是内边距和行高的区别。大部分时候行高撑起了内容区，如果没有个别内容被<code>vertical-align</code>或字体大小提升高度，行高就是内容高度，内容宽度则根据文本多少决定。内边距则是边框以内，内容区以外的部分。其他详情看<a href="#details">细节要点分析</a>。</p>
                     <p></p>
                     <div></div>
                     <p></p>
@@ -448,14 +470,29 @@
                     </table>
                 </div>
                 <div>
-                    <p>块级元素外边距垂直合并，水平的就不会合并。</p>
-                    <div></div>
+                    <p>两个块级元素总的垂直外边距会合并，宽的外边距会“吃掉”窄的，而不是叠加起来。当然连个块级元素格子的外边距数值上都保留。行内元素水平外边距的就不会合并。</p>
+                    <div class="example">
+                        <!-- 这里可以看出什么叫做“保大的” -->
+                        <div>instance1</div>
+                        <div>instance2</div>
+                    </div>
                     <p>块级子元素对父元素设置垂直外边距。只有当父元素有明确的边框设置时才有效，否则子元素的垂直外边距会向上传递到父元素，从而表征为父元素的垂直外边距增加了。</p>
-                    <div></div>
-                    <p>块级元素水平居中：<code>margin: 0 auto;</code>。即使初始值是0，然而对于从右向左、从上至下书写的语言而言， <code>margin-right</code> 和 <code>margin-bottom</code>将被强制设置为auto。</p>
-                    <div></div>
-                    <p>负外边距，可表现出假的布局效果。</p>
-                    <div></div>
+                    <div class="example">
+                        <div>
+                            <div>instance1</div>
+                        </div>
+                        <div>
+                            <div>instance2</div>
+                        </div>
+                    </div>
+                    <p>块级元素水平居中：<code>margin: 0 auto;</code>。即使初始值是0，然而对于从右向左、从上至下书写的语言而言（详情可看我的<a href="https://segmentfault.com/a/1190000004257151#articleHeader4" target="_blank">相关文章</a>）， <code>margin-right</code> 和 <code>margin-bottom</code>将被强制设置为auto。</p>
+                    <div class="example">
+                        <div>To center a block</div>
+                    </div>
+                    <p>块级元素设置负外边距，可表现出假的布局效果。行内元素负的外边框会出现水平方向上该元素的内容和背景覆盖前面的元素，它后面的内容会覆盖到它上面，垂直覆盖请看<a href="#cover_content">这里</a>。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <div>Blanditiis ullam nemo nesciunt tempore, sint esse sequi asperiores odit qui minima praesentium illo obcaecati saepe perferendis corporis.</div> Omnis nam distinctio dolorum?
+                    </div>
                 </div>
             </article>
             <article>
@@ -536,7 +573,24 @@
                     <p><code>border-color</code> : [ <code>&lt;color&gt;</code> | <code>transparent</code> ]{1,4}。初始值是当前元素字体颜色 <code>color</code> 。</p>
                     <p>虽说以上三个属性都有默认值，但是只要 <code>border-style</code> 是默认的 <code>none</code> ，边框就不会出现，也就是不存在颜色和厚度了。</p>
                     <p>这里每个单独属性后面的{1,4}说明了它们都可以设置 <a href="#TRBL">TRBL</a> 四个方向各自单独属性。</p>
-                    <div></div>
+                    <div class="example">
+                        <!-- 实线 -->
+                        <div>instance</div>
+                        <!-- 打点 -->
+                        <div>instance</div>
+                        <!-- 虚线 -->
+                        <div>instance</div>
+                        <!-- 双实线 -->
+                        <div>instance</div>
+                        <!-- 山脊线 -->
+                        <div>instance</div>
+                        <!-- 山谷线 -->
+                        <div>instance</div>
+                        <!-- 按钮按下 -->
+                        <div>instance</div>
+                        <!-- 按钮突起 -->
+                        <div>instance</div>
+                    </div>
                 </div>
             </article>
             <article>
@@ -722,6 +776,7 @@
                 <h3 id="outline">外描边|<a href="http://www.w3.org/TR/css-ui-3/#outline" title="">outline</a></h3>
                 <div>
                     <table class="propdef">
+                        <colgroup width="20%"></colgroup>
                         <tbody>
                             <tr>
                                 <th>Name:
@@ -788,7 +843,7 @@
                 <div>
                     <p>设置这个属性并不会占据空间。</p>
                     <p>这个属性跟<code>border</code>的width、style和color设置相似。只不过不能单独设置四个边。并且多了一个<code>invert</code>来显示与背景色相反的颜色。</p>
-                    <div>
+                    <div class="example">
                         <div></div>
                     </div>
                 </div>
@@ -853,147 +908,164 @@
                 <div>
                     <p>这个属性可以设置水平 <code>overflow-x</code> 和垂直方向 <code>overflow-y</code> 上内容溢出容器时，以何种方式表现出来。</p>
                     <p><code>visible</code>是初始值，超出容器的内容会正常显示出来。</p>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur libero ipsam veniam saepe quibusdam, dolores, fuga distinctio doloribus voluptatum impedit hic placeat beatae nobis culpa cum fugit sit! Porro, aut.</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur libero ipsam veniam saepe quibusdam, dolores, fuga distinctio doloribus voluptatum impedit hic placeat beatae nobis culpa cum fugit sit! Porro, aut.</div>
                     <p><code>hidden</code>，会将超出容器的内容隐藏。</p>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ipsam architecto fugit reiciendis, blanditiis numquam est enim et pariatur iusto ex aut aliquid minus consectetur perferendis aliquam vel, esse iure.</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo ipsam architecto fugit reiciendis, blanditiis numquam est enim et pariatur iusto ex aut aliquid minus consectetur perferendis aliquam vel, esse iure.</div>
                     <p><code>scroll</code>，始终显示滚动条，可以单独设置水平和垂直上内容超出时的滚动条，如果一起设置，则水平和垂直方向的滚动条都会出现。</p>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa quis error, minus iure velit ullam. Mollitia vero officia dignissimos maiores illo perferendis, repellendus, reprehenderit velit, commodi nisi, aperiam dolorum et.</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa quis error, minus iure velit ullam. Mollitia vero officia dignissimos maiores illo perferendis, repellendus, reprehenderit velit, commodi nisi, aperiam dolorum et.</div>
                     <p><code>auto</code>，会判断内容是否超出容器，如果没有超出则不显示滚动条，如果出现超出则跟 <code>scroll</code> 效果一样。</p>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo provident quisquam aspernatur, molestias fuga repudiandae vitae culpa excepturi, omnis eveniet, quo expedita neque, sapiente beatae fugit nesciunt ipsam maxime minima!</div>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo provident quisquam aspernatur, molestias fuga repudiandae vitae culpa excepturi, omnis eveniet, quo expedita neque, sapiente beatae fugit nesciunt ipsam maxime minima!</div>
                 </div>
             </article>
             <article>
-                <h3>行高|box-sizing</h3>
-                <div>to insert syntax</div>
+                <h3 id="box-sizing">宽高设置区域|<a href="http://www.w3.org/TR/css-ui-3/#box-sizing" title="">box-sizing</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-box-sizing">box-sizing
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>
+                                    content-box | border-box
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>content-box
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements that accept width or height
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed&nbsp;value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div>
                     <p>这个属性用于指定 <code>width</code>和<code>height</code> 设置的区域。</p>
                     <p>由于 <code>box-sizing</code> 的初始值是 <code>content-box</code> ，所以一般一个元素的<code>width</code>和<code>height</code>都是设置的的内容区的宽高。</p>
-                    <div></div>
+                    <div class="example">
+                        <div>instance1</div>
+                    </div>
                     <p><code>border-box</code>，则是让 <code>width</code>和<code>height</code> 设置的是包括内容区、内边距和边框在内的所有宽高。</p>
-                    <div></div>
+                    <div class="example">
+                        <div>instance2</div>
+                    </div>
                 </div>
             </article>
         </section>
         <section>
             <article>
                 <h3 id="details">细节要点分析</h3>
+                <!-- 纯CSS构图-盒模型 -->
                 <div id="boxmodel">
-                    <span>margintop</span>
-                    <span>marginright</span>
-                    <span>marginbottom</span>
-                    <span>marginleft</span>
+                    <span>margin top</span>
+                    <span>margin right</span>
+                    <span>margin bottom</span>
+                    <span>margin left</span>
                     <div>
-                        <span>bordertop</span>
-                        <span>borderright</span>
-                        <span>borderbottom</span>
-                        <span>borderleft</span>
+                        <span>border top</span>
+                        <span>border right</span>
+                        <span>border bottom</span>
+                        <span>border left</span>
                         <div>
-                            <span>paddingtop</span>
-                            <span>paddingright</span>
-                            <span>paddingbottom</span>
-                            <span>paddingleft</span>
+                            <span>padding top</span>
+                            <span>padding right</span>
+                            <span>padding bottom</span>
+                            <span>padding left</span>
                             <div>content</div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <p>盒模型，</p>
-                    <p>整个盒子的宽高计算。</p>
+                    <p>盒模型</p>
+                    <p>对于行内元素而言，高度就是行高构成的内容区高度，宽度就是内容区宽度。</p>
+                    <p>而对于块级元素而言，宽高要看<code>box-sizing</code>是设置的<code>content-box</code>还是<code>border-box</code>。设置的是前者着宽高就是内容区宽高，设置的是后者则宽高都要加上边框厚度和内边距。</p>
                 </div>
-                <h4 id="TRBL">TRBL</h4>
-                <p><code>margin</code> / <code>border</code> / <code>padding</code> / <code>border-radius</code> 都有上右下左四个方向的单独属性。</p>
-                <div></div>
-                <h4>撑开盒子</h4>
-                <p>内容区宽/高固定，<code>padding</code> / <code>margin</code> 撑开盒子宽/高。仅对块级元素。</p>
-                <div></div>
-                <h4>拉伸内容区</h4>
-                <p>盒子宽/高固定，<code>padding</code> / <code> margin</code> 拉伸内容区宽/高。仅对块级元素。</p>
-                <div></div>
-                <h4>行高的影响</h4>
                 <div>
-                    <ol>
-                        <li><span>行内非替换元素</span>
-                            <ol>
-                                <li>margin/border/padding</li>
-                                <li></li>
-                                <li></li>
-                            </ol>
-                        </li>
-                        <li><span>行内替换元素</span>
-                            <ol>
-                                <li>margin/border/padding</li>
-                                <li></li>
-                                <li></li>
-                            </ol>
-                        </li>
-                        <li><span>块级元素</span>
-                            <ol>
-                                <li>margin/border/padding</li>
-                                <li></li>
-                                <li></li>
-                            </ol>
-                        </li>
-                    </ol>
+                    <h4 id="TRBL">TRBL</h4>
+                    <p><code>margin</code> / <code>border</code> / <code>padding</code> 都有上右下左四个方向的单独属性。而 <code>border-radius</code> 则是从上左顺时钟走四个角。</p>
                 </div>
-                <div></div>
-                <h4>块级元素水平流/垂直流</h4>
-                <p>对于块级元素而言，是水平流还是垂直流，直接会影响到margin/padding的百分数计算。</p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
-                <h4></h4>
-                <p></p>
-                <div></div>
+                <div>
+                    <h4 id="holdup_box">撑开盒子</h4>
+                    <p>内容区宽/高固定，<code>padding</code> 撑开盒子宽/高。仅对的块级元素。 <code>margin</code> 并不会把父元素容器撑开。</p>
+                    <div class="example">instance
+                        <div>instance</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 id="cover_content">内容覆盖</h4>
+                    <p>行内非替换元素 <code>border</code> / <code>padding</code> 设置因为无法像块级元素那样影响垂直高度，所以会使得下面行的内容盖在该元素上，该元素的内容和背景都会覆盖在它的上面一行。但是水平方向仍会像块级元素一样有“撑开”效果。</p>
+                    <div class="example">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis esse hic ut assumenda tempore. <span>Repellat, mollitia,</span> rerum possimus quaerat ex consequuntur dolor dicta laudantium, dolore eum libero error tempore.
+                    </div>
+                </div>
+                <div>
+                    <h4 id="effect_line-height">行高的影响</h4>
+                    <p>对于行内非替换元素，设置 <code>margin</code> / <code>border</code> / <code>padding</code> 都不会影响行高。</p>
+                </div>
+                <div>
+                    <h4 id="blockflow">块级元素水平流/垂直流</h4>
+                    <p>对于块级元素而言，是水平流还是垂直流，直接会影响到 <code>margin</code> / <code>padding</code> 的百分数计算。详情看<a href="https://segmentfault.com/a/1190000004257151#articleHeader4">这里</a>。</p>
+                </div>
             </article>
         </section>
         <section>
-            <h3 id="reference">参考</h3> ol>
+            <h3 id="reference">参考</h3>
+            <ol>
+                <li><a href="http://www.w3.org/TR/#tr_CSS">All Standards and Drafts - W3C</a></li>
+                <li><a href="https://segmentfault.com/a/1190000004257151">【CSS深入】设置不同块级流方向时的属性百分比计算 - 编程人生 - SegmentFault</a></li>
+            </ol>
+            </p>
         </section>
     </main>
     <footer>
         <h3>声明</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta autem qui eos ullam incidunt reprehenderit ea ducimus, tenetur quam nobis omnis molestiae accusamus. Fugit ullam, eius voluptas quisquam eaque, atque.</p>
-        <a href="https://example.com">link content</a>
+        <p>此文根据w3.org文档归纳总结，并伴以个人实践，或有错漏，还望指出。</p>
+        <p>我的Github：
+            <a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a></p>
     </footer>
     <!-- 情景一，从本地文件引入 -->
     <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->

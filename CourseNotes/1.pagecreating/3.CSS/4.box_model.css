@@ -25,6 +25,111 @@
 }
 
 
+/*margin属性实验*/
+
+#margin~:last-child>:nth-child(2) {
+    background-color: silver;
+    border: 1px solid;
+    width: 300px;
+    height: 200px;
+}
+
+#margin~:last-child>:nth-child(2)>:first-child {
+    background-color: lime;
+    margin: 10px;
+}
+
+#margin~:last-child>:nth-child(2)>:last-child {
+    background-color: orange;
+    margin: 25px;
+}
+
+#margin~:last-child>:nth-child(4)>div {
+    background-color: silver;
+    margin: 5px;
+    height: 100px;
+    width: 200px;
+}
+
+#margin~:last-child>:nth-child(4)>:first-child>div {
+    background-color: lime;
+    margin: 20px;
+}
+
+#margin~:last-child>:nth-child(4)>:last-child>div {
+    background-color: orange;
+    margin: 20px;
+}
+
+#margin~:last-child>:nth-child(4)>:last-child {
+    border: 1px dashed red;
+}
+
+#margin~:last-child>:nth-child(6)>div {
+    background-color: orange;
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+#margin~:last-child>:nth-child(8) {
+    background-color: silver;
+    width: 300px;
+    height: 150px;
+}
+
+#margin~:last-child>:nth-child(8)>div {
+    background-color: orange;
+    margin: 10px -280px -10px 280px;
+}
+
+
+/*border属性实验*/
+
+#border~:last-child>:last-child {
+    background-color: silver;
+    height: 300px;
+    width: 200px;
+    padding: 10px;
+}
+
+#border~:last-child>:last-child div {
+    margin-bottom: 7px;
+}
+
+#border~:last-child>:last-child>:nth-child(1) {
+    border: 5px solid red;
+}
+
+#border~:last-child>:last-child>:nth-child(2) {
+    border: 5px dotted red;
+}
+
+#border~:last-child>:last-child>:nth-child(3) {
+    border: 5px dashed red;
+}
+
+#border~:last-child>:last-child>:nth-child(4) {
+    border: 5px double red;
+}
+
+#border~:last-child>:last-child>:nth-child(5) {
+    border: 5px ridge red;
+}
+
+#border~:last-child>:last-child>:nth-child(6) {
+    border: 5px groove red;
+}
+
+#border~:last-child>:last-child>:nth-child(7) {
+    border: 5px inset red;
+}
+
+#border~:last-child>:last-child>:nth-child(8) {
+    border: 5px outset red;
+}
+
+
 /*border-radius属性实验*/
 
 #border-radius~div:last-child>ol div {
@@ -88,23 +193,28 @@
 
 
 /*box-shadow*/
+
 #box-shadow~div:last-child>:nth-child(2) {
     width: 100px;
     height: 100px;
     box-shadow: 2px 2px 2px 2px red;
 }
+
 #box-shadow~div:last-child>:nth-child(4) {
     width: 100px;
     height: 100px;
     box-shadow: inset 2px 2px 2px 2px red, 1px 1px 2px 2px fuchsia;
 }
+
+
 /*outline*/
+
 #outline~div:last-child>div {
     background-color: lime;
-    height: 300px;
-    width: 300px;
-    border: 1px solid;
+    height: 200px;
+    width: 200px;
 }
+
 #outline~div:last-child>div>div {
     background-color: orange;
     height: 20%;
@@ -114,24 +224,60 @@
     outline: 4px dashed;
 }
 
+
 /*overflow*/
+
 #overflow~div:last-child div {
     width: 300px;
     height: 100px;
     background-color: lime;
 }
+
 #overflow~div:last-child>:nth-child(3) {
     overflow: visible;
 }
+
 #overflow~div:last-child>:nth-child(5) {
     overflow: hidden;
 }
+
 #overflow~div:last-child>:nth-child(7) {
     overflow: scroll;
 }
+
 #overflow~div:last-child>:nth-child(9) {
     overflow: auto;
 }
+
+
+/*box-sizing属性设置*/
+
+#box-sizing~div:last-child>div {
+    background-color: silver;
+    height: 100px;
+}
+
+#box-sizing~div:last-child>:nth-child(3)>div {
+    background-color: orange;
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: 5px dashed blue;
+}
+
+#box-sizing~div:last-child>:nth-child(5)>div {
+    background-color: lime;
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: 5px dashed blue;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
 
 /*box model 最外层盒子*/
 
@@ -211,6 +357,13 @@
 }
 
 
+/*每个内套盒子的第4边，也就是右边旋转180度*/
+
+#boxmodel span:nth-child(4) {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
 /*外套盒子的内边*/
 
 #boxmodel>span {
@@ -272,4 +425,33 @@
     height: 0;
     overflow: hidden;
     visibility: hidden;
+}
+
+/*撑开盒子*/
+#holdup_box~div {
+    background-color: silver;
+    border: 1px solid;
+    height: 200px;
+    width: 200px;
+}
+#holdup_box~div>div {
+    background-color: lime;
+    border: 1px solid;
+    height: 50px;
+    width: 50px;
+    padding: 50px;
+    margin: 70px;
+}
+
+/*内容覆盖实验*/
+#cover_content~div {
+    background-color: silver;
+    text-decoration: underline;
+    width: 50%;
+}
+#cover_content~div>span {
+    background-color: orange;
+    border: 5px dashed red;
+    padding: 5px;
+    /*margin: 10px;*/
 }
