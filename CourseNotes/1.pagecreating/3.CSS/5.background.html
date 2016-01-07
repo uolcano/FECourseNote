@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>5 background</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="../../csslib/general.css">
+    <link rel="stylesheet" href="5.background.css">
+</head>
+
+<body>
+    <header>
+        <h2 id="top">背景</h2></header>
+    <nav>
+        <ul>
+            <li><a href="#background-color" title="background-color">background-color</a></li>
+            <li><a href="#background-image" title="background-image">background-image</a></li>
+            <li><a href="#background-repeat" title="background-repeat">background-repeat</a></li>
+            <li><a href="#background-attachment" title="background-attachment">background-attachment</a></li>
+            <li><a href="#background-position" title="background-position">background-position</a></li>
+            <li><a href="#background-clip" title="background-clip">background-clip</a></li>
+            <li><a href="#background-origin" title="background-origin">background-origin</a></li>
+            <li><a href="#background-size" title="background-size">background-size</a></li>
+            <li><a href="#background" title="background">background</a></li>
+            <li><a href="#linear-gradient" title="linear-gradient">linear-gradient</a></li>
+            <li><a href="#radial-gradient" title="radial-gradient">radial-gradient</a></li>
+            <li><a href="#repeating" title="repeating">repeating</a></li>
+            <li><a href="#top" title="回到顶部">回到顶部</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h3 id="background-color">背景色|<a href="http://www.w3.org/TR/css3-background/#the-background-color" title="background-color">background-color</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-color">background-color</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <var>&lt;color&gt;</var>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>transparent
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>the computed color
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-color">color</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性用于设置背景颜色。</p>
+                    <p><code>rgb(255, 0, 0)</code> ，或者 <code>rgba(255, 0, 0, 0.1)</code> 设置透明度</p>
+                    <div class="example"></div>
+                    <p><code>#ff0000</code>或者简写的<code>#f00</code></p>
+                    <div class="example"></div>
+                    <p>也可以用颜色名</p>
+                    <div class="example"></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="background-image">背景图|<a href="http://www.w3.org/TR/css3-background/#the-background-image" title="background-image">background-image</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-image">background-image</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltbg-imagegt">
+                                        <var>&lt;bg-image&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltbg-imagegt">
+                                        <var>&lt;bg-image&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified, but with URIs made absolute
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltbg-imagegt"><var>&lt;bg-image&gt;</var></dfn> = <a href="#ltimagegt"><var>&lt;image&gt;</var></a> | none</code></pre>
+                        <pre class="prod"><code class="html"><dfn id="image-type">&lt;image&gt;</dfn> = <i>&lt;url&gt;</i> | <a href="http://www.w3.org/TR/css3-images/#image-list-type"><i>&lt;image-list&gt;</i></a> | <i>&lt;element-reference&gt;</i>  | <a href="http://www.w3.org/TR/css3-images/#gradient-type"><i>&lt;gradient&gt;</i></a></code></pre>
+                        <pre class="prod"><code class="html"><dfn id="gradient-type">&lt;gradient&gt;</dfn> = [ <a href="#linear-gradient-type"><i>&lt;linear-gradient&gt;</i></a> | <a href="#radial-gradient-type"><i>&lt;radial-gradient&gt;</i></a> | 
+                        <a href="#repeating"><i>&lt;repeating-linear-gradient&gt;</i></a> | <a href="#repeating"><i>&lt;repeating-radial-gradient&gt;</i></a> ]</code></pre>
+                    </p>
+                </div>
+                <div>
+                    <p>url()，参数绝对地址，相对地址，相对根路径，双引号，单引号，甚至不加引号。</p>
+                    <div class="example">instance</div>
+                    <p>多个背景图片或背景颜色时，越出现在逗号左边，图片越在前面。</p>
+                    <div class="example"></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="background-repeat">背景图平铺|<a href="http://www.w3.org/TR/css3-background/#the-background-repeat" title="background-repeat">background-repeat</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-repeat">background-repeat</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltrepeat-stylegt">
+                                        <var>&lt;repeat-style&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltrepeat-stylegt">
+                                        <var>&lt;repeat-style&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>repeat
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>A list, each item consisting of: two keywords, one per dimension
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltrepeat-stylegt"><var>&lt;repeat-style&gt;</var></dfn> = repeat-x | repeat-y | [repeat | space | round | no-repeat]{1,2}</code></pre></p>
+                </div>
+                <div>
+                    <p>repeat-x相当于repeat-x no-repeat，沿x轴平铺图片。</p>
+                    <p>repeat-y相当于no-repeat repeat-y，沿y轴平铺图片。</p>
+                    <p>space相当于space space，在图片之间填充空间以适应边框。</p>
+                    <p>round相当于round round，适当缩放，紧密排满边框。</p>
+                    <p>no-repeat相当于no-repeat no-repeat，不平铺。</p>
+                    <!-- 默认repeat -->
+                    <div class="example"></div>
+                    <!-- space -->
+                    <div class="example"></div>
+                    <!-- round -->
+                    <div class="example"></div>
+                    <!-- repeat-x -->
+                    <div class="example"></div>
+                    <!-- repeat-y -->
+                    <div class="example"></div>
+                    <p>可以写两个值，如果有两个值，则前面一个是X轴的，后面一个是Y轴的，中间空格。也可以叠加多个图片的平铺方式，像背景图片用逗号隔开。</p>
+                    <!-- 分别设置x轴和y轴 -->
+                    <div class="example"></div>
+                    <!-- 多张图片平铺 -->
+                    <div class="example"></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="background-attachment">背景滚动|<a href="http://www.w3.org/TR/css3-background/#the-background-attachment" title="background-attachment">background-attachment</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-attachment">background-attachment</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltattachmentgt">
+                                        <var>&lt;attachment&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltattachmentgt">
+                                        <var>&lt;attachment&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>scroll
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltattachmentgt"><var>&lt;attachment&gt;</var></dfn> = scroll | fixed | local</code></pre></p>
+                </div>
+                <div>
+                    <p>scroll，内容滚动，背景不动。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit maiores odit, cupiditate beatae aliquid voluptatem, ut fuga officia distinctio laboriosam excepturi sequi, dolores aliquam dicta eius id, necessitatibus non?</div>
+                    <p>local，内容和背景一起滚动</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit maiores odit, cupiditate beatae aliquid voluptatem, ut fuga officia distinctio laboriosam excepturi sequi, dolores aliquam dicta eius id, necessitatibus non?</div>
+                    <p>fixed，相对于viewport，基本就是定在屏幕位置上，实际应用中很少用。</p>
+                    <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit maiores odit, cupiditate beatae aliquid voluptatem, ut fuga officia distinctio laboriosam excepturi sequi, dolores aliquam dicta eius id, necessitatibus non?</div>
+                </div>
+            </article>
+            <article>
+                <h3 id="background-position">背景定位|<a href="http://www.w3.org/TR/css3-background/#the-background-position" title="background-position">background-position</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-position">background-position</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltpositiongt">
+                                        <var>&lt;position&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltpositiongt">
+                                        <var>&lt;position&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0% 0%
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to size of <a class="index" href="http://www.w3.org/TR/css3-background/#background-positioning-area" id="background-positioning-area1">background positioning area</a>
+                                    <em>minus</em> size of background image; see text
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>A list, each item consisting of: a pair of offsets (horizontal and vertical) from the top left origin each given as a combination of an absolute length and a percentage
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-repeatable-list">repeatable list</a> of <a href="http://www.w3.org/TR/css3-transitions/#animtype-simple-list">simple list</a> of <a href="http://www.w3.org/TR/css3-transitions/#animtype-lpcalc">length, percentage, or calc</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltpositiongt"><var>&lt;position&gt;</var></dfn> = [ 
+                         [ left | center | right | top | bottom | <var>&lt;percentage&gt;</var> | <var>&lt;length&gt;</var> ] 
+                        | 
+                         [ left | center | right | <var>&lt;percentage&gt;</var> | <var>&lt;length&gt;</var> ]
+                         [ top | center | bottom | <var>&lt;percentage&gt;</var> | <var>&lt;length&gt;</var> ] 
+                        | 
+                         [ center | [ left | right ] [ <var>&lt;percentage&gt;</var> | <var>&lt;length&gt;</var> ]? ] &amp;&amp; 
+                         [ center | [ top | bottom ] [ <var>&lt;percentage&gt;</var> | <var>&lt;length&gt;</var> ]? ] 
+                        ]</code></pre>
+                    </p>
+                </div>
+                <div>
+                    <p>这个属性用于定位背景图片的放置。</p>
+                    <p>使用一个值，另一个值默认是center，不一定是水平或垂直。使用时要注意与<a href="4.box_model.html#TRBL">TRBL</a>补全的方式进行区分。</p>
+                    <div class="example"></div>
+                    <p>使用两个。<span>10px 20px，x轴从左往右偏移10px，y轴从上往下偏移20px。
+                    百分比20% 50%，图片的20%和50%这个交汇点与容器的20%和50%的交汇点的重合。
+                    位置名称，right center，没有顺序限制，表示右边中间位置。</span></p>
+                    <div class="example"></div>
+                    <p>使用四个值。right 10px top 20px，距离右边10px，距离上边20px。这个例子参照物是由right和top决定，而上面两种情况则是以容器的左上角为原点，上边为x轴线，左边为y轴线。</p>
+                    <div class="example"></div>
+                    <p>精灵图/雪碧图/sprite，使用背景定位实现：</p>
+                    <pre><code class="css">background-image:url(sprite.png);
+background-repeat:no-repeat;
+background-position:0 -100px;</code></pre>
+                </div>
+            </article>
+            <article>
+                <h3 id="background-clip">背景绘制区域/裁剪|<a href="http://www.w3.org/TR/css3-background/#the-background-clip" title="background-clip">background-clip</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-clip">background-clip</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltboxgt">
+                                        <var>&lt;box&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltboxgt">
+                                        <var>&lt;box&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>border-box
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltboxgt"><var>&lt;box&gt;</var></dfn> = border-box | padding-box | content-box</code></pre></p>
+                </div>
+                <div>
+                    <p>这个属性用于确定背景的绘制区域。</p>
+                    <p>border-box，默认，截取边框boder外边界以内的区域，并显示。</p>
+                    <div class="example">
+                        <div>test content</div>
+                    </div>
+                    <p>padding-box，截取边框border内边界以内的区域，并显示。</p>
+                    <div class="example">
+                        <div>test content</div>
+                    </div>
+                    <p>content-box，截取content文本区域，并显示。</p>
+                    <div class="example">
+                        <div>test content</div>
+                    </div>
+                    <p><strong>注意：</strong>根元素有不同的区域绘制方式，因此background-clip对html根元素无效，看<a href="http://www.w3.org/TR/css3-background/#special-backgrounds">这里</a>。默认情况下，背景总是绘制在边框border之后的，但是不会超出边框。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="background-origin">背景填充开始位置|<a href="http://www.w3.org/TR/css3-background/#the-background-origin" title="background-origin">background-origin</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-origin">background-origin</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltboxgt">
+                                        <var>&lt;box&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltboxgt">
+                                        <var>&lt;box&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>padding-box
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltboxgt"><var>&lt;box&gt;</var></dfn> = border-box | padding-box | content-box</code></pre></p>
+                </div>
+                <div>
+                    <p>这个属性用于定位背景的从哪个区域开始平铺。</p>
+                    <p>padding-box，默认，从边框border内边界以内的左上角开始开始平铺。</p>
+                    <div class="example">
+                        <div>test content</div>
+                    </div>
+                    <p>border-box，从边框border外边界以内的左上角开始平铺。</p>
+                    <div class="example">
+                        <div>test content</div>
+                    </div>
+                    <p>content-box，从content文本区域左上角开始平铺。</p>
+                    <div class="example">
+                        <div>test content</div>
+                    </div>
+                    <p><strong>注意：</strong>当 <code>background-clip:padding-box;</code> <code>background-origin:borde-box;</code> <code>background-position:top left;</code> （都是初始值）且元素的边框不是0时，左上角的背景将被截掉。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="background-size">背景缩放|<a href="http://www.w3.org/TR/css3-background/#the-background-size" title="background-size">background-size</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background-size">background-size</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>
+                                    <a href="http://www.w3.org/TR/css3-background/#ltbg-sizegt">
+                                        <var>&lt;bg-size&gt;</var>
+                                    </a> [ ,
+                                    <a href="http://www.w3.org/TR/css3-background/#ltbg-sizegt">
+                                        <var>&lt;bg-size&gt;</var>
+                                    </a> ]*
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>see text
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified, but with lengths made absolute and omitted ‘<code class="css">auto</code>’ keywords filled in
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://www.w3.org/TR/css3-transitions/#animtype-repeatable-list">repeatable list</a> of <a href="http://www.w3.org/TR/css3-transitions/#animtype-simple-list">simple list</a> of <a href="http://www.w3.org/TR/css3-transitions/#animtype-lpcalc">length, percentage, or calc</a> (<span class="note">This means keyword values are not animatable.</span>)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltbg-sizegt"><var>&lt;bg-size&gt;</var></dfn> = [ <var>&lt;length&gt;</var> | <var>&lt;percentage&gt;</var> | auto ]{1,2} | cover | contain</code></pre></p>
+                </div>
+                <div>
+                    <div class="example"></div>
+                    <p>cover，图片宽高都不能小于容器宽高，图片尽可能小。即图片宽高包含容器宽高。</p>
+                    <div class="example"></div>
+                    <p>contain，图片宽高都不能超过容器宽高，且图片尽可能大。即容器宽高包含图片宽高。</p>
+                    <div class="example"></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="background">背景|<a href="http://www.w3.org/TR/css3-background/#the-background" title="background">background</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="background">background</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><a href="http://www.w3.org/TR/css3-background/#values">Value</a>:
+                                </th>
+                                <td>[
+                                    <a href="http://www.w3.org/TR/css3-background/#ltbg-layergt">
+                                        <var>&lt;bg-layer&gt;</var>
+                                    </a> , ]*
+                                    <a href="http://www.w3.org/TR/css3-background/#ltfinal-bg-layergt">
+                                        <var>&lt;final-bg-layer&gt;</var>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p><pre class="prod"><code class="html"><dfn id="ltbg-layergt"><var>&lt;bg-layer&gt;</var></dfn> = <a href="#ltbg-imagegt"><var>&lt;bg-image&gt;</var></a> || <a href="#ltpositiongt"><var>&lt;position&gt;</var></a> [ / <a href="#ltbg-sizegt"><var>&lt;bg-size&gt;</var></a> ]? || <a href="#ltrepeat-stylegt"><var>&lt;repeat-style&gt;</var></a> || <a href="#ltattachmentgt"><var>&lt;attachment&gt;</var></a> || <a href="#ltboxgt"><var>&lt;box&gt;</var></a> || <a href="#ltboxgt"><var>&lt;box&gt;</var></a></code></pre><pre class="prod"><code class="html"><dfn id="ltfinal-bg-layergt"><var>&lt;final-bg-layer&gt;</var></dfn> = <a href="#ltbg-imagegt"><var>&lt;bg-image&gt;</var></a> || <a href="#ltpositiongt"><var>&lt;position&gt;</var></a> [ / <a href="#ltbg-sizegt"><var>&lt;bg-size&gt;</var></a> ]? || <a href="#ltrepeat-stylegt"><var>&lt;repeat-style&gt;</var></a> || <a href="#ltattachmentgt"><var>&lt;attachment&gt;</var></a> || <a href="#ltboxgt"><var>&lt;box&gt;</var></a> || <a href="#ltboxgt"><var>&lt;box&gt;</var></a> || <var>&lt;'background-color'&gt;</var></pre></code>
+                    </p>
+                </div>
+                <div>
+                    <p><strong>注意：</strong>背景颜色只允许放在最下面一层的背景叠层里，即放在最右边的逗号后面。如果对body元素设置背景，那么这个背景会向上传递到根元素html，所以给html根元素或者body元素设置背景，都会让整个视窗都有了这个背景。 <code>&lt;position&gt;</code> 和 <code>&lt;bg-size&gt;</code> 之间一定要有 <code>&sol;</code> 。语法最后两个 <code>&lt;box&gt;</code> 是指的 <code>background-clip</code> 和 <code>background-origin</code> ，其中第一个是 <code>background-origin</code> ，第二个是 <code>background-clip</code> 。</p>
+                    <div class="example">
+                        <div></div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="linear-gradient">线性渐变|<a href="http://www.w3.org/TR/css3-images/#linear-gradient-syntax" title="linear-gradient()">linear-gradient()</a></h3>
+                <div>
+                    <p>
+                        <pre><code><dfn id="linear-gradient-type">&lt;linear-gradient&gt;</dfn> = linear-gradient(
+                                [ [ &lt;angle&gt; | to &lt;side-or-corner&gt; ] ,]? 
+                                &lt;color-stop&gt;[, &lt;color-stop&gt;]+
+                                )
+<dfn id="side-or-corner">&lt;side-or-corner&gt;</dfn> = [left | right] || [top | bottom]
+&lt;color-stop&gt; = &lt;color&gt; [ &lt;percentage&gt; | &lt;length&gt; ]?</code></pre></p>
+                </div>
+                <div>
+                    <p>关键字默认是从下往上 <code>to bottom</code> 渐变的，角度 <code>0deg</code> 默认是从下往上的。第一个值是确定渐变的方向（可选），后面的值都是用以颜色和长度值或百分比（可选）为一个整体，用逗号隔开多个整体。</p>
+                    <pre><code class="css">linear-gradient(yellow, blue);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(to bottom, yellow, blue);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(180deg, yellow, blue);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(to top, yellow, blue);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(to bottom, yellow 0%, blue 100%);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(135deg, yellow, blue);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(-45deg, yellow, blue);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(yellow, blue 20%, #0f0);</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">linear-gradient(to top right, red, white, blue);</code></pre>
+                    <div class="example"></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="radial-gradient">径向渐变|<a href="http://www.w3.org/TR/css3-images/#radial-gradients" title="radial-gradient()">radial-gradient()</a></h3>
+                <div>
+                    <pre class="prod"><code><dfn id="radial-gradient-type">&lt;radial-gradient&gt;</dfn> = radial-gradient(
+                                      [ [ &lt;shape&gt; || &lt;size&gt; ] [ at &lt;position&gt; ]? , |
+                                        at <a href="https://drafts.csswg.org/css-backgrounds-3/#position">&lt;position&gt;</a>, 
+                                      ]?
+                                      &lt;color-stop&gt; [ , &lt;color-stop&gt; ]+
+                                    )
+&lt;shape&gt; = circle || ellipse
+&lt;size&gt; = &lt;extent-keyword&gt; || &lt;length&gt;
+&lt;size&gt; for ellipse = [ &lt;length&gt; | &lt;percentage&gt; ]{2}
+&lt;position&gt;
+&lt;extent-keyword&gt; = closest-corner | closest-side | farthest-corner | farthest-side
+<dfn id="color-stop-type">&lt;color-stop&gt;</dfn> = &lt;color&gt; [ &lt;percentage&gt; | &lt;length&gt; ]?</code></pre>
+                </div>
+                <div>
+                    <p>此方法控制图像从中心点位置往外渐变。 <code>&lt;shape&gt;</code> 默认 <code>circle</code> 。 <code>&lt;size&gt;</code> 默认 <code>farthest-corner</code>。 <code>&lt;position&gt;</code> 默认在容器正中间 <code>&lt;center&gt;</code> 。如果 <code>&lt;shape&gt;</code> 是 <code>&lt;ellipse&gt;</code> 则 <code>&lt;size&gt;</code> 要取x轴和y轴两个值。 </p>
+                    <pre><code class="css">radial-gradient(yellow, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(ellipse at center, yellow 0%, green 100%)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(farthest-corner at 50% 50%, yellow, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(circle, yellow, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(red, yellow, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(farthest-side at left bottom, red, yellow 50px, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(closest-side at 20px 30px, red, yellow, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(20px 30px at 20px 30px, red, yellow, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(closest-side circle at 20px 30px, red, yellow, green)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">radial-gradient(20px 20px at 20px 30px, red, yellow, green);</code></pre>
+                    <div class="example"></div>
+                </div>
+            </article>
+            <article>
+                <h3 id="repeating">循环渐变|<a href="http://www.w3.org/TR/css3-images/#repeating-gradients" title="">repeating-linear-gradient() and repeating-radial-gradient()</a></h3>
+                <div>循环渐变语法上对应线性渐变和径向渐变。</div>
+                <div>
+                    <p></p>
+                    <pre><code class="css">repeating-linear-gradient(red, blue 20px, red 40px)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">repeating-radial-gradient(red, blue 20px, red 40px)</code></pre>
+                    <div class="example"></div>
+                    <pre><code class="css">repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);</code></pre>
+                    <div class="example"></div>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h3 id="reference">参考</h3>
+            <ol>
+                <li><a href="http://www.w3.org/TR/#tr_CSS">All Standards and Drafts - W3C</a></li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <h3>声明</h3>
+        <p>此文根据w3.org文档归纳总结，并伴以个人实践，或有错漏，还望指出。</p>
+        <p>我的Github：
+            <a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a>
+        </p>
+        <p>&copy;uolcano</p>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

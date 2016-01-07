@@ -1,0 +1,321 @@
+/*background-color属性实验*/
+#background-color~:last-child>:nth-child(3) {
+	background-color: rgba(255, 0, 0, 0.6);
+	height: 100px;
+}
+#background-color~:last-child>:nth-child(5) {
+	background-color: #ff0000;
+	height: 100px;
+}
+#background-color~:last-child>:nth-child(7) {
+	background-color: red;
+	height: 100px;
+}
+/*background-image属性实验*/
+#background-image~:last-child>:nth-child(2) {
+	background-image: url("../../imglib/red.png");
+	height: 100px;
+}
+#background-image~:last-child>:nth-child(4) {
+	background-image: url("../../imglib/red.png"), url("../../imglib/linux_penguin.jpg");
+	height: 100px;
+}
+/*background-repeat属性实验*/
+#background-repeat~:last-child>div {
+	background: url("../../imglib/red.png"), silver;
+	height: 150px;
+	margin-bottom: 5px;
+}
+#background-repeat~:last-child>:nth-child(6) {
+	background-repeat: repeat;
+}
+#background-repeat~:last-child>:nth-child(7) {
+	background-repeat: space;
+}
+#background-repeat~:last-child>:nth-child(8) {
+	background-repeat: round;
+}
+#background-repeat~:last-child>:nth-child(9) {
+	background-repeat: repeat-x;
+}
+#background-repeat~:last-child>:nth-child(10) {
+	background-repeat: repeat-y;
+}
+#background-repeat~:last-child>:nth-child(12) {
+	background-repeat: no-repeat space;
+}
+#background-repeat~:last-child>:nth-child(13) {
+	background: url("../../imglib/red.png"), url("../../imglib/linux_penguin.jpg");/*覆盖了前面的background样式*/
+	background-repeat: repeat-y, no-repeat;
+}
+/*background-attachment属性实验*/
+#background-attachment~:last-child>div {
+	background: url("../../imglib/red.png");
+	height: 100px;
+	width:200px;
+	overflow: auto;
+}
+#background-attachment~:last-child>:nth-child(2) {
+	background-attachment: scroll;
+}
+#background-attachment~:last-child>:nth-child(4) {
+	background-attachment: local;
+}
+#background-attachment~:last-child>:nth-child(6) {
+	background-attachment: fixed;
+}
+
+/*background-position属性实验*/
+#background-position~:last-child>div {
+	background: no-repeat url("../../imglib/red.png"), silver;
+	height: 100px;
+	width:200px;
+}
+#background-position~:last-child>:nth-child(3) {
+	background-position: right;
+}
+#background-position~:last-child>:nth-child(5) {
+	background-position: 50% 10%;
+}
+#background-position~:last-child>:nth-child(7) {
+	background-position: bottom 5px right 40px;
+}
+/*background-clip属性实验*/
+#background-clip~:last-child>div {
+	height: 100px;
+	border: 20px dotted rgba(0, 0, 255, 0.7);
+	padding: 20px;
+	background: url("../../imglib/red.png"), silver;
+}
+#background-clip~:last-child>div>div {
+	background-color: rgba(0, 255, 0, 0.8);
+	height: 100%;
+	width: 100%;
+}
+#background-clip~:last-child>:nth-child(3) {
+	background-clip: border-box;
+}
+#background-clip~:last-child>:nth-child(5) {
+	background-clip: padding-box;
+}
+#background-clip~:last-child>:nth-child(7) {
+	background-clip: content-box;
+}
+/*background-origin属性实验*/
+#background-origin~:last-child>div {
+	height: 100px;
+	border: 20px dotted rgba(0, 0, 255, 0.7);
+	padding: 20px;
+	background: url("../../imglib/red.png"), silver;
+}
+#background-origin~:last-child>div>div {
+	background-color: rgba(0, 255, 0, 0.8);
+	height: 100%;
+	width: 100%;
+}
+#background-origin~:last-child>:nth-child(3) {
+	background-origin: padding-box;
+}
+#background-origin~:last-child>:nth-child(5) {
+	background-origin: border-box;
+}
+#background-origin~:last-child>:nth-child(7) {
+	background-origin: content-box;
+}
+/*background-size属性实验*/
+#background-size~:last-child>div {
+	background-position: 50% 50%;
+	background: no-repeat 50% 50% url("../../imglib/linux_penguin.jpg"), silver;
+	height: 300px;
+}
+#background-size~:last-child>:nth-child(1) {
+	-webkit-background-size: 25% 50%;
+	background-size: 25% 50%;
+}
+#background-size~:last-child>:nth-child(3) {
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+#background-size~:last-child>:nth-child(5) {
+	-webkit-background-size: contain;
+	background-size: contain;
+}
+/*background属性实验*/
+#background~:last-child>:last-child {
+	border: 20px dotted rgba(0, 0, 255, 0.8);
+	padding: 20px;
+	background: url("../../imglib/red.png") 25% 25%/5% 15% space local content-box padding-box, silver;
+	height: 200px;
+}
+#background~:last-child>:last-child>div {
+	background-color: rgba(0, 255, 0, 0.8);
+	height: 100%;
+}
+/*linear-gradient属性测试*/
+#linear-gradient~:last-child>div{
+	height: 100px;
+}
+#linear-gradient~:last-child>:nth-child(3) {
+	background-image: -webkit-gradient(yellow, blue);
+	background-image: -webkit-linear-gradient(yellow, blue);
+	background-image: -moz-linear-gradient(yellow, blue);
+	background-image: -o-linear-gradient(yellow, blue);
+	background-image: linear-gradient(yellow, blue);
+}
+#linear-gradient~:last-child>:nth-child(5) {
+	background-image: -webkit-gradient(to bottom, yellow, blue);
+	background-image: -webkit-linear-gradient(to bottom, yellow, blue);
+	background-image: -moz-linear-gradient(to bottom, yellow, blue);
+	background-image: -o-linear-gradient(to bottom, yellow, blue);
+	background-image: linear-gradient(to bottom, yellow, blue);
+}
+#linear-gradient~:last-child>:nth-child(7) {
+	background-image: -webkit-gradient(180deg, yellow, blue);
+	background-image: -webkit-linear-gradient(180deg, yellow, blue);
+	background-image: -moz-linear-gradient(180deg, yellow, blue);
+	background-image: -o-linear-gradient(180deg, yellow, blue);
+	background-image: linear-gradient(180deg, yellow, blue);
+}
+#linear-gradient~:last-child>:nth-child(9) {
+	background-image: -webkit-gradient(to top, yellow, blue);
+	background-image: -webkit-linear-gradient(to top, yellow, blue);
+	background-image: -moz-linear-gradient(to top, yellow, blue);
+	background-image: -o-linear-gradient(to top, yellow, blue);
+	background-image: linear-gradient(to top, yellow, blue);
+}
+#linear-gradient~:last-child>:nth-child(11) {
+	background-image: -webkit-gradient(to bottom, yellow 0%, blue 100%);
+	background-image: -webkit-linear-gradient(to bottom, yellow 0%, blue 100%);
+	background-image: -moz-linear-gradient(to bottom, yellow 0%, blue 100%);
+	background-image: -o-linear-gradient(to bottom, yellow 0%, blue 100%);
+	background-image: linear-gradient(to bottom, yellow 0%, blue 100%);
+}
+#linear-gradient~:last-child>:nth-child(13) {
+	background-image: -webkit-gradient(135deg, yellow, blue);
+	background-image: -webkit-linear-gradient(135deg, yellow, blue);
+	background-image: -moz-linear-gradient(135deg, yellow, blue);
+	background-image: -o-linear-gradient(135deg, yellow, blue);
+	background-image: linear-gradient(135deg, yellow, blue);
+}
+#linear-gradient~:last-child>:nth-child(15) {
+	background-image: -webkit-gradient(-45deg, yellow, blue);
+	background-image: -webkit-linear-gradient(-45deg, yellow, blue);
+	background-image: -moz-linear-gradient(-45deg, yellow, blue);
+	background-image: -o-linear-gradient(-45deg, yellow, blue);
+	background-image: linear-gradient(-45deg, yellow, blue);
+}
+#linear-gradient~:last-child>:nth-child(17) {
+	background-image: -webkit-gradient(yellow, blue 20%, #0f0);
+	background-image: -webkit-linear-gradient(yellow, blue 20%, #0f0);
+	background-image: -moz-linear-gradient(yellow, blue 20%, #0f0);
+	background-image: -o-linear-gradient(yellow, blue 20%, #0f0);
+	background-image: linear-gradient(yellow, blue 20%, #0f0);
+}
+#linear-gradient~:last-child>:nth-child(19) {
+	background-image: -webkit-gradient(to top right, red, white, blue);
+	background-image: -webkit-linear-gradient(to top right, red, white, blue);
+	background-image: -moz-linear-gradient(to top right, red, white, blue);
+	background-image: -o-linear-gradient(to top right, red, white, blue);
+	background-image: linear-gradient(to top right, red, white, blue);
+}
+#radial-gradient~:last-child>div {
+	height: 300px;
+}
+#radial-gradient~:last-child>:nth-child(3) {
+	background-image: -webkit-gradient(yellow, green);
+	background-image: -webkit-radial-gradient(yellow, green);
+	background-image: -moz-radial-gradient(yellow, green);
+	background-image: -o-radial-gradient(yellow, green);
+	background-image: radial-gradient(yellow, green);
+}
+#radial-gradient~:last-child>:nth-child(5) {
+	background-image: -webkit-gradient(ellipse at center, yellow 0%, green 100%);
+	background-image: -webkit-radial-gradient(ellipse at center, yellow 0%, green 100%);
+	background-image: -moz-radial-gradient(ellipse at center, yellow 0%, green 100%);
+	background-image: -o-radial-gradient(ellipse at center, yellow 0%, green 100%);
+	background-image: radial-gradient(ellipse at center, yellow 0%, green 100%);
+}
+#radial-gradient~:last-child>:nth-child(7) {
+	background-image: -webkit-gradient(farthest-corner at 50% 50%, yellow, green);
+	background-image: -webkit-radial-gradient(farthest-corner at 50% 50%, yellow, green);
+	background-image: -moz-radial-gradient(farthest-corner at 50% 50%, yellow, green);
+	background-image: -o-radial-gradient(farthest-corner at 50% 50%, yellow, green);
+	background-image: radial-gradient(farthest-corner at 50% 50%, yellow, green);
+}
+#radial-gradient~:last-child>:nth-child(9) {
+	background-image: -webkit-gradient(circle, yellow, green);
+	background-image: -webkit-radial-gradient(circle, yellow, green);
+	background-image: -moz-radial-gradient(circle, yellow, green);
+	background-image: -o-radial-gradient(circle, yellow, green);
+	background-image: radial-gradient(circle, yellow, green);
+}
+#radial-gradient~:last-child>:nth-child(11) {
+	background-image: -webkit-gradient(red, yellow, green);
+	background-image: -webkit-radial-gradient(red, yellow, green);
+	background-image: -moz-radial-gradient(red, yellow, green);
+	background-image: -o-radial-gradient(red, yellow, green);
+	background-image: radial-gradient(red, yellow, green);
+}
+#radial-gradient~:last-child>:nth-child(13) {
+	background-image: -webkit-gradient(farthest-side at left bottom, red, yellow 50px, green);
+	background-image: -webkit-radial-gradient(farthest-side at left bottom, red, yellow 50px, green);
+	background-image: -moz-radial-gradient(farthest-side at left bottom, red, yellow 50px, green);
+	background-image: -o-radial-gradient(farthest-side at left bottom, red, yellow 50px, green);
+	background-image: radial-gradient(farthest-side at left bottom, red, yellow 50px, green);
+}
+#radial-gradient~:last-child>:nth-child(15) {
+	background-image: -webkit-gradient(closest-side at 20px 30px, red, yellow, green);
+	background-image: -webkit-radial-gradient(closest-side at 20px 30px, red, yellow, green);
+	background-image: -moz-radial-gradient(closest-side at 20px 30px, red, yellow, green);
+	background-image: -o-radial-gradient(closest-side at 20px 30px, red, yellow, green);
+	background-image: radial-gradient(closest-side at 20px 30px, red, yellow, green);
+}
+#radial-gradient~:last-child>:nth-child(17) {
+	background-image: -webkit-gradient(20px 30px at 20px 30px, red, yellow, green);
+	background-image: -webkit-radial-gradient(20px 30px at 20px 30px, red, yellow, green);
+	background-image: -moz-radial-gradient(20px 30px at 20px 30px, red, yellow, green);
+	background-image: -o-radial-gradient(20px 30px at 20px 30px, red, yellow, green);
+	background-image: radial-gradient(20px 30px at 20px 30px, red, yellow, green);
+	
+}
+#radial-gradient~:last-child>:nth-child(19) {
+	background-image: -webkit-gradient(closest-side circle at 20px 30px, red, yellow, green);
+	background-image: -webkit-radial-gradient(closest-side circle at 20px 30px, red, yellow, green);
+	background-image: -moz-radial-gradient(closest-side circle at 20px 30px, red, yellow, green);
+	background-image: -o-radial-gradient(closest-side circle at 20px 30px, red, yellow, green);
+	background-image: radial-gradient(closest-side circle at 20px 30px, red, yellow, green);
+	
+}
+#radial-gradient~:last-child>:nth-child(21) {
+	background-image: -webkit-gradient(20px 20px at 20px 30px, red, yellow, green);
+	background-image: -webkit-radial-gradient(20px 20px at 20px 30px, red, yellow, green);
+	background-image: -moz-radial-gradient(20px 20px at 20px 30px, red, yellow, green);
+	background-image: -o-radial-gradient(20px 20px at 20px 30px, red, yellow, green);
+	background-image: radial-gradient(20px 20px at 20px 30px, red, yellow, green);
+	
+}
+/*循环渐变属性实验*/
+#repeating~:last-child>div {
+	height: 500px;
+}
+#repeating~:last-child>:nth-child(3) {
+	background-image: -webkit-gradient(red, blue 20px, red 40px);
+	background-image: -webkit-repeating-linear-gradient(red, blue 20px, red 40px);
+	background-image: -moz-repeating-linear-gradient(red, blue 20px, red 40px);
+	background-image: -o-repeating-linear-gradient(red, blue 20px, red 40px);
+	background-image: repeating-linear-gradient(red, blue 20px, red 40px);
+}
+#repeating~:last-child>:nth-child(5) {
+	background-image: -webkit-gradient(red, blue 20px, red 40px);
+	background-image: -webkit-repeating-radial-gradient(red, blue 20px, red 40px);
+	background-image: -moz-repeating-radial-gradient(red, blue 20px, red 40px);
+	background-image: -o-repeating-radial-gradient(red, blue 20px, red 40px);
+	background-image: repeating-radial-gradient(red, blue 20px, red 40px);
+}
+#repeating~:last-child>:nth-child(7) {
+	background-image: -webkit-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);
+	background-image: -webkit-repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);
+	background-image: -moz-repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);
+	background-image: -o-repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);
+	background-image: repeating-radial-gradient(circle closest-side at 20px 30px, red, yellow, green 100%, yellow 150%, red 200%);
+}

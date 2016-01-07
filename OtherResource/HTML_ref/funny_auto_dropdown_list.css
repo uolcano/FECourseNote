@@ -1,0 +1,29 @@
+nav ul {
+	display: none;
+}
+nav li {
+	list-style-type: none;
+}
+nav::after {
+	content: "+open list";
+	cursor: pointer;
+}
+nav:hover::after {
+	display: none;
+}
+nav:hover::before {
+	content: "- close list";
+	cursor: pointer;
+}
+nav:hover>ul {
+	display: block;
+}
+nav ul:hover {
+	display: block;
+}
+nav ul:hover>li>ul {
+	display: block;
+}
+nav ul:hover>li {
+	cursor: pointer;
+}

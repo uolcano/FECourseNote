@@ -66,7 +66,7 @@ nav ul {
     counter-reset: navcounter;
 }
 
-nav a:before {
+nav a::before {
     content: counter(navcounter)".";
     counter-increment: navcounter;
 }
@@ -143,4 +143,8 @@ th[colspan] {
 
 tr:nth-child(even) {
     background-color: #B2B0BF;
+}
+
+article div p>span {
+    white-space: pre-wrap;
 }
