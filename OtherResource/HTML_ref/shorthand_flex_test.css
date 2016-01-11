@@ -1,0 +1,37 @@
+.contain {
+	background: #aec;
+	height: 100px;
+	/*width: 500px;*/
+/*	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;*/
+	display: flex;
+/*	-webkit-justify-content: space-around;
+	-moz-justify-content: space-around;
+	-ms-justify-content: space-around;
+	-o-justify-content: space-around;*/
+	justify-content: space-around;/*设置主轴方向均分对齐*/
+/*	-webkit-flex-flow: row wrap;
+	-moz-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	-o-flex-flow: row wrap;*/
+	flex-flow: row wrap;/*设置正常水平排列*/
+/*	-ms-align-items: stretch;*/
+	align-items: stretch;/*设置所有弹性子项拉伸到弹性容器高度*/
+}
+.item {
+	border: 3px solid rgba(0,0,0,.2);
+	/*width: 100px;*/
+	padding: 10px;
+	background: #eac;
+	color: #fff;
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+/*	-webkit-flex: 1 1 0;
+	-moz-flex: 1 1 0;
+	-ms-flex: 1 1 0;
+	-o-flex: 1 1 0;*/
+	flex: 1 1 auto;
+}
