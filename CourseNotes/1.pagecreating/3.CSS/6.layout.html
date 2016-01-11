@@ -5,67 +5,1923 @@
     <meta charset="UTF-8">
     <title>6 layout</title>
     <!-- 包含highlight.js引入 -->
-    <link rel="stylesheet" href="../../csslib/general.css">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../../csslib/general.css" />
+    <link rel="stylesheet" href="6.layout.css" />
 </head>
 
 <body>
     <header>
         <h2 id="top">布局</h2></header>
-    <nav></nav>
+    <nav>
+        <ul>
+            <li>
+                <a href="#display" title="display">display</a>
+                <ol>
+                    <li><a href="#layout_center_block" title="块级元素水平居中">块级元素水平居中</a></li>
+                    <li><a href="#layout_center_nav" title="居中导航">居中导航</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#float" title="float">float</a>
+                <ol>
+                    <li><a href="#twocols" title="两列布局">两列布局</a></li>
+                </ol>
+            </li>
+            <li><a href="#clear" title="clear">clear</a></li>
+            <li>
+                <a href="#position" title="position">position</a>
+                <ol>
+                    <li><a href="#banner" title="轮播头图">轮播头图</a></li>
+                    <li><a href="#fixedbar" title="固定顶栏">固定顶栏</a></li>
+                    <li><a href="#mask" title="遮罩">遮罩</a></li>
+                    <li><a href="#threelines_auto" title="三行自适应布局">三行自适应布局</a></li>
+                </ol>
+            </li>
+            <li><a href="#flex-direction" title="flex-direction">flex-direction</a></li>
+            <li><a href="#flex-wrap" title="flex-wrap">flex-wrap</a></li>
+            <li><a href="#flex-flow" title="flex-flow">flex-flow</a></li>
+            <li><a href="#order" title="order">order</a></li>
+            <li><a href="#flex-basis" title="flex-basis">flex-basis</a></li>
+            <li><a href="#flex-grow" title="flex-grow">flex-grow</a></li>
+            <li><a href="#flex-shrink" title="flex-shrink">flex-shrink</a></li>
+            <li><a href="#flex" title="flex">flex</a></li>
+            <li><a href="#align-items" title="align-items">align-items</a></li>
+            <li><a href="#align-self" title="align-self">align-self</a></li>
+            <li><a href="#justify-content" title="justify-content">justify-content</a></li>
+            <li>
+                <a href="#align-content" title="align-content">align-content</a>
+                <ol>
+                    <li><a href="#threelines_twocols_auto" title="三行两列自适应布局">三行两列自适应布局</a></li>
+                </ol>
+            </li>
+            <li><a href="#reference" title="参考">参考</a></li>
+            <li><a href="#top" title="返回顶部">返回顶部</a></li>
+        </ul>
+    </nav>
     <main>
         <section>
             <article>
-                <h3>行高|line-height</h3>
-                <div>to insert syntax</div>
-                <div>to insert descrip
-                    (p^div)*3
+                <h3 id="display">显现形态|<a href="https://drafts.csswg.org/css-display/#the-display-properties" title="">display</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="display">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-display">display
+                                        <a class="self-link" href="https://drafts.csswg.org/css-display/#propdef-display"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">[ <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-outside" title="Expands to: inline | run-in | block | block-level box | inline-level box">&lt;display-outside&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-any">||</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-inside" title="Expands to: flex | flow layout | flow | grid | flow-root | table | ruby">&lt;display-inside&gt;</a> ] <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-listitem">&lt;display-listitem&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-internal" title="Expands to: table-row-group | ruby-base-container | table-header-group | table-footer-group | table-column | ruby-text-container | ruby-base | ruby-text | table-row | table-caption | table-cell | internal ruby element | internal table element | table-column-group">&lt;display-internal&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-box" title="Expands to: none | contents">&lt;display-box&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-legacy" title="Expands to: inline-table | inline-grid | inline-flex | inline-block">&lt;display-legacy&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>inline
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>all
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>display属性定义了一个盒子的显现类型，其中包括两种基础的类型：</p>
+                    <ul>
+                        <li data-md="">
+                            <p>
+                                <dfn data-dfn-type="dfn" data-export="" data-local-lt="inner" id="inner-display-type">inner display类型
+                                    <a class="self-link" href="https://drafts.csswg.org/css-display/#inner-display-type"></a>
+                                </dfn>，这定义了(如果是<a href="http://www.w3.org/TR/CSS2/conform.html#replaced-element">非替换元素</a>)它将产生出何种<a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#formatting-context">格式化上下文</a>以及表现出它的后代盒子的布局方式。 (<a href="http://www.w3.org/TR/CSS2/conform.html#replaced-element">替换元素</a>的inner display属性不在CSS范畴内)</p>
+                        </li>
+                        <li data-md="">
+                            <p>
+                                <dfn data-dfn-type="dfn" data-export="" data-local-lt="outer" id="outer-display-type">outer display类型
+                                    <a class="self-link" href="https://drafts.csswg.org/css-display/#outer-display-type"></a>
+                                </dfn>，这规定了一个盒子在其父级格式化上下文的中表现的形式。</p>
+                        </li>
+                    </ul>
+                    <pre class="prod"><code class="html"><dfn data-dfn-type="type" data-export="" id="typedef-display-outside">&lt;display-outside&gt;<a class="self-link" href="https://drafts.csswg.org/css-display/#typedef-display-outside"></a></dfn>  = block <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> inline <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> run-in ;
+<dfn data-dfn-type="type" data-export="" id="typedef-display-inside">&lt;display-inside&gt;<a class="self-link" href="https://drafts.csswg.org/css-display/#typedef-display-inside"></a></dfn>   = flow <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> flow-root <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> table <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> flex <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> grid <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> ruby ;
+<dfn data-dfn-type="type" data-export="" id="typedef-display-listitem">&lt;display-listitem&gt;<a class="self-link" href="https://drafts.csswg.org/css-display/#typedef-display-listitem"></a></dfn> = list-item &amp;&amp; <a class="production" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-outside" title="Expands to: inline | run-in | block | block-level box | inline-level box">&lt;display-outside&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-opt">?</a> &amp;&amp; [ flow <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> flow-root ]<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-opt">?</a>
+<dfn data-dfn-type="type" data-export="" id="typedef-display-internal">&lt;display-internal&gt;<a class="self-link" href="https://drafts.csswg.org/css-display/#typedef-display-internal"></a></dfn> = table-row-group <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> table-header-group <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a>
+                                         table-footer-group <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> table-row <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> table-cell <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a>
+                                         table-column-group <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> table-column <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> table-caption <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a>
+                                         ruby-base <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> ruby-text <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> ruby-base-container <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a>
+                                         ruby-text-container ;
+<dfn data-dfn-type="type" data-export="" id="typedef-display-box">&lt;display-box&gt;<a class="self-link" href="https://drafts.csswg.org/css-display/#typedef-display-box"></a></dfn>      = contents <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> none ;
+<dfn data-dfn-type="type" data-export="" id="typedef-display-legacy">&lt;display-legacy&gt;<a class="self-link" href="https://drafts.csswg.org/css-display/#typedef-display-legacy"></a></dfn>   = inline-block <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> inline-list-item <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a>
+                                         inline-table <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> inline-flex <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> inline-grid ;</code></pre>
+                    <p>以下的信息表总结了display的属性值：</p>
+                    <table class="data" id="display-value-summary">
+                        <thead>
+                            <tr>
+                                <th>Short <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-display/#propdef-display">display</a>
+                                </th>
+                                <th>Full <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-display/#propdef-display">display</a>
+                                </th>
+                                <th>Generated box
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody title="Box Suppression Display Types">
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-none">none</a>
+                                </td>
+                                <td>〃
+                                </td>
+                                <td>subtree omitted from <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#box-tree">box tree</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-contents">contents</a>
+                                </td>
+                                <td>〃
+                                </td>
+                                <td>element replaced by contents in <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#box-tree">box tree</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody title="Flow Layout Display Types">
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-block">block</a>
+                                </td>
+                                <td><span class="css">block flow</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-level">block-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-container">block container</a>
+                                    <abbr title="also known as">aka</abbr> <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-box">block box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-flow-root">flow-root</a>
+                                </td>
+                                <td><span class="css">block flow-root</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-level">block-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-container">block container</a> that establishes a new <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-formatting-context">block formatting context</a> (<a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#bfc">BFC</a>)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-inline">inline</a>
+                                </td>
+                                <td><span class="css">inline flow</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline">inline box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-inline-block">inline-block</a>
+                                </td>
+                                <td><span class="css">inline flow-root</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline-level">inline-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-container">block container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-run-in">run-in</a>
+                                </td>
+                                <td><span class="css">run-in flow</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#run-in">run-in box</a> (<a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline">inline box</a> with special box-tree-munging rules)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-list-item">list-item</a>
+                                </td>
+                                <td><span class="css">list-item block flow</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-box">block box</a> with additional <a href="http://www.w3.org/TR/CSS2/generate.html#lists">marker box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="css">inline list-item</span>
+                                </td>
+                                <td><span class="css">list-item inline flow</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline">inline box</a> with additional <a href="http://www.w3.org/TR/CSS2/generate.html#lists">marker box</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody title="Formatting Context Root Display Types">
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-flex">flex</a>
+                                </td>
+                                <td><span class="css">block flex</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-level">block-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox-1/#flex-container">flex container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-inline-flex">inline-flex</a>
+                                </td>
+                                <td><span class="css">inline flex</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline-level">inline-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox-1/#flex-container">flex container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-grid">grid</a>
+                                </td>
+                                <td><span class="css">block grid</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-level">block-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-grid-1/#grid-container">grid container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-inline-grid">inline-grid</a>
+                                </td>
+                                <td><span class="css">inline grid</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline-level">inline-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-grid-1/#grid-container">grid container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-ruby">ruby</a>
+                                </td>
+                                <td><span class="css">inline ruby</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline-level">inline-level</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-ruby-1/#ruby-container">ruby container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="css">block ruby</span>
+                                </td>
+                                <td><span class="css">block ruby</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-box">block box</a> containing <a data-link-type="dfn" href="https://drafts.csswg.org/css-ruby-1/#ruby-container">ruby container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-table">table</a>
+                                </td>
+                                <td><span class="css">block table</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-level">block-level</a> <i>table wrapper box</i> containing <i>table box</i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-inline-table">inline-table</a>
+                                </td>
+                                <td><span class="css">inline table</span>
+                                </td>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#inline-level">inline-level</a> <i>table wrapper box</i> containing <i>table box</i>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody title="Layout-internal display types">
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-table-cell">table-cell</a>
+                                </td>
+                                <td><span class="css">table-cell flow</span>
+                                </td>
+                                <td>table cell <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-container">block container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-table-caption">table-caption</a>
+                                </td>
+                                <td><span class="css">table-caption flow</span>
+                                </td>
+                                <td>table cell <a data-link-type="dfn" href="https://drafts.csswg.org/css-display/#block-container">block container</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-ruby-base">ruby-base</a>
+                                </td>
+                                <td><span class="css">ruby-base flow</span>
+                                </td>
+                                <td><a href="https://drafts.csswg.org/css-display/#layout-specific-display">layout-specific internal box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-display/#valdef-display-ruby-text">ruby-text</a>
+                                </td>
+                                <td><span class="css">ruby-text flow</span>
+                                </td>
+                                <td><a href="https://drafts.csswg.org/css-display/#layout-specific-display">layout-specific internal box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>other <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-display/#typedef-display-internal" title="Expands to: table-row-group | ruby-base-container | table-header-group | table-footer-group | table-column | ruby-text-container | ruby-base | ruby-text | table-row | table-caption | table-cell | internal ruby element | internal table element | table-column-group">&lt;display-internal&gt;</a>
+                                </td>
+                                <td>〃
+                                </td>
+                                <td><a href="https://drafts.csswg.org/css-display/#layout-specific-display">layout-specific internal box</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>outer display类型。属性值block，会使元素成为一个块级盒子。属性值inline，会使得元素称为一个行内盒子。</p>
+                    <p>innter display类型。属性值flow，决定了元素如何布局其内容。属性值flex，当元素生成一个主要的弹性容器和实现弹性格式化上文时，设置此属性值。</p>
+                    <p>属性值block，默认父元素宽度，可以设置宽高，本身独占一行（换行）。 div, p, h1~6, ul, form,...默认block属性值。</p>
+                    <p>inline，默认文本内容宽度，不可设置宽高，相对于其前面的行内元素同行显示（同行），如果内容超过一行，在元素内换行。 span, a, label, cite, em,...默认inline属性值。</p>
+                    <p>inline-block，默认文本内容宽度，可以设置宽高，相对于其前面的行内/行内块级元素同行显示（同行），如果内容超过一行，整块元素换行。 input, textarea, select, button,...默认inline-block属性值</p>
+                    <p>另外，inline和inline-block，都可设置行内元素的vertial-align属性。</p>
+                    <p>none，不显示元素，不占用页面空间。visibility: hidden，不显示元素，但仍然占用页面空间。</p>
+                    <p>flex，设置一个容器为弹性容器，而容器中<em>在文档流中</em>的<em>直接子元素</em>就是弹性子元素/弹性项。position后的就不是弹性项。</p>
+                    <p id="layout_center_block">布局-块级元素水平居中，margin: 0 auto; 块级元素水平居中，且置顶于父元素</p>
+                    <div class="example">
+                        <div>center a block</div>
+                    </div>
+                    <p id="layout_center_nav">布局-居中导航，对列表的容器设置 text-align: center;，对列表子项display: inline-block; width: 80px; height: 100%;</p>
+                    <div class="example">
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                        </ul>
+                    </div>
                 </div>
             </article>
             <article>
-                <h3>行高|line-height</h3>
-                <div>to insert syntax</div>
-                <div>to insert descrip
-                    (p^div)*3
+                <h3 id="float">浮动|<a href="https://drafts.csswg.org/css-box/#the-float-property" title="float">float</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="float">float</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>left | right | top | bottom | start | end | none |
+                                    <var>&lt;page-floats&gt;</var>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all, but see text
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>order of grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>设置为浮动的元素，默认宽度为内容宽度。多个浮动元素会相互紧靠不会有定位元素的堆叠效果。
+                    </p>
+                    <p>设置float的元素会改变元素的display属性，变成inline-block。可以设置宽高，并且自动换行，当然如果宽高都大于容器，那么还是会超出的（前提是overflow:visible;），一般来讲是超出的右边和下边。设置浮动的元素实际上是盒子本身对其他盒子没有边界的“排外”效果（常说的不在文档流中），但是盒子对其他盒子里的内容会“排外”。所以就有了一个浮动元素A跟随着一个非浮动未clear的元素B，B的框会忽视A的框按照块级流方向一个接一个排到（通常）左上角，但是B的内容任然是被“排外”，如果B的后面也有个非浮动未clear的元素C且B框没有填满A框缺失的部分，那么C的框也会继续填上去，但是C的内容也是被“排外”了。这里的内容是不会相互“排外”，所以B和C的内容可能会重叠。总之，浮动元素的盒子跟非浮动元素的内容排斥，跟非浮动元素的盒子亲和；非浮动元素的内容之间是相互亲和的。</p>
+                    <div class="example">
+                        <div>instance1</div>
+                        <div>instance2</div>
+                        <div>instance3</div>
+                    </div>
+                    <p>行盒子line box，是一个不可见不可描边的抽象概念。设置浮动的元素会浮动到容器内容区的最上边或者上一个未浮动的块级元素的垂直下方，从这里开始所占用的那一行，便成为了行盒子，其后的浮动元素都是在这个行盒子里跟随在第一个浮动元素后一个接一个排列，如果一行不够就自动换行。具体的排列方式要看由writing-mode决定的块级流方向，通常是由上至下推进的水平流，所以一般设置左浮动的元素会浮动到容器内容区的左上角或者上一个块级元素的垂直下方并且靠容器内容区左内边；设置右浮动则靠容器内容区右内边。并且，就算容器的高度为0，也不会降低行盒子的高度，因为这个高度是被浮动的元素撑起来的。在这个浮动元素撑起的行盒子之下的clear的元素，则会从这个行盒子之下开始布局。下面的测试代码可去<a href="file:///E:/GitHub/FECourseNote/OtherResource/HTML_ref/float_test.html">这里</a>找：</p>
+                    <div class="example">
+                        <div class="smallsize">smallsize</div>
+                        <div class="normalsize">normalsize</div>
+                        <div class="largesize">largesize</div>
+                        <div class="largesize no1">largesize no1</div>
+                        <div class="largesize no2">largesize no2</div>
+                        <div class="largesize no3">largesize no3</div>
+                        <div class="largesize no4">largesize no4</div>
+                    </div>
+                    <p id="twocols">布局-两列布局。使用浮动，并且对父元素进行清除浮动，以消除后续影响。
+                    </p>
+                    <div class="example">
+                        <div class="outer clearfix">
+                            <div class="inner no1">左边的左边界的左边</div>
+                            <div class="inner no2">右边的右边界的右边。</div>
+                        </div>
+                        <div class="aside">打酱油する。</div>
+                    </div>
                 </div>
             </article>
             <article>
-                <h3>行高|line-height</h3>
-                <div>to insert syntax</div>
-                <div>to insert descrip
-                    (p^div)*3
+                <h3 id="clear">清除浮动|<a href="https://drafts.csswg.org/css-box/#the-clear-property" title="clear">clear</a></h3>
+                <div>
+                    <table class="propdef">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn id="clear">clear</dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:
+                                </th>
+                                <td>none | left | right | both
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a href="https://drafts.csswg.org/css-box/#block-level">block-level</a> elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>clear属性，用于清除前面元素的浮动效果的延续对后续元素的影响。 both，左右清除浮动。 left，清除左边浮动。 right，清除右浮动。
+                    </p>
+                    <p>应用于浮动元素的后续元素，一般是块级元素。 通常在浮动元素后面增加一个空白的块级元素并且设置clear:both;属性来清除浮动。
+                    </p>
+                    <div class="example">
+                        <div>float</div>
+                        <div>cleardiv</div>
+                    </div>
+                    <p>另一种清除浮动的方法：
+                        <code>.clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}</code> clearfix是给一个浮动元素的父类元素的class类名，:after是伪元素。
+                    </p>
+                    <div class="example clearfix">
+                        <div>float</div>
+                        <div>aside</div>
+                    </div>
+                    <p>更多清除浮动的测试看<a href="../../../OtherResource/HTML_ref/float_test.html">这个测试</a>。</p>
                 </div>
             </article>
             <article>
-                <h3>行高|line-height</h3>
-                <div>to insert syntax</div>
-                <div>to insert descrip
-                    (p^div)*3
+                <h3 id="position">定位|<a href="https://drafts.csswg.org/css-position/#position-property" title="position">position</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="position">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-position">position
+                                        <a class="self-link" href="https://drafts.csswg.org/css-position/#propdef-position"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">static <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> relative <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> absolute <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> sticky <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> fixed
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>static
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements except table-column-group and table-column
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                        <colgroup width="20%"></colgroup>
+                    </table>
+                </div>
+                <div>
+                    <p>position属性确定了使用何种定位算法来计算一个盒子的位置。</p>
+                    <p>定位最重要的一点就是：设置了参照物。 设置了positon属性后的元素，可以通过设置top,right,bottom,left,z-index来定位。 top,right,bottom,left是用来设置元素边缘距离参照物的边缘的距离。 z-index设置元素在z轴上的排序。但是因为元素还有一个堆叠/栈的概念，所以并不一定z-index设置的越大，元素就一定堆在最上面。 堆叠/栈，是指在未特别设置z-index时，元素按文本流的顺序，越往后的元素，会堆在越上面。而如果2个元素有各自的父元素，无论两个子元素如何设置z-index，处于z-index设置大的父元素里的子元素，永远要堆在z-index设置小的父元素里的子元素上面。因为z-index只是相对于父元素的z轴位移。
+                    </p>
+                    <div class="example">
+                        <div>main
+                            <div>z-index 10</div>
+                            <div>z-index 9</div>
+                        </div>
+                    </div>
+                    <p>默认position: static，以正常流的方式布局。只有设置此属性值的元素不可用top、right、bottom和left属性。</p>
+                    <p>position: relative; 元素仍在文档流中，不会对其他元素造成影响，即元素移动后其原来的位置仍然会为它空出来。 参照物为元素本身。 常用于元素在文档流中的层级。 最重要的使用场景是最为子元素绝对定位时给父元素设置相对定位。
+                    </p>
+                    <p>position: absolute; 一个元素设置绝对定位后,它的宽度默认变为内容宽度。 元素会脱离文档流，相当于浮到了文档流上面。 绝对定位的参照物为离它最近的设置了相对定位的祖先元素或者根元素，需要先对参照物设置相对定位。一个在容器中定位的子元素如果未设置宽高，设置top/right/bottom/left会撑开子元素的盒子。
+                    </p>
+                    <div class="example">
+                        <div class="example">
+                            <div>instance</div>
+                        </div>
+                    </div>
+                    <p><strong>注意：</strong>非根元素设置relative或static，它的参照物容器边界是，这个<em>容器的内容边界</em>；而如果非根元素设置absolute而且作为容器的祖先元素是非static的，则若这个祖先是块级元素，参照物容器边界是<em>边框内边界</em>，若这个祖先是行内元素，参照物容器边界就是<em>内容边界</em>。</p>
+                    <div class="example">
+                        <div id="block_ancestor">
+                            <div>relative</div>
+                        </div>
+                        <div id="inline_ancestor">
+                            <div>absolute</div>
+                        </div>
+                    </div>
+                    <p id="banner">布局-轮播头图banner ，使用绝对定位进行元素组层堆叠。</p>
+                    <div class="example">
+                        <img src="../../imglib/linux_penguin.jpg" height="220" width="183" alt="linuxpenguin" />
+                        <p>linux penguin</p>
+                        <div>
+                            <!-- 千万要注意作为轮播球的元素不能有任何间隔，inline属性会有一个空格的间隔 -->
+                            <span></span><span id="controls"></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <p>position: fixed;在IE6及以下不支持。宽度默认变为内容宽度 元素会脱离文档流。 固定定位的参照物是浏览器视窗。 注意与绝对定位区别。<span>布局-固定顶栏fixedbar</span>，使用固定定位。<span>布局-遮罩mask</span>， 在全浏览器视窗使用固定定位。
+                    </p>
+                    <div id="fixedbar" class="example">fixedbar</div>
+                    <div id="mask" class="example">mask</div>
+                    <p id="threelines_auto">布局-三行自适应布局，对body和头div和尾div设置绝对定位，以固定住body中显示的其他内容在一个想要的区域里，而不会出现头div和尾div随着滚动条而滚动。</p>
+                    <div class="example">
+                        <div class="head">head</div>
+                        <div class="body">
+                            <div class="content">content area</div>
+                        </div>
+                        <div class="foot">foot</div>
+                    </div>
                 </div>
             </article>
             <article>
-                <h3>行高|line-height</h3>
-                <div>to insert syntax</div>
-                <div>to insert descrip
-                    (p^div)*3
+                <h3 id="flex-direction">弹性方向|<a href="https://drafts.csswg.org/css-flexbox/#flex-direction-property" title="flex-direction">flex-direction</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="flex-direction">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-flex-direction">flex-direction
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">row <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> row-reverse <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> column <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> column-reverse
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>row
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-container">flex containers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性容器</em>上。</p>
+                    <p>flex-direction弹性容器下子元素的排列方向：row，默认，弹性容器里的子元素从左往右排；
+                    </p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>row-reverse，从右往左排</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>column，从上往下排；</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>colum-reverse，从下往上排。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p><strong>注意：</strong>所有弹性容器必须设置display:flex;</p>
                 </div>
             </article>
             <article>
-                <h3>行高|line-height</h3>
-                <div>to insert syntax</div>
-                <div>to insert descrip
-                    (p^div)*3
+                <h3 id="flex-wrap">弹性换行|<a href="https://drafts.csswg.org/css-flexbox/#flex-wrap-property" title="flex-wrap">flex-wrap</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="flex-wrap">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-flex-wrap">flex-wrap
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-wrap"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">nowrap <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> wrap <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> wrap-reverse
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>nowrap
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-container">flex containers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性容器</em>上。</p>
+                    <p>flex-wrap控制弹性容器下子元素的换行：nowrap，默认，不换行；
+                    </p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>wrap，从上往下换行；</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>wrap-reverse，反向换行，从下往上换行。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p></p>
+                </div>
+            </article>
+            <article>
+                <h3 id="flex-flow">简写弹性流| <a href="https://drafts.csswg.org/css-flexbox/#flex-flow-property">flex-flow</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="flex-flow">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-flex-flow">flex-flow
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-flow"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">&lt;<a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-direction">flex-direction</a>&gt; <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-any">||</a> &lt;<a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-wrap">flex-wrap</a>&gt;
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性容器</em>上。它是flex-direction和flex-wrap的简写，一起定义一个弹性盒子的主轴和从轴。</p>
+                    <p>flex-flow: row wrap;</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>flex-flow: column wrap;</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>flex-flow: column-reverse wrap;</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="order">弹性顺序|<a href="https://drafts.csswg.org/css-flexbox/#order-property" title="order">order</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="order">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-order">order
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-order"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="http://www.w3.org/TR/css3-values/#integer-value">&lt;integer&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-item">flex items</a> and absolutely-positioned children of <a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-container">flex containers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性项</em>上。</p>
+                    <p>order改变弹性容器下某个子元素flex item的排列的顺序。可以设置其他数值，无单位。数值越大，就越是排到按照flex-direction定义的方向的后面
+                    </p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="flex-basis">弹性项尺寸|<a href="https://drafts.csswg.org/css-flexbox/#flex-basis-property" title="flex-basis">flex-basis</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="flex-basis">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-flex-basis">flex-basis
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-basis"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">content <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> <a class="production" data-link-type="propdesc" href="http://www.w3.org/TR/CSS21/visudet.html#propdef-width">&lt;‘width’&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-item">flex items</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>relative to the <a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-container">flex container’s</a> inner <a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#main-size">main size</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>as specified, with lengths made absolute
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a class="property" data-link-type="propdesc" href="http://www.w3.org/TR/CSS21/visudet.html#propdef-width">width</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性项</em>上。它定义弹性项在主轴方向上占据的长度，浏览器根据这个属性，计算主轴是否有多余空间。</p>
+                    <p>初始值是auto，即弹性项沿主轴方向内容撑开的长度。可以设置width或height，这得根据主轴方向来定。对所有弹性项设置一个长度值，会使得它们沿主轴方向上的长度都变为这个值，而忽略以前的宽或高。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>弹性容器flex-flow: column wrap;弹性项flex-basis: 90px;</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>弹性容器flex-flow: column-reverse wrap-reverse;弹性项flex-basis: 90px;s</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="flex-grow">弹性伸展|<a href="https://drafts.csswg.org/css-flexbox/#flex-grow-property" title="flex-grow">flex-grow</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="flex-grow">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-flex-grow">flex-grow
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-grow"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="http://www.w3.org/TR/css3-values/#number-value">&lt;number&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-item">flex items</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性项</em>上。</p>
+                    <p>设置元素能分配到的剩余空间的比例（伸展因子）。具体计算flex item的宽或者高：flex-basis + flow-grow/sum(flow-grow) * remain。remain是指多余的空间。
+                    </p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="flex-shrink">弹性收缩|<a href="https://drafts.csswg.org/css-flexbox/#flex-shrink-property" title="flex-shrink">flex-shrink</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="flex-shrink">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-flex-shrink">flex-shrink
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-shrink"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="http://www.w3.org/TR/css3-values/#number-value">&lt;number&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>1
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-item">flex items</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>yes
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性项</em>上。</p>
+                    <p>相比于flex-grow，flex-shrink分配的是负的空间。收缩因子 1表示负的一份剩余空间，当空间不足时按比例收缩。一般只设置0或1，1表示空间不足时按比例收缩，0表示不收缩。具体计算flex item的宽或者高：flex-basis + flow-shrink/sum(flow-shrink) * remain。与flex-grow不同点在于，收缩因子需要先把所有弹性项设置为0，因默认是1，所以都不会收缩。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="flex">简写弹性项属性|<a href="https://drafts.csswg.org/css-flexbox/#flex-property" title="flex">flex</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="flex">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-flex">flex
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-flex"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">none <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> [ <a class="production" data-link-type="propdesc" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-grow">&lt;‘flex-grow’&gt;</a> <a class="production" data-link-type="propdesc" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-shrink">&lt;‘flex-shrink’&gt;</a><a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#mult-opt">?</a> <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-any">||</a> <a class="production" data-link-type="propdesc" href="https://drafts.csswg.org/css-flexbox/#propdef-flex-basis">&lt;‘flex-basis’&gt;</a> ]
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-item">flex items</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性项</em>上。</p>
+                    <p>初始值是0 1 auto，后两个属性flex-shrink和flex-basis可选。常用的属性值是 1 1 auto 和 0 0 auto 。对所有弹性项统一设置flex: 1 1 0，这时所有弹性项都会随着弹性容器的宽度一起等比例缩放。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="align-items">全部弹性项副轴方向对齐|<a href="https://drafts.csswg.org/css-flexbox/#align-items-property" title="align-items">align-items</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="align-items">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-align-items">align-items
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-align-items"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">flex-start <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> flex-end <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> center <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> baseline <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> stretch
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>stretch
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-container">flex containers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性容器</em>上/em>上。</p>
+                    <p>相当于对所有flex item设置副轴的对齐。以弹性方向（即主轴）的副轴，比如弹性方向是从左到右，那就是水平的，然后align-items设置的就是垂直的对齐方式。
+                    </p>
+                    <p>flex-start，副轴的起点对齐。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>flex-end，副轴的终点对齐</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>center，副轴居中。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>baseline，弹性项的第一行文字的基线对齐。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>stretch，初始值。将弹性项宽或者高延展至弹性容器的宽或者高，即填满弹性容器。设置align-items: stretch;需要在各弹性项的<em>宽高是auto</em>也就是自适应时才有作用，在重新设置宽高为auto时要注意叠层的特殊性和权重。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p><strong>总的来说：</strong>如果弹性方向flex-direction是row，从左到右的，那么justify-content是设置水平对齐，align-items设置垂直对齐。这个时候的主轴是水平轴，副轴是垂直轴。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="align-self">单个弹性项副轴方向对齐|<a href="https://drafts.csswg.org/css-flexbox/#align-items-property" title="align-self">align-self</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="align-self">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-align-self">align-self
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-align-self"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">auto <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> flex-start <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> flex-end <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> center <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> baseline <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> stretch
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>auto
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-item">flex items</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td><a class="css" data-link-type="value" href="https://drafts.csswg.org/css-flexbox/#valdef-align-self-auto">auto</a> computes to parent’s <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-flexbox/#propdef-align-items">align-items</a> value; otherwise as specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性项</em>上。</p>
+                    <p>类似于align-items，用于设置单个flex item在副轴cross-axis方向上的对齐方式。相当于对单个flex item设置副轴的对齐。align-self与align-items的属性值大都相同，只是多了一个auto。</p>
+                    <p>auto，初始值。表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>flex-start，单个弹性项容器顶部对齐。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>flex-end，单个弹性项容器底部对齐。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>center，单个弹性项容器居中。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>baseline，单个弹性项设置align-self没甚意义，多个才能看出来。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>stretch，单个弹性项拉伸，也需要注意只有弹性项的<em>宽高是auto</em>也就是自适应时才有作用。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="justify-content">全部弹性项主轴方向对齐|<a href="https://drafts.csswg.org/css-flexbox/#justify-content-property" title="justify-content">justify-content</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="justify-content">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-justify-content">justify-content
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-justify-content"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">flex-start <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> flex-end <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> center <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> space-between <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> space-around
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>flex-start
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-container">flex containers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                        <colgroup width="20%"></colgroup>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性容器</em>上。</p>
+                    <p>flex-start，按弹性方向（即主轴），将flex item从方向的最开头往后排</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>flex-end，按弹性方向（即主轴），将flex item的最后一个排到弹性容器的最末尾，然后以此倒推。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>center，按弹性方向（即主轴），将flex item居中弹性容器中间。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>space-between，按弹性方向（即主轴），将flex item分开中间的间隔相同，头尾的flex item分别贴着弹性容器对应的边</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>space-around，按弹性方向（即主轴），将flex item分开中间的间隔相同，头尾的flex item 与弹性容器的边中间也分配到相同的间隔。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="align-content">多行弹性项整体副轴方向对齐|<a href="https://drafts.csswg.org/css-flexbox/#align-content-property" title="align-content">align-content</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="align-content">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-align-content">align-content
+                                        <a class="self-link" href="https://drafts.csswg.org/css-flexbox/#propdef-align-content"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">flex-start <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> flex-end <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> center <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> space-between <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> space-around <a data-link-type="grammar" href="http://www.w3.org/TR/css3-values/#comb-one">|</a> stretch
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>stretch
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#multi-line">multi-line</a> <a data-link-type="dfn" href="https://drafts.csswg.org/css-flexbox/#flex-container">flex containers</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>n/a
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>specified value
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性设置在<em>弹性容器</em>上。设置副轴cross-axis方向上行对齐方式。相对于justify-content的主轴对齐，是整体内容（包括多行）副轴上的对齐</p>
+                    <p>只针对换行的情况，对换行后的多行整体进行类似于align-self的设置。比justify-content多了一个stretch属性值，而且stretch是align-content的初始值，而justify-content的初始值是flex-start。</p>
+                    <p>flex-start：与副轴的起点对齐。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>flex-end：与副轴的终点对齐。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>center：副轴居中。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>space-between：与副轴两端对齐，轴线之间的间隔平均分布。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p>stretch（默认值）：轴线占满整个副轴。</p>
+                    <div class="example flexcontain">
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                        <div class="flexitem">instance</div>
+                    </div>
+                    <p id="threelines_twocols_auto">布局-三行自适应布局+两列布局 ==》三行两列自适应布局</p>
+                    <div class="example">
+                        <div class="head">head</div>
+                        <div class="body">
+                            <div class="main">details</div>
+                            <div class="sidebar">
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="foot">foot</div>
+                    </div>
                 </div>
             </article>
         </section>
         <section>
             <h3 id="reference">参考</h3>
+            <ul>
+                <li>
+                    <a href="https://drafts.csswg.org/css-display/" title="CSS Display Module Level 3">CSS Display Module Level 3</a>
+                </li>
+                <li>
+                    <a href="https://drafts.csswg.org/css-position/" title="CSS Positioned Layout Module Level 3">CSS Positioned Layout Module Level 3</a>
+                </li>
+                <li>
+                    <a href="https://drafts.csswg.org/css-box/" title="CSS basic box model">CSS basic box model</a>
+                </li>
+                <li><a href="http://www.w3.org/TR/CSS2/visuren.html#floats" title="Floats - Visual formatting model">Floats - Visual formatting model</a></li>
+                <li>
+                    <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" title="Flex 布局教程：语法篇 - 阮一峰的网络日志">Flex 布局教程：语法篇 - 阮一峰的网络日志</a>
+                </li>
+            </ul>
         </section>
     </main>
     <footer>
         <h3>声明</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta autem qui eos ullam incidunt reprehenderit ea ducimus, tenetur quam nobis omnis molestiae accusamus. Fugit ullam, eius voluptas quisquam eaque, atque.</p>
-        <a href="https://example.com">link content</a>
+        <p>本文由W3C官方标准和网络资料搜集整理，并辅以我的理解与实践而成。或有缺漏，欢迎去我的Github留言交流。</p>
+        <p>推荐这篇文章：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" title="Flex 布局教程：实例篇 - 阮一峰的网络日志">Flex 布局教程：实例篇 - 阮一峰的网络日志</a></p>
+        <p>我的Github：<a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a></p>
     </footer>
     <!-- 情景一，从本地文件引入 -->
     <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->

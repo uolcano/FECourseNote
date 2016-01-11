@@ -1,29 +1,112 @@
-nav ul {
-	display: none;
+/*隐藏列表*/
+
+nav ol {
+    display: none;
 }
+
+
+/*消除列表默认前缀样式*/
+
 nav li {
-	list-style-type: none;
+    list-style-type: none;
 }
+
+
+/*设置列表隐藏时提示*/
+
 nav::after {
-	content: "+open list";
-	cursor: pointer;
+    content: "+open list";
+    cursor: pointer;
 }
+
+
+/*隐藏前置提示*/
+
 nav:hover::after {
-	display: none;
+    display: none;
 }
+
+
+/*设置列表打开时提示*/
+
 nav:hover::before {
-	content: "- close list";
-	cursor: pointer;
+    content: "- close list";
+    cursor: pointer;
 }
-nav:hover>ul {
-	display: block;
+
+
+/*打开一级列表*/
+
+nav:hover>ol {
+    display: block;
 }
-nav ul:hover {
-	display: block;
+
+
+/*打开次级列表*/
+
+nav ol:hover>li {
+    display: block;
 }
-nav ul:hover>li>ul {
-	display: block;
+
+
+/*打开下级列表*/
+
+nav ol>li:hover>ol {
+    display: block;
 }
-nav ul:hover>li {
-	cursor: pointer;
+
+
+/*设置列表指针样式*/
+
+nav ol>li {
+    cursor: pointer;
+}
+
+
+/*多层计数*/
+
+nav ol {
+    counter-reset: listorder;
+}
+
+nav ol li::before {
+    counter-increment: listorder;
+    content: counters(listorder, '.', decimal) " - ";
+    background: rgba(100, 255, 100, 0.8);
+    border-radius: 3px 0 0 3px/3px 0 0 3px;
+}
+
+
+/*单层计数*/
+
+
+/*nav {
+	counter-reset: listorder;
+}
+nav>ol>li::before {
+	counter-increment: listorder;
+	content: counter(listorder, decimal) "$";
+}*/
+
+
+/*定位导航栏，不影响页面布局*/
+
+nav {
+    position: relative;
+}
+
+nav ol {
+    position: relative;
+}
+
+nav:hover>ol {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+nav li>span {
+    background: rgba(100, 255, 100, 0.8);
+    border-radius: 0 3px 3px 0/0 3px 3px 0;
+    margin: 5px 0;
 }

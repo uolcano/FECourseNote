@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>after和before到底算是谁的“崽”</title>
+    <!-- 引入默认修改样式 -->
+    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css" title="default theme" />
+    <!-- 引入备选修改样式 -->
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/dark.css" title="dark theme" />
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/rainbow.css" title="rainbow theme" />
+    <link rel="stylesheet" href="who_after_before_belongto.css" />
+</head>
+
+<body>
+    <header>
+        <h1>after和before到底算是谁的“崽”</h1></header>
+    <nav></nav>
+    <main>
+        <section>
+            <article>
+                <p>在清除浮动的时候有个常用的生成尾部内容然后clear的做法，而列表计数的时候也存在生成开头内容的做法。我很好奇，其中::after和::before伪元素是不是在使用它们的元素里面？</p>
+                <h3>Just Try</h3>
+            </article>
+            <article>
+                <section>
+                    <span class="sample">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate error delectus quis nemo ut quos atque ad totam, dolor quod, unde laboriosam eligendi excepturi quas? Nemo hic, necessitatibus earum dolore.</span>
+                    <p>如果生成的内容是inline的，默认，则它是span的“崽”；如果是block的，则是隔壁老王的“崽”。</p>
+                </section>
+                <section>
+                    <div class="sample">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ab hic, voluptate suscipit maxime. Assumenda reprehenderit quia quisquam debitis, perferendis minima nihil sit unde saepe, suscipit beatae voluptates mollitia fugit.</div>
+                    <p>不管生成的是inline的还是block的，它都是div的“崽”。</p>
+                </section>
+                <section>
+                    <input type="text" class="sample" value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae expedita nostrum totam assumenda, quo unde id quae aspernatur, facilis inventore consectetur eaque, suscipit debitis vel iste quam ipsa ut veritatis!" size="100" placeholder="你好，我姓王。" />
+                    <p>它什么都不生，嗯，单身狗！</p>
+                </section>
+            </article>
+        </section>
+        <section>
+            <article>
+            	<h3>总结</h3>
+            	<p>&Phi;&Dcy;&Phi;：为何生成内容不能被选中为文本？！</p>
+            	<p>&equals;&omega;&equals;&psi;：因为页面里没有保鲜功能，被我吃掉了。</p>
+            	<p>&Phi;&Dcy;&Phi;：wht thy f*ck ov u!</p>
+            </article>
+        </section>
+    </main>
+    <footer>
+    	<h3>声明</h3>
+    	<p>Just For Fun!</p>
+    	<p>&copy;uolcano</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+/*统一设置实验区*/
+
+.example {
+    /*造个背景*/
+    background: repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(150, 150, 150, 0.5) 10px, rgba(150, 150, 150, 0.5) 15px) content-box, repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(150, 150, 150, 0.5) 10px, rgba(150, 150, 150, 0.5) 15px) content-box;
+    height: 200px;
+    width: 600px;
+    position: relative;
+    padding: 0 !important;
+}
+
+.example>div {
+    /*造个球*/
+    background: rgba(0, 255, 0, 0.7);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    /*内容居中*/
+    text-align: center;
+    line-height: 100px;
+    padding: 0;
+    margin: 0;
+    /*为位移准备绝对定位*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*位移也可以用变形属性translate*/
+}
+
+.example>div {
+    /*统一设置弹球动画效果*/
+    -webkit-animation: moves 3s ease 0s infinite alternate both running;
+    animation: moves 3s ease 0s infinite alternate both running;
+}
+
+@keyframes changecolor {
+    from {
+        background: rgba(0, 255, 0, 0.7);
+    }
+    50% {
+        background: rgba(0, 255, 255, 0.5);
+        height: 80px;
+    }
+    to {
+        background: rgba(255, 0, 255, 0.7);
+        height: 100px;
+    }
+}
+
+@keyframes moves {
+    0% {
+        left: 0;
+        top: 0;
+    }
+    50% {
+        left: 250px;
+        top: 100px;
+    }
+    100% {
+        left: 500px;
+        top: 0;
+    }
+}
+
+
+/*animation-name属性实验*/
+
+#animation-name~:last-child>:nth-child(3)>div {
+    /*直接使用简写属性animation也可以禁止动画*/
+    animation-name: none;
+}
+
+
+/*animation-duration属性实验*/
+
+#animation-duration~:last-child>:nth-child(2)>div {
+    animation-duration: 1s;
+}
+
+
+/*animation-timing-function属性实验*/
+
+#animation-timing-function~:last-child>:nth-child(2)>div {
+    animation-timing-function: cubic-bezier(0.1, 0.2, 0.5, 0.6);
+}
+
+
+/*animation-iteration-count属性实验*/
+
+#animation-iteration-count~:last-child>:nth-child(2)>div {
+    animation-iteration-count: 5;
+}
+
+
+/*animation-direction属性实验*/
+
+#animation-direction~:last-child>:nth-child(3)>div {
+    animation-direction: normal;
+}
+
+#animation-direction~:last-child>:nth-child(5)>div {
+    animation-direction: reverse;
+}
+
+#animation-direction~:last-child>:nth-child(7)>div {
+    animation-direction: alternate;
+}
+
+#animation-direction~:last-child>:nth-child(9)>div {
+    animation-direction: alternate-reverse;
+}
+
+
+/*animation-play-state属性实验*/
+
+#animation-play-state~:last-child>:nth-child(2):hover>div {
+    /*鼠标悬停在实验区内，弹球就停止*/
+    animation-play-state: paused;
+}
+
+
+/*animation-delay属性实验*/
+
+#animation-delay~:last-child>:nth-child(2)>div {
+    animation-iteration-count: 1;
+    animation-delay: 2s;
+}
+
+
+/*animation-fill-mode属性实验*/
+
+#animation-fill-mode~:last-child>.example>div {
+    animation-iteration-count: 1;
+}
+
+#animation-fill-mode~:last-child>:nth-child(3)>div {
+    animation-fill-mode: none;
+}
+
+#animation-fill-mode~:last-child>:nth-child(5)>div {
+    animation-fill-mode: forwards;
+}
+
+#animation-fill-mode~:last-child>:nth-child(7)>div {
+    animation-fill-mode: backwards;
+}
+
+#animation-fill-mode~:last-child>:nth-child(9)>div {
+    animation-fill-mode: both;
+}
+
+
+/*animation属性实验*/
+
+#animation~:last-child>:nth-child(4)>div {
+    animation: moves 2s steps(6, end) 0s 2 normal none running;
+}
+#compound+pre+.example>div {
+    animation: moves 3s cubic-bezier(0, 0.1, 0.7, 1) 0s infinite alternate both running, changecolor ease 1s infinite alternate-reverse forwards paused;
+}
+#compound+pre+.example:hover>div {
+    animation-play-state: paused, running;
+}

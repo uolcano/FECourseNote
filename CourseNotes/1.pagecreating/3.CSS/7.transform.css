@@ -1,0 +1,275 @@
+/*设置统一的实例矩形*/
+
+.example {
+    height: 200px;
+    padding: 20px !important;
+    background: repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(150, 150, 150, 0.5) 10px, rgba(150, 150, 150, 0.5) 15px) content-box,
+    repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(150, 150, 150, 0.5) 10px, rgba(150, 150, 150, 0.5) 15px) content-box;
+}
+
+
+.example>div {
+    background: linear-gradient(0deg, transparent, transparent 49px, rgba(165, 0, 165, 0.5) 49px, rgba(165, 0, 165, 0.5) 51px, transparent 51px, transparent 100px),
+    linear-gradient(90deg, transparent, transparent 49px, rgba(165, 0, 165, 0.5) 49px, rgba(165, 0, 165, 0.5) 51px, transparent 51px, transparent 100px),
+    rgba(111, 255, 111, 0.8);
+    height: 100px;
+    width: 100px;
+    padding: 0;
+}
+
+.example>div::before {
+    /*给实例图形加一个准星*/
+    content: "+";
+    margin: 0;
+    display: inline;
+    line-height: 0;
+    vertical-align: 6px;
+}
+
+
+/*transform属性实验*/
+
+#rotate+.example>div {
+    -webkit-transform: rotate(36deg);
+    -ms-transform: rotate(36deg);
+    -o-transform: rotate(36deg);
+    transform: rotate(36deg);
+}
+
+#translate+.example>div {
+    -webkit-transform: translate(50px, 50%);
+    -ms-transform: translate(50px, 50%);
+    -o-transform: translate(50px, 50%);
+    transform: translate(50px, 50%);
+}
+
+#scale+.example>div {
+    -webkit-transform: scale(0.5, 1.5);
+    -ms-transform: scale(0.5, 1.5);
+    -o-transform: scale(0.5, 1.5);
+    transform: scale(0.5, 1.5);
+}
+
+#skew+.example>div {
+	-webkit-transform: skew(30deg, 10deg);
+	-ms-transform: skew(30deg, 10deg);
+	-o-transform: skew(30deg, 10deg);
+	transform: skew(30deg, 10deg);
+}
+#rotate_translate+.example>div{
+	-webkit-transform: translate(50%) rotate(45deg);
+	-ms-transform: translate(50%) rotate(45deg);
+	-o-transform: translate(50%) rotate(45deg);
+	transform: translate(50%) rotate(45deg);
+}
+
+#rotate_translate+.example+.example>div{
+	-webkit-transform: rotate(45deg) translate(50%);
+	-ms-transform: rotate(45deg) translate(50%);
+	-o-transform: rotate(45deg) translate(50%);
+	transform: rotate(45deg) translate(50%);
+}
+#translate3d+.example {
+	perspective: 100px;
+}
+#translate3d+.example>div {
+	-webkit-transform: translate3d(10px, 20%, 5px);
+	-ms-transform: translate3d(10px, 20%, 5px);
+	-o-transform: translate3d(10px, 20%, 5px);
+	transform: translate3d(10px, 20%, 5px);
+}
+#scale3d+.example {
+	perspective: 100px;
+}
+#scale3d+.example>div {
+	-webkit-transform: scale3d(1.5, 0.8, 1);
+	-ms-transform: scale3d(1.5, 0.8, 1);
+	-o-transform: scale3d(1.5, 0.8, 1);
+	transform: scale3d(1.5, 0.8, 1);
+}
+#rotate3d~.example {
+	perspective: 300px;
+}
+#rotate3d~.no1>div {
+	-webkit-transform: rotate3d(1, 0, 0, 45deg);
+	-ms-transform: rotate3d(1, 0, 0, 45deg);
+	-o-transform: rotate3d(1, 0, 0, 45deg);
+	transform: rotate3d(1, 0, 0, 45deg);
+}
+#rotate3d~.no2>div {
+	-webkit-transform: rotate3d(0, 1, 0, 45deg);
+	-ms-transform: rotate3d(0, 1, 0, 45deg);
+	-o-transform: rotate3d(0, 1, 0, 45deg);
+	transform: rotate3d(0, 1, 0, 45deg);
+}
+#rotate3d~.no3>div {
+	-webkit-transform: rotate3d(0, 0, 1, 45deg);
+	-ms-transform: rotate3d(0, 0, 1, 45deg);
+	-o-transform: rotate3d(0, 0, 1, 45deg);
+	transform: rotate3d(0, 0, 1, 45deg);
+}
+#rotate3d~.no4>div {
+	-webkit-transform: rotate3d(1, 1, 1, 45deg);
+	-ms-transform: rotate3d(1, 1, 1, 45deg);
+	-o-transform: rotate3d(1, 1, 1, 45deg);
+	transform: rotate3d(1, 1, 1, 45deg);
+}
+/*transform-origin属性实验*/
+#transform-origin~:last-child>.example {
+	position: relative;
+}
+/*做个参照*/
+#transform-origin~:last-child>.example :last-child {
+	position: absolute;
+	top: 20px;
+}
+#transform-origin~:last-child>:nth-child(3)>div:first-child {
+	/*通过旋转看原点变化*/
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#transform-origin~:last-child>:nth-child(5)>div:first-child {
+	/*通过旋转看原点变化*/
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transform-origin: 100%;
+	-moz-transform-origin: 100%;
+	-ms-transform-origin: 100%;
+	-o-transform-origin: 100%;
+	transform-origin: 100%;
+}
+#transform-origin~:last-child>:nth-child(7)>div:first-child {
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+/*perspective属性实验*/
+#perspective~:last-child>.example>div {
+	/*统一设置沿y轴旋转*/
+	-webkit-transform: rotateY(36deg);
+	-ms-transform: rotateY(36deg);
+	-o-transform: rotateY(36deg);
+	transform: rotateY(36deg);
+}
+#perspective~:last-child>:nth-child(3) {
+	perspective: none;
+}
+#perspective~:last-child>:nth-child(5) {
+	perspective: 2000px;
+}
+#perspective~:last-child>:nth-child(7) {
+	perspective: 500px;
+}
+/*perspective-origin属性实验*/
+#perspective-origin~:last-child>.example {
+	/*给父容器设置统一的透视度*/
+	perspective: 500px;
+}
+#perspective-origin~:last-child>.example>div {
+	/*给变形的子元素设置痛的的旋转度*/
+	-webkit-transform: rotateY(36deg);
+	-ms-transform: rotateY(36deg);
+	-o-transform: rotateY(36deg);
+	transform: rotateY(36deg);
+	/*偏离父容器边缘*/
+	/*margin: 50px;*/
+}
+#perspective-origin~:last-child>:nth-child(3) {
+	perspective-origin: 50% 50%;
+}
+#perspective-origin~:last-child>:nth-child(5) {
+	perspective-origin: left bottom;
+}
+#perspective-origin~:last-child>:nth-child(7) {
+	perspective-origin: 50% -800px;
+}
+#perspective-origin~:last-child>:nth-child(9) {
+	perspective-origin: right;
+}
+/*transform-style属性实验*/
+#transform-style~:last-child>.example {
+	perspective: 500px;
+}
+#transform-style~:last-child>.example>div {
+	-webkit-transform: rotateY(45deg);
+	-ms-transform: rotateY(45deg);
+	-o-transform: rotateY(45deg);
+	transform: rotateY(45deg);
+	/*统一设置宽高和透视度*/
+	padding: 0;
+	height: 50px;
+	width: 50px;
+	perspective: 500px;
+}
+#transform-style~:last-child>.example>.example>div {
+	-webkit-transform: translate3d(10px, 20px, 50px) rotateY(-45deg);
+	-ms-transform: translate3d(10px, 20px, 50px) rotateY(-45deg);
+	-o-transform: translate3d(10px, 20px, 50px) rotateY(-45deg);
+	transform: translate3d(10px, 20px, 50px) rotateY(-45deg);
+}
+#transform-style~:last-child>:nth-child(3)>div {
+	-webkit-transform-style: flat;
+	-moz-transform-style: flat;
+	-ms-transform-style: flat;
+	transform-style: flat;
+}
+#transform-style~:last-child>:nth-child(5)>div {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+/*空间穿透效果*/
+#transform-style~:last-child>:nth-child(7) {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+#transform-style~:last-child>:nth-child(7)>div {
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+/*backface-visibility属性实验*/
+#backface-visibility~:last-child>.example {
+	/*相对子元素绝对定位的参照物*/
+	position: relative;
+	/*使得变形的子元素有透视效果*/
+	perspective: 500px;
+}
+#backface-visibility~:last-child>.example>div {
+	/*统一设置正面，旋转45度*/
+	position: absolute;
+	-webkit-transform: rotateY(45deg);
+	-ms-transform: rotateY(45deg);
+	-o-transform: rotateY(45deg);
+	transform: rotateY(45deg);
+}
+#backface-visibility~:last-child>.example>div:last-child {
+	/*统一设置背面，并且旋转相应度数*/
+	-webkit-transform: rotateY(225deg);
+	-ms-transform: rotateY(225deg);
+	-o-transform: rotateY(225deg);
+	transform: rotateY(225deg);
+	z-index: -1;
+}
+#backface-visibility~:last-child>:nth-child(3)>div {
+	backface-visibility: visible;
+}
+#backface-visibility~:last-child>:nth-child(5)>div {
+	/*隐藏被背面效果*/
+	backface-visibility: hidden;
+}

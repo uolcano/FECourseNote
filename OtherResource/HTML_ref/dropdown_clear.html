@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>修改浏览器默认下拉菜单</title>
+    <!-- 引入默认修改样式 -->
+    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css" title="default theme" />
+    <!-- 引入备选修改样式 -->
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/dark.css" title="dark theme" />
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/rainbow.css" title="rainbow theme" />
+    <link rel="stylesheet" href="" />
+    <style type="text/css" media="screen">
+    section:first-child>article { height: 200px; text-align: center; }
+    select {
+    	/*设置边框样式*/
+    	border: 1px solid #aaa;
+    	/*清除默认的select选框样式*/
+    	-webkit-appearance: none;
+    	-moz-appearance: none;
+    	appearance: none;
+    	/*给右边设置图标*/
+    	background: url("../../CourseNotes/imglib/red.png") right center/contain no-repeat scroll #eee;
+    	/*给右边的图标留空间*/
+    	padding-right: 14px;
+    }
+    /*清除IE的默认选择框样式，隐藏下拉箭头*/
+    select::-ms-expand { display: none; }
+    /*下拉菜单背景*/
+    option {
+    	/*background: #f0f;*/
+    }
+    /*选中的项颜色*/
+    option:checked {
+        color: #f00;
+        width: 100px;
+    }
+    /*无效*/
+    option:hover {
+        width: 100px;
+        background: #000;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+    	<h2>清除下拉菜单的下拉项效果与设置</h2>
+    </header>
+    <nav></nav>
+    <main>
+    	<section>
+    		<article>
+    			<select name="dropdown" id="dropdown">
+    				<option value="HTML">HTML</option>
+    				<option value="CSS">CSS</option>
+    				<option value="JavaScript">JavaScript</option>
+    			</select>
+    		</article>
+    	</section>
+    	<section>
+    		<article>
+    			<h3>参考</h3>
+    			<ul>
+    				<li><a href="http://ourjs.com/detail/551b9b0529c8d81960000007">用纯css改变下拉列表select框的默认样式 - OurJS</a></li>
+    			</ul>
+    		</article>
+    	</section>
+    </main>
+    <footer>
+    	<h3>说明</h3>
+    	<p>终于知道怎么改浏览器默认的下拉菜单了，但是下拉后的列表项还是不能改，即option不能改。有待填坑。</p>
+    	<p>&copy;uolcano</p>
+    </footer>
+</body>
+
+</html>
+</title>
+</head>
+<body>
+	
+</body>
+</html>

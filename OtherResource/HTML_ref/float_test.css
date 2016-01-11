@@ -1,0 +1,156 @@
+/*浮动特征测试*/
+
+#feature {
+    width: 600px;
+    height: 800px;
+    border: 2px solid red;
+    padding: 10px;
+    /*float: left;*/
+    /*-webkit-writing-mode: vertical-lr;*/
+    /*-webkit-writing-mode: vertical-rl;*/
+    /*-ms-writing-mode: vertical-rl;*/
+    /*writing-mode: vertical-rl;*/
+    /*direction: rtl;*/
+    /*direction并不改变块级元素的布局*/
+    /*overflow: hidden;*/
+}
+
+#feature>div {
+    background-color: orange;
+    outline: 1px solid blue;
+}
+
+#feature .smallsize {
+    width: 50px;
+    height: 50px;
+    float: left;
+    /*margin: 20px;*/
+    /*display: inline;*/
+    /*display: inline-block;*/
+}
+
+#feature .normalsize {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+#feature .largesize {
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+
+#feature .no1 {
+    /*float: left;*/
+    height: 200px;
+    /*width: 800px;*/
+    line-height: 1em;
+}
+
+#feature .no2 {
+    /*float: left;*/
+    outline-color: lime;
+    line-height: 3em;
+    /*padding: 50px;*/
+}
+
+#feature .no3 {
+    /*clear: both;*/
+    /*float: left;*/
+    /*display: block;*/
+    line-height: 5em;
+}
+
+#feature .no4 {
+    /*float: left;*/
+    line-height: 7em;
+}
+
+
+/*清除浮动测试*/
+
+
+/*设置统一模版*/
+
+#clear {
+    width: 500px;
+    height: 450px;
+    border: 1px solid yellow;
+    margin: 10px 20px;
+}
+
+#clear .big {
+    width: 80%;
+    background: gray;
+    outline: 2px dotted;
+}
+
+#clear .tiny {
+    float: left;
+    background: orange;
+    height: 200px;
+}
+
+#clear .aside {
+    background: fuchsia;
+    height: 50px;
+}
+
+
+/*方法一、父元素加::after和clear*/
+
+
+/*在浮动元素后生成清除模块，无效*/
+
+#clear.no1 .tiny.clearfix::after {
+    content: ".";
+    display: block;
+    /*clear: both;*/
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+/*在父元素内的末尾部分生成清除模块，有效*/
+
+#clear.no1 .big.clearfix::after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+/*方法二、浮动元素后，后置一个块级元素并且clear*/
+
+
+/*在浮动元素后生成一个清除模块，有效*/
+
+#clear.no2 .blank1 {
+    clear: both;
+}
+
+
+/*在父元素内的末尾部分生成清除模块，有效*/
+
+#clear.no2 .blank2 {
+    /*clear: both;*/
+}
+
+
+/*方法三、父元素隐藏溢出内容*/
+
+#clear.no3 .big {
+    overflow: hidden;
+}
+
+
+/*方法四、给父元素也设置浮动*/
+
+#clear.no4 .big {
+    float: left;
+}

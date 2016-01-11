@@ -1,0 +1,48 @@
+main>section:first-child>:last-child {
+    /*background-color: orange;*/
+    height: 500px;
+}
+
+article>section {
+	border: 1px dotted gray;
+}
+section:first-child>:last-child .sample {
+    background: aqua;
+    margin: 10px;
+}
+
+article span::before {
+    content: "A span: ";
+    display: block;
+}
+
+article span::after {
+    display: block;
+    content: "-----割-----" "&Phi;&Dcy;&Phi;" "ΦДΦ" '竟然不“吃”实体符';
+    /*我只想知道怎么换行*/
+    white-space: pre-wrap;
+}
+
+article div::before {
+    content: "A div: ";
+    display: block;
+}
+
+article div::after {
+    content: "-----割-----";
+    display: block;
+}
+
+article input::before {
+    content: "A input: ";
+    display: block;
+}
+
+article input::after {
+    content: "-----割-----";
+    display: block;
+}
+
+article input {
+    size: 300px;
+}

@@ -1,0 +1,140 @@
+/*给案例加个框*/
+article .example {
+    border: 1px dashed red;
+    margin: 5px;
+}
+
+/*布局-三行两列自适应布局*/
+
+#threelines_twocols_auto+.example {
+    height: 400px;
+    display: flex;
+    /*设置垂直弹性方向*/
+    flex-flow: column nowrap;
+    /*测试自适应效果*/
+    width: 100%;
+}
+
+#threelines_twocols_auto+.example>div {
+    left: 0;
+    height: 50px;
+    width: 100%;
+}
+
+#threelines_twocols_auto+.example .head {
+    background: rgba(100, 100, 255, 0.6);
+}
+
+#threelines_twocols_auto+.example .foot {
+    background: rgba(100, 255, 100, 0.6);
+}
+
+#threelines_twocols_auto+.example .body {
+	/*使得body填满中间横向区域*/
+    flex-grow: 1;
+    /*使body称为弹性容器*/
+    display: flex;
+    /*使body里的弹性项居中*/
+    justify-content: center;
+}
+
+#threelines_twocols_auto+.example .main {
+	/*使得main这个弹性项可以填满body剩余空间*/
+    flex-grow: 1;
+    /*使main在body里往后排*/
+    order: 1;
+    background: silver;
+    /*设置与sidebar的左边距*/
+    margin-left: 2px;
+}
+
+#threelines_twocols_auto+.example .sidebar {
+    min-width: 60px;
+    max-width: 100px;
+    background: #a0f;
+    /*使得sidebar称为弹性容器*/
+    display: flex;
+    padding: 0;
+}
+
+#threelines_twocols_auto+.example .sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+#threelines_twocols_auto+.example .sidebar li {
+    display: block;
+    list-style-type: none;
+    margin: 3px;
+    padding: 1px;
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px 1px navy;
+}
+
+
+/*布局-三行两列居中自适应布局*/
+
+#threelines_twocols_center_auto+.example {
+    height: 400px;
+    display: flex;
+    /*设置垂直弹性方向*/
+    flex-flow: column nowrap;
+    /*测试自适应效果*/
+    width: 100%;
+}
+
+#threelines_twocols_center_auto+.example>div {
+    left: 0;
+    height: 50px;
+    width: 100%;
+}
+
+#threelines_twocols_center_auto+.example .head {
+    background: rgba(100, 100, 255, 0.6);
+}
+
+#threelines_twocols_center_auto+.example .foot {
+    background: rgba(100, 255, 100, 0.6);
+}
+
+#threelines_twocols_center_auto+.example .body {
+    /*使得body填满中间横向区域*/
+    flex-grow: 1;
+    /*使body称为弹性容器*/
+    display: flex;
+    /*使body里的弹性项居中*/
+    justify-content: center;
+}
+
+#threelines_twocols_center_auto+.example .main {
+    /*使main在body里往后排*/
+    order: 1;
+    background: silver;
+    /*设置与sidebar的左边距*/
+    margin-left: 2px;
+    /*不设置flex-grow时，让main可以占据body里的部分位置，不填满*/
+    width: 60%;
+}
+
+#threelines_twocols_center_auto+.example .sidebar {
+    min-width: 60px;
+    max-width: 100px;
+    background: #a0f;
+    /*使得sidebar称为弹性容器*/
+    display: flex;
+    padding: 0;
+}
+
+#threelines_twocols_center_auto+.example .sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+#threelines_twocols_center_auto+.example .sidebar li {
+    display: block;
+    list-style-type: none;
+    margin: 3px;
+    padding: 1px;
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px 1px navy;
+}

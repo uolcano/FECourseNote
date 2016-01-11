@@ -1,0 +1,113 @@
+/*整体基本设置*/
+
+#shift_tab+.example {
+    box-sizing: border-box;
+    width: 574px;
+    border: 1px solid #999;
+    font: 14px "Microsoft Yahei";
+}
+
+#shift_tab+.example .content {
+    background: #fff;
+    padding: 20px;
+}
+
+#shift_tab+.example .menu>div {
+    text-align: center;
+    border-bottom: 1px solid #cecece;
+    background: #f1f1f1;
+    line-height: 30px;
+}
+
+
+/*设置弹容器menu和content*/
+
+#shift_tab+.example>div {
+    display: flex;
+}
+
+#shift_tab+.example .menu>div {
+    flex: 1;
+}
+
+
+/*设置tab之间的边框*/
+
+#shift_tab+.example .menu>.course {
+    border-right: 1px solid #cecece;
+}
+
+#shift_tab+.example .menu>.scheme {
+    border-right: 1px solid #cecece;
+}
+
+
+/*隐藏不需要的部分*/
+
+#shift_tab+.example .content>div {
+    flex: 0 0 0;
+    overflow: hidden;
+}
+
+
+/*默认选中课程部分的tab和内容*/
+
+#shift_tab+.example .menu>.course {
+    /*隐藏课程部分tab的下边框并改背景*/
+    border-bottom: none;
+    background: #fff;
+}
+
+#shift_tab+.example .content>.course {
+    /*只显示默认打开的课程部分内容*/
+    flex: 1;
+}
+
+
+/*选中学习计划部分的tab和内容*/
+
+#shift_tab+.example .menu>.scheme {
+    /*隐藏课程计划部分tab的下边框并改背景*/
+    /*border-bottom: none;*/
+    /*background: #fff;*/
+}
+
+#shift_tab+.example .content>.scheme {
+    /*flex: 1;*/
+}
+
+
+/*选中技能图谱部分的tab和内容*/
+
+#shift_tab+.example .menu>.techtree {
+    /*隐藏技能图谱部分tab的下边框并改背景*/
+    /*border-bottom: none;*/
+    /*background: #fff;*/
+}
+
+#shift_tab+.example .content>.techtree {
+    /*flex: 1;*/
+}
+
+
+/*父级兄弟选择实验*/
+
+#leapout_parent {
+    margin: 10px;
+    border: 1px solid red;
+    padding: 10px;
+}
+
+#leapout_parent>div {
+    padding: 10px;
+    border: 1px solid blue;
+    margin: 1px 0;
+}
+
+#leapout_parent>div>div {
+    border: 1px solid;
+}
+
+#leapout_parent !.n1>.x {
+    background: #000;
+}

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>7 transform</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="../../csslib/general.css">
+    <link rel="stylesheet" href="7.transform.css">
+</head>
+
+<body>
+    <header>
+        <h2 id="top">变形（IE大都能不完整支持&ograve;&dcy;&oacute;废话！）</h2></header>
+    <nav>
+        <ul>
+            <li><a href="#transform" title="transform">transform</a></li>
+            <li><a href="#transform-origin" title="transform-origin">transform-origin</a></li>
+            <li><a href="#perspective" title="perspective">perspective</a></li>
+            <li><a href="#perspective-origin" title="perspective-origin">perspective-origin</a></li>
+            <li><a href="#transform-style" title="transform-style">transform-style</a></li>
+            <li><a href="#backface-visibility" title="backface-visibility">backface-visibility</a></li>
+<!--             <li><a href="#" title=""></a></li>
+            <li><a href="#" title=""></a></li>
+            <li><a href="#" title=""></a></li>
+            <li><a href="#" title=""></a></li> -->
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h3 id="transform">变形|<a href="https://drafts.csswg.org/css-transforms/#transform-property" title="transform">transform</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="transform">
+                        <colgroup width="20%"></colgroup><tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-transform">transform
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transforms/#propdef-transform"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">none <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-transforms/#typedef-transform-list">&lt;transform-list&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#transformable-element">transformable elements</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to the size of <a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#reference-box">reference box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified, but with relative lengths converted into absolute lengths.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="https://drafts.csswg.org/css-transforms/#interpolation-of-transforms">transform</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>设置非none的属性值，都会产生一个堆叠内容（一个有3D效果的子元素）和一个容器块（这个元素本身作为一个父容器），它就像是一个包含了固定定位的后代元素的容器块。</p>
+                    <pre class="prod"><code class="html"><dfn data-dfn-type="type" data-export="" id="typedef-transform-list">&lt;transform-list&gt;<a class="self-link" href="https://drafts.csswg.org/css-transforms/#typedef-transform-list"></a></dfn> = <a class="production" data-link-type="type" href="https://drafts.csswg.org/css-transforms/#transform-functions">&lt;transform-function&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-one-plus">+</a></code></pre>
+                </div>
+                <div>
+                    <h4 id="two-d-transform-functions">2D Transform Functions</h3>
+                    <dl>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-matrix">matrix()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-matrix"></a></dfn> = matrix( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> [<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> ]<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-num-range">{5,5}</a> )</span></dt><dd> specifies a 2D transformation in the form of a <a href="https://drafts.csswg.org/css-transforms/#MatrixDefined">transformation matrix</a> of the six values a-f.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-translate">translate()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-translate"></a></dfn> = translate( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> [<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> ]<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-opt">?</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#TranslateDefined">2D translation</a> by the vector [tx, ty], where tx is the first translation-value parameter and ty is the optional second translation-value parameter. If <em>&lt;ty&gt;</em> is not provided, ty has zero as a value.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-translatex">translateX()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-translatex"></a></dfn> = translateX( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#TranslateDefined">translation</a> by the given amount in the X direction.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-translatey">translateY()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-translatey"></a></dfn> = translateY( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#TranslateDefined">translation</a> by the given amount in the Y direction.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-scale">scale()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-scale"></a></dfn> = scale( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> [<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> ]<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-opt">?</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#ScaleDefined">2D scale</a> operation by the [sx,sy] scaling vector described by the 2 parameters. If the second parameter is not provided, it takes a value equal to the first. For example, scale(1, 1) would leave an element unchanged, while scale(2, 2) would cause it to appear twice as long in both the X and Y axes, or four times its typical geometric size.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-scalex">scaleX()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-scalex"></a></dfn> = scaleX( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#ScaleDefined">2D scale</a> operation using the [sx,1] scaling vector, where sx is given as the parameter.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-scaley">scaleY()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-scaley"></a></dfn> = scaleY( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#ScaleDefined">2D scale</a> operation using the [1,sy] scaling vector, where sy is given as the parameter.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-rotate">rotate()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-rotate"></a></dfn> = rotate( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#RotateDefined">2D rotation</a> by the angle specified in the parameter about the origin of the element, as defined by the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css-transforms/#propdef-transform-origin">transform-origin</a> property. For example, <span class="css">rotate(90deg)</span> would cause elements to appear rotated one-quarter of a turn in the clockwise direction.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-skew">skew()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-skew"></a></dfn> = skew( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> [<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> ]<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-opt">?</a> )</span></dt><dd>specifies a <a href="https://drafts.csswg.org/css-transforms/#SkewDefined">2D skew</a> by [ax,ay] for X and Y. If the second parameter is not provided, it has a zero value.<p class="note" role="note">Note that the behavior of <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transforms/#funcdef-skew">skew()</a> is different from multiplying <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transforms/#funcdef-skewx">skewX()</a> with <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transforms/#funcdef-skewy">skewY()</a>. Implementations must support this function for compatibility with legacy content.</p></dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-skewx">skewX()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-skewx"></a></dfn> = skewX( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#SkewXDefined">2D skew transformation along the X axis</a> by the given angle.</dd>
+                    <dt><span class="prod"><dfn class="css" data-dfn-for="transform" data-dfn-type="function" data-export="" id="funcdef-skewy">skewY()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-skewy"></a></dfn> = skewY( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> )</span></dt><dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#SkewYDefined">2D skew transformation along the Y axis</a> by the given angle. 
+                   </dd></dl>
+                </div>
+                <div>
+                    <h4 id="three-d-transform-functions">3D Transform Functions</h4>
+                    <dl>
+                        <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-matrix3d">matrix3d()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-matrix3d"></a></dfn> = matrix3d( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> [<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> ]<a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-num-range">{15,15}</a> )</span></dt>
+                        <dd> specifies a 3D transformation as a 4x4 homogeneous matrix of 16 values in column-major order.</dd>
+                        <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-translate3d">translate3d()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-translate3d"></a></dfn> = translate3d( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> )</span></dt>
+                        <dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#Translate3dDefined">3D translation</a> by the vector [tx,ty,tz], with tx, ty and tz being the first, second and third translation-value parameters respectively.</dd>
+                        <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-translatez">translateZ()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-translatez"></a></dfn> = translateZ( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> )</span></dt>
+                        <dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#Translate3dDefined">3D translation</a> by the vector [0,0,tz] with the given amount in the Z direction.</dd>
+                        <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-scale3d">scale3d()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-scale3d"></a></dfn> = scale3d( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> )</span></dt>
+                        <dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#Scale3dDefined">3D scale</a> operation by the [sx,sy,sz] scaling vector described by the 3 parameters.</dd>
+                        <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-scalez">scaleZ()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-scalez"></a></dfn> = scaleZ( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> )</span></dt>
+                        <dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#Scale3dDefined">3D scale</a> operation using the [1,1,sz] scaling vector, where sz is given as the parameter.</dd>
+                        <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-rotate3d">rotate3d()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-rotate3d"></a></dfn> = rotate3d( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-comma">,</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> )</span></dt>
+                        <dd>specifies a <a href="https://drafts.csswg.org/css-transforms/#Rotate3dDefined">3D rotation</a> by the angle specified in last parameter about the [x,y,z] direction vector described by the first three parameters. A direction vector that cannot be normalized, such as [0,0,0], will cause the rotation to not be applied.
+                            <p class="note" role="note">Note that the rotation is clockwise as one looks from the end of the vector toward the origin.</p</dd>
+                                <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-rotatex">rotateX()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-rotatex"></a></dfn> = rotateX( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> )</span></dt>
+                                <dd> same as <span class="css">rotate3d(1, 0, 0, &lt;angle&gt;)</span>.</dd>
+                                <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-rotatey">rotateY()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-rotatey"></a></dfn> = rotateY( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> )</span></dt>
+                                <dd> same as <span class="css">rotate3d(0, 1, 0, &lt;angle&gt;)</span>.</dd>
+                                <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-rotatez">rotateZ()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-rotatez"></a></dfn> = rotateZ( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#angle-value">&lt;angle&gt;</a> )</span></dt>
+                                <dd> same as <span class="css">rotate3d(0, 0, 1, &lt;angle&gt;)</span>, which is also the same as <span class="css">rotate(&lt;angle&gt;)</span>.</dd>
+                                <dt><span class="prod"><dfn class="css" data-dfn-type="function" data-export="" id="funcdef-perspective">perspective()<a class="self-link" href="https://drafts.csswg.org/css-transforms/#funcdef-perspective"></a></dfn> = perspective( <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> )</span></dt>
+                                <dd> specifies a <a href="https://drafts.csswg.org/css-transforms/#PerspectiveDefined">perspective projection matrix</a>. This matrix scales points in X and Y based on their Z value, scaling points with positive Z values away from the origin, and those with negative Z values towards the origin. Points on the z=0 plane are unchanged. The parameter represents the distance of the z=0 plane from the viewer. Lower values give a more flattened pyramid and therefore a more pronounced perspective effect. For example, a value of 1000px gives a moderate amount of foreshortening and a value of 200px gives an extreme amount. The value for depth must be greater than zero, otherwise the function is invalid.
+                                </dd>
+                    </dl>
+                </div>
+                <div>
+                    <p id="rotate">rotate(&lt;angle&gt;)，矩形以原点顺时钟旋转，旋转会改变XY轴方向。如，transform: rotate( 45deg )，顺时钟旋转45度。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="translate">translate()，控制矩形偏移。取值可以是长度值(如px)和百分比，可以设置两个值(x轴和y轴)。当使用一个值的时候，y轴的偏移默认为0。可以拆分成X轴偏移translateX和Y轴偏移translateY。实际上如果还有rotate()方法，会影响XY轴的方向，就不一定是左移右移了。如，transform: translate( 50px, 50% )，左移50px，下移50%自身高度。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="scale">scale()，控制矩形放大或缩小。取值为数字，可以设置两个值(x轴和y轴)。当使用一个值的时候，x和y轴都按这个值的缩放。可拆分成X轴方向放大scaleX和Y轴方向放大scaleY。如，transform: scale( 0.5, 1.5 )，宽度变为原来的0.5倍，高度变为原来的1.5倍。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="skew">skew(&lt;angle&gt;)，控制倾斜，可作出菱形。可以设置两个值。当适应一个值的时候，y轴默认取0。可拆分成Y轴向X轴倾斜skewX()，X轴向Y轴倾斜skewY()。如：transform: skew( 30deg, 10deg )，Y轴向X轴倾斜30度，X轴向Y轴倾斜10度。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="rotate_translate">使用多个方法时，先后顺序不同得到的结果不一样。比如：transform:translate(50%) rotate(45deg)其中的两个方法颠倒后的效果不一样，因为rotate会改变x和y轴的方向。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="translate3d">translate3d()，3D偏移。用法跟translate()方法相同，只不过多了一个z轴的偏移。可以拆分为三个轴方向上各自的方法translateX( &lt;translation-value&gt; )，translateY( &lt;translation-value&gt; )，translateZ( &lt;length&gt; )，z轴的偏移只能用长度值(如px)。如，transform: translate3d( 10px, 20%, 50px );X轴方向移动10px，Y轴移动20%图形高度的距离，向观察者移动50px距离。使用时z轴效果时需要设置透视perspective。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="scale3d">scale3d()，3D缩放。类似scale()方法。可以拆分为三个轴方向上各自的方法scaleX( &lt;number&gt; )X轴方向缩放，scaleY( &lt;number&gt; )Y轴方向缩放，scaleZ( &lt;number&gt; )Z轴方向缩放。使用时z轴效果时需要设置透视perspective。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="rotate3d">rotate3d()，3D旋转。类似rotate()方法。可以拆分为三个轴方向上各自的方法rotateX( &lt;angle&gt; )以x轴为中心轴旋转某个角度，rotateY( &lt;angle&gt; )以y轴为中心轴旋转某个角度，rotateZ( &lt;angle&gt; )以z轴为中心轴旋转某个角度。使用时z轴效果时需要设置透视perspective。</p>
+                    <p>transform: rotate3d( 1, 0, 0, 45deg);以x轴上从原点0到1连线为中心轴，即x轴为中心轴旋转45度。</p>
+                    <div class="example no1">
+                        <div>instance</div>
+                    </div>
+                    <p>transform: rotate3d( 0, 1, 0, 45deg);以y轴为中心轴旋转45度。</p>
+                    <div class="example no2">
+                        <div>instance</div>
+                    </div>
+                    <p>transform: rotate3d( 0, 0, 1, 45deg);以z轴为中心轴旋转45度，相当于2d旋转45度。</p>
+                    <div class="example no3">
+                        <div>instance</div>
+                    </div>
+                    <p>transform: rotate3d( 1, 1, 1, 45deg);以原点0到空间坐标为(1, 1, 1)的点的连线为中心轴，旋转45度。</p>
+                    <div class="example no4">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="transform-origin">变形坐标轴心点位置|<a href="https://drafts.csswg.org/css-transforms/#transform-origin-property" title="transform-origin" title="transform-origin">transform-origin</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="transform-origin">
+                        <colgroup width="20%"></colgroup><tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-transform-origin">transform-origin
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transforms/#propdef-transform-origin"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">&nbsp;&nbsp;[ left <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> center <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> right <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> top <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> bottom <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> ]
+                                    <br> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a>
+                                    <br>&nbsp;&nbsp;[ left <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> center <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> right <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> ]
+                                    <br>&nbsp;&nbsp;[ top <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> center <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> bottom <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#percentage-value">&lt;percentage&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> ] <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-opt">?</a>
+                                    <br> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a>
+                                    <br>&nbsp;&nbsp;[[ center <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> left <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> right ] &amp;&amp; [ center <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> top <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> bottom ]] <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-opt">?</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>50% 50%
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#transformable-element">transformable elements</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to the size of <a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#reference-box">reference box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>For <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> the absolute value, otherwise a percentage
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://dev.w3.org/csswg/css3-transitions/#animtype-simple-list">simple list</a> of <a href="http://dev.w3.org/csswg/css3-transitions/#animtype-lpcalc">length, percentage, or calc</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性是设置在<em>有变形效果的元素上的</em>。可以设置三个值，第三个值是中心点在z轴山的移动。可以设置两个值，对应x轴和y轴，注意会随旋转而改变两个轴的方向。可以设置一个值，但是只是x轴的值，y轴就会默认设为50%。使用长度值，都是相对图形的左上角位置的。或者使用位置关键字。</p>
+                    <p id="">初始值：50% 50%，即中心点。就像图形中心点被钉住然后顺时钟旋转。</p>
+                    <div class="example">
+                        <div>instance</div>
+                        <div>instance</div>
+                    </div>
+                    <p id="">transform-origin:100%; ，X轴上图片的100%位置，Y轴上图片的50%位置为原点。</p>
+                    <div class="example">
+                        <div>instance</div>
+                        <div>instance</div>
+                    </div>
+                    <p id="">transform-origin:0 0; 以图片的左上角为原点。就像是左上角被钉住然后顺时钟旋转。</p>
+                    <div class="example">
+                        <div>instance</div>
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="perspective">透视度|<a href="https://drafts.csswg.org/css-transforms/#perspective-property" title="perspective">perspective</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="perspective">
+                        <colgroup width="20%"></colgroup><tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-perspective">perspective
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transforms/#propdef-perspective"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">none <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#transformable-element">transformable elements</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>Absolute length or "none".
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://dev.w3.org/csswg/css3-transitions/#animtype-length">length</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性是设置在<em>有变形效果的元素的父容器上的</em>。这里的&lt;length&gt;，表示图像离画布上投影中心的距离。必须使用正数。，可以认为是人眼离图片的距离，看到的效果。与2D变形transform的rotate()方法只是顺时钟旋转不同，perspective属性配合一个3Dtransform方法可以使图像更有立体感。</p>
+                    <p id="">none，默认，不透视</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="">perspective: 2000px; </p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="">perspective: 500px;，越小偏移越明显</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="perspective-origin">透视焦点|<a href="https://drafts.csswg.org/css-transforms/#perspective-origin-property" title="perspective-origin">perspective-origin</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="perspective-origin">
+                        <colgroup width="20%"></colgroup><tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-perspective-origin">perspective-origin
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transforms/#propdef-perspective-origin"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-backgrounds-3/#position">&lt;position&gt;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>50% 50%
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#transformable-element">transformable elements</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>refer to the size of the <a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#reference-box">reference box</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>For <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#length-value">&lt;length&gt;</a> the absolute value, otherwise a percentage.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>as <a href="http://dev.w3.org/csswg/css3-transitions/#animtype-simple-list">simple list</a> of <a href="http://dev.w3.org/csswg/css3-transitions/#animtype-lpcalc">length, percentage, or calc</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性是设置在<em>有变形效果的元素的父容器上的</em>。这个属性设置perspective属性轴心的位置，即视角定点位置。这里&lt;position&gt;指的是位置，可以是位置关键字(如：left)、长度值(如：px)或百分比。所有值都是相对图形的左上角位置的。</p>
+                    <p id="">perspective-origin: 50% 50%;，默认值，以正中间透视</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="">perspective-origin: left bottom;，以左下角为视角定点位置</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="">perspective-origin: 50% -800px;，图片的中间偏上800px开始透视</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="">perspective-origin: right;，图片右边中间位置开始透视</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <!--                     <p id=""></p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div> -->
+                </div>
+            </article>
+            <article>
+                <h3 id="transform-style">空间透视|<a href="http://www.w3.org/TR/css-transforms-1/#transform-style-property" title="transform-style">transform-style</a></h3>
+                <div>
+                    <table class="definition propdef">
+                        <colgroup width="20%"></colgroup><tbody>
+                            <tr>
+                                <th>Name:</th>
+                                <td>
+                                    <dfn class="css-code" data-dfn-type="property" data-export="" id="propdef-transform-style">transform-style
+                                        <a class="self-link" href="http://www.w3.org/TR/css-transforms-1/#propdef-transform-style"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Value:</th>
+                                <td>flat | preserve-3d</td>
+                            </tr>
+                            <tr>
+                                <th>Initial:</th>
+                                <td>flat</td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:</th>
+                                <td><a data-link-type="dfn" href="http://www.w3.org/TR/css-transforms-1/#transformable-element" title="transformable elements">transformable elements</a></td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:</th>
+                                <td>no</td>
+                            </tr>
+                            <tr>
+                                <th>Media:</th>
+                                <td>visual</td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:</th>
+                                <td>Same as specified value.</td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:</th>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:</th>
+                                <td>no</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性是设置在<em>有变形效果的元素上的</em>。此属性控制父元素内的子元素的透视效果。</p>
+                    <p id="">flat，初始值，子元素的变形效果在有变形效果的父元素里是扁平的，没有显现出透视效果。</p>
+                    <div class="example">
+                        <div class="example">
+                            <div>instance</div>
+                        </div>
+                    </div>
+                    <p id="">preserve-3d，让一个有变形效果的父元素的子元素的变形效果也显现出来，显现除了变形效果。</p>
+                    <div class="example">
+                        <div class="example">
+                            <div>instance</div>
+                        </div>
+                    </div>
+                    <p>并且设置preserve-3d属性值的元素如果有非变形的父元素会有穿透背景的效果</p>
+                    <div class="example">
+                        <div class="example">
+                            <div>instance</div>
+                        </div>
+                    </div>
+                    <p><strong>注意：</strong>一些CSS属性会在设置到父元素上时，会强制产生平坦的子元素，而不是有3D效果的样子，当这些CSS属性设置到父元素时，会忽略父元素的preserve-3d属性值效果。如：非visible值的overflow，非none值的filter，非auto值的clip，非none值的clip-path，取isolate值的isolation，非none值的mask-image，非none值的mask-boximage-source，非normal值的mix-blend-mode。他们都会使得transform-style属性值设置的效果失效。</p>
+            </article>
+            <article>
+                <h3 id="backface-visibility">设置背面可见|<a href="https://drafts.csswg.org/css-transforms/#backface-visibility-property" title="backface-visibility">backface-visibility</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="backface-visibility">
+                        <colgroup width="20%"></colgroup><tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-backface-visibility">backface-visibility
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transforms/#propdef-backface-visibility"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod">visible <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> hidden
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>visible
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td><a data-link-type="dfn" href="https://drafts.csswg.org/css-transforms/#transformable-element">transformable elements</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>Same as specified value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>这个属性控制变形图形的背面是否可见。</p>
+                    <p id="">backface-visibility: visible;，从一个角度看，前面背面都可见。</p>
+                    <div class="example">
+                        <div>front</div>
+                        <div>back</div>
+                    </div>
+                    <p id="">backface-visibility: hidden;，从一个角度看，只可见一个面。</p>
+                    <div class="example">
+                        <div>front</div>
+                        <div>back</div>
+                    </div>
+                    <p id=""></p>
+                    <div class="example">
+                        <div>front</div>
+                        <div>back</div>
+                    </div>
+                </div>
+            </article>
+<!--             <article>
+                <h3 id="">行高|line-height</h3>
+                <div>to insert syntax</div>
+                <div>to insert descrip(p#^div.example)*3</div>
+            </article>
+            <article>
+                <h3 id="">行高|line-height</h3>
+                <div>to insert syntax</div>
+                <div>to insert descrip(p#^div.example)*3</div>
+            </article>
+            <article>
+                <h3 id="">行高|line-height</h3>
+                <div>to insert syntax</div>
+                <div>to insert descrip(p#^div.example)*3</div>
+            </article>
+            <article>
+                <h3 id="">行高|line-height</h3>
+                <div>to insert syntax</div>
+                <div>to insert descrip(p#^div.example)*3</div>
+            </article> -->
+        </section>
+        <section>
+            <h3 id="reference">参考</h3> <ul>
+                <li><a href="https://drafts.csswg.org/css-transforms/" title="CSS Transforms Module Level 1">CSS Transforms Module Level 1</a></li>
+<!--                 <li><a href=""></a></li>
+                <li><a href=""></a></li> -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <h3>声明</h3>
+        <p>本文参考自W3C编者拟稿，结合个人实例而成。或有错漏，欢迎交流。</p>
+        <p>我的Github：<a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a></p>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

@@ -7,9 +7,11 @@
     /*水平流*/
     /*-webkit-writing-mode: horizontal-tb;*/
     /*垂直流*/
-    /*-webkit-writing-mode: vertical-lr;*/
+    -webkit-writing-mode: vertical-lr;
     /*-ms-writing-mode: vertical-lr;*/
     /*writing-mode: vertical-lr;*/
+    /*变形不影响margin/padding/content的宽高*/
+    /*transform: rotate(-90deg);*/
 }
 
 #inner {
@@ -29,4 +31,10 @@
     /*writing-mode: vertical-lr;*/
     /*变形不影响margin/padding/content的宽高*/
     /*transform: rotate(-90deg);*/
+    /*测试行内元素*/
+    /*display: inline;*/
+    /*margin: 0.1em 1em 10% 0.5em;*/
+    /*padding: 0.1em 1em 40% 0.5em;*/
+    /*测试行内块级元素*/
+    /*display: inline-block;*/
 }

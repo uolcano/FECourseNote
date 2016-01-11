@@ -1,0 +1,111 @@
+/*统一设置实验区*/
+
+.example {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    width: 300px;
+    cursor: pointer;
+    position: relative;
+    background: repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(150, 150, 150, 0.5) 10px, rgba(150, 150, 150, 0.5) 15px) content-box, repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(150, 150, 150, 0.5) 10px, rgba(150, 150, 150, 0.5) 15px) content-box;
+}
+
+.example>div {
+    background: linear-gradient(0deg, transparent, transparent 34px, rgba(165, 0, 165, 0.5) 34px, rgba(165, 0, 165, 0.5) 36px, transparent 36px, transparent 100px), linear-gradient(90deg, transparent, transparent 34px, rgba(165, 0, 165, 0.5) 34px, rgba(165, 0, 165, 0.5) 36px, transparent 36px, transparent 100px), rgba(111, 245, 111, 0.8);
+    border-radius: 50%;
+    box-sizing: border-box;
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    text-align: center;
+    border: 0;
+    word-break: break-all;
+    white-space: pre-wrap;
+    padding: 0;
+    margin: 0;
+    transition: 3s;
+    /*相对于每个要触发改变的CSS属性，触发前一定要设置好初始属性值*/
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.example:hover>div {
+    color: red;
+    left: 230px;
+}
+
+
+/*transition-property属性实验*/
+#transition-property~:last-child>:nth-child(3)>div {
+    transition-property: none;
+}
+
+#transition-property~:last-child>:nth-child(5)>div {
+    transition-property: all;
+}
+
+#transition-property~:last-child>:nth-child(7)>div {
+    transition-property: left;
+}
+
+#transition-property~:last-child>:nth-child(9)>div {
+    transition-property: left, color;
+    line-height: 20px;
+    padding: 15px;
+}
+
+/*transition-duration属性实验*/
+#transition-duration~:last-child>:nth-child(3):hover>div {
+	font-size: 1.5em;
+	line-height:15px;
+	padding: 10px;
+}
+/*transition-timing-function属性实验*/
+#transition-timing-function~:last-child .example>div{
+	line-height: 15px;
+	padding: 10px;
+}
+#ease+.example>div {
+	transition-timing-function:ease;
+}
+#ease-in+.example>div {
+	transition-timing-function:ease-in;
+}
+#ease-out+.example>div {
+	transition-timing-function:ease-out;
+}
+#ease-in-out+.example>div {
+	transition-timing-function:ease-in-out;
+}
+#linear+.example>div {
+	transition-timing-function:linear;
+}
+#step-start+.example>div {
+	transition-timing-function:step-start;
+}
+#step-end+.example>div {
+	transition-timing-function:step-end;
+}
+#steps+.example>div {
+	transition-timing-function:steps(5, start);
+}
+#steps+.example+.example>div {
+	transition-timing-function:steps(4, end);
+}
+#cubic-bezier+p+.example>div {
+	transition-timing-function:cubic-bezier(0.1, 0.7, 1.0, 0.1);
+	font-size: 0.7em;
+}
+#cubic-bezier+p+.example+.example>div {
+	transition-timing-function:cubic-bezier(0.4, -0.6, 0.2, 2);
+	font-size: 0.7em;
+}
+/*transition-delay属性实验*/
+#transition-delay~:last-child>:nth-child(2)>div {
+	transition-delay: 1s;
+}
+/*transition属性实验*/
+#transition~:last-child>:nth-child(3)>div {
+	transition: left 2s ease 1s, color 2s;
+}

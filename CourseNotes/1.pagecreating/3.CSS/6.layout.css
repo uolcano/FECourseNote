@@ -1,0 +1,984 @@
+display属性实验*/
+/*布局-块级元素水平居中*/
+
+#layout_center_block+.example {
+    height: 100px;
+    padding: 0;
+    border: 1px solid gray;
+}
+
+#layout_center_block+.example>div {
+    /*块级元素识别区*/
+    background: orange;
+    width: 200px;
+    height: 50px;
+    /*块元素居中*/
+    margin: 0 auto;
+}
+
+
+/*布局-居中导航*/
+
+#layout_center_nav+.example {
+    height: 100px;
+}
+
+#layout_center_nav+.example ul {
+    /*清除列表图标*/
+    list-style-type: none;
+    /*清除UA内边距样式*/
+    padding: 0;
+    /*列表居中*/
+    margin: 0 auto;
+    /*列表项居中*/
+    text-align: center;
+}
+
+#layout_center_nav+.example li {
+    /*列表项识别区*/
+    background: lime;
+    margin: 2px;
+    width: 80px;
+    /*列表项改为行内块*/
+    display: inline-block;
+}
+
+
+/*浮动属性测试*/
+
+#float~:last-child>:nth-child(3) {
+    border: 1px solid;
+    height: 300px;
+    font-weight: bold;
+}
+
+#float~:last-child>:nth-child(3)>div {
+    /*字符折行*/
+    word-wrap: break-word;
+    /*给每个盒子设置透明背景色，便于观察浮动的影响*/
+    background: rgba(100, 100, 100, 0.5);
+}
+
+#float~:last-child>:nth-child(3)>:nth-child(1) {
+    border: 5px dashed red;
+    height: 150px;
+    width: 150px;
+    float: left;
+}
+
+#float~:last-child>:nth-child(3)>:nth-child(2) {
+    border: 5px dashed aqua;
+    height: 80px;
+    width: 80px;
+    /*用于区分其他几个盒子的内容*/
+    color: green;
+    /*防止被盖住*/
+    line-height: 50px;
+}
+
+#float~:last-child>:nth-child(3)>:nth-child(3) {
+    border: 5px dashed navy;
+    height: 100px;
+    width: 100px;
+    /*用于区分其他几个盒子的内容*/
+    color: fuchsia;
+}
+
+#float~:last-child>:nth-child(5) {
+    width: 600px;
+    height: 500px;
+    border: 2px solid red;
+    padding: 10px;
+    word-wrap: break-word;
+    /*-webkit-writing-mode: vertical-lr;*/
+    /*-webkit-writing-mode: vertical-rl;*/
+    /*-ms-writing-mode: vertical-rl;*/
+    /*writing-mode: vertical-rl;*/
+    /*direction: rtl;*/
+    /*direction并不改变块级元素的布局*/
+}
+
+#float~:last-child>:nth-child(5)>div {
+    background-color: orange;
+    outline: 1px solid blue;
+}
+
+#float~:last-child>:nth-child(5) .smallsize {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+#float~:last-child>:nth-child(5) .normalsize {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+#float~:last-child>:nth-child(5) .largesize {
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+
+#float~:last-child>:nth-child(5) .no1 {
+    float: left;
+    height: 200px;
+    /*width: 800px;*/
+    line-height: 1em;
+}
+
+#float~:last-child>:nth-child(5) .no2 {
+    /*float: left;*/
+    outline-color: lime;
+    line-height: 3em;
+}
+
+#float~:last-child>:nth-child(5) .no3 {
+    clear: both;
+    /*float: left;*/
+    line-height: 5em;
+}
+
+#float~:last-child>:nth-child(5) .no4 {
+    /*float: left;*/
+    line-height: 7em;
+}
+
+
+/*布局-两列布局*/
+
+#twocols+.example {
+    height: 300px;
+    padding: 10px;
+}
+
+#twocols+.example .outer {
+    border: 3px dotted red;
+    background: orange;
+    width: 400px;
+}
+
+
+/*两列布局*/
+
+#twocols+.example .inner.no1 {
+    background: rgba(255, 0, 255, 0.8);
+    height: 200px;
+    width: 33%;
+    float: left;
+}
+
+#twocols+.example .inner.no2 {
+    background: rgba(0, 0, 255, 0.8);
+    height: 200px;
+    width: 67%;
+    float: right;
+}
+
+
+/*清除浮动*/
+
+#twocols+.example .clearfix::after {
+    content: ".";
+    display: block;
+    /*clear: both;*/
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+/*验证clear效果*/
+
+#float~:last-child>:nth-child(7) .aside {
+    background: lime;
+    width: 100px;
+    height: 50px;
+    border: 5px dotted;
+}
+
+
+/*clear属性实验*/
+
+#clear~:last-child>:nth-child(3)>:nth-child(1) {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 50px;
+    height: 80px;
+    float: left;
+}
+
+#clear~:last-child>:nth-child(3)>:nth-child(2) {
+    border: 2px dotted;
+    background: orange;
+    height: 40px;
+    width: 100px;
+    clear: both;
+}
+
+#clear~:last-child>:nth-child(5)>:nth-child(1) {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 50px;
+    height: 80px;
+    float: left;
+}
+
+#clear~:last-child>:nth-child(5)>:nth-child(2) {
+    border: 2px dotted;
+    background: orange;
+    height: 40px;
+    width: 100px;
+}
+
+#clear~:last-child .clearfix::after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+/*position属性设置*/
+
+#position~:last-child>:nth-child(3) {
+    height: 200px;
+}
+
+#position~:last-child>:nth-child(3)>div {
+    background: rgba(200, 0, 0, 0.6);
+    position: relative;
+    height: 100px;
+    width: 200px;
+    top: 50px;
+    left: 50px;
+}
+
+#position~:last-child>:nth-child(3)>div>:nth-child(1) {
+    background: rgba(0, 200, 0, 0.4);
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    top: 40px;
+    left: 30px;
+    z-index: 10;
+}
+
+#position~:last-child>:nth-child(3)>div>:nth-child(2) {
+    background: rgba(0, 0, 200, 0.4);
+    position: absolute;
+    height: 100px;
+    width: 200px;
+    top: -40px;
+    left: -30px;
+    z-index: 9;
+}
+
+
+/*定位撑开子元素实验*/
+
+#position~:last-child>:nth-child(7)>div {
+    background: silver;
+    position: relative;
+    padding: 20px;
+    height: 100px;
+}
+
+#position~:last-child>:nth-child(7)>div>div {
+    background: orange;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+
+/*设置统一祖先样式*/
+
+#position~:last-child>:nth-child(9)>div {
+    background: content-box repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 10px, transparent 10px, transparent 20px), orange;
+    padding: 10px;
+    border: 5px dotted blue;
+    height: 200px;
+    width: 200px;
+    color: white;
+    margin: 20px;
+    position: relative;
+}
+
+
+/*测试子元素相对定位时块级祖先的容器边界*/
+
+#block_ancestor>div {
+    background: rgba(10, 255, 10, 0.7);
+    width: 100px;
+    height: 50px;
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+
+/*测试子元素绝对定位时，块级祖先的容器边界*/
+
+#inline_ancestor>div {
+    background: rgba(10, 255, 10, 0.7);
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+
+/*banner轮播头图-静态*/
+
+#banner+.example {
+    /*background: silver;*/
+    position: relative;
+    width: 183px;
+    height: 220px;
+    padding: 0;
+}
+
+#banner+.example>p {
+    background: rgba(0, 0, 0, 0.4);
+    height: 30px;
+    width: 100%;
+    margin: 0;
+    line-height: 30px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+#banner+.example>div {
+    height: 10px;
+    width: 48px;
+    line-height: 0px;
+    /*行高设置很关键否则容器内的东西会超出容器下边*/
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    /*background: #f00;*/
+    opacity: 0.5;
+}
+
+#banner+.example>div>span {
+    height: 10px;
+    width: 10px;
+    padding: 0;
+    margin: 0 1px;
+    display: inline-block;
+    border-radius: 10px;
+    background: lime;
+}
+
+#banner+.example>div>span#controls {
+    background: #fff;
+}
+
+
+/*布局-固定顶栏*/
+
+#fixedbar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: olive;
+    width: 40%;
+}
+
+
+/*布局-遮罩*/
+
+#mask {
+    background: 50% 50% no-repeat url("../../imglib/red.png");
+    text-align:center;
+    line-height:200px;
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    left: 80%;
+    top: 50%;
+    z-index: 999;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+/*布局-三行自适应布局*/
+
+#threelines_auto+.example {
+    height: 300px;
+    position: relative;
+    padding: 0;
+}
+
+#threelines_auto+.example>div {
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+#threelines_auto+.example .head {
+    background: rgba(100, 255, 100, 0.6);
+    height: 50px;
+    top: 0;
+}
+
+#threelines_auto+.example .foot {
+    background: rgba(100, 100, 255, 0.6);
+    height: 50px;
+    bottom: 0;
+}
+
+#threelines_auto+.example .body {
+    top: 50px;
+    bottom: 50px;
+    overflow: auto;
+    background: url("../../imglib/linux_penguin.jpg") center/20% no-repeat local, repeating-radial-gradient(at 50% 42%, red, orange 20%, gold 50%, yellow 75%, whitesmoke) center local;
+}
+
+#position~:last-child>:nth-child(16) .content {
+    height: 1000px;
+}
+
+
+/*弹性盒子与弹性项统一设置*/
+
+.flexcontain {
+    background: #fa0;
+    height: 300px;
+    display: flex;
+    counter-reset: itemcntr;
+}
+
+.flexitem {
+    margin: 2px;
+    word-wrap: break-word;
+}
+
+.flexitem::after {
+    counter-increment: itemcntr;
+    content: counter(itemcntr);
+    display: block;
+}
+
+.flexitem:nth-child(1) {
+    background: #0e0;
+    height: 50px;
+    width: 100px;
+}
+
+.flexitem:nth-child(2) {
+    background: #f0e;
+    height: 60px;
+    width: 80px;
+}
+
+.flexitem:nth-child(3) {
+    background: #fe0;
+    height: 45px;
+    width: 85px;
+}
+
+.flexitem:nth-child(4) {
+    background: #ef0;
+    height: 70px;
+    width: 76px;
+}
+
+.flexitem:nth-child(5) {
+    background: #0fe;
+    height: 40px;
+    width: 75px;
+}
+
+
+/*flex-direction属性实验*/
+
+#flex-direction~:last-child>:nth-child(3) {
+    flex-direction: row;
+}
+
+#flex-direction~:last-child>:nth-child(5) {
+    flex-direction: row-reverse;
+}
+
+#flex-direction~:last-child>:nth-child(7) {
+    flex-direction: column;
+}
+
+#flex-direction~:last-child>:nth-child(9) {
+    flex-direction: column-reverse;
+}
+
+
+/*flex-wrap属性实验*/
+
+#flex-wrap~:last-child>.flexcontain {
+    height: 200px;
+    width: 300px;
+}
+
+#flex-wrap~:last-child>:nth-child(3) {
+    flex-wrap: nowrap;
+}
+
+#flex-wrap~:last-child>:nth-child(5) {
+    flex-wrap: wrap;
+}
+
+#flex-wrap~:last-child>:nth-child(7) {
+    flex-wrap: wrap-reverse;
+}
+
+
+/*flex-flow属性实验*/
+
+#flex-flow~:last-child>.flexcontain {
+    height: 200px;
+    width: 300px;
+}
+
+#flex-flow~:last-child>:nth-child(3) {
+    flex-flow: row wrap;
+}
+
+#flex-flow~:last-child>:nth-child(5) {
+    flex-flow: column wrap;
+}
+
+#flex-flow~:last-child>:nth-child(7) {
+    flex-flow: column-reverse wrap;
+}
+
+
+/*order属性实验*/
+
+#order~:last-child>.flexcontain {
+    height: 100px;
+}
+
+#order~:last-child>:nth-child(3)>:nth-child(1) {
+    order: 1;
+}
+
+#order~:last-child>:nth-child(3)>:nth-child(2) {
+    order: -1;
+}
+
+#order~:last-child>:nth-child(3)>:nth-child(3) {
+    order: 999;
+}
+
+#order~:last-child>:nth-child(3)>:nth-child(4) {
+    order: -2;
+}
+
+#order~:last-child>:nth-child(3)>:nth-child(5) {
+    order: 0;
+}
+
+
+/*flex-basis属性实验*/
+
+#flex-basis~:last-child>.flexcontain {
+    height: 200px;
+    width: 500px;
+}
+
+#flex-basis~:last-child>:nth-child(3)>.flexitem {
+    flex-basis: 90px;
+}
+
+#flex-basis~:last-child>:nth-child(5) {
+    flex-flow: column wrap;
+}
+
+#flex-basis~:last-child>:nth-child(5)>.flexitem {
+    flex-basis: 90px;
+}
+
+#flex-basis~:last-child>:nth-child(7) {
+    flex-flow: column-reverse wrap-reverse;
+}
+
+#flex-basis~:last-child>:nth-child(7)>.flexitem {
+    flex-basis: 90px;
+}
+
+
+/*flex-grow属性实验*/
+
+#flex-grow~:last-child>.flexcontain {
+    height: 100px;
+}
+
+#flex-grow~:last-child>:nth-child(3)>:nth-child(1) {
+    flex-grow: 1;
+}
+
+#flex-grow~:last-child>:nth-child(3)>:nth-child(2) {
+    flex-grow: 2;
+}
+
+#flex-grow~:last-child>:nth-child(3)>:nth-child(3) {
+    flex-grow: 3;
+}
+
+#flex-grow~:last-child>:nth-child(3)>:nth-child(4) {
+    flex-grow: 4;
+}
+
+#flex-grow~:last-child>:nth-child(3)>:nth-child(5) {
+    flex-grow: 5;
+}
+
+
+/*flex-shrink属性实验*/
+
+#flex-shrink~:last-child>.flexcontain {
+    height: 200px;
+    width: 300px;
+}
+
+#flex-shrink~:last-child>:nth-child(3)>.flexitem {
+    flex-shrink: 0;
+}
+
+#flex-shrink~:last-child>:nth-child(3)>:nth-child(1) {
+    flex-shrink: 4;
+}
+
+#flex-shrink~:last-child>:nth-child(3)>:nth-child(2) {
+    flex-shrink: 1;
+}
+
+#flex-shrink~:last-child>:nth-child(3)>:nth-child(3) {
+    flex-shrink: 3;
+}
+
+#flex-shrink~:last-child>:nth-child(3)>:nth-child(4) {
+    flex-shrink: 5;
+}
+
+#flex-shrink~:last-child>:nth-child(3)>:nth-child(5) {
+    flex-shrink: 1;
+}
+
+
+/*flex属性设置*/
+
+#flex~:last-child>.flexcontain {
+    height: 100px;
+    width: 500px;
+}
+
+#flex~:last-child>:nth-child(3)>.flexitem {
+    /*对所有弹性项统一设置，这时所有弹性项都会随着弹性容器的宽度一起等比例缩放*/
+    flex: 1 1 0px;
+}
+
+#flex~:last-child>:nth-child(3)>:nth-child(1) {
+    /*省略了flex-shrink和flex-basis*/
+    /*flex: 2;*/
+}
+
+
+/*align-items属性实验*/
+
+#align-items~:last-child>.flexcontain {
+    height: 200px;
+    line-height: 40px;
+    counter-reset: aligncntr;
+}
+
+#align-items~:last-child .flexitem::after {
+    counter-increment: aligncntr;
+    content: counter(aligncntr);
+    display: inline;
+}
+
+#align-items~:last-child .flexitem {
+    text-decoration: underline;
+    text-align: center;
+    line-height: 40px;
+}
+
+#align-items~:last-child .flexitem:nth-child(2) {
+    /*不同行高用于区分基线*/
+    line-height: 100px;
+}
+
+#align-items~:last-child .flexitem:nth-child(3) {
+    line-height: 50px;
+}
+
+#align-items~:last-child .flexitem:nth-child(4) {
+    line-height: 70px;
+}
+
+#align-items~:last-child>:nth-child(4) {
+    align-items: flex-start;
+}
+
+#align-items~:last-child>:nth-child(6) {
+    align-items: flex-end;
+}
+
+#align-items~:last-child>:nth-child(8) {
+    align-items: center;
+}
+
+#align-items~:last-child>:nth-child(10) {
+    align-items: baseline;
+}
+
+
+/*设置align-items: stretch;需要在各弹性项的宽高是auto也就是自适应时才有作用*/
+
+#align-items~:last-child>:nth-child(12) .flexitem {
+    height: auto;
+}
+
+#align-items~:last-child>:nth-child(12) {
+    align-items: stretch;
+}
+
+
+/*align-self属性实验*/
+
+#align-self~:last-child>.flexcontain {
+    height: 200px;
+    line-height: 40px;
+    counter-reset: aligncntr;
+    align-items: center;
+}
+
+#align-self~:last-child .flexitem::after {
+    counter-increment: aligncntr;
+    content: counter(aligncntr);
+    display: inline;
+}
+
+#align-self~:last-child .flexitem {
+    text-decoration: underline;
+    text-align: center;
+    line-height: 40px;
+}
+
+#align-self~:last-child .flexitem:nth-child(2) {
+    line-height: 100px;
+}
+
+#align-self~:last-child .flexitem:nth-child(3) {
+    line-height: 50px;
+}
+
+#align-self~:last-child .flexitem:nth-child(4) {
+    line-height: 70px;
+}
+
+#align-self~:last-child>:nth-child(4)>:nth-child(3) {
+    align-self: auto;
+}
+
+#align-self~:last-child>:nth-child(6)>:nth-child(3) {
+    align-self: flex-start;
+}
+
+#align-self~:last-child>:nth-child(8)>:nth-child(3) {
+    align-self: flex-end;
+}
+
+#align-self~:last-child>:nth-child(10)>:nth-child(3) {
+    align-self: center;
+}
+
+
+/*单个弹性项设置align-self没甚意义，多个才能看出来*/
+
+#align-self~:last-child>:nth-child(12)>:nth-child(2) {
+    align-self: baseline;
+}
+
+#align-self~:last-child>:nth-child(12)>:nth-child(3) {
+    align-self: baseline;
+}
+
+#align-self~:last-child>:nth-child(12)>:nth-child(5) {
+    align-self: baseline;
+}
+
+
+/*设置align-self: stretch;需要在各弹性项的宽高是auto也就是自适应时才有作用*/
+
+#align-self~:last-child>:nth-child(14)>:nth-child(3) {
+    align-self: stretch;
+    height: auto;
+}
+
+
+/*justify-content属性实验*/
+
+#justify-content~:last-child>.flexcontain {
+    height: 100px;
+}
+
+#justify-content~:last-child>:nth-child(3) {
+    justify-content: flex-start;
+}
+
+#justify-content~:last-child>:nth-child(5) {
+    justify-content: flex-end;
+}
+
+#justify-content~:last-child>:nth-child(7) {
+    justify-content: center;
+}
+
+#justify-content~:last-child>:nth-child(9) {
+    justify-content: space-between;
+}
+
+#justify-content~:last-child>:nth-child(11) {
+    justify-content: space-around;
+}
+
+
+/*align-content属性实验*/
+
+#align-content~:last-child .flexcontain {
+    width: 500px;
+    flex-flow: row wrap;
+}
+
+#align-content~:last-child .flexitem {
+    text-decoration: underline;
+    text-align: center;
+    height: 50px;
+    min-width: 100px;
+}
+
+
+/*多加几个弹性项*/
+
+#align-content~:last-child .flexitem:nth-child(6) {
+    background: blue;
+}
+
+#align-content~:last-child .flexitem:nth-child(7) {
+    background: maroon;
+}
+
+#align-content~:last-child .flexitem:nth-child(8) {
+    background: green;
+}
+
+#align-content~:last-child .flexitem:nth-child(9) {
+    background: purple;
+}
+
+#align-content~:last-child .flexitem:nth-child(10) {
+    background: white;
+}
+
+#align-content~:last-child>:nth-child(4) {
+    align-content: flex-start;
+}
+
+#align-content~:last-child>:nth-child(6) {
+    align-content: flex-end;
+}
+
+#align-content~:last-child>:nth-child(8) {
+    align-content: center;
+}
+
+#align-content~:last-child>:nth-child(10) {
+    align-content: space-between;
+}
+
+#align-content~:last-child>:nth-child(12) {
+    align-content: space-around;
+}
+
+#align-content~:last-child>:nth-child(14) {
+    align-content: stretch;
+}
+
+
+/*布局-三行两列自适应布局*/
+
+#threelines_twocols_auto+.example {
+    height: 400px;
+    display: flex;
+    /*设置垂直弹性方向*/
+    flex-flow: column nowrap;
+    /*测试自适应效果*/
+    width: 100%;
+}
+
+#threelines_twocols_auto+.example>div {
+    left: 0;
+    height: 50px;
+    width: 100%;
+}
+
+#threelines_twocols_auto+.example .head {
+    background: rgba(100, 100, 255, 0.6);
+}
+
+#threelines_twocols_auto+.example .foot {
+    background: rgba(100, 255, 100, 0.6);
+}
+
+#threelines_twocols_auto+.example .body {
+	/*使得body填满中间横向区域*/
+    flex-grow: 1;
+    /*使body称为弹性容器*/
+    display: flex;
+    /*使body里的弹性项居中*/
+    justify-content: center;
+}
+
+#threelines_twocols_auto+.example .main {
+	/*使得main这个弹性项可以填满body剩余空间*/
+    /*flex-grow: 1;*/
+    /*使main在body里往后排*/
+    order: 1;
+    background: silver;
+    /*设置与sidebar的左边距*/
+    margin-left: 2px;
+    /*不设置flex-grow时，让main可以占据body里的部分位置，不填满*/
+    width: 60%;
+}
+
+#threelines_twocols_auto+.example .sidebar {
+    min-width: 60px;
+    max-width: 100px;
+    background: #a0f;
+    /*使得sidebar称为弹性容器*/
+    display: flex;
+    padding: 0;
+}
+
+#threelines_twocols_auto+.example .sidebar ul {
+    padding: 0;
+    margin: 0;
+}
+
+#threelines_twocols_auto+.example .sidebar li {
+    display: block;
+    list-style-type: none;
+    margin: 3px;
+    padding: 1px;
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px 1px navy;
+}

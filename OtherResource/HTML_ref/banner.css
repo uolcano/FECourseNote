@@ -1,0 +1,47 @@
+/*banner轮播头图-静态*/
+
+#banner {
+    /*background: silver;*/
+    position: relative;
+    width: 183px;
+    height: 220px;
+    padding: 0;
+}
+
+#banner>p {
+    background: rgba(0, 0, 0, 0.4);
+    height: 30px;
+    width: 100%;
+    margin: 0;
+    line-height: 30px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#banner>div {
+    line-height: 0px;
+    /*行高设置很关键否则容器内的东西会超出容器下边*/
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+   	/*background: #f00;*/
+	opacity: 0.5;
+    height: 10px;
+    width: 48px;
+}
+
+#banner>div>span {
+    height: 10px;
+    width: 10px;
+    padding: 0;
+    margin: 0 1px;
+    display: inline-block;
+    border-radius: 10px;
+    background: lime;
+}
+
+#banner>div>span#hovered {
+    background: #fff;
+}

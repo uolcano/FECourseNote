@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>float test</title>
+    <meta charset="UTF-8">
+    <title>after和before到底算是谁的“崽”</title>
+    <!-- 引入默认修改样式 -->
+    <link rel="stylesheet" href="../csslib_for_resrc/pagetheme/default.css" title="default theme" />
+    <!-- 引入备选修改样式 -->
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/dark.css" title="dark theme" />
+    <link rel="alternate stylesheet" href="../csslib_for_resrc/pagetheme/rainbow.css" title="rainbow theme" />
+    <link rel="stylesheet" href="float_test.css">
+</head>
+
+<body>
+    <header>
+        <h1>浮动测试</h1></header>
+    <nav></nav>
+    <main>
+        <section>
+            <p>浮动特性。似乎可以玩堆积木了。</p>
+        </section>
+        <section id="feature">
+            <div class="smallsize">smallsize</div>
+            <div class="normalsize">normalsize</div>
+            <div class="largesize">largesize</div>
+            <div class="largesize no1">largesize no1</div>
+            <div class="largesize no2">largesize no2</div>
+            <div class="largesize no3">largesize no3</div>
+            <div class="largesize no4">largesize no4</div>
+        </section>
+        <section>
+            <h3>清除实验1</h3>
+            <p>清除方法一，浮动元素的父元素生成一个清除浮动的块级内容。只对父元素外的元素有效。</p>
+        </section>
+        <section id="clear" class="no1">
+            <div class="big clearfix">big
+                <div class="tiny clearfix">tiny</div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero optio nobis, nam voluptatum delectus temporibus, excepturi fuga enim numquam. Amet sed libero dolorem iure quasi ducimus laborum accusamus ipsa eligendi!
+            </div>
+            <div class="aside">aside</div>
+        </section>
+        <section>
+            <h3>清除实验2</h3>
+            <p>清除方法二，紧接在浮动元素后面设置一个非浮动块级元素并且清除浮动，父元素内也有效；在父元素内末尾部分设置一个非浮动块级元素并且清除浮动，只能对父元素外的元素有效，同方法一。</p>
+        </section>
+        <section id="clear" class="no2">
+            <div class="big clearfix">big
+                <div class="tiny">tiny</div>
+                <div class="blank1"></div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero optio nobis, nam voluptatum delectus temporibus, excepturi fuga enim numquam. Amet sed libero dolorem iure quasi ducimus laborum accusamus ipsa eligendi!
+                <div class="blank2"></div>
+            </div>
+            <div class="aside">aside</div>
+        </section>
+        <section>
+            <h3>清除实验3</h3>
+            <p>清除实验三，父元素设置溢出部分隐藏，overflow:hidden，有效，暂未发现负面影响。</p>
+        </section>
+        <section id="clear" class="no3">
+            <div class="big clearfix">big
+                <div class="tiny">tiny</div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero optio nobis, nam voluptatum delectus temporibus, excepturi fuga enim numquam. Amet sed libero dolorem iure quasi ducimus laborum accusamus ipsa eligendi!
+            </div>
+            <div class="aside">aside</div>
+        </section>
+        <section>
+            <h3>清除实验4</h3>
+            <p>清除实验四，父元素也设置浮动，有效，但是因负面影响，此法直接Pass。</p>
+        </section>
+        <section id="clear" class="no4">
+            <div class="big clearfix">big
+                <div class="tiny">tiny</div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero optio nobis, nam voluptatum delectus temporibus, excepturi fuga enim numquam. Amet sed libero dolorem iure quasi ducimus laborum accusamus ipsa eligendi!
+            </div>
+            <div class="aside">aside</div>
+        </section>
+    </main>
+    <footer>
+        <h3>说明</h3>
+        <p>此代码用于测试浮动清除效果。</p>
+        <p>&copy;uolcano</p>
+    </footer>
+</body>
+
+</html>

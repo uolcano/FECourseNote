@@ -1,0 +1,30 @@
+#twocols_auto+.parent {
+	border: 3px dotted purple;
+}
+#twocols_auto+.parent {
+	/*弹性容器*/
+	display: flex;
+	/*字体大小*/
+	font-size:2em;
+	/*容器高度*/
+	height: 200px;
+	/*字体居中*/
+	line-height: 200px;
+	text-align: center;
+	color: white;
+	/*清除边距*/
+	padding: 0;
+	margin: 0;
+}
+#twocols_auto+.parent>.side {
+	background: red;
+	/*固定侧栏宽度*/
+	width: 200px;
+	/*两栏间距*/
+	margin-right: 10px;
+}
+#twocols_auto+.parent>.main {
+	background: blue;
+	/*设置伸展因子*/
+	flex: 1;
+}

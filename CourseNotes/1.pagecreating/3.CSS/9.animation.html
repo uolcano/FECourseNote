@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>9 animation</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="../../csslib/general.css">
+    <link rel="stylesheet" href="9.animation.css">
+</head>
+
+<body>
+    <header>
+        <h2 id="top">动画</h2></header>
+    <nav>
+        <ul>
+            <li><a href="#keyframes" title="@keyframes">@keyframes</a></li>
+            <li><a href="#animation-name" title="animation-name">animation-name</a></li>
+            <li><a href="#animation-duration" title="animation-duration">animation-duration</a></li>
+            <li><a href="#animation-timing-function" title="animation-timing-function">animation-timing-function</a></li>
+            <li><a href="#animation-iteration-count" title="animation-iteration-count">animation-iteration-count</a></li>
+            <li><a href="#animation-direction" title="animation-direction">animation-direction</a></li>
+            <li><a href="#animation-play-state" title="animation-play-state">animation-play-state</a></li>
+            <li><a href="#animation-delay" title="animation-delay">animation-delay</a></li>
+            <li><a href="#animation-fill-mode" title="animation-fill-mode">animation-fill-mode</a></li>
+            <li><a href="#animation" title="animation">animation</a></li>
+            <li><a href="#reference" title="参考">参考</a></li>
+            <li><a href="#top" title="回到顶部">回到顶部</a></li>
+            <!-- <li><a href="#" title=""></a></li> -->
+            <!-- <li><a href="#" title=""></a></li> -->
+            <!-- <li><a href="#" title=""></a></li> -->
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <p>动画效果不同于过渡效果，它不需要事件触发（如:hover），而是可以在页面加载后就开始自己动起来，并且还可以设置多个关键帧来实现复杂的动画效果。</p>
+            </article>
+            <article>
+                <h3 id="keyframes">关键帧|<a href="https://drafts.csswg.org/css-animations/#keyframes" title="@keyframes">@keyframes</a></h3>
+                <p>@keyframes关键帧CSS规则。用于控制在动画期间的不同点的CSS动画的属性的值的变化。一个关键帧可以确定在一个循环内的动画效果，动画可以设置循环多次。</p>
+                <p>使用关键帧实现动画效果时，必须由开发者定义一个动画名称，对应到某个选择器的animation-name属性的属性值，设置关键帧规则@keyframes必须后面跟随开发者定义的动画名称以及每一帧的属性变化必须用两个花括号包裹起来。</p>
+                <p>可以使用from和to两个关键字或者百分比，表示动画的开始帧到结束帧的变化。如：</p>
+                <div>
+                    <pre><code class="css">div {
+  animation-name: slide-right;
+  animation-duration: 2s;
+}
+
+@keyframes slide-right {
+  from {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 110px;
+    opacity: 1;
+  }
+  50% {
+     opacity: 0.9;
+  }
+  to {
+    margin-left: 200px;
+  }
+}
+</code></pre>
+                </div>
+                <p>也可以是纯百分比的，这里要注意开始的是，第一关键帧50%之前都会以50%中定义的属性值来算</p>
+                <div>
+                    <pre><code class="css">@keyframes slide-right {
+  50% {
+    margin-left: 110px;
+    opacity: 0.9;
+  }
+  100% {
+    margin-left: 200px;
+  }
+}
+</code></pre>
+            </div>
+            <p>也可以类似选择器列表的方式</p>
+            <div>
+                <pre><code class="css">@keyframes flash{
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}</code></pre>
+            </div>
+            </article>
+            <article>
+                <h3 id="animation-name">动画名称|<a href="https://drafts.csswg.org/css-animations/#animation-name" title="animation-name">animation-name</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-name">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-name">animation-name
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-name"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-animations/#typedef-single-animation-name">&lt;single-animation-name&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod"><pre><code class="css"><dfn id="single-animation-name">&lt;single-animation-name&gt;</dfn> = none | &lt;IDENT&gt;</code></pre>
+                </div>
+                <div>
+                    <p>定义一个一套动画效果，与@keyframes配合使用。可以使用多个动画效果的动画名称，以逗号隔开。</p>
+                    <p>初始值none，清除某个元素的所有动画效果，一旦设置这个属性值，所有动画效果无效。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p>其他属性值由开发者自定义，与@keyframe配合使用</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="animation-duration">动画时长|<a href="https://drafts.csswg.org/css-animations/#animation-duration" title="animation-duration">animation-duration</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-duration">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-duration">animation-duration
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-duration"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#time-value">&lt;time&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0s
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>字面意思，定义一个循环的动画的持续时间。初始值0s，即没有动画。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+            </article>
+            <article>
+                <h3 id="animation-timing-function">动画变化速率函数|<a href="https://drafts.csswg.org/css-animations/#animation-timing-function" title="animation-timing-function">animation-timing-function</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-timing-function">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-timing-function">animation-timing-function
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-timing-function"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-animations/#typedef-single-timing-function">&lt;single-timing-function&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>ease
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>跟过渡变化速率函数使用同样的函数，参考<a href="8.transition.html#transition-timing-function">过渡变化速率函数。</a>初始值是关键字ease，即开始和结束时缓慢中间快。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="animation-iteration-count">动画循环次数|<a href="https://drafts.csswg.org/css-animations/#animation-iteration-count" title="animation-iteration-count">animation-iteration-count</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-iteration-count">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-iteration-count">animation-iteration-count
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-iteration-count"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-animations/#typedef-single-animation-iteration-count">&lt;single-animation-iteration-count&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>1
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod">
+                    <pre><code class="css"><dfn id="single-animation-iteration-count">&lt;single-animation-iteration-count&gt;</dfn> = infinite | &lt;number&gt;</code></pre>
+                </div>
+                <div>
+                    <p>控制动画的循环次数。初始值是1，只循环一次。infinite是指无限循环。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="animation-direction">动画方向及往返|<a href="https://drafts.csswg.org/css-animations/#animation-direction" title="animation-direction">animation-direction</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-direction">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-direction">animation-direction
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-direction"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-animations/#typedef-single-animation-direction">&lt;single-animation-direction&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>normal
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod"><pre><code class="css"><dfn id="single-animation-direction">&lt;single-animation-direction&gt;</dfn> = normal | reverse | alternate | alternate-reverse</code></pre></div>
+                <div>
+                    <p>这个属性定义了动画在所有循环期间的播放方向。需要注意的是，循环是从1开始计数的，并且往返&lt;animation-iteration-count&gt;都计次数的，所以正方向去一次算一次，返回来一次也算一次，所以才有奇偶的说法。</p>
+                    <p>初始值normal，动画在所有循环期间按照原来指定的方向播放</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p>reverse，动画在所有循环期间按照原来指定方向的反方向播放</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p>alternate，动画在奇数循环时以原来指定的方向播放，在偶数循环时以原来方向的反方向播放</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p>alternate-reverse，跟alternate相反，动画在偶数循环时以原来指定的方向播放，在奇数循环时以原来方向的反方向播放</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="animation-play-state">控制动画的暂停和播放|<a href="https://drafts.csswg.org/css-animations/#animation-play-state" title="animation-play-state">animation-play-state</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-play-state">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-play-state">animation-play-state
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-play-state"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-animations/#typedef-single-animation-play-state">&lt;single-animation-play-state&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>running
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod">
+                    <pre><code class="css"><dfn id="single-animation-play-state">&lt;single-animation-play-state&gt;</dfn> = running | paused</code></pre>
+                </div>
+                <div>
+                    <p>通过事件触发，控制动画的播放状态。初始值是running，播放的。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="animation-delay">动画延迟|<a href="https://drafts.csswg.org/css-animations/#animation-delay" title="animation-delay">animation-delay</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-delay">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-delay">animation-delay
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-delay"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#time-value">&lt;time&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>0s
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>延迟动画播放的开始时间。与<a href="8.transition.html#transition-delay">过渡延迟</a>相同。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="animation-fill-mode">动画循环衔接|<a href="https://drafts.csswg.org/css-animations/#animation-fill-mode" title="animation-fill-mode">animation-fill-mode</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation-fill-mode">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation-fill-mode">animation-fill-mode
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation-fill-mode"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-animations/#typedef-single-animation-fill-mode">&lt;single-animation-fill-mode&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>none
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod">
+                    <pre><code class="css"><dfn id="single-animation-fill-mode">&lt;single-animation-fill-mode&gt;</dfn> = none | forwards | backwards | both</code></pre>
+                </div>
+                <div>
+                    <p>该属性定义动画开始的时候是否保持第一帧或最后帧的状态。</p>
+                    <p>初始值none，不做设置</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p>forwards，结束的时候保持动画在最后一帧的状态</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p>backwards，开始的时候保持动画在第一帧的状态</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p>both，前两者特性</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="animation">简写动画属性|<a href="https://drafts.csswg.org/css-animations/#animation" title="animation">animation</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="animation">
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-animation">animation
+                                        <a class="self-link" href="https://drafts.csswg.org/css-animations/#propdef-animation"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-animations/#typedef-single-animation">&lt;single-animation&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo-elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>As specified
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>per grammar
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod">
+                    <pre><code class="css"><dfn id="single-animation">&lt;single-animation&gt;</dfn> = &lt;single-animation-name&gt; || <span>&lt;time&gt;</span> || &lt;single-animation-timing-function&gt; || <span>&lt;time&gt;</span> ||
+                     &lt;single-animation-iteration-count&gt; || &lt;single-animation-direction&gt; || &lt;single-animation-fill-mode&gt; || &lt;single-animation-play-state&gt;</code></pre>
+                </div>
+                <div>
+                    <p>以上八个属性的简写形式。类似于<a href="8.transition.html#transition">&lt;transition&gt;</a>整个属性值表的书写有顺序要求。首先，两个时间有先后顺序要求，第一个是&lt;animation-duration&gt;，第二个是&lt;animation-delay&gt;。其次，动画名称&lt;animation-name&gt;必须放在第一个属性值的位置，否则会被浏览器错误的解析为CSS属性值，进而产生错误。多个动画效果（多个属性值列表）可以用逗号隔开一同声明，但是要注意的是，如果有一个动画效果的定义是none则整个声明失效。</p>
+                    <p>初始值none，不做动画。如果设置这个属性值，则清除所有动画效果。</p>
+                    <p>animation: moves 2s ease 0s 1 normal none running;</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                    <p id="compound">实现两个关键帧同时使用</p>
+                    <pre><code class="css">@keyframes changecolor {
+            from {
+                background: rgba(0, 255, 0, 0.7);
+            }
+            50% {
+                background: rgba(0, 255, 255, 0.5);
+                height: 80px;
+            }
+            to {
+                background: rgba(255, 0, 255, 0.7);
+                height: 100px;
+            }
+}
+@keyframes moves {
+            0% {
+                left: 0;
+                top: 0;
+            }
+            50% {
+                left: 250px;
+                top: 100px;
+            }
+            100% {
+                left: 500px;
+                top: 0;
+            }
+}
+
+#compound+pre+.example>div {
+    animation: moves 3s cubic-bezier(0, 0.1, 0.7, 1) 0s infinite alternate both running, changecolor ease 1s infinite alternate-reverse forwards paused;
+}
+</code></pre>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h3 id="reference">参考</h3>
+            <ul>
+                <li><a href="https://drafts.csswg.org/css-animations" title="CSS Animations Level 1">CSS Animations Level 1</a></li>
+                <li><a href="http://www.w3.org/TR/css3-animations/" title="CSS Animations">CSS Animations</a></li>
+        </section>
+    </main>
+    <footer>
+        <h3>声明</h3>
+        <p>本文参考自W3C编者拟稿，结合个人实例而成。或有错漏，欢迎交流。</p>
+        <p>我的Github：<a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a></p>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

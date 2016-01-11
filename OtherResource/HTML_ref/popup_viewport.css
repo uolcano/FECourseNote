@@ -1,0 +1,101 @@
+main {
+    background: #fff;
+}
+
+#popup_viewport {
+    height: 1000px;
+}
+
+.example {
+    /*固定窗口*/
+    position: fixed;
+    /*水平垂直居中*/
+    top: 50%;
+    left: 50%;
+    /*居中矫正*/
+    transform: translate(-50%, -50%);
+    width: 302px;
+    /*边框效果*/
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 1px 1px #cccccc;
+}
+
+.title_bar>div {
+    /*标题栏设置*/
+    padding: 0 20px;
+    height: 40px;
+    font: 14px "Microsoft Yahei";
+    line-height: 40px;
+    background: #eeeeee;
+    /*设置文本溢出*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content_para {
+    /*padding:20px;*/
+    background: #fff;
+    font: 12px "宋体", sans-serif;
+}
+
+.content_para>:first-child {
+    line-height: 1.5em;
+    margin: 20px;
+}
+
+.content_para>:last-child {
+    /*修改按钮的display属性*/
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 80px;
+    height: 30px;
+    background: #00f;
+    border-radius: 5px;
+    color: #fff;
+    /*文本剧中*/
+    text-align: center;
+    line-height: 30px;
+    /*清除内边距以防影响文本垂直居中*/
+    padding: 0;
+}
+
+.title_bar {
+    /*图像绝对定位参照物*/
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.title_bar>img {
+    /*相对标题栏容器绝对定位*/
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    /*清除行高以防影响图像放置位置*/
+    line-height: 0;
+    /*不能隐藏图片，否则生成的内容也会不见了*/
+    /*display: none;*/
+}
+
+
+/*没有图片文件时的解决方案*/
+
+.title_bar>img::after {
+    /*一定要有个内容占位*/
+    content: "";
+    /*设为块级才能设置宽高*/
+    display: block;
+    width: 10px;
+    height: 10px;
+    /*相对图像绝对定位*/
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    /*画个×*/
+    background: repeating-linear-gradient(45deg, transparent, transparent 6px, #aaaaaa 6px, #aaaaaa 8px, transparent 8px, transparent), repeating-linear-gradient(135deg, transparent, transparent 6px, #aaaaaa 6px, #aaaaaa 8px, transparent 8px, transparent), #eeeeee;
+}

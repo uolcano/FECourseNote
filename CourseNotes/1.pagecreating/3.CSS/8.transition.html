@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zn-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>8 transition</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="../../csslib/general.css">
+    <link rel="stylesheet" href="8.transition.css">
+</head>
+
+<body>
+    <header>
+        <h2 id="top">过渡</h2></header>
+    <nav>
+        <ul>
+            <li><a href="#transition-property" title="transition-property">transition-property</a></li>
+            <li><a href="#transition-duration" title="transition-duration">transition-duration</a></li>
+            <li><a href="#transition-timing-function" title="transition-timing-function">transition-timing-function</a></li>
+            <li><a href="#transition-delay" title="transition-delay">transition-delay</a></li>
+            <li><a href="#transition" title="transition">transition</a></li>
+            <li><a href="#reference" title="参考">参考</a></li>
+            <li><a href="#top" title="回到顶部">回到顶部</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <article>
+                <h3 id="transition-property">属性过渡|<a href="https://drafts.csswg.org/css-transitions/#transition-property-property" title="transition-property">transition-property</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="transition-property">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-transition-property">transition-property
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transitions/#propdef-transition-property"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transitions/#valdef-transition-property-none">none</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-transitions/#single-transition-property">&lt;single-transition-property&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transitions/#valdef-transition-property-all">all</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>visual
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>Same as specified value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">per grammar</abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod">
+                    <dfn class="css" data-dfn-type="type" data-export="" id="single-transition-property">&lt;single-transition-property&gt;
+                        <a class="self-link" href="https://drafts.csswg.org/css-transitions/#single-transition-property"></a>
+                    </dfn> = <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transitions/#valdef-transition-property-all">all</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#identifier-value">&lt;custom-ident&gt;</a>;
+                </div>
+                <div>
+                    <p>这个属性定义了一个元素的某些CSS属性发生变化时是否有过渡效果。一般是跟事件触发或者CSS的:hover伪类一起使用。通常&lt;custom-ident&gt;指的就是事件触发时改变的某个CSS属性名。<strong>注意：</strong>一定要有过渡时transition-duration属性长才能看得出来。</p>
+                    <p id="">transition-property: none;没有CSS属性会发生过渡效果</p>
+                    <div class="example">
+                        <div>none</div>
+                    </div>
+                    <p id="">transition-property: all;，默认，对于所有发生变化的效果，都设置过渡效果</p>
+                    <div class="example">
+                        <div>all</div>
+                    </div>
+                    <p id="">transition-property: left;只对left属性设置的变化，设置过度效果</p>
+                    <div class="example">
+                        <div>left</div>
+                    </div>
+                    <p id="">transition-property: left, color;只对color属性设置和left属性设置的变化，设置过渡效果</p>
+                    <div class="example">
+                        <div>left,
+                            <br/>color</div>
+                    </div>
+                    <p><strong>注意：</strong>开启属性过渡效果时，必须给需要过渡的属性设置某个初始值，以配合事件触发时改变的终值平滑过渡，否则某些浏览器未默认设置初始值的属性，在过渡时会有闪烁不稳定现象。</p>
+                </div>
+            </article>
+            <article>
+                <h3 id="transition-duration">过渡时长|<a href="https://drafts.csswg.org/css-transitions/#transition-duration-property" title="transition-duration">transition-duration</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="transition-duration">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-transition-duration">transition-duration
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transitions/#propdef-transition-duration"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#time-value">&lt;time&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td><span class="css">0s</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>Same as specified value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">per grammar</abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>此属性设置元素的CSS属性的过渡效果的持续时间。</p>
+                    <p id="">如：transition-duration: 1s;</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="transition-timing-function">过渡变化速率函数|<a href="https://drafts.csswg.org/css-transitions/#transition-timing-function-property" title="transition-timing-function">transition-timing-function</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="transition-timing-function">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-transition-timing-function">transition-timing-function
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transitions/#propdef-transition-timing-function"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-transitions/#single-transition-timing-function" title="Expands to: linear | step-start | cubic-bezier() | ease | ease-out | step-end | ease-in-out | ease-in | steps()">&lt;single-transition-timing-function&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td><a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transitions/#valdef-transition-timing-function-ease">ease</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>Same as specified value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">per grammar</abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p id="ease">ease，初始值，开始正加速度加速，中间后立马负加速度刹车</p>
+                    <div class="example">
+                        <div>ease</div>
+                    </div>
+                    <p id="ease-in">ease-in，开始时缓慢过渡，然后加快，有种自由落体的感觉，一直有正加速度</p>
+                    <div class="example">
+                        <div>ease-in</div>
+                    </div>
+                    <p id="ease-out">ease-out，开始时快速过渡，然后减缓，像是东西弹射出去逐渐减速，一直有负加速度</p>
+                    <div class="example">
+                        <div>ease-out</div>
+                    </div>
+                    <p id="ease-in-out">ease-in-out，开始时和结束前都缓慢过渡，中间加速</p>
+                    <div class="example">
+                        <div>ease-
+                            <br/>in-out</div>
+                    </div>
+                    <p id="linear">linear，匀速运动</p>
+                    <div class="example">
+                        <div>linear</div>
+                    </div>
+                    <p id="step-start">step-start，动画开始时直接一步过渡</p>
+                    <div class="example">
+                        <div>step-
+                            <br/>start</div>
+                    </div>
+                    <p id="step-end">step-end，动画结束时直接一步过渡</p>
+                    <div class="example">
+                        <div>step-
+                            <br/>end</div>
+                    </div>
+                    <p id="steps"><span><dfn class="css" data-dfn-for="transition-timing-function, <single-transition-timing-function>" data-dfn-type="function" data-export="" data-lt="steps()" id="funcdef-steps">steps(<a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#integer-value">&lt;integer&gt;</a>[, [ start | end ] ]?)<a class="self-link" href="https://drafts.csswg.org/css-transitions/#funcdef-steps"></a></dfn></span>。两个值，第一个表示过渡总共需要的步骤，第二个值表示动画开始时开始过渡或动画结束时结束过渡。取end值的时候，可以很明显的感觉到，开始动画时并没有过渡，而是过了的一段时候后才过渡。</p>
+                    <div class="example">
+                        <div>steps
+                            <br/>(5,
+                            <br/>start)</div>
+                    </div>
+                    <div class="example">
+                        <div>steps
+                            <br/>(4,
+                            <br/>end)</div>
+                    </div>
+                    <p id="cubic-bezier"><span><dfn class="css" data-dfn-for="transition-timing-function, <single-transition-timing-function>" data-dfn-type="function" data-export="" data-lt="cubic-bezier()" id="funcdef-cubic-bezier">cubic-bezier(<a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a>, <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a>, <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a>, <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#number-value">&lt;number&gt;</a>)<a class="self-link" href="https://drafts.csswg.org/css-transitions/#funcdef-cubic-bezier"></a></dfn></span>。cubic-bezier(x1, y1, x2, y2)，四个值分别表示两个点的横纵坐标，必须是数字。第一个和第三个是两个点的x轴坐标，必须是0~1之间的正数。</p>
+                    <p>y轴坐标可以为负数，可以大于1。这两个坐标点对应到一种速率曲线，横坐标表示时间总的时间比例（满值为1），纵坐标表示对应CSS属性变化的比例，两个坐标分别表示开始过渡时的CSS属性值和结束过渡时的CSS属性值的比例。如果向左100px的位移过渡，则设置y2大于1的话，结束动画时元素会从目标位置超出一定比例距离，最后再回到目标位置。y轴坐标负值表示CSS属性值变化会先按照变化的反方向变化一定比例，最后回到目标属性值，而相应点的x轴坐标则是表示y轴坐标CSS属性值变化发生时占整个动画的时间比例中的某个点。</p>
+                    <div class="example">
+                        <div>cubic-bezier(0.1, 0.7, 1.0, 0.1)</div>
+                    </div>
+                    <div class="example">
+                        <div>cubic-bezier(0.4, -0.6, 0.2, 2)</div>
+                    </div>
+                    <!--                     <p id=""></p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div> -->
+                </div>
+            </article>
+            <article>
+                <h3 id="transition-delay">过渡延迟|<a href="https://drafts.csswg.org/css-transitions/#transition-delay-property" title="transition-delay">transition-delay</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="transition-delay">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-transition-delay">transition-delay
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transitions/#propdef-transition-delay"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#time-value">&lt;time&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td><span class="css">0s</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>Same as specified value.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">per grammar</abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p id="">这个属性定义了属性过渡效果的延迟开始时间。</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3 id="transition">简写属性过渡|<a href="https://drafts.csswg.org/css-transitions/#transition-shorthand-property" title="transition">transition</a></h3>
+                <div>
+                    <table class="definition propdef" data-link-for-hint="transition">
+                        <colgroup width="20%"></colgroup>
+                        <tbody>
+                            <tr>
+                                <th>Name:
+                                </th>
+                                <td>
+                                    <dfn class="css" data-dfn-type="property" data-export="" id="propdef-transition">transition
+                                        <a class="self-link" href="https://drafts.csswg.org/css-transitions/#propdef-transition"></a>
+                                    </dfn>
+                                </td>
+                            </tr>
+                            <tr class="value">
+                                <th>Value:
+                                </th>
+                                <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-transitions/#single-transition">&lt;single-transition&gt;</a><a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#mult-comma">#</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Initial:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Applies to:
+                                </th>
+                                <td>all elements, ::before and ::after pseudo elements
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Inherited:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Percentages:
+                                </th>
+                                <td>N/A
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Media:
+                                </th>
+                                <td>interactive
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Computed value:
+                                </th>
+                                <td>see individual properties
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Animatable:
+                                </th>
+                                <td>no
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Canonical order:
+                                </th>
+                                <td>
+                                    <abbr title="follows order of property value definition">per grammar</abbr>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="prod">
+                    <dfn class="css" data-dfn-type="type" data-export="" id="single-transition">&lt;single-transition&gt;
+                        <a class="self-link" href="https://drafts.csswg.org/css-transitions/#single-transition"></a>
+                    </dfn> = [ <a class="css" data-link-type="maybe" href="https://drafts.csswg.org/css-transitions/#valdef-transition-property-none">none</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-one">|</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-transitions/#single-transition-property">&lt;single-transition-property&gt;</a> ] <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-any">||</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#time-value">&lt;time&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-any">||</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-transitions/#single-transition-timing-function" title="Expands to: linear | step-start | cubic-bezier() | ease | ease-out | step-end | ease-in-out | ease-in | steps()">&lt;single-transition-timing-function&gt;</a> <a data-link-type="grammar" href="https://drafts.csswg.org/css-values-3/#comb-any">||</a> <a class="production css" data-link-type="type" href="https://drafts.csswg.org/css-values-3/#time-value">&lt;time&gt;</a>
+                </div>
+                <div>
+                    <p id="">简写属性过渡就是把前面四个过渡属性合并在一起。要注意先后顺序，第一个时间会被浏览器解析为&lt;transition-duration&gt;，第二个时间则是&lt;transition-delay&gt;。如果只有一个时间则只表示&lt;transition-duration&gt;。多个过渡效果以逗号隔开，但是如果其中有一个声明是none，则整个声明失效。</p>
+                    <p>示例：transition: left 2s ease 1s, color 2s;</p>
+                    <div class="example">
+                        <div>instance</div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h3 id="reference">参考</h3>
+            <ul>
+                <li>
+                    <a href="https://drafts.csswg.org/css-transitions/" title="CSS Transitions">CSS Transitions</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <h3>声明</h3>
+        <p>本文参考自W3C编者拟稿，结合个人实例而成。或有错漏，欢迎交流。</p>
+        <p>我的Github：<a href="https://github.com/uolcano/FECourseNote">https://github.com/uolcano/FECourseNote</a></p>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <!-- <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

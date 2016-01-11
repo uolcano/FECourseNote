@@ -364,7 +364,7 @@
                     <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit maiores odit, cupiditate beatae aliquid voluptatem, ut fuga officia distinctio laboriosam excepturi sequi, dolores aliquam dicta eius id, necessitatibus non?</div>
                     <p>local，内容和背景一起滚动</p>
                     <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit maiores odit, cupiditate beatae aliquid voluptatem, ut fuga officia distinctio laboriosam excepturi sequi, dolores aliquam dicta eius id, necessitatibus non?</div>
-                    <p>fixed，相对于viewport，基本就是定在屏幕位置上，实际应用中很少用。</p>
+                    <p>fixed，相对于视窗viewport。设置这个属性值会使得背景的平铺开始位置改变为从视窗的左上角开始</p>
                     <div class="example">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit maiores odit, cupiditate beatae aliquid voluptatem, ut fuga officia distinctio laboriosam excepturi sequi, dolores aliquam dicta eius id, necessitatibus non?</div>
                 </div>
             </article>
@@ -452,10 +452,11 @@
                     </p>
                 </div>
                 <div>
-                    <p>这个属性用于定位背景图片的放置。</p>
+                    <p>初始值是容器的左上角。这个属性用于定位背景图片的放置,也就是可以改变开始平铺的位置，background-origin受影响。</p>
                     <p>使用一个值，另一个值默认是center，不一定是水平或垂直。使用时要注意与<a href="4.box_model.html#TRBL">TRBL</a>补全的方式进行区分。</p>
                     <div class="example"></div>
-                    <p>使用两个。<span>10px 20px，x轴从左往右偏移10px，y轴从上往下偏移20px。
+                    <p>使用两个，如果用的是长度或者百分比，则必须水平值在前，垂直值在后。<span>
+                    10px 20px，x轴从左往右偏移10px，y轴从上往下偏移20px。
                     百分比20% 50%，图片的20%和50%这个交汇点与容器的20%和50%的交汇点的重合。
                     位置名称，right center，没有顺序限制，表示右边中间位置。</span></p>
                     <div class="example"></div>
@@ -726,6 +727,7 @@ background-position:0 -100px;</code></pre>
                     <div class="example"></div>
                     <p>contain，图片宽高都不能超过容器宽高，且图片尽可能大。即容器宽高包含图片宽高。</p>
                     <div class="example"></div>
+                    <p><strong>注意：</strong>使用百分比时，是以容器 <code>width</code> 和 <code>height</code> 为基数的。</p>
                 </div>
             </article>
             <article>
@@ -803,7 +805,7 @@ background-position:0 -100px;</code></pre>
                     </p>
                 </div>
                 <div>
-                    <p><strong>注意：</strong>背景颜色只允许放在最下面一层的背景叠层里，即放在最右边的逗号后面。如果对body元素设置背景，那么这个背景会向上传递到根元素html，所以给html根元素或者body元素设置背景，都会让整个视窗都有了这个背景。 <code>&lt;position&gt;</code> 和 <code>&lt;bg-size&gt;</code> 之间一定要有 <code>&sol;</code> 。语法最后两个 <code>&lt;box&gt;</code> 是指的 <code>background-clip</code> 和 <code>background-origin</code> ，其中第一个是 <code>background-origin</code> ，第二个是 <code>background-clip</code> 。</p>
+                    <p><strong>注意：</strong>背景颜色一般只放在最下面一层的背景叠层里，即放在最右边的逗号后面。使用简写属性要注意到这样子做对于省略的属性值的“重置”效果——恢复初始值。如果对body元素设置背景，那么这个背景会向上传递到根元素html，所以给html根元素或者body元素设置背景，都会让整个视窗都有了这个背景。 <code>&lt;position&gt;</code> 和 <code>&lt;bg-size&gt;</code> 之间一定要有 <code>&sol;</code> 。语法最后两个 <code>&lt;box&gt;</code> 是指的 <code>background-clip</code> 和 <code>background-origin</code> ，其中第一个是 <code>background-origin</code> ，第二个是 <code>background-clip</code> 。</p>
                     <div class="example">
                         <div></div>
                     </div>

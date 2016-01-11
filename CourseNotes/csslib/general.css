@@ -1,12 +1,10 @@
 /*从本地文件引入highlight.js*/
 
-@import url("../highlight.js/monokai-sublime.css") screen,
-projection;
+@import url("../highlight.js/monokai-sublime.css") screen,projection;
 
 /*从bootcdn引入highlight.js*/
 
-@import url("http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css") screen,
-projection;
+@import url("http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css") screen, projection;
 
 /*中间内容框自适应*/
 
@@ -24,6 +22,7 @@ main {
     border-radius: 5px/5px;
     box-shadow: 1px 1px 2px 2px #e5e5e5;
     padding: 5px;
+    /*overflow: hidden;*/
 }
 
 
@@ -41,6 +40,7 @@ footer {
     text-align: center;
     background-color: #311E1E;
     color: white;
+    padding: 1px;
 }
 
 footer a {
@@ -53,10 +53,11 @@ footer a {
 nav {
     position: fixed;
     top: 0;
-    left: -30px;
-    overflow: auto;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: visible;
     height: 100%;
-    width: 200px;
+    width: 175px;
 }
 
 
@@ -66,27 +67,54 @@ nav ul {
     counter-reset: navcounter;
 }
 
-nav a::before {
-    content: counter(navcounter)".";
+nav ul>li>a::before {
     counter-increment: navcounter;
+    content: counter(navcounter)".";
 }
 
 
-/*去除列表前缀标记样式*/
+/*列表样式*/
+
+nav ul,
+ol,
+li {
+    overflow-x: visible;
+    padding: 0 5px;
+    margin: 0;
+}
+
+
+/*列表项样式*/
 
 nav li {
     list-style-type: none;
     margin-top: 3px;
-    margin-right: 1px;
-}
-
-nav a {
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
+    width: 140px;
     background-color: #F0C2FF;
     border-radius: 1/10px;
     box-shadow: 0 0 1px 1px #AA78A9;
+    display: block;
+}
+
+
+/*列表链接样式*/
+
+nav a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    display: block;
+}
+
+
+/*显示/隐藏子列表*/
+
+nav>ul ol {
+    display: none;
+}
+
+nav li:hover>ol {
+    display: block;
 }
 
 
