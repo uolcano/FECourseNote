@@ -1,0 +1,35 @@
+.content * { padding: 0; margin: 0; }
+.content, .info {
+	position: relative;
+}
+.content .info+.infobox {
+	position: absolute;
+	display: none;
+	width: 100%;
+}
+.detail {
+	white-space: pre-wrap;
+	background: #eaf;
+	opacity: 0.8;
+}
+.content .infobox:hover {
+	display: block;
+}
+.content .info:hover+.infobox {
+	display: block;
+}
+.content .info:hover::after {
+	content: "";
+	display: inline-block;
+	box-sizing: border-box;
+	width: 10px;
+	height: 4px;
+	border-top: 0px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 4px solid #eaf;
+	border-left: 5px solid transparent;
+	opacity: 0.8;
+	position: absolute;
+	top: 14px;
+	left: 1px;
+}

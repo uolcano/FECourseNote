@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>datatype_convert</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css">
+    <link rel="stylesheet" href="../../highlight.js/monokai-sublime.css">
+    <!-- 引入导航栏样式 -->
+    <link rel="stylesheet" href="../../csslib/hidden_nav.css">
+    <!-- 引入示例表格样式 -->
+    <link rel="stylesheet" href="../../csslib/samplecode_table.css">
+    <link rel="stylesheet" href="../../csslib/content_setting.css">
+    <style type="text/css">
+    section p { width: 85%;}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="top">ECMAScript原始值显式转换与操作符隐式转换</h1>
+    </header>
+    <nav>
+    	<ul>
+    		<li><a href="#primitive_value">原始值（内建类型）</a></li>
+    		<li><a href="#undefined_null">Undefined类型值和Null类型值</a></li>
+    		<li><a href="#boolean">Boolean类型值</a></li>
+    		<li><a href="#number">Number类型值</a></li>
+    		<li><a href="#string">String类型值</a></li>
+    		<li><a href="#operators">操作符</a></li>
+    		<li><a href="#unary_operators">一元操作符</a></li>
+    		<li><a href="#multiplicative_operators">乘性操作符</a></li>
+    		<li><a href="#additive_operators">加性操作符</a></li>
+    		<li><a href="#relational_operators">关系操作符</a></li>
+    		<li><a href="#equality_operators">相等性操作符</a></li>
+    		<li><a href="#logical_operators">逻辑操作符</a></li>
+    		<li><a href="#assignment_operators">赋值操作符</a></li>
+    		<li><a href="#comma_operators">逗号操作符</a></li>
+    		<li><a href="#conditional_operators">条件操作符</a></li>
+    		<li><a href="#bitwise_operators">位操作符</a></li>
+    		<li><a href="#bitwise_shift_operators">按位移动操作符</a></li>
+    		<li><a href="#reference">参考</a></li>
+    		<li><a href="#top">回到顶部</a></li>
+    	</ul>
+    </nav>
+    <article>
+        <section>
+        	<p class="topdeclare"><strong>本文使用的“原始值”、“原数值类型”和“简单类型值”均指ES文档中的<em>primitive value</em>，更多内容可查看<a href="#reference">参考</a>部分。</strong></p>
+            <h2 id="primitive_value">原始值（内建类型）</h2>
+            <h3 id="undefined_null">Undefined类型值和Null类型值</h3>
+            <p>由于没有故意转换成这两种类型值的场景（至少还未知），故忽略。</p>
+            <h3 id="boolean">Boolean类型值</h3>
+            <p>常见的条件判断操作时会发生隐式的类型转换，使用Boolean()转型函数可以显式转型，而且有助于了解隐式转型的过程。</p>
+            <table id="Boolean_convert_func">
+                <colgroup width="20%"></colgroup>
+                <colgroup width="40%"></colgroup>
+                <colgroup width="40%"></colgroup>
+                <caption>Boolean类型值转型规则</caption>
+                <thead>
+                    <tr>
+                        <th>原数值类型</th>
+                        <th>转为true值</th>
+                        <th>转为false值</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>String</th>
+                        <td class="info">任何非空字符串
+                            <div class="infobox">
+                            	<pre class="detail"><code class="js"><!--
+-->                            	Boolean("abc");//true
+	                        	</code></pre>
+                            </div>
+                        </td>
+                        <td class="info">空字符串""
+                            <div class="infobox">
+                            	<pre class="detail"><code class="js"><!--
+-->                            	Boolean("");//false
+	                        	</code></pre>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Number</th>
+                        <td class="info">任何非零数字值（包括Infinity）
+                            <div class="infobox">
+                            	<pre class="detail"><code class="js"><!--
+-->                            	Boolean(12);//true
+	                           		Boolean(Infinity);//true
+	                        	</code></pre>
+                            </div>
+                        </td>
+                        <td class="info">0和NaN
+                            <div class="infobox">
+                            	<pre class="detail"><code class="js"><!--
+-->                            	Boolean(0);//false
+	                            	Boolean(NaN);//false
+	                        	</code></pre>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Object</th>
+                        <td class="info">任何对象都是true的
+                            <div class="infobox">
+                            	<pre class="detail"><code class="js"><!--
+-->                            	var obj = new Object();
+	                            	Boolean(obj);//true
+                            		var obj = { name: "snoopy" };
+                            		Boolean(obj);//true
+                            	</code></pre>
+                            </div>
+                        </td>
+                        <td class="info">null（空对象指针）
+                            <div class="infobox">
+                            	<pre class="detail"><code class="js"><!--
+-->                            	Boolean(null);//false
+                            		var obj = new Object();
+                            		obj = null;
+                            		Boolean(obj);//false
+                            	</code></pre>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Undefined</th>
+                        <td class="info">无
+                        </td>
+                        <td class="info">undefined
+                            <div class="infobox">
+                            	<pre class="detail"><code class="js"><!--
+-->                            	Boolean(undefined);//false
+                            	</code></pre>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="number">Number类型值</h3>
+            <p>转换为Number类型值可以使用三种显式的转型函数：Number()、parseInt()和parseFloat()。Number()k可以转换任何类型值，后两者是专门用于字符串转换的。三者都有各自的转型和使用规则。</p>
+            <table id="Number_convert_func">
+            	<colgroup width="10%" span="2"></colgroup>
+            	<colgroup width="20%" span="4"></colgroup>
+            	<caption>Number()转型函数转型规则</caption>
+            	<thead>
+            		<tr>
+            			<th colspan="2">原始值类型</th>
+            			<th>转为1</th>
+            			<th>转为0</th>
+            			<th>转为其他数值</th>
+            			<th>转为NaN</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th colspan="2">Boolean</th>
+            			<td class="info">true转1
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Number(true);//1
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">false转0
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Number(false);//0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">无
+            			</td>
+            		</tr>
+            		<tr>
+            			<th colspan="2">Undefined</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">undefined
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Number(undefined);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th colspan="2">Null</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">null
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Number(null);//0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">无
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="2" colspan="2">String</th>
+            			<td rowspan="2" class="info">同转为其他数值
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Number("01");//1
+            						Number("0x1");//1
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td rowspan="2" class="info">空字符串""以及同转为其他数值
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->	            					Number("");//0
+            						Number("00");//0
+            						Number("0x0");//0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">纯数字格式(忽略八进制前导0，保留负号)
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->	            					Number("00");//0
+            						Number("123");//123
+            						Number("0123");//123
+            						Number("-123");//-123
+            						Number("1.23");//1.23
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td rowspan="2" class="info">除前几种外的其他格式
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Number("abc");//NaN
+            						Number("1.2.3");//NaN
+            						Number("true");//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<!-- <th>2</th> -->
+            			</td>
+            			<td class="info">十六进制格式转对应十进制
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Number("0x11");//17
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="6">对象</th>
+            			<th>Object</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">对象赋值为null
+	            			<div class="infobox">
+	            				<pre class="detail"><code class="js"><!--
+-->	            					var obj = new Object();
+	            					Number(obj);//NaN
+	            					obj =null;
+	            					Number(obj);//0
+	            				</code></pre>
+	            			</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">非null对象
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = {name: "snoopy", 1: "1"};
+            						Number(obj);//NaN
+            						var obj = new Object();
+            						Number(obj);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Array</th>
+            			<td class="info">只有一项的赋值为1的数组
+	            			<div class="infobox">
+	            				<pre class="detail"><code class="js"><!--
+-->	            					var arr = new Array(1);
+	            					arr[0] = 1;
+	            					arr.valueOf();//[1]
+	            					arr.toString();//"1"
+	            					Number(arr);//1
+	            				</code></pre>
+	            			</div>
+            			</td>
+            			<td class="info">空数组、只有一项的未赋值或赋值为0的数组
+	            			<div class="infobox">
+	            				<pre class="detail"><code class="js"><!--
+-->	            					var arr = [];
+	            					arr.valueOf();//[]
+	            					arr.toString();//""
+	            					Number(arr);//0
+	            					var arr = new Array(1);
+	            					arr.valueOf();//[undefined × 1]
+	            					arr.toString()//""
+	            					Number(arr);//0
+	            					arr[0] = 0;
+	            					arr.valueOf();//[0]
+	            					arr.toString();//"0"
+	            					Number(arr);//0
+	            				</code></pre>
+	            			</div>
+            			</td>
+            			<td class="info">只有一个项的数组
+	            			<div class="infobox">
+	            				<pre class="detail"><code class="js"><!--
+-->	            					var arr = [123];
+	            					arr.valueOf();//[123]
+	            					arr.toString();//"123"
+	            					Number(arr);//123
+	            				</code></pre>
+	            			</div>
+            			</td>
+            			<td class="info">多项数组都是NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var arr = new Array(9);
+            						Number(arr);//NaN
+            						var arr = [1, 2, 3];
+            						Number(arr);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Boolean</th>
+            			<td class="info">先调用对象的valueOf()方法得到true再按照前述规则。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = new Boolean(true);
+            						bool.valueOf();//true
+            						Number(bool);//1
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">先调用对象的valueOf()方法得到false再按照前述规则。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = new Boolean();
+            						Number(bool);//0
+            						var bool = new Boolean(false);
+            						bool.valueOf();//false
+            						Number(bool);//0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">无
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Number</th>
+            			<td class="info">同转为其他数值
+            			</td>
+            			<td class="info">同转为其他数值
+            			</td>
+            			<td class="info">先调用对象的valueOf()方法得到数值再按照前述规则。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var num = new Number(12);
+            						num.valueOf();//12
+            						Number(num);//12
+            						var num = new Number("12");
+            						num.valueOf();//12
+            						Number(num);//12
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">如果调用对象的valueOf()方法得到的是NaN，再调用对象的toString()方法，再按照前述规则返回字符串值。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var num = new Number("a.1.2");
+            						num.valueOf();//NaN
+            						Number(num);//NaN
+            						num.toString();//"NaN"
+            						Number(num);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>String</th>
+            			<td class="info">同转为其他数值
+            			</td>
+            			<td class="info">同转为其他数值
+            			</td>
+            			<td class="info">先调用对象的valueOf()方法得到数值的字符串形式再按照前述规则。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = new String("123");
+            						str.valueOf();//"123"
+            						Number(str);//123
+            						var str = new String(123);
+            						str.valueOf();//"123"
+            						Number(str);//123
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">如果调用对象的valueOf()方法得到的是NaN，再调用对象的toString()方法，再按照前述规则返回字符串值。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = new String("a.1.2");
+            						str.valueOf();//"a.1.2"
+            						Number(str);//NaN
+            						str.toString();//"a.1.2"
+            						Number(str);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table id="parseInt_convert_func">
+	            <colgroup span="2" width="10%"></colgroup>
+	            <colgroup span="2"  width="40%"></colgroup>
+            	<caption>parseInt()转型函数转型规则(只转整型数)</caption>
+            	<thead>
+            		<tr>
+            			<th colspan="2">原始值类型</th>
+            			<th>转为数值</th>
+            			<th>转为NaN</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th colspan="2">Number</th>
+            			<td class="info">只能转换为十进制整型数，并且可以接受八进制和十六进制格式，也可以接受第二个参数作为进制基数（指定二进制、八进制、十进制和十六进制，缺省是十进制）
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseInt(123);//123
+            						parseInt(12.3);//12
+            						parseInt(017);//15
+            						parseInt(0x17);//23
+            						parseInt(17, 8);//15
+            						parseInt(17, 16);//23
+            						parseInt(-123);//-123
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            		</tr>
+            		<tr>
+            			<th colspan="2">String</th>
+            			<td class="info">与Number类型值相似，但是会忽略八进制格式的（忽略前导0）并且可以接受在数字后包含非数字的格式
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseInt("123");//123
+            						parseInt("12.3");//12
+            						parseInt("017");//17
+            						parseInt("0x17");//23
+            						parseInt("17", 8);//15
+            						parseInt("17", 16);//23
+            						parseInt("-123");//-123
+            						parseInt("123ab");//123
+            						parseInt("12.3ab");//12
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">开头无数字字符的字符串
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseInt("ab123");//NaN
+            						parseInt("abc");//NaN
+            						parseInt("");//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th colspan="2">Boolean</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">全为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseInt(true);//NaN
+            						parseInt(false);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th colspan="2">Undefined</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">全为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseInt(undefined);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th colspan="2">Null</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">全为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseInt(null);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="5">对象</th>
+            			<th>Object</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">全为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = new Object();
+            						parseInt(obj);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Array</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">全为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var arr = new Array();
+            						parseInt(arr);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Boolean</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">全为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = new Boolean(true);
+            						parseInt(bool);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Number</th>
+            			<td class="info">接受存储数值的对象(跟Number类型值相同），以及可以通过valueOf()或toString()方法转换为数值的字符串（跟String类型值相似）的对象。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var num = new Number(123);
+            						parseInt(num);//123
+            						var num = new Number("123");
+            						num.valueOf();//123
+            						parseInt(num);//123
+            						var num = new Number(017);
+            						parseInt(num);//15
+            						var num = new Number("017");
+            						parseInt(num);//17
+            						var num = new Number("");
+            						num.valueOf();//0
+            						parseInt(num);//0
+            						var num = new Number(true);
+            						num.valueOf();//1
+            						parseInt(num);//1
+            						var num = new Number("017");
+            						parseInt(num, 8);//15
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">通过valueOf()或toString()方法不能转换为数值的对象
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var num = new Number("123ab");
+            						num.valueOf();//NaN
+            						num.toString();//"NaN"
+            						parseInt(num);//NaN
+            						var num = new Number("abc");
+            						num.valueOf();//NaN
+            						num.toString();//"NaN"
+            						parseInt(num);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>String</th>
+            			<td class="info">接受存储数值的对象(跟Number类型值相同），以及可以通过valueOf()或toString()方法转换为数字开头的字符串（跟String类型值相同）的对象。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = new String(123);
+            						str.valueOf();//"123"
+            						parseInt(str);//123
+            						var str = new String("123");
+            						parseInt(str);//123
+            						var str = new String(017);
+            						str.valueOf();//"15"
+            						parseInt(str);//15
+            						var str = new String("017");
+            						str.valueOf();//"017"
+            						parseInt(str);//17
+            						var str = new String("123ab");
+            						str.valueOf();//"123ab"
+            						parseInt(str);//123
+            						var str = new String("017");
+            						parseInt(str, 8);//15
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">通过valueOf()或toString()方法不能转换为数值的对象
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = new String("");
+            						str.valueOf();//""
+            						parseInt(str);//NaN
+            						var str = new String(true);
+            						str.valueOf();//"true"
+            						parseInt(str);//NaN
+            						var str = new String("ab123");
+            						str.valueOf();//"ab123"
+            						parseInt(str);//NaN
+            						var str = new String("abc");
+            						str.valueOf();//"abc"
+            						parseInt(str);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table class="parseFloat_convert_func">
+	            <colgroup span="1" width="20%"></colgroup>
+	            <colgroup span="2" width="40%"></colgroup>
+            	<caption>parseFloat()转型函数转型规则(可以转浮点数)</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>转为数值</th>
+            			<th>转为NaN</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th>Number</th>
+            			<td class="info">只能转换为十进制数，没有第二个参数。如果小数点后是0，则会解析为整数。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseFloat(123);//123
+            						parseFloat(12.3);//12.3
+            						parseFloat(017);//15
+            						parseFloat(0x17);//23
+            						parseFloat(-123);//-123
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>String</th>
+            			<td class="info">与Number类型值相似，但是会忽略八进制格式的（忽略前导0）并且十六进制格式会被转换成0；可以接受在数字后包含非数字的格式
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseFloat("123");//123
+            						parseFloat("12.3");//12.3
+            						parseFloat("1.2.3");//1.2
+            						parseFloat("123ab");//123
+            						parseFloat("017");//17
+            						parseFloat("0x17");//0
+            						parseFloat("-123");//-123
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">开头无数字字符的字符串
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseFloat("abc");//NaN
+            						parseFloat("");//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>其他类型</th>
+            			<td class="info">无
+            			</td>
+            			<td class="info">Boolean、Undefined、Null类型全为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						parseFloat(true);//NaN
+            						parseFloat(undefined);//NaN
+            						parseFloat(null);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>对象</th>
+            			<td class="info">除了Number类型对象和String类型对象通过valueOf()和toString()方法转换得到的字符串可以转换为浮点数，十六进制数的字符串形式会转换为0；其他与parseInt()转型函数没区别。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var num = new Number(123);
+            						parseFloat(num);//123
+            						var num = new Number(12.3);
+            						parseFloat(num);//12.3
+            						var str = new String("12.3");
+            						parseFloat(str);//12.3
+            						var str = new String("12.3abc");
+            						parseFloat(str);//12.3
+            						var str = new String("0x17");
+            						parseFloat(str);//0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">与parseInt()转型函数相同
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = new String("abc");
+            						parseFloat(str);//NaN
+            						var str = new String(true);
+            						parseFloat(str);//NaN
+            						var str = new String("");
+            						parseFloat(str);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <h3 id="string">String类型值</h3>
+            <p>转换为String类型值，可以通过调用值所带的toString()方法、String()转型函数以及加号操作符"+"。</p>
+            <table id="String_convert">
+	            <colgroup width="10%"></colgroup>
+	            <colgroup width="45%"></colgroup>
+            	<caption>转型为String类型</caption>
+            	<thead>
+            		<tr>
+            			<th>转换方式</th>
+            			<th>转为对应字符串</th>
+            			<th>转为"null"</th>
+            			<th>转为"undefined"</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th>转义字符</th>
+            			<td class="info">被解析为单个字符
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = "\u03a3";
+            						str.toString();//"Σ"
+            						var str = "\x41"
+            						str.toString();//"A"
+            						var str = "\\and\'";
+            						str.toString();//"\and'"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">无
+            			</td>
+        			</tr>
+            		<tr>
+            			<th>toString()方法</th>
+            			<td class="info">使用几乎每个值都有的toString()方法，可显式的指定以某种进制基数解析
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->		        					var str = "something";
+		        					str.toString();//"something"
+            						var bool = true;
+            						bool.toString();//"true"
+            						var num = 123;
+            						num.toString();//"123"
+            						var obj = {name:"snoopy"};
+            						obj.toString();//"[object Object]"
+            						var arr = [1, 2, 3];
+            						arr.toString();//"1,2,3"
+            						var numObj = Number(123);
+            						numObj.toString();//"123"
+            						var boolObj = Boolean(true);
+            						boolObj.toString();//"true"
+            						var strObj = new String("something");
+            						strObj.toString();//"something"
+            						var num = 10;
+            						num.toString();//"10"
+            						num.toString(2);//"1010"
+            						num.toString(8);//"12"
+            						num.toString(10);//"10"
+            						num.toString(16);//"a"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">null值没有这个方法
+            			</td>
+            			<td class="info">undefined值没有这个方法
+            			</td>
+        			</tr>
+            		<tr>
+            			<th>String()转型函数</th>
+            			<td class="info">如果值有toString()方法，则调用方法（无参数）并返回相应结果
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = true;
+            						bool.toString();//"true"
+            						String(bool);//"true"
+            						var num = 123;
+            						num.toString();//"123"
+            						String(num);//"123"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">如果值是null
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						String(null);//"null"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">如果值是undefined
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						String(undefined);//"undefined"
+            					</code></pre>
+            				</div>
+            			</td>
+        			</tr>
+            		<tr>
+            			<th>加号操作符"+"</th>
+            			<td class="info">通过加号操作符"+"拼接一个值与空字符串""，将该值转换为字符串
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = true;
+            						bool+"";//"true"
+            						var num = 123;
+            						num+"";//"123"
+            						var obj = {name:"snoopy"};
+            						obj+"";//"[object Object]"
+            						var arr = [1,2,3];
+            						arr+"";//"1,2,3"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            			<td class="info">无
+            			</td>
+        			</tr>
+            	</tbody>
+            </table>
+            <h2 id="operators">操作符</h2>
+            <h3 id="unary_operators">一元操作符</h3>
+            <p>以下一元操作符均会调用Number()转型函数将非数值转换成数值后运算。</p>
+            <table id="incre_decre_operator">
+	            <colgroup width="20%"></colgroup>
+            	<caption>递增++A、A++和递减--A、A--</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>描述</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th>String</th>
+            			<td class="info">以Number()转型函数的方式转型成数值后操作
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = "123";
+            						++str;//124
+            						var str = "12.3";
+            						++str;//13.3
+            						var str = "123abc";
+            						++str;//NaN
+            						var str = "017";
+            						++str;//18
+            						var str = "0x17";
+            						++str;//24
+            						var str = "";
+            						++str;//1
+            						var str = "true";
+            						++str;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Boolean</th>
+            			<td class="info">以Number()转型函数的方式转型成数值后操作
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = true;
+            						++bool;//2
+            						var bool = false;
+            						++bool;//1
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>对象</th>
+            			<td class="info">以Number()转型函数的方式转型成数值后操作
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = new Object();
+            						++obj;//NaN
+            						obj = null;
+            						++obj;//1
+            						var arr = [123];
+            						++arr;//124
+            						var arr = [];
+            						++arr//1
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table id="sign_operator">
+	            <colgroup width="20%"></colgroup>
+            	<caption>符号加+A和符号减-A</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>描述</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th>String</th>
+            			<td class="info">以Number()转型函数的方式转型成数值后操作
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = "123";
+            						-str;//-123
+            						var str = "12.3"
+            						-str;//-12.3
+            						var str = "123abc"
+            						-str;//NaN
+            						var str = "017";
+            						-str;//-17
+            						var str = "0x17";
+            						-str;//-23
+            						var str = "";
+            						-str;//-0
+            						var str = "true";
+            						-str;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>Boolean</th>
+            			<td class="info">以Number()转型函数的方式转型成数值后操作
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = true;
+            						-bool;//-1
+            						var bool = false;
+            						-bool;//-0
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>对象</th>
+            			<td class="info">以Number()转型函数的方式转型成数值后操作
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = new Object();
+            						-obj;//NaN
+            						obj = null;
+            						-obj;//-0
+            						var arr = [123];
+            						-arr;//-123
+            						var arr = [];
+            						-arr;//-0
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <h3 id="multiplicative_operators">乘性操作符</h3>
+            <p>乘性操作符会对非数值操作数后台调用Number()转型函数转换为数值后运算。返回数值、Infinity或NaN。</p>
+            <table id="multiply_operator">
+	            <colgroup width="15%"></colgroup>
+            	<caption>乘号操作符A*B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>转为NaN</th>
+            			<th>转为Infinity</th>
+            			<th>转为-Infinity</th>
+            			<th>转为其他数值</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="2">Number</th>
+            			<td class="info">有一个操作数是NaN，则结果为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						123*NaN;//NaN
+            					</code></pre>
+            			</td>
+            			<td class="info">乘积超过EMCAScript数值的表示范围的正数
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						1e308*2;//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">乘积超过EMCAScript数值的表示范围的负数
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						1e308*-2;//-Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">两负相乘为正，正负相乘为负
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						12*3;//36
+            						-12*3//-36
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="info">Infinity与0相乘，则结果为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity*0;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity与正数相乘，则结果为Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity*12;//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity与负数相乘，则结果为-Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity*-12;//-Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity和Infinity相乘，则结果是Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity*Infinity;//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>其他类型值</th>
+            			<td colspan="4" class="info">以Number()转型函数的方式转型成数值后应用以上规则
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = "123";
+            						str*10;//1230
+            						var bool = false;
+            						bool*10;//0
+            						var arr = [123];
+            						arr*10;//1230
+            						var obj = new Object();
+            						obj*10;//NaN
+            						obj = null;
+            						obj*10;//0
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table id="division_operator">
+	            <colgroup width="10%"></colgroup>
+	            <colgroup span="3" width="25%"></colgroup>
+	            <colgroup width="15%"></colgroup>
+            	<caption>除号操作符A/B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>转为NaN</th>
+            			<th>转为Infinity</th>
+            			<th>转为-Infinity</th>
+            			<th>转为其他数值</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="3">Number</th>
+            			<td class="info">有一个操作数是NaN，则结果为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						123/NaN;//NaN
+            						NaN/123;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">商超过EMCAScript数值的表示范围的正数
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						1e308/0.5;//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">商超过EMCAScript数值的表示范围的负数
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						1e308/-0.5;//-Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">两负相除为正，正负相除为负
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						12/3;//4
+            						-12/3;//-4
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="info">Infinity被Infinity除，则结果为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity/Infinity;//NaN
+            						-Infinity/Infinity;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity被正数除，则结果为Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity/12;//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity被负数除，则结果为-Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						-Infinity/12;//-Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="info">0被0除，则结果为NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						0/0;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">正数被0除，则结果为Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						123/0;//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">负数被0除，则结果为-Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						-123/0;//-Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">无
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>其他类型</th>
+            			<td colspan="4" class="info">以Number()转型函数的方式转型成数值后应用以上规则
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = "123";
+            						str/10;//12.3
+            						var bool = true;
+            						bool/10;//0.1
+            						var arr = [123];
+            						arr/10;//12.3
+            						var obj = new Object();
+            						obj/10;//NaN
+            						obj = null;
+            						obj/10;//0
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table id="modulus_operator">
+	            <colgroup width="10%"></colgroup>
+	            <colgroup width="20%"></colgroup>
+	            <colgroup width="20%"></colgroup>
+	            <colgroup width="15%"></colgroup>
+	            <colgroup width="20%"></colgroup>
+	            <colgroup width="15%"></colgroup>
+            	<caption>求模操作符A%B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th colspan="4">转为NaN</th>
+            			<th>转为其他数值</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="">Number</th>
+            			<td class="info">被除数是无穷大的数值而除数是有限大的数值，则结果是NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity%10;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">被除数是有限大的数值而除数是0，则结果是NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						123%0;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity被Infinity除，则结果是NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity%Infinity;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">被除数是有限大的数值而除数是无穷大的数值，则结果是被除数
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						123%Infinity;//123
+            						123%-Infinity;//123
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">执行常规除法计算，返回除得的余数
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						0%10;//0
+            						123%10;//3
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>其他类型</th>
+            			<td colspan="5" class="info">以Number()转型函数的方式转型成数值后应用以上规则
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = "123";
+            						str%10;//3
+            						var bool = true;
+            						bool%10;//1
+            						var arr = [123];
+            						arr%10;//3
+            						var obj = new Object();
+            						obj%10;//NaN
+            						obj = null;
+            						obj%10;//0
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <h3 id="additive_operators">加性操作符</h3>
+            <p>加性操作符会对简单类型值后台调用Number()转型函数；对对象调用valueOf()或toString()方法。返回相应数值、字符串、Infinity和NaN。</p>
+            <table id="addition_operator">
+	            <colgroup width="10%"></colgroup>
+            	<caption>加号/拼接操作符A+B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>转为NaN</th>
+            			<th>转为Infinity</th>
+            			<th>转为-Infinity</th>
+            			<th>转为+0或-0</th>
+            			<th>转为其他数值</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="">Number</th>
+            			<td class="info">有一个操作数是NaN或者Infinity加-Infinity，则返回NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						NaN+10;//NaN
+            						-Infinity+Infinity;//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity加Infinity，则结果是Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity+Infinity;//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">-Infinity加-Infinity，则结果是-Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						-Infinity+(-Infinity);//-Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">+0加+0或+0加-0，则结果是+0；-0加-0，则结果是-0
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						+0+0;//0
+            						-0+(-0);//-0
+            						+0+(-0);//0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">正常加法运算
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						1+2;//3
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>字符串拼接</th>
+            			<th colspan="1">字符串</th>
+            			<th colspan="3">其他类型</th>
+            			<th>undefined或null</th>
+            		</tr>
+            		<tr>
+            			<th rowspan="2">字符串</th>
+            			<td rowspan="2" class="info">两个操作数都是字符串，则进行拼接字符串操作
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						"hello!"+" JavaScript";//"hello! JavaScript"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td colspan="3">一个操作数是其他类型值，调用toString()方法取得相应字符串值，再拼接</td>
+            			<td rowspan="2" class="info">分别调用String()转型函数取得字符串形式后拼接
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						"Hello world! "+undefined;//"Hello world! undefined"
+            						String(undefined);//"undefined"
+            						"Hello world! "+null;//"Hello world! null"
+            						String(null);//"null"
+            					</code></pre>
+            				</div>
+            			</td>
+        			</tr>
+        			<tr>
+            			<td class="info">数值
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						"Hello world! "+123;//Hello world! 123"
+            						var str = "Hello world! ";
+            						var num = 123;
+            						num.toString();//"123"
+            						str+num;//"Hello world! 123"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">布尔值
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						"Hello world! "+true;//"Hello world! true"
+            						var str = "Hello world! ";
+            						var bool = true;
+            						bool.toString();//"true"
+            						str+bool;//"Hello world! true"
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">对象
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = new Object();
+            						obj.toString();//"[object Object]"
+            						"Hello world! "+obj;//"Hello world! [object Object]"
+            						var arr = [];
+            						arr.toString();//""
+            						"Hello world! "+arr;//"Hello world! "
+            						var arr = [123];
+            						arr.toString();//"123"
+            						"Hello world! "+arr;//"Hello world! 123"
+            						var arr = [1,2,3];
+            						arr.toString();//"1,2,3"
+            						"Hello world! "+arr;//"Hello world! 1,2,3"
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table id="subtraction_operator">
+	            <colgroup width="10%"></colgroup>
+	            <colgroup width="40%"></colgroup>
+	            <colgroup width="12.5%" span="2"></colgroup>
+	            <colgroup width="15%"></colgroup>
+	            <colgroup width="10%"></colgroup>
+            	<caption>减号操作符A-B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>转为NaN</th>
+            			<th>转为Infinity</th>
+            			<th>转为-Infinity</th>
+            			<th>转为+0或-0</th>
+            			<th>转为其他数值</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="3">Number</th>
+            			<td class="info">有一个操作数是NaN或者Infinity减Infinity或者-Infinity减-Infinity，则返回NaN
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						NaN-10;//NaN
+            						Infinity-Infinity;//NaN
+            						-Infinity-(-Infinity);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">Infinity减-Infinity，则结果是Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						Infinity-(-Infinity);//Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">-Infinity减Infinity，则结果是Infinity
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						-Infinity-Infinity;//-Infinity
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">-0减+0，结果为-0；其他情况都是得到+0
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						+0-(+0);//0
+            						+0-(-0);//0，这里书上有误
+            						-0-(-0);;//0
+            						-0-(+0);//-0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td class="info">正常减法运算
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						3-2;//1
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>对象
+            			</td>
+            			<th class="info">字符串
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var str = "123ab";
+            						Number(str);//NaN
+            						str-10;//NaN
+            						var str = "123";
+            						Number(str);//123
+            						str-10;//113
+            						var str1 = "123";
+            						var str2 = "10";
+            						str1-str2;//113
+        						</code></pre>
+            				</div>
+            			</td>
+            			<th class="info">布尔值
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var bool = true;
+            						Number(bool);//1
+            						bool-10;//-9
+            					</code></pre>
+            				</div>
+            			</td>
+            			<th class="info">null
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						null-10;//-10
+            						Number(null);//0
+            					</code></pre>
+            				</div>
+            			</td>
+            			<th class="info">undefined
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						undefine-10;//NaN
+            						Number(undefined);//NaN
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="info">调用对象的valueOf()方法取得该对象的数值按以上规则匀算；如果得到的值是NaN，结果就是NaN。如果对象没有valueOf()方法或者valueOf方法没有取得数值，则调用其toString()方法并将得到的字符串转为数值后再按以上规则运算
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var arr = [];
+            						arr.valueOf();//[]
+            						arr.toString();//""
+            						Number(arr.toString());//0
+            						arr-10;//-10
+            						var numObj = Number(123);
+            						numObj.valueOf();//123
+            						numObj-10;//113
+            					</code></pre>
+            				</div>
+            			</td>
+            			<td colspan="4">先调用Number()转型函数将其转型为数值，再按上述规则运算。如果调用Number()的结果是NaN，则结果是NaN</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <h3 id="relational_operators">关系操作符</h3>
+            <p>关系操作符会使两个不同类型的操作数（其中一个是数值）转型成数值，而后进行比较。只返回true和false。</p>
+            <table >
+	            <colgroup width="10%"></colgroup>
+            	<caption>小于A&lt;B、大于A&gt;B、小于等于A&lt;=B以及大于等于A&gt;=B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>描述</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="">Number</th>
+            			<td class="info">如果有一个操作数是数值另一个不是，则将另一个以Number()转型函数的方式转型为数值后执行数值比较；与NaN值比较始终返回false
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						1 &gt; true;//false
+            						1 &gt; false;//true
+            						NaN &gt;= 10;//false
+            						NaN &lt;= 10;//false
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">String</th>
+            			<td class="info">如果两个操作数都是字符串，则从两个字符串的第一个字符开始对应位置比较字符编码值
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						"hello" &lt; "world";//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">对象</th>
+            			<td class="info">调用对象的valueOf()方法取得对应值，再以上述规则比较；未果，则继续调用对象的toString()方法取得对应值，再以上述规则比较。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var numObj = new Number(123);
+            						numObj.valueOf();//123
+            						numObj &gt; 10;//true
+            						var strObj = new String("123ab");
+            						strObj.valueOf();//"123ab"
+            						strObj &gt;= 123;//false
+            						strObj &gt;= "123";//true
+            						var arr = [123];
+            						arr.valueOf();//[123]
+            						arr.toString();//"123"
+            						Number(arr.toString());//123
+            						arr &gt; 10;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <h3 id="equality_operators">相等性操作符</h3>
+            <p>相等操作符会首先使两个不同类型的操作数转型成相同类型，而后进行比较；任何操作数与数值比较都会优先转型为数值。只返回true和false。
+	            <div class="info">两个操作数使用<strong>全等操作符A===B与不全等操作符A!==B</strong>，不发生类型转换，只以比较规则进行判断。
+					<div class="infobox">
+						<pre class="detail"><code class="js"><!--
+-->							123 === "123";//false
+							var strObj = new String("something");
+							strObj === "something";//false
+						</code></pre>
+					</div>
+	            </div>
+            </p>
+            <table id="equals_operator">
+	            <colgroup width="10%"></colgroup>
+            	<caption>相等操作符A==B与不相等操作符A!=B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>描述(只返回false和true)</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="">Number</th>
+            			<td class="info">如果有一个操作数是数值另一个不是，则将另一个以Number()转型函数的方式转型为数值后执行数值比较
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						1 == true;//true
+            						1 != false;//true
+            						123 == "123";//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">String</th>
+            			<td class="info">如果两个操作数都是字符串，则从两个字符串的第一个字符开始对应位置比较字符编码值
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						"hello" == "world";//false
+            						"hello" == "hellO";//false
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">对象</th>
+            			<td class="info">调用对象的valueOf()方法取得对应值，再以上述规则比较；未果，则继续调用对象的toString()方法取得对应值，再以上述规则比较。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var numObj = new Number(123);
+            						numObj.valueOf();//123
+            						numObj == 123;//true
+            						var strObj = new String("123ab");
+            						strObj.valueOf();//"123ab"
+            						strObj == 123ab;//报错
+            						strObj == "123ab";//true
+            						var arr = [123];
+            						arr.valueOf();//[123]
+            						arr.toString();//"123"
+            						Number(arr.toString());//123
+            						arr == 123;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="5">比较规则</th>
+            			<td class="info">null和undefined相等
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						null == undefined;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="info">比较相等性之前，不能将null和undefined转换成其他任何值，也就是不会后台调用Number()转型函数
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						null == 0;//false
+            						null &gt;= 0;//true，关系操作符就会调用Number()
+            						Number(null);//0
+            						null &lt;= 0;//true，
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="info">有一个操作数是NaN，则相等操作符返回false，而不相等操作符返回true；两个都是NaN，则相等操作符还是返回false（因为NaN不等于NaN），不相等操作符返回true
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						NaN == 1;//false
+            						NaN != 1;//true
+            						NaN == NaN;//false
+            						NaN != NaN;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<td class="info">如果两个操作数都是存的指向同一个对象的指针或null，则相等操作符返回true，不相等操作符返回false；否则，相等操作符返回false，不相等操作符返回true
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = {name: "snoopy"};
+            						nameObj = obj;//Object {name: "snoopy"}
+            						dogObj = obj;//Object {name: "snoopy"}
+            						nameObj == dogObj;//true
+            						nameObj != dogObj;//false
+            						nameObj = null;
+            						cat = null;
+            						nameObj == cat;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <h3 id="logical_operators">逻辑操作符</h3>
+            <p>逻辑非操作符会对操作数调用Boolean()转型函数转换为布尔值后进行操作。逻辑与和逻辑或会尝试进行Boolean值转换（但是并不会真的对原值进行转型），转换的结果再进行判断，有短路操作原则——逻辑与是以第一个操作数的false值为优先标准，而逻辑或是以第一个操作数的true值为优先标准。</p>
+            <table id="logical_NOT_operator">
+	            <colgroup width="20%"></colgroup>
+            	<caption>逻辑非&excl;A</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>描述</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="">String</th>
+            			<td class="info">后台调用Boolean()转型函数转换后的结果取以逻辑非操作。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						!"abc"//false
+            						!""//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">Number</th>
+            			<td class="info">后台调用Boolean()转型函数转换后的结果取以逻辑非操作。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						!12;//false
+            						!Infinity;//false
+            						!0;//true
+            						!NaN;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">对象</th>
+            			<td class="info">后台调用Boolean()转型函数转换后的结果取以逻辑非操作。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = {name: "snoopy"};
+            						!obj;//false
+            						obj = null;
+            						!obj;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">Undefined</th>
+            			<td class="info">后台调用Boolean()转型函数转换后的结果取以逻辑非操作。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						!undefined;//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table id="logical_AND_operator">
+	            <colgroup width="20%"></colgroup>
+            	<caption>逻辑与A&amp;&amp;B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>描述</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="">常见值</th>
+            			<td class="info">如果第一个操作数可以通过Boolean()转型函数转换为false，则返回第一个操作数；否则返回第二个
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = {name: "snoopy"};
+            						""&amp;&amp;obj;//""
+            						Boolean("");//false
+            						"abc"&amp;&amp;obj;//Object {name: "snoopy"}
+            						Boolean("abc");//true
+            						obj&amp;&amp;[123];//[123]
+            						Boolean(obj);//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">特殊值</th>
+            			<td class="info">特殊值null、NaN和undefined也是遵循以上原则。书上表述有误。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						false&amp;&amp;NaN;//false
+            						true&amp;&amp;NaN;//NaN
+            						NaN&amp;&amp;123;//NaN
+            						Boolean(NaN);//false
+            						false&amp;&amp;null;//false
+            						true&amp;&amp;null;//null
+            						null&amp;&amp;123;//null
+            						Boolean(null);//false
+            						false&amp;&amp;undefined;//false
+            						true&amp;&amp;undefined;//undefined
+            						undefined&amp;&amp;123;//undefined
+            						Boolean(undefined);//false
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <table id="logical_OR_operator">
+	            <colgroup width="20%"></colgroup>
+            	<caption>逻辑或A&vert;&vert;B</caption>
+            	<thead>
+            		<tr>
+            			<th>原始值类型</th>
+            			<th>描述</th>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		<tr>
+            			<th rowspan="">常见值</th>
+            			<td class="info">如果第一个操作数可以通过Boolean()转型函数转换为true，则返回第一个操作数；否则返回第二个
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						var obj = {name: "snoopy"};
+            						""||obj;//Object {name: "snoopy"}
+            						Boolean("");//false
+            						"abc"||obj;//"abc"
+            						Boolean("abc");//true
+            						obj||[123];//Object {name: "snoopy"}
+            						Boolean(obj);//true
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th rowspan="">特殊值</th>
+            			<td class="info">特殊值null、NaN和undefined也是遵循以上原则。书上表述不妥。
+            				<div class="infobox">
+            					<pre class="detail"><code class="js"><!--
+-->            						true||NaN;//true
+            						false||NaN;//NaN
+            						NaN||NaN;//NaN
+            						Boolean(NaN);//false
+            					</code></pre>
+            				</div>
+            			</td>
+            		</tr>
+            	</tbody>
+            </table>
+            <h3 id="assignment_operators">赋值操作符</h3>
+            <p><strong>A=B</strong>、<strong>A*=B</strong>、<strong>A/=B</strong>、<strong>A%=B</strong>、<strong>A+=B</strong>、<strong>A-=B</strong>、<strong>A&lt;&lt;=B</strong>、<strong>A&gt;&gt;=B</strong>、<strong>A&gt;&gt;&gt;=B</strong>、<strong>A&amp;=B</strong>、<strong>A&vert;=B</strong>、<strong>A&Hat;=B</strong>。
+	            <div class="info">根据ES特性，赋值操作会使得被赋值变量的类型转变为所赋之值类型。
+					<div class="infobox">
+						<pre class="detail"><code class="js"><!--
+-->							var obj = {name: "snoopy"};
+							typeof obj;//"object"
+							obj = 123;
+							typeof obj;//"number"
+						</code></pre>
+					</div>
+	            </div>
+            </p>
+            <h3 id="comma_operators">逗号操作符</h3>
+            <p><strong>A,B</strong>用于分隔多个变量声明、变量赋值、数组项以及对象属性，无转型。</p>
+            <h3 id="conditional_operators">条件操作符</h3>
+            <p><strong>E?A:B</strong>
+	            <div class="info">条件操作符只是根据英文问号?前面的条件如实地选择后面两个值中的一个进行返回，所以不发生转型。
+					<div class="infobox">
+						<pre class="detail"><code class="js"><!--
+-->							var obj = {name: "snoopy"};
+							var str = "hello";
+							true?obj:str;//Object {name: "snoopy"}
+							false?obj:str;//"hello"
+						</code></pre>
+					</div>
+	            </div>
+            </p>
+            <h3 id="bitwise_operators">位操作符</h3>
+            <p><strong>按位非/取反~A、按位与A&amp;B、按位同或A&vert;B以及按位异或A&Hat;</strong>。
+	            <div class="info">也会对操作数造成类型转换，但是在ES中对除数值以外的操作数使用位操作符无意义，故不加讨论。
+					<div class="infobox">
+						<pre class="detail"><code class="js"><!--
+-->							var obj = {name: "snoopy"};
+							~obj;//-1
+							obj&8;//0
+							obj|8;//8
+							obj^8;//8
+							obj;//Object {name: "snoopy"}
+						</code></pre>
+					</div>
+	            </div>
+            </p>
+            <h3 id="bitwise_shift_operators">按位移动操作符</h3>
+            <p><strong>左移A&lt;&lt;B、有符号右移A&gt;&gt;B以及无符号右移A&gt;&gt;&gt;B</strong>。
+	            <div class="info">与位操作符同理。
+					<div class="infobox">
+						<pre class="detail"><code class="js"><!--
+-->							var obj = {name: "snoopy"};
+							obj&lt;&lt;2;//0
+							obj&gt;&gt;2;//0
+							obj&gt;&gt;&gt;2;//80
+							obj;//Object {name: "snoopy"}
+						</code></pre>
+					</div>
+	            </div>
+            </p>
+        </section>
+        <section>
+        	<h3 id="reference">参考</h3>
+    		<ol>
+    			<li>JavaScript高级程序设计（第三版）</li>
+    			<li><a href="http://ecma-international.org/ecma-262/5.1/">ECMAScript Language Specification - ECMA-262 Edition 5.1</a></li>
+    			<li><a href="http://www.cnblogs.com/snandy/archive/2013/01/02/2841899.html">JavaScript中“基本类型”之争 - snandy - 博客园</a></li>
+    		</ol>
+        	<!-- (tr>th{}+(td.info>div.infobox>pre.detail>code.js)*4)*10 -->
+        	<!-- table>{colgroup[width=""]}+caption+thead(>tr>th{原始值类型}+th{转为NaN}+th{转为Infinity}+th{转为-Infinity}+th{转为其他数值})+tbody>(tr>th[rowspan=""]{Number}+td*4)+(tr>td*4)*1+(tr>th{其他类型}+td*4) -->
+        </section>
+    </article>
+    <!-- aside -->
+    <footer>
+        <h3>说明</h3>
+        <p>本文内容结合书籍、文档与个人实践，或有缺漏，还请赐教。</p>
+        <p>&copy;uolcano</p>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>

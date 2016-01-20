@@ -13,10 +13,15 @@ article .example {
     flex-flow: column nowrap;
     /*测试自适应效果*/
     width: 100%;
+    /*高度自适应，须在单独页面中作为主框使用*/
+/*    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;*/
 }
 
 #threelines_twocols_auto+.example>div {
-    left: 0;
     height: 50px;
     width: 100%;
 }
@@ -75,16 +80,23 @@ article .example {
 /*布局-三行两列居中自适应布局*/
 
 #threelines_twocols_center_auto+.example {
+    /*可以自适应，高度按需分配*/
     height: 400px;
     display: flex;
     /*设置垂直弹性方向*/
     flex-flow: column nowrap;
     /*测试自适应效果*/
     width: 100%;
+    /*高度自适应，须在单独页面中作为主框使用*/在单独页面中作为主框使用*/
+/*    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;*/
 }
 
 #threelines_twocols_center_auto+.example>div {
-    left: 0;
+    /*left: 0;*/
     height: 50px;
     width: 100%;
 }
@@ -133,6 +145,75 @@ article .example {
 #threelines_twocols_center_auto+.example .sidebar li {
     display: block;
     list-style-type: none;
+    margin: 3px;
+    padding: 1px;
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px 1px navy;
+}
+
+/*兼容模式，不是用弹性容器*/
+/*清除浏览器默认设置*/
+#threelines_twocols_center_auto_unflex+.example * {
+    margin: 0;
+    padding: 0;
+}
+/*设置绝对定位参照物*/
+#threelines_twocols_center_auto_unflex+.example {
+    height: 400px;
+    position: relative;
+    width: 100%;
+}
+/*统一设置head foot 和 body*/
+#threelines_twocols_center_auto_unflex+.example>div {
+    position: absolute;
+    left:0;
+    width:100%;
+    height:50px;
+}
+#threelines_twocols_center_auto_unflex+.example .head {
+    background: rgba(100, 100, 255, 0.6);
+    top: 0;
+}
+#threelines_twocols_center_auto_unflex+.example .foot {
+    background: rgba(100, 255, 100, 0.6);
+    bottom: 0;
+}
+#threelines_twocols_center_auto_unflex+.example .body {
+    /*垂直方向居于head和foot之间*/
+    top: 50px;
+    bottom: 50px;
+    /*前面统一设置了高度，这里要设为auto*/
+    height: auto;
+    /*设置居中自适应，按需配置*/
+    /*width: 80%;*/
+    /*margin: 0 10%;*/
+}
+#threelines_twocols_center_auto_unflex+.example .main {
+    background: silver;
+    /*main栏设置绝对定位，以达到自适应*/
+    position: absolute;
+    height:100%;
+    right: 0px;
+    /*给sidebar栏留出空间，不挡住*/
+    left: 102px;
+}
+#threelines_twocols_center_auto_unflex+.example .sidebar {
+    width: 100px;
+    height: 100%;
+    background: #a0f;
+}
+
+#threelines_twocols_center_auto_unflex+.example .sidebar ul {
+    padding: 0;
+    margin: 0;
+    /*设置边框，作为li设置margin的参照对象，防止引起sidebar整体偏移*/
+    border: 1px solid transparent;
+}
+
+#threelines_twocols_center_auto_unflex+.example .sidebar li {
+    display: block;
+    list-style-type: none;
+    /*设置列表项间距，需要ul设置border，防止margin效果向上传递*/
     margin: 3px;
     padding: 1px;
     border-radius: 1px;

@@ -1,0 +1,65 @@
+/*表格设置*/
+table {
+    border: 3px ridge;
+    width: 85%;
+    font-family: 'Microsoft Yahei', sans-serif;
+}
+
+table caption {
+    font-weight: bold;
+}
+
+table th {
+    background: #9cf;
+}
+
+table tr:nth-child(even) td {
+    background: #acc;
+}
+
+table tr:nth-child(odd) td {
+    background: #eee;
+}
+/*隐藏示例*/
+.info .infobox {
+    display: none;
+}
+/*示例内容样式*/
+.infobox .detail {
+    background: #999;
+    opacity: 0.9;
+    color: #afa;
+    box-shadow: 1px 1px 5px 1px #666, inset -1px -1px 5px 1px #333;
+    display: inline-block;
+    border-radius: 3px;
+}
+/*弹出示例的尖角图形设置*/
+.infobox::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    width: 10px;
+    height: 5px;
+    border-top: 0px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #000;
+    border-left: 5px solid transparent;
+    position: absolute;
+    transform: translate(0, 10px);
+}
+/*显示示例*/
+.info:hover .infobox,
+.info .infobox:hover {
+    display: block;
+    position: absolute;
+    transform: translate(0, -10px);
+    cursor: text;
+}
+/*代码换行与缩进设置*/
+pre {
+    white-space: pre-line;
+}
+/*代码样式*/
+code {
+    font: 0.8em cursive, sans-serif;
+}

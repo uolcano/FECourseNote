@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login Page</title>
+	<style type="text/css">
+		.login_info { margin: 0 auto; padding: 0; width: 200px; height: 400px; border: 2px solid #eee; overflow: hidden; }
+		.login_info *{ margin: 10px auto; }
+		.login_info label, input, button { display: block; text-align:center; width: 100%; }
+		.login_info input, .login_info button { padding: 10px 0; }
+	</style>
+</head>
+<body>
+	<header><h1>登录界面练习</h1></header>
+	<section>
+		<form>
+			<fieldset class="login_info">
+				<legend class="login_title">账号登录</legend>
+				<label for="ursname" class="usrname prompt">账号</label>
+				<input type="text" name="ursname" id="ursname" class="ursname indata" placeholder="请输入您的账号" />
+				<label for="passwd" class="passwd prompt">密码</label>
+				<input type="password" name="passwd" id="passwd" class="passwd indata" placeholder="请输入您的6位全数字密码" />
+				<button class="login_button" onclick="login()">登录</button>
+			</fieldset>
+		</form>
+	</section>
+	<footer>
+		<h3>shuom</h3>
+		<p>未完待续</p>
+		<P>&copy;uolcano</P>
+	</footer>
+	<script type="text/javascript">
+			var name = document.getElementById("usrname");
+			var password = document.getElementById("passwd");
+		function login () {
+			var n = name.value.valueOf(),
+			    p = password.value.valueOf(),
+			    pattern = new RegExp("/\\d{6}/");
+			alert("yourname is "+name.value+"\n"+"password is "+password.value);
+		}
+	</script>
+</body>
+</html>

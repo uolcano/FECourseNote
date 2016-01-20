@@ -6,16 +6,10 @@ header {
 	text-align: center;
 	font: 16px Monaco, 'Microsoft Yahei', sans-serif;
 }
-main {
-	border: 1px solid #DED2F1;
-	border-radius: 1em/1em;
-	box-shadow: inset 1px 1px 5px 5px #DED2F1;
-	background-color: #C7DBF6;
-}
-section {
+article {
 	margin: 10px;
 }
-article {
+section {
 	margin: 1px;
 	border-bottom: 1px dotted gray;
 }
@@ -23,8 +17,16 @@ footer {
 	text-align: center;
 	color: white;
 	background-color: #212834;
-	border-radius: 5px/5px
+	border-radius: 5px/5px;
 }
 footer p {
 	color: lime;
+}
+.topdeclare {
+	color: #e6a;
+	border-left: 3px solid #6e6;
+	background: #fff;
+}
+h2 {
+	border-bottom: 1px dashed #fff;
 }

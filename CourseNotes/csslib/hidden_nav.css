@@ -1,0 +1,84 @@
+/*格式清空*/
+
+nav,
+nav * {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*导航栏设置*/
+
+nav {
+    position: fixed;
+    right: 0px;
+    top: 10px;
+    max-height: 97%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+
+/*格式化链接*/
+
+nav a {
+    text-decoration: none;
+    display: block;
+    background: #888;
+    opacity: 0.9;
+    font: 1em 'SinSum', 'Microsoft Yahei', monospace, sans-serif;
+    margin: 3px 1px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    box-shadow: 0 0 1px 1px #fff, inset 0 0 5px 1px #eee;
+}
+
+
+/*清修改链接原有效果*/
+
+nav a:link,
+nav a:visited,
+nav a:active {
+    color: #000;
+}
+
+nav a:hover {
+    color: #ee8;
+    /*background: #6aa;*/
+    animation: linkStyle 1s linear both alternate;
+}
+
+@keyframes linkStyle {
+	0% {}
+	100% {
+	    background: #6aa;
+	}
+}
+
+/*可隐藏导航清单*/
+
+nav>ul {
+    display: none;
+    width: 200px;
+}
+
+nav:hover>ul,
+nav>ul:hover {
+    display: block;
+}
+
+
+/*导航前标*/
+
+nav::before {
+    content: "+navigator";
+    display: inline-block;
+}
+
+nav:hover::before {
+    display: none;
+}
