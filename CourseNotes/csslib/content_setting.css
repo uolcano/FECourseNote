@@ -20,7 +20,10 @@ footer {
 	border-radius: 5px/5px;
 }
 footer p {
-	color: lime;
+	color: #aee;
+}
+footer a {
+	color: #eae;
 }
 .topdeclare {
 	color: #e6a;
