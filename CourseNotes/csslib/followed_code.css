@@ -1,0 +1,27 @@
+/*代码样式*/
+
+code.js {
+    font-family: 'Microsoft Yahei', monospace;
+}
+
+.followed_code .inline_code {
+    font-family: cursive, sans-serif;
+    margin: 0 2px;
+    padding: 0 4px;
+    background: #ece;
+    box-shadow: inset 0 0 1px 2px #a8a;
+    border-radius: 3px;
+}
+/*含代码表格样式*/
+
+table.followed_code caption {
+    font: bold 1em/1.3 'Microsoft Yahei', monospace;
+}
+
+table.followed_code,
+table.followed_code th,
+table.followed_code td {
+    border: 3px ridge #ace;
+    border-collapse: collapse;
+    background: #eee;
+}

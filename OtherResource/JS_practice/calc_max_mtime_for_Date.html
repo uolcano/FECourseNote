@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>calculate the max millisecond for Date accepted</title>
+</head>
+<body>
+	<header><h1>计算Date构造函数可接收的最大毫秒数</h1></header>
+	<script type="text/javascript">
+    function testMaxDateTime() {
+        var initTime = 1499999999999999; //目前时间常见16位数，开始计数
+        var powLmt = 0; //指数最小退位
+
+        function test(init, pow, mtimeMax) {
+            var lpcount = 0;//循环计数器
+            if (pow < powLmt) {//当递增器的指数小于0，递归最大值
+                return mtimeMax;
+            } else {
+                mtimeMax = init;//当前递归的最大值赋初值
+                while (lpcount < 100) {//限制循环最大次数，防止死循环
+                    lpcount++;
+                    mtimeMax += Math.pow(10, pow);//累加递增器
+                    if ((new Date(mtimeMax)).toString() === "Invalid Date") {
+                        return test(mtimeMax - Math.pow(10, pow), pow - 1, mtimeMax);
+                    }
+                }
+                throw (new Error('iteration overflow.'));//如果死循环被强制中断，抛错
+            }
+        }
+        //由于test()得到的是刚好超过毫秒数有效值的最大临界值，需要减一得到最大有效值
+        return test(initTime, 15) - 1;
+    }
+    alert("Date()构造函数可接收的最大毫秒数是："+testMaxDateTime())
+    // console.log(testMaxDateTime());
+	</script>
+</body>
+</html>

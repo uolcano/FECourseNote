@@ -1,0 +1,29 @@
+/*内容章节计数设置*/
+
+.main_content {
+    counter-reset: h2sec;
+    width: 85%;
+}
+
+.main_content h2 {
+    counter-reset: h3sec h4sec;
+}
+
+.main_content h2::before {
+    counter-increment: h2sec;
+    content: counter(h2sec) ".";
+}
+
+.main_content h3 {
+    counter-reset: h4sec;
+}
+
+.main_content h3::before {
+    counter-increment: h3sec;
+    content: counter(h2sec) "." counter(h3sec) ".";
+}
+
+.main_content h4::before {
+    counter-increment: h4sec;
+    content: counter(h2sec) "." counter(h3sec) "." counter(h4sec) ".";
+}

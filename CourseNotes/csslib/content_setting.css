@@ -1,35 +1,104 @@
 body {
-	margin: 0 10px;
-	background-color: #F6F6F6;
+    margin: 0 10px;
+    background-color: #F6F6F6;
 }
+
 header {
-	text-align: center;
-	font: 16px Monaco, 'Microsoft Yahei', sans-serif;
+    text-align: center;
+    font: 16px Monaco, 'Microsoft Yahei', sans-serif;
 }
+
 article {
-	margin: 10px;
+    margin: 10px;
 }
+
 section {
-	margin: 1px;
-	border-bottom: 1px dotted gray;
+    margin: 1px;
+    border-bottom: 1px dotted gray;
 }
+
 footer {
-	text-align: center;
-	color: white;
-	background-color: #212834;
-	border-radius: 5px/5px;
+    text-align: center;
+    color: white;
+    background-color: #212834;
+    border-radius: 5px/5px;
 }
+
 footer p {
-	color: #aee;
+    color: #aee;
+    width: 800px;
+    margin: 0 auto;
 }
+
 footer a {
-	color: #eae;
+    color: #eae;
 }
-.topdeclare {
-	color: #e6a;
-	border-left: 3px solid #6e6;
-	background: #fff;
-}
+
 h2 {
-	border-bottom: 1px dashed #fff;
+    border-bottom: 1px dashed #fff;
+}
+
+
+/*顶部说明样式*/
+
+.topdeclare {
+    color: #e6a;
+    border-left: 3px solid #6e6;
+    background: #fff;
+}
+
+
+/*顶部说明计数*/
+
+.topdeclare span {
+    display: block;
+    text-indent: 1em;
+}
+
+.topdeclare {
+    counter-reset: paranum;
+    font: 1em/1.5 cursive, 'Microsoft Yahei', monospace;
+}
+
+.topdeclare span::before {
+    counter-increment: paranum;
+    content: counter(paranum) "> ";
+    color: #ace;
+}
+
+
+/*链接样式修改*/
+
+.main_content a:link,
+.main_content a:visited,
+.main_content a:active {
+    color: #00f;
+}
+
+.main_content a:hover {
+    color: #0ff;
+    background: #666;
+    font-weight: bold;
+    margin: -10px -1px -10px;
+    padding: 2px;
+    text-decoration: none;
+}
+
+
+/*锚定闪烁*/
+
+section #reference+ol li:target {
+    background: #aff;
+    color: #660;
+    transition: color 1s cubic-bezier(0, 0, 0.5, 4);
+}
+
+section #reference+ol a:link,
+section #reference+ol a:visited,
+section #reference+ol a:active {
+    color: inherit;
+}
+
+section #reference+ol a:hover {
+    color: #e66;
 }
