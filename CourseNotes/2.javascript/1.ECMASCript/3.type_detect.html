@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>type detect</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css">
+    <link rel="stylesheet" href="../../highlight.js/monokai-sublime.css">
+    <link rel="stylesheet" href="../../csslib/content_setting.css">
+    <link rel="stylesheet" href="../../csslib/hidden_nav.css">
+    <link rel="stylesheet" href="../../csslib/chapter_counter.css">
+    <link rel="stylesheet" href="../../csslib/followed_code.css">
+    <style type="text/css">
+    nav>ul>li>ol {margin-left: -20px; margin-right: 20px;}
+    nav{overflow: visible;}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="top">类型识别方案收集</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#typeof">typeof操作符</a></li>
+            <li><a href="#instanceof">instanceof操作符</a></li>
+            <li>
+                <a href="#object_prototype_toString_call">借用Object原型方法</a>
+                <ol>
+                    <li><a href="#object_prototype_toString_call_upgrade">封装升级版typeDetect</a></li>
+                </ol>
+            </li>
+            <li>
+                <a href="#constructor">利用constructor属性</a>
+                <ol>
+                    <li><a href="#object_prototype_toString_call_upgrade">封装升级版getConstructorName</a></li>
+                    <li><a href="#object_prototype_constructor_mixed_upgrade">封装升级版·改getTypeOf</a></li>
+                </ol>
+            </li>
+            <li><a href="#other_solution">其他解决方案</a></li>
+            <li><a href="#all_in_a_table">综合对比</a></li>
+            <li><a href="#top">回到顶部</a></li>
+        </ul>
+    </nav>
+    <article>
+        <section class="main_content">
+            <p class="topdeclare">本文中使用的原始值、原始类型都是指的primitive value。内置引用类型指的是built-in object。</p>
+            <h2 id="typeof">使用<code class="inline_code">typeof</code>操作符</h2>
+            <h3 id="">可以识别原始值（除Null类型)</h3>
+            <p class="followed_code">使用<code class="inline_code">typeof</code>可以准确识别原始值的类型，但除了Null类型，因为<code class="inline_code">null</code>会返回<code class="inline_code">"object"</code></p>
+            <pre><code class="js">
+typeof (123);//"number"
+typeof NaN;//"number"
+typeof Infinity;//"number"
+typeof "abc";//"string"
+typeof true;//"boolean"
+typeof undefined;//"undefined"
+typeof null;//"object"
+</code></pre>
+            <h3 id="">不能准确识别引用类型（除Function类型）</h3>
+            <p class="followed_code">使用<code class="inline_code">typeof</code>识别引用类型时都会返回<code class="inline_code">"object"</code>，但是Function类型可以准确返回<code class="inline_code">"function"</code>.</p>
+            <pre><code class="js">
+typeof [];//"object"
+typeof (new Date());//"object"
+typeof (new Number(1));//"object"
+typeof (new Object(1));//"object"
+typeof (function(){});//"function"
+</code></pre>
+            <h2 id="instanceof">使用<code class="inline_code">instanceof</code>操作符</h2>
+            <h3 id="">能识别内置引用类型</h3>
+            <!-- <p class="followed_code"><code class="inline_code"></code></p> -->
+            <pre><code class="js">
+[] instanceof Array;//true
+({}) instanceof Object;//true
+(new Date()) instanceof Date;//true
+</code></pre>
+            <h3 id="">能识别自定义引用类型</h3>
+            <!-- <p class="followed_code"><code class="inline_code"></code></p> -->
+            <pre><code class="js">
+function Person (name) {
+	this.name = name;
+}
+(new Person("jerry")) instanceof Person;//true
+</code></pre>
+            <h3 id="">不能识别原始值的类型</h3>
+            <p class="followed_code"><code class="inline_code">instanceof</code>只能用于引用类型的识别</p>
+            <pre><code class="js">
+((123) instanceof Number;//false
+true instanceof Boolean;//false
+</code></pre>
+            <h2 id="object_prototype_toString_call">借用<code class="inline_code">Object.prototype.toString.call(obj)</code></h2>
+            <h3 id="">可以识别原始值的类型</h3>
+            <!-- <p class="followed_code"><code class="inline_code"></code></p> -->
+            <pre><code class="js">
+Object.prototype.toString.call(123);//"[object Number]"
+Object.prototype.toString.call("abc");//"[object String]"
+Object.prototype.toString.call(true);//"[object Boolean]"
+Object.prototype.toString.call(null);//"[object Null]"
+Object.prototype.toString.call(undefined);//"[object Undefined]"
+</code></pre>
+            <h3 id="">可以识别内置引用类型</h3>
+            <!-- <p class="followed_code"><code class="inline_code"></code></p> -->
+            <pre><code class="js">
+Object.prototype.toString.call([]);//"[object Array]"
+Object.prototype.toString.call({});//"[object Object]"
+Object.prototype.toString.call(new Date());//"[object Date]"
+</code></pre>
+            <h3 id="object_prototype_toString_call_upgrade">封装升级版</h3>
+            <p class="followed_code">可以将<code class="inline_code">Object.prototype.toString.call(obj)</code>使用函数封装起来，只得到结果的需要的部分。但是<strong>此方案不能识别自定义的引用类型</strong>。</p>
+            <pre><code class="js">
+function typeDetect (obj) {
+	return Object.prototype.toString.call(obj).slice(8, -1);
+}
+typeDetect(123);//"Number"
+typeDetect("abc");//"String"
+typeDetect(true);//"Boolean"
+typeDetect(null);//"Null"
+typeDetect(undefined);//"Undefined"
+typeDetect([]);//"Array"
+typeDetect({});//"Object"
+typeDetect(new Date());//"Date"
+typeDetect((function(){}));//"Function"
+//再改良，返回结果全部小写
+function typeDetect (obj) {
+	return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
+}
+typeDetect((function(){}));//"function"
+</code></pre>
+            <h3 id="">不能准确识别自定义类型</h3>
+            <p class="followed_code">使用这个方案，不能准确识别自定义引用类型</p>
+            <pre><code class="js">
+function Person (name) {
+	this.name = name;
+}
+typeDetect(new Person("jerry"));//"Object"
+</code></pre>
+            <h2 id="constructor">利用实例的<code class="inline_code">constructor</code>属性</h2>
+            <h3 id="">可识别原始值的类型（除Undefined类型和Null类型）</h3>
+            <p class="followed_code">利用原始值在后台处理时会转换为对应引用类型的原理，使用这些引用类型的<code class="inline_code">constructor</code>属性来找到其构造函数，而由于ES引用类型的类型命名是根据构造函数名定的，所以直接判断引用类型的<code class="inline_code">constructor</code>与构造函数名是否全等即可。</p>
+            <pre><code class="js">
+(123).constructor === Number;//true
+"abc".constructor === String;//true
+true.constructor === Boolean;//true
+</code></pre>
+            <p class="followed_code">由于Undefined类型和Null类型没有<code class="inline_code">constructor</code>属性，因此无法用此方案判别。</p>
+            <h3 id="">可识别内置引用类型</h3>
+            <p class="followed_code">使用此方案对原始值的检测就是利用的引用类型的可检测。</p>
+            <pre><code class="js">
+[].constructor === Array;//true
+({}).constructor === Object;//true
+(new Date()).constructor === Date;//true
+(function(){}).constructor === Function;//true
+</code></pre>
+            <h3 id="">可识别自定义类型</h3>
+            <!-- <p class="followed_code"><code class="inline_code"></code></p> -->
+            <pre><code class="js">
+function Person (name) {
+	this.name = name;
+}
+(new Person("jerry")).constructor === Person;//true
+</code></pre>
+            <h3 id="constructor_upgrade">封装升级版</h3>
+            <p class="followed_code">将类型的<code class="inline_code">constructor</code>判断封装在一个函数中，便于使用。</p>
+            <pre><code class="js">
+function getConstructorName (obj) {
+	return obj &amp;&amp; obj.constructor &amp;&amp; obj.constructor.toString().match(/function\s*([^(]*)/)[1];
+}
+getConstructorName(123);//"Number"
+getConstructorName({});//"Object"
+getConstructorName(new Date());//"Date"
+//受限于&amp;&amp;短路操作
+getConstructorName(undefined);//undefined
+getConstructorName(null);//null
+getConstructorName(false);//false
+getConstructorName(0);//0
+getConstructorName(NaN);//NaN
+</code></pre>
+            <h3 id="object_prototype_constructor_mixed_upgrade">封装升级版·改</h3>
+            <p class="followed_code">由于封装升级版受限于<code class="inline_code">&amp;&amp;</code>的短路操作，对<code class="inline_code">undefined</code>、<code class="inline_code">null</code>、<code class="inline_code">NaN</code>、<code class="inline_code">false</code>和<code class="inline_code">0</code>，不能良好的支持，我们可以结合前面借用<code class="inline_code">Object.prototype.toString.call(obj)</code>的方案，将其改良成一个类型检测全支持的版本。</p>
+            <pre><code class="js">
+function getTypeOf (obj) {
+	if (!obj) {
+		return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
+	}
+	return obj.constructor.toString().match(/function\s*([^(]*)/)[1].toLowerCase();
+}
+//原始值
+getTypeOf(123);//"number"
+getTypeOf("abc");//"string"
+getTypeOf(true);//"boolean"
+getTypeOf(null);//"null"
+getTypeOf(undefined);//"undefined"
+getTypeOf(Infinity);//"number"
+getTypeOf(NaN);//"number"
+//内置引用类型
+getTypeOf([]);//"array"
+getTypeOf({});//"object"
+getTypeOf(new Date());//"date"
+//自定义引用类型
+function Person (name) {
+	this.name = name;
+}
+getTypeOf(new Person());//"person"
+</code></pre>
+            <h2 id="other_solution">其他解决方案</h2>
+            <h3 id="isarray"><code class="inline_code">Array.isArray(obj)</code></h3>
+            <p class="followed_code">ES 5还为Array构造函数提供了一个<code class="inline_code">isArray()</code>方法用来检测一个对象是否为数组。</p>
+            <pre><code class="js">
+Array.isArray([]);//true
+Array.isArray([1,2,3]);//true
+</code></pre>
+            <h2 id="all_in_a_table">综合对比</h2>
+            <table class="followed_code">
+            	<colgroup></colgroup>
+            	<caption>类型识别方案综合对比</caption>
+            	<thead>
+            		<tr>
+            			<th>方案\识别能力</th>
+            			<th>原始值类型</th>
+            			<th>内置引用类型</th>
+            			<th>自定义引用类型</th>
+            		</tr>
+            	</thead>
+            	</tbody>
+            	<tfoot>
+            		<tr>
+            			<td colspan="5">结合<code class="inline_code">Object.prototype.toString.call()</code>与<code class="inline_code">constructor</code>可以全类型识别</td>
+            		</tr>
+            	</tfoot>
+            	<tbody>
+            		<tr>
+            			<th><code class="inline_code">typeof</code>操作符</th>
+            			<td>可识别（除Null类型外）</td>
+            			<td>Function类型可识别，其他都识别为<code class="inline_code">"object"</code></td>
+            			<td>识别为<code class="inline_code">"object"</code></td>
+            		</tr>
+            		<tr>
+            			<th><code class="inline_code">instanceof</code>操作符</th>
+            			<td>不能</td>
+            			<td>可识别</td>
+            			<td>可识别</td>
+            		</tr>
+            		<tr>
+            			<th>借用<code class="inline_code">Object.prototype.toString.call()</code></th>
+            			<td>可识别</td>
+            			<td>可识别</td>
+            			<td>识别为<code class="inline_code">"Object"</code></td>
+            		</tr>
+            		<tr>
+            			<th>利用<code class="inline_code">constructor</code>属性</th>
+            			<td>可识别（除Undefined和Null类型外）</td>
+            			<td>可识别</td>
+            			<td>可识别</td>
+            		</tr>
+            </table>
+            <p class="followed_code"><strong>千万要注意：</strong><code class="inline_code">typeof</code>的返回值是全小写的字符串，<code class="inline_code">instanceof</code>比较的是首字母的大写的构造函数名而非字符串，其他通过获取构造函数名的方式识别类型的解决方案，如果没有显式的转为全小写（<code class="inline_code">toLowerCase()</code>），则输出的结果是首字母大写的字符串。</p>
+        </section>
+<!--         <section>
+            <h3 id="reference">参考</h3>
+            p.followed_code>code.inline_code
+            code.inline_code
+            pre>code.js
+            <ol>
+                <li id=""></li>
+                <li id=""></li>
+                <li id=""></li>
+                <li id=""></li>
+            </ol>
+        </section> -->
+    </article>
+    <footer>
+        <h3>说明</h3>
+        <p>本文为网易云课堂前端微专业课程总结与提升，欢迎交流讨论</p>
+        <p>&copy;uolcano</p>
+    </footer>
+    <!-- 情景一，从本地文件引入 -->
+    <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

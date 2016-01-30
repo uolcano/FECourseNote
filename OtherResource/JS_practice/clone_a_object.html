@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>clone a object</title>
+</head>
+
+<body>
+    <header>
+        <h1>克隆一个对象的属性和方法，但是与原对象不同</h1>
+    </header>
+    <script type="text/javascript">
+    function clone(param) {
+        if (!(param instanceof(Object))) {
+            return param;
+        } else {
+            var obj = {};
+            if (param instanceof(Array)) { //Array
+                obj = [].concat(param);
+            } else if (param instanceof(Date)) { //Date
+                obj = new Date(param.valueOf());
+            } else if (param instanceof(Function)) { //Function
+                obj = new Function(param.toString().replace(/^[^{]*/, "").replace(/^{\s/, "").replace(/\s*}$/, ""));
+            } else if (param.constructor !== Object) { //Number String Boolean
+                obj = new Object(param.valueOf());
+            }
+            for (var prop in param) {
+                obj[prop] = param[prop];
+            }
+            return obj;
+        }
+        throw new Error('Unexpected error!');
+    }
+    // 原数组
+    var arr = [1, 2];
+    // 原日期
+    var date = new Date(2016, 0);
+    // 原数值
+    var num = new Number(123);
+    // 原字符串
+    var str = new String('abc');
+    // 原布尔值
+    var bool = new Boolean(true);
+    // 原函数
+    function func() {
+        console.log('hello');
+    }
+    // 原对象
+    var obj = {
+        greeting: 'hello',
+        sayHi: function() {
+            console.log(this.greeting);
+        }
+    };
+    // 原自定义对象
+    function Person(name) {
+        this.name = name;
+        this.sayName = function(greeting) {
+            console.log(greeting + ' ' + this.name);
+        };
+    }
+    var person = new Person('jerry');
+    // 初始克隆体
+    var test = null;
+    // 测试对象不相等
+    function testDiff(obj1, obj2) { //返回true说明不是同一个对象
+        console.log(obj1 !== obj2);
+    }
+    testDiff(arr, clone(arr));
+    testDiff(date, clone(date));
+    testDiff(num, clone(num));
+    testDiff(str, clone(str));
+    testDiff(bool, clone(bool));
+    testDiff(func, clone(func));
+    testDiff(obj, clone(obj));
+    testDiff(person, clone(person));
+    </script>
+</body>
+
+</html>

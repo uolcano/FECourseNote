@@ -70,20 +70,20 @@
             <p>对象的创建方式有二：</p>
             <ol class="followed_code">
                 <li><code class="inline_code">new</code>操作符配合构造函数<code class="inline_code">Object()</code>
-<pre><code class="js">
-var cat = new Object();
+<pre><code class="js"><!--
+-->var cat = new Object();
 cat.name = "Tom";
 cat.age = 12;
 </code></pre>
                     <p>也可以是直接在构造函数里面添加的属性</p>
-<pre><code class="js">
-var cat = new Object({name: "Tom", age: 12});
+<pre><code class="js"><!--
+-->var cat = new Object({name: "Tom", age: 12});
 </code></pre>
                 </li>
                 <li>
                     <p>直接使用对象字面量形式</p>
-<pre><code class="js">
-var cat = {
+<pre><code class="js"><!--
+-->var cat = {
     name: "Tom";
     age: 12;
 };
@@ -112,39 +112,39 @@ var cat = {
             <ol class="followed_code">
             	<li>
             		<p>使用<code class="inline_code">new</code>操作符和<code class="inline_code">Array()</code>构造函数：</p>
-<pre><code class="js">
-var arr = new Array();
+<pre><code class="js"><!--
+-->var arr = new Array();
 </code></pre>
             		<p>可以创建数组对象的同时设置给数组项赋值</p>
-<pre><code class="js">
-var arr = new Array(12, "red", "blue", {name:"snoopy"});
+<pre><code class="js"><!--
+-->var arr = new Array(12, "red", "blue", {name:"snoopy"});
 </code></pre>
             		<p>也可以创建数组对象的同时设置数组长度，注意未初始化的数组项会被自动赋为<code class="inline_code">undefined</code>值</p>
-<pre><code class="js">
-var arr = new Array(10);
+<pre><code class="js"><!--
+-->var arr = new Array(10);
 </code></pre>
             		<p>甚至可以省略<code class="inline_code">new</code>操作符，但是这里调用的构造器<code class="inline_code">Array()</code>就不是作为构造函数而是作为普通函数调用并返回一个数组对象，这个跟作为构造函数调用是等价的。</p>
-<pre><code class="js">
-var arr = Array(10);
+<pre><code class="js"><!--
+-->var arr = Array(10);
 var arr = Array(12, "color");
 </code></pre>
             	</li>
             	<li>
             		<p>或者使用数组字面量形式。但要注意逗号操作符的正确使用，如果用逗号分隔了数组项，但是数组项没有值，则其他未赋值的都自动赋为<code class="inline_code">undefined</code>值。</p>
-<pre><code class="js">
-var arr = [12, "red", "blue", {name:"snoopy"}];
+<pre><code class="js"><!--
+-->var arr = [12, "red", "blue", {name:"snoopy"}];
 </code></pre>
             	</li>
             </ol>
             <p class="followed_code">数组项方括号表示法<code class="inline_code">arr[itemIndex]</code>来访问。itemIndex不仅接受数值，还可以是字符串，因为数组的下标/索引实际上就是数组对象的属性名。</p>
-<pre><code class="js">
-arr[1];//12
+<pre><code class="js"><!--
+-->arr[1];//12
 arr["1"];//12
 Object.getOwnPropertyNames(arr);//["0", "1", "length"]
 </code></pre>
             <p class="followed_code">由于ES的数组是动态变化的，所以给一个指定的超出数组原长度的下标/索引，这个数组会自动创建到达这个指定下标/索引中间的所有数组项，并且默认赋值为<code class="inline_code">undefined</code>。</p>
-<pre><code class="js">
-arr[99] = "say";
+<pre><code class="js"><!--
+-->arr[99] = "say";
 arr.length;//100
 arr[10];//undefined
 </code></pre>
@@ -152,18 +152,18 @@ arr[10];//undefined
             <ol class="followed_code">
             	<li>
             		<p>数组检测，可以使用<code class="inline_code">instanceof</code>操作符来判断某个对象是否是Array类型的实</p>
-<pre><code class="js">
-arr instanceof Array;//true
+<pre><code class="js"><!--
+-->arr instanceof Array;//true
 </code></pre>
             		<p>但是<code class="inline_code">instanceof</code>的问题在于只能用于只有一个全局环境的情境下，如果网页中包含多个框架，那实际上跨框架的Array类型实例就不会判断得出相同结果了。ES 5为Array构造器对象新增了数组检测方法<code class="inline_code">Array.isArray(arr)</code>。</p>
-<pre><code class="js">
-Array.isArray(arr);//true
+<pre><code class="js"><!--
+-->Array.isArray(arr);//true
 </code></pre>
             	</li>
             	<li>
             		<p>数组转换，有三种方法<code class="inline_code">Array.prototype.toLocaleString ( )</code><code class="inline_code">Array.prototype.toString ( )</code><code class="inline_code">Object.prototype.valueOf ( )</code>。前两个个方法的返回值通常相同（也会有不同的时候），会将所有数组项拼接成一个字符串，中间以逗号隔开；第三个方法通常是返回整个数组项组成的数组。<code class="inline_code">toString()</code>在字符串转换时经常被后台调用。<code class="inline_code">toLocaleString()</code>会根据使用浏览器的所在地区，进行针对的字符串转换，例如：在某些地区，如果数组的第一项是非数值，则后面的所有数值都会逢千位以逗号分隔。</p>
-<pre><code class="js">
-var colors = ["red", "blue", "green", 0xf00, 0x00f, 0x0f0];
+<pre><code class="js"><!--
+-->var colors = ["red", "blue", "green", 0xf00, 0x00f, 0x0f0];
 colors.toString();//"red,blue,green,3840,15,240"
 colors.toLocaleString();//"red,blue,green,3,840,15,240"
 colors.valueOf();//["red", "blue", "green", 3840, 15, 240]
@@ -175,15 +175,15 @@ colors.valueOf();//["red", "blue", "green", 3840, 15, 240]
 [[],"a",0xff0,"$",3721540,"$",1499370,"$"].toLocaleString();//",a,4,080,$,3,721,540,$,1,499,370,$"
 </code></pre>
             		<p>在默认情况下，前面三个数组转换方法都是以逗号分隔的。而如果使用<code class="inline_code">Array.prototype.join (separator)</code>方法可以接受一个指定字符串参数作为分隔符，然后返回包含所有数组项的字符串。如果不传入参数，则默认以逗号分隔。</p>
-<pre><code class="js">
-colors.join("||");//"red||blue||green||3840||15||240"
+<pre><code class="js"><!--
+-->colors.join("||");//"red||blue||green||3840||15||240"
 </code></pre>
             		<p><strong>注意：</strong>这四个数组转换方法并不改变原数组的内容，只是返回一个改变的副本。</p>
             	</li>
             	<li>
             		<p>栈和队列，主要包括4个能够模拟堆栈或队列的方法：<code class="inline_code">Array.prototype.push ( [ item1 [ , item2 [ , … ] ] ] )</code>向数组末尾插入一个或多个数组项，并返回新数组的长度；<code class="inline_code">Array.prototype.pop ( )</code>从数组末尾移除一项，并返回该移除的项；<code class="inline_code">Array.prototype.shift ( )</code>将数组第一项移除，并返回该项；<code class="inline_code">Array.prototype.unshift ( [ item1 [ , item2 [ , … ] ] ] )</code>向数组前端插入一个或多个数组项，并返回新数组的长度。</p>
-<pre><code class="js">
-var colors = ["red", "blue", "green"];
+<pre><code class="js"><!--
+-->var colors = ["red", "blue", "green"];
 colors.push("black", "white");//5
 colors;//["red", "blue", "green", "black", "white"]
 colors.pop();//"white"
@@ -197,16 +197,16 @@ colors;//["aqua", "fuchsia", "blue", "green", "black"]
             	</li>
             	<li>
             		<p>排序方法，有二：<code class="inline_code">Array.prototype.sort (comparefn)</code>排序方法和<code class="inline_code">Array.prototype.reverse ( )</code>反转排序方法。两者都会返回改变后的数组，并且实际上原数组也是被真实改变了的。<code class="inline_code">reverse()</code>方法不接收参数，只是将数组逆序排列，并未重新排序。</p>
-<pre><code class="js">
-var values = [0, 1, 5, 10, 15];
+<pre><code class="js"><!--
+-->var values = [0, 1, 5, 10, 15];
 values.sort();//[0, 1, 10, 15, 5]
 values;//[0, 1, 10, 15, 5]
 values.reverse();//[5, 15, 10, 1, 0]
 values;[5, 15, 10, 1, 0]
 </code></pre>
             		<p>如果不传入参数，<code class="inline_code">sort()</code>方法默认情况下是按升序排列数组项的，为了实现排序该方法会在后台调用<code class="inline_code">toString()</code>方法（即使数组项全是数值），转型得到的结果会按照字符编码的大小进行比较排序。因此一般使用它排序的结果达不到我们的预期，于是可以通过传入一个比较数组项大小的匿名的比较函数（comparefn），以这个函数的返回结果来判断排序方式。实际上<code class="inline_code">sort()</code>会进行一个连续调用这个比较函数进行比较和数组项互换，最终通过相等比较、大于比较和小于比较的传递性（数学上的）来确定一个数组的是否按照升序或者降序排列了。每次比较<code class="inline_code">sort()</code>都会向比较函数传入两个数组项的值（怎么挑选数组项、怎么传入函数的尚未知晓），一般要升序排列的话，如果第一个值大于第二个值则比较函数返回正数（常用1），如果第一个值小于第二个值则返回负数（常用-1），如果相等返回0。</p>
-<pre><code class="js">
-//increment order
+<pre><code class="js"><!--
+-->//increment order
 var values = [5, 15, 10, 1, 0];
 values.sort(function(value1, value2){
 	if(value1&lt;value2){
@@ -220,8 +220,8 @@ values.sort(function(value1, value2){
 });//[0, 1, 5, 10, 15]
 values;//[0, 1, 5, 10, 15]
 </code></pre>
-<pre><code class="js">
-//decrement order
+<pre><code class="js"><!--
+-->//decrement order
 var values = [5, 15, 10, 1, 0];
 values.sort(function(value1, value2){
 	if(value1&lt;value2){
@@ -236,8 +236,8 @@ values.sort(function(value1, value2){
 values;//[15, 10, 5, 1, 0]
 </code></pre>
             		<p>当然，也可以单独创建了比较函数，然后向<code class="inline_code">sort()</code>传入这个函数名</p>
-<pre><code class="js">
-//increment order
+<pre><code class="js"><!--
+-->//increment order
 var values = [5, 15, 10, 1, 0];
 var comparefn = function(value1, value2){
 	if(value1&lt;value2){
@@ -253,8 +253,8 @@ values.sort(comparefn);//[0, 1, 5, 10, 15]
 values;//[0, 1, 5, 10, 15]
 </code></pre>
             		<p>如果数组项全是数值类型或者其<code class="inline_code">valueOf()</code>方法会返回数值类型的引用类型的话，传入<code class="inline_code">sort()</code>的比较函数可以简写为，返回俩参数之差。</p>
-<pre><code class="js">
-//increment order
+<pre><code class="js"><!--
+-->//increment order
 var values = [5, 15, 10, 1, 0];
 values.sort(function(value1, value2){
 	return value1 - value2;
@@ -265,15 +265,15 @@ values;//[0, 1, 5, 10, 15]
             	<li>
             		<p>数组操作方法，有三：<code class="inline_code">Array.prototype.concat ( [ item1 [ , item2 [ , … ] ] ] )</code>接受任意个参数作为数组项在原有数组的基础上拼接成新的数组，并返回拼接后的数组；<code class="inline_code">Array.prototype.slice (start, end)</code>在原有数组的基础上剪切出某一段连续的数组项，并返回剪切得到的数组；<code class="inline_code">Array.prototype.splice (start, deleteCount [ , item1 [ , item2 [ , … ] ] ] )</code> 在原数组的基础上任意位置修改，返回从原数组中删除的项组成的数组。<strong>注意：</strong>前两个方法都只是在原数组的基础上生成/返回新的数组，对原数组并不修改；<code class="inline_code">splice()</code>方法则是直接在修改原数组。</p>
             		<p><code class="inline_code">concat()</code>方法接收数组或其他值，最后拼接成新数组并返回。</p>
-<pre><code class="js">
-var colors = ["red", "green", "blue"];
+<pre><code class="js"><!--
+-->var colors = ["red", "green", "blue"];
 var colors2 = colors.concat("yellow", ["black", "brown"]);
 colors;//["red", "green", "blue"]
 colors2;//["red", "green", "blue", "yellow", "black", "brown"]
 </code></pre>
             		<p><code class="inline_code">slice()</code>接受的是两个数组的索引/下标作为参数，第一个是起始位置，第二个是结束位置；第二个参数可以省略，那就是表示从某个起始位置开始直至结束位置。该方法返回起始（包含）和结束位置（不包含）中间的项组成的新数组。另外，参数可以为负，表示从结束位置开始往开始位置方向数第几个数组项，或者可以理解为后台会将负数加上数组长度得到的正数值作为参数使用。要注意的是，如果得到的第一个参数大于第二个参数，则会返回一个空数组。</p>
-<pre><code class="js">
-var colors = ["red", "green", "blue", "yellow", "purple"];
+<pre><code class="js"><!--
+-->var colors = ["red", "green", "blue", "yellow", "purple"];
 var colors2 = colors.slice(1);
 var colors3 = colors.slice(1,4);
 var colors4 = colors.slice(-3, -1);//等价于colors.slice(2, 4)
@@ -285,8 +285,8 @@ colors.slice(3, 1);//[]
 colors.slice(-1, -3);//[]
 </code></pre>
             		<p><code class="inline_code">splice()</code>方法，可以实现原数组任意位置的删除、插入和替换，返回的始终是当前删除的项组成的数组，如果没有删除项则返回空数组。可接收多个参数：第一个表示在数组中开始操作的位置，第二个表示从开始操作的位置删除多少个项（0为不删除），后面任意个数的参数是插入原数组的项。</p>
-<pre><code class="js">
-var colors = ["red", "green", "blue"];
+<pre><code class="js"><!--
+-->var colors = ["red", "green", "blue"];
 //delete item
 colors.splice(1, 1);//["green"]
 colors;//["red", "blue"]
@@ -303,8 +303,8 @@ colors;//["red", "fuchsia", "aqua", "indigo", "orange", "blue"]
             	</li>
             	<li>
             		<p>数组定位，ES 5提供的方法有二：<code class="inline_code">Array.prototype.indexOf ( searchElement [ , fromIndex ] )</code>和<code class="inline_code">Array.prototype.lastIndexOf ( searchElement [ , fromIndex ] )</code>。两者都接收两个参数：第一个是需要在数组中查找的项，第二个是指定从哪个索引位置开始查找。如果查找项在数组中找到了，则返回该项在数组中的索引值；如果没有找到，则返回-1。<strong>注意：</strong>这里进行的比较是全等比较，不会反生转型后比较相等，而是要绝对相同。<code class="inline_code">indexOf()</code>跟<code class="inline_code">lastIndexOf()</code>的唯一区别就在于前一个是从数组开头（索引位置为0）开始向后找，后一个是从数组的末尾开始向前找。</p>
-<pre><code class="js">
-var arr = [true, null, 1, "21", [1], {name: "Tom"}];
+<pre><code class="js"><!--
+-->var arr = [true, null, 1, "21", [1], {name: "Tom"}];
 arr.indexOf(true);//0
 arr.indexOf(true,1);//-1
 arr.indexOf(21,1);//-1
@@ -315,8 +315,8 @@ arr.indexOf({name:"Tom"});//-1
 arr.indexOf([1]);//-1
 </code></pre>
             		<p>从以上代码最后两段，我们注意到，引用类型的值作为项，是始终查找不到的，因为对象的相等性建立在同一个对象的前提下，而不只是属性值相同就行了的。实际上，平时常说的对象只是指向内存中实际存在的对象数据的指针而已，如果两个指针指向的内存中位置不同，就算是指向的数据完全一样，这两个指针也不可能相等。按照这个原理，修改一下以上代码，即可实现正确查找：</p>
-<pre><code class="js">
-var obj = {name: "Tom"}, subarr = [1];
+<pre><code class="js"><!--
+-->var obj = {name: "Tom"}, subarr = [1];
 var arr = [true, null, 1, "21", subarr, obj];
 arr.indexOf(subarr);//4
 arr.indexOf(obj);//5
@@ -356,8 +356,8 @@ arr.indexOf(obj);//5
             				</tr>
             			</tbody>
             		</table>
-<pre><code class="js">
-var arr = [1, 2, 3, 4, 5, 6, 4, 2];
+<pre><code class="js"><!--
+-->var arr = [1, 2, 3, 4, 5, 6, 4, 2];
 arr.every(function(item, index, array){
 	return (item > 2);
 });//false
@@ -408,8 +408,8 @@ obj.sum;//27
             			</tbody>
             		</table>
             		<p>传入<code class="inline_code">reduce()</code>方法回调函数，要在<code class="inline_code">reduce()</code>内部每次遍历时接受4个参数。但是这四个参数具体作用是什么，从文字是看不出来的。只有实测才知道。</p>
-<pre><code class="js">
-//拷贝代码到浏览器console执行
+<pre><code class="js"><!--
+-->//拷贝代码到浏览器console执行
 var arr = [1, 2, 3, 4, 5, 6, 4, 2];
 var callbackfn = function(prev, cur, index, array){
 	console.log(prev);//返回每次的累积结果prev
@@ -418,14 +418,14 @@ var callbackfn = function(prev, cur, index, array){
 arr.reduce(callbackfn);
 </code></pre>
             		<p>以上代码会返回每次的<code class="inline_code">pre</code>（前面说明的“遍历到的前一个值”），但是最后一次是直接出的的返回值。这端代码说明了两个事实：其一是归并方法实际上就是实现的返回对数组每一项的累积；其二是归并方法内部的遍历次数只有数组的长度减一次，因为默认数组第一项（或者最后一项）是作为回调函数的初始的第一个参数（注意这是在没有向<code class="inline_code">pre</code>传递第二个参数的情况下）。当然我们可以通过向归并方法传入第二个参数来指定回调函数接收的初始的第一个参数。</p>
-<pre><code class="js">
-arr.reduce(callbackfn,2);
+<pre><code class="js"><!--
+-->arr.reduce(callbackfn,2);
 arr.reduce(callbackfn,10);
 </code></pre>
             		<p>通过以上代码的执行结果可以看出，在指定归并方法的第二个参数的时候，归并方法内部的遍历次数就是数组的完整长度了。所以整个归并方法的返回结果就是指定的第二个参数（作为回调函数的第一次累加的初始值，不指定这个参数则默认初始值为数组第一项）加上数组求和结果的总和。</p>
             		<p>可以再来试试<code class="inline_code">reduceRight()</code></p>
-<pre><code class="js">
-arr.reduceRight(callbackfn);
+<pre><code class="js"><!--
+-->arr.reduceRight(callbackfn);
 </code></pre>
             		<p>原理一目了然，<code class="inline_code">reduceRight()</code>是从最后一项（数组项的值为2）开始的，然后是倒数第二项（数组项的值为4）等等。</p>
             	</li>
@@ -436,20 +436,20 @@ arr.reduceRight(callbackfn);
             <ol class="followed_code">
             	<li>
             		<p><code class="inline_code">new Date()</code>，不给构造函数传递参数，则会自动创建一个当前时间实例。这里要注意的是如果需要返回值中正确的包含中文，就必须找个使用当地语言的浏览器测试，否则会乱码；我用chrome canary就是乱码的返回值，尚未知去哪里修改设置。</p>
-<pre><code class="js">
-new Date();//Thu Jan 28 2016 16:45:16 GMT+0800 (中国标准时间)
+<pre><code class="js"><!--
+-->new Date();//Thu Jan 28 2016 16:45:16 GMT+0800 (中国标准时间)
 </code></pre>
             	</li>
             	<li>
             		<p><code class="inline_code">new Date (value)</code>，可以传递一个毫秒数给构造函数，对于中国大陆来说，这个毫秒数是从1970年1月1日08:00:00 GMT+0800开始数经过的毫秒数（因为要算上时差，如果是按本初子午线上的时间应该就是1970年1月1日00:00:00 GMT+0000）。</p>
-<pre><code class="js">
-new Date(1000);//Thu Jan 01 1970 08:00:01 GMT+0800 (中国标准时间)
+<pre><code class="js"><!--
+-->new Date(1000);//Thu Jan 01 1970 08:00:01 GMT+0800 (中国标准时间)
 </code></pre>
             	</li>
             	<li>
             		<p><code class="inline_code">new Date (year, month [, date [, hours [, minutes [, seconds [, ms ] ] ] ] ] )</code>，也可以向构造函数传入年、月、日、时(24时制）、分、秒、毫秒用逗号隔开的参数。默认情况下，Date对象的数值形式的月是从0开始算起的（即每年的第一月是0，第二月是1，依此类推）。所有参数是可选的，缺省的参数默认是初始值（天数默认是1，时分秒毫秒默认是0）；但是如上一个例子，如果只传一个参数就会被当作是毫秒数，所以一般如果要设置年，那么年和月是必须要同时设置的。</p>
-<pre><code class="js">
-new Date(2016);//Thu Jan 01 1970 08:00:02 GMT+0800 (中国标准时间)
+<pre><code class="js"><!--
+-->new Date(2016);//Thu Jan 01 1970 08:00:02 GMT+0800 (中国标准时间)
 new Date(2016,1);//Mon Feb 01 2016 00:00:00 GMT+0800 (中国标准时间)
 new Date(2016,1,1);//Mon Feb 01 2016 00:00:00 GMT+0800 (中国标准时间)
 new Date(2016,1,1,1);//Mon Feb 01 2016 01:00:00 GMT+0800 (中国标准时间)
@@ -459,8 +459,8 @@ new Date(2016,1,1,1,2,3);//Mon Feb 01 2016 01:02:03 GMT+0800 (中国标准时间
             	</li>
             </ol>
     		<p class="followed_code">ES提供了2种转换日期类型数据的方法<code class="inline_code">Date.parse (string)</code>和<code class="inline_code">Date.UTC (year, month [, date [, hours [, minutes [, seconds [, ms ] ] ] ] ] )</code>。两者都返回一个对应接受参数的日期的毫秒数。从方法定义可看出：前者接受一个日期形式的字符串，后者只接受年、月、日、时(24时制）、分、秒、毫秒的数值逗号分隔的形式。前者接受的字符串可以有多种形式，并且形式不同就算表达的意思一样返回的结果会也会有些许差异。</p>
-<pre><code class="js">
-new Date(Date.parse("2015/1/2"));//Fri Jan 02 2015 00:00:00 GMT+0800 (中国标准时间)
+<pre><code class="js"><!--
+-->new Date(Date.parse("2015/1/2"));//Fri Jan 02 2015 00:00:00 GMT+0800 (中国标准时间)
 new Date(Date.parse("1/2/2015"));//Fri Jan 02 2015 00:00:00 GMT+0800 (中国标准时间)
 new Date(Date.parse("2015-1-2"));//Fri Jan 02 2015 00:00:00 GMT+0800 (中国标准时间)
 new Date(Date.parse("2015-01-02"));//Fri Jan 02 2015 08:00:00 GMT+0800 (中国标准时间)，注意这里的小时
@@ -472,20 +472,20 @@ new Date(Date.UTC(2015,0,2));//Fri Jan 02 2015 08:00:00 GMT+0800 (中国标准�
 </code></pre>
     		<p class="followed_code"><code class="inline_code">Date.UTC()</code>方法接受的数值月份也是跟构造函数<code class="inline_code">Date()</code>一样的：从0开始计数。</p>
     		<p class="followed_code">ES 5还提供了一个获得当前日期毫秒数的方法<code class="inline_code">Date.now ( )</code>。</p>
-<pre><code class="js">
-new Date(Date.now());//Thu Jan 28 2016 17:42:58 GMT+0800 (中国标准时间)
+<pre><code class="js"><!--
+-->new Date(Date.now());//Thu Jan 28 2016 17:42:58 GMT+0800 (中国标准时间)
 </code></pre>
     		<p class="followed_code">Date类型的对象都从Object类型继承了基本的方法，但是在其中有些方法的功能又是Date类型独有的。<code class="inline_code">toString ( )</code>、<code class="inline_code">toLocaleString ( )</code>、<code class="inline_code">valueOf ( )</code>都是所有类型都共有的方法，但是在Date对象中的功能不一样。而且对于不同浏览器也会有差异[<a href="#pro_js_web_dev">1</a>P100]。<a href="http://ecma-international.org/ecma-262/5.1/#sec-15.9.5.2" target="_blank">ecma-262</a></p>
-<pre><code class="js">
-var date = new Date(2015,1,2,1,2,3);
+<pre><code class="js"><!--
+-->var date = new Date(2015,1,2,1,2,3);
 date;//Mon Feb 02 2015 01:02:03 GMT+0800 (中国标准时间)
 date.toString();//"Mon Feb 02 2015 01:02:03 GMT+0800 (中国标准时间)"
 date.toLocaleString();//"2015/2/2 上午1:02:03"
 date.valueOf();//1422810123000
 </code></pre>
 			<p class="followed_code">此外还有其他的格式化方法：<code class="inline_code">Date.prototype.toDateString ( )</code>、<code class="inline_code">Date.prototype.toLocaleDateString ( )</code>、<code class="inline_code">Date.prototype.toTimeString ( )</code>、<code class="inline_code">Date.prototype.toLocaleTimeString ( )</code>和<code class="inline_code">Date.prototype.toUTCString ( )</code>。</p>
-<pre><code class="js">
-date.toDateString();//"Mon Feb 02 2015"
+<pre><code class="js"><!--
+-->date.toDateString();//"Mon Feb 02 2015"
 date.toLocaleDateString();//"2015/2/2"
 date.toTimeString();//"01:02:03 GMT+0800 (中国标准时间)"
 date.toLocaleTimeString();//"上午1:02:03"
@@ -567,8 +567,8 @@ date.toGMTString();//"Sun, 01 Feb 2015 17:02:03 GMT"，不推荐使用
 					</tr>
 				</tbody>
 			</table>
-<pre><code class="js">
-var date = new Date(2015, 1, 2, 3, 4, 5);
+<pre><code class="js"><!--
+-->var date = new Date(2015, 1, 2, 3, 4, 5);
 new Date(date.setTime(14777777777777));//Fri Apr 16 2438 10:16:17 GMT+0800 (中国标准时间)
 new Date(date.setFullYear(2016));//Sat Apr 16 2016 10:16:17 GMT+0800 (中国标准时间)
 new Date(date.setMonth(0));//Sat Jan 16 2016 10:16:17 GMT+0800 (中国标准时间)
@@ -586,8 +586,8 @@ date.getMinutes();//28
 date.getSeconds();//20
 </code></pre>
 			<p>再来看看借位和进位的问题。使用构造函数和其他设置日期的方法都会有借位/进位。</p>
-<pre><code class="js">
-new Date(2016,21,2,3,4,5);//Mon Oct 02 2017 03:04:05 GMT+0800 (中国标准时间)
+<pre><code class="js"><!--
+-->new Date(2016,21,2,3,4,5);//Mon Oct 02 2017 03:04:05 GMT+0800 (中国标准时间)
 new Date(2016,1,42,3,4,5);//Sun Mar 13 2016 03:04:05 GMT+0800 (中国标准时间)
 new Date(2016,1,2,43,4,5);//Wed Feb 03 2016 19:04:05 GMT+0800 (中国标准时间)
 new Date(2016,1,2,3,64,5);//Tue Feb 02 2016 04:04:05 GMT+0800 (中国标准时间)
@@ -597,8 +597,8 @@ new Date(2016,1,-2,3,4,5);//Fri Jan 29 2016 03:04:05 GMT+0800 (中国标准时�
 new Date(2016,1,0,3,4,5);//Sun Jan 31 2016 03:04:05 GMT+0800 (中国标准时间)
 </code></pre>
 			<p>从上面的最后一段代码可以看到，将天数设置为0，可以获得某年某月的最大天数。不过前面的代码显示的日期都可能不符合我们的阅读习惯，我们可以写个函数改一下。</p>
-<pre><code class="js">
-function getDays(year, month) {
+<pre><code class="js"><!--
+-->function getDays(year, month) {
   var date = new Date(year, month, 0); //注意这里因为需要从月份借位所以要月份要多一
   return date.getDate();
 }
@@ -606,8 +606,8 @@ console.log('2001年2月有' + getDays(2001, 2) + '天。');
 console.log('2001年3月有' + getDays(2001, 3) + '天。');
 </code></pre>
 			<p><strong>注意：</strong>无论是日期形式也好，毫秒形式也好，日期对象的方法或构造函数能够接受的数值都是有限的，毫秒数最大值是8,640,000,000,000,000。可以去查看我写的关于最值的内容<a href="https://segmentfault.com/n/1330000004314596" target="_blank">segmentfault笔记</a>。以下是一段测日期最值的代码：</p>
-<pre><code class="js">
-function testMaxDateTime() {
+<pre><code class="js"><!--
+-->function testMaxDateTime() {
     var initTime = 1499999999999999; //目前时间常见16位数，开始计数
     var powLmt = 0; //指数最小退位
 
@@ -637,21 +637,21 @@ alert("Date()构造函数可接收的最大毫秒数是："+testMaxDateTime())
             <ol class="followed_code">
             	<li>
             		<p>以字面量的形式创建</p>
-<pre><code class="js">
-var regexpObj = /at/g;
+<pre><code class="js"><!--
+-->var regexpObj = /at/g;
 </code></pre>
             	</li>
             	<li>
             		<p>以<code class="inline_code">new</code>操作符加构造函数<code class="inline_code">RegExp()</code></p>
-<pre><code class="js">
-var regexpObj = new RegExp('at','g');
+<pre><code class="js"><!--
+-->var regexpObj = new RegExp('at','g');
 </code></pre>
             	</li>
             </ol>
             <p class="followed_code">><strong>注意：</strong>两种创建正则表达式对象的方式的差异，第二种因为是用的字符串形式所以要对所有特殊字符进行转义包括本来在正则中对已经使用转义的，最后就会出现双重转义。比如：斜杠<code class="inline_code">\</code>在正则表达式中需要转义变为<code class="inline_code">\\</code>，而到了<code class="inline_code">RegExp()</code>里的字符串中则还要在转义一次<code class="inline_code">\\\\</code>。元字符有<code class="inline_code">(</code>、<code class="inline_code">[</code>、<code class="inline_code">{</code>、<code class="inline_code">\</code>、<code class="inline_code">^</code>、<code class="inline_code">$</code>、<code class="inline_code">|</code>、<code class="inline_code">)</code>、<code class="inline_code">?</code>、<code class="inline_code">*</code>、<code class="inline_code">+</code>、<code class="inline_code">.</code>、<code class="inline_code">]</code>、<code class="inline_code">}</code>。至于更多的正则的用法可查看<a href="http://www.regular-expressions.info/javascript.html" target="_blank">这里</a></p>
             <p class="followed_code">ES的正则表达式只有三种模式：<code class="inline_code">g</code>全局模式、<code class="inline_code">i</code>忽略大小写和<code class="inline_code">m</code>多行模式（也就是使得字符串的开始符<code class="inline_code">^</code>和结束符<code class="inline_code">$</code>能够跨行匹配）</p>
-<pre><code class="js">
-var text = "aab\nabAbb";
+<pre><code class="js"><!--
+-->var text = "aab\nabAbb";
 text.match(/^a.*b$/);//null
 text.match(/^a.*b$/m);//["aab"]
 text.match(/^a.*b$/gm);//["aab", "abb"]
@@ -757,8 +757,8 @@ text.match(/^a.*b$/gim);//["aab", "Abb"]
             	<li>
             		<p><code class="inline_code">RegExp.prototype.exec(string)</code>会在每次被时调用一次就匹配待匹配字符串一次。在正则表达式设置为全局（g）匹配的时候，每一次都会从上一次匹配项到的子串的最后一个字符的下一个字符开始在此匹配，直至字符串尾；如果没有设置全局匹配，就只会匹配字符串中第一个匹配到的子串。</p>
             		<p><code class="inline_code">exec()</code>接受一个待匹配字符串作为参数，然后如果匹配成功返回一个数组，否则返回<code class="inline_code">null</code>。这个返回的数组包含匹配到的子串，捕获组（如果正则表达式有设置匹配组，则会在这个数组中一一列出，这才是这个方法的最强大之处）；以及额外的属性<code class="inline_code">index</code>表示当次匹配到的项在字符串中开始的位置，<code class="inline_code">input</code>表示待匹配正则表达式的字符串。</p>
-<pre><code class="js">
-var text = "aaabaacba15baabcab";
+<pre><code class="js"><!--
+-->var text = "aaabaacba15baabcab";
 var pattern = /(a).*?(b.*?c)/g;
 var result = pattern.exec(text);
 result;//["aaabaac", "a", "baac"]，这里有两个捕获组捕获到的内容是"a"和 "baac"
@@ -771,8 +771,8 @@ result = pattern.exec(text);//null
             	</li>
             	<li>
             		<p>RegExp对象的另一个方法<code class="inline_code">RegExp.prototype.test(string)</code>用于测试字符串是否匹配。接受一个待匹配字符串并返回布尔值。这个方法最常用于用户输入验证。</p>
-<pre><code class="js">
-var tel = "180-9192-2554";
+<pre><code class="js"><!--
+-->var tel = "180-9192-2554";
 var pattern = /\d{3}-\d{4}-\d{4}/;//这还不是精确验证
 if(pattern.test(tel)){
 	alert("The pattern was matched.");
@@ -781,8 +781,8 @@ if(pattern.test(tel)){
             	</li>
             	<li>
             		<p>RegExp对象的<code class="inline_code">toString()</code>和<code class="inline_code">toLocaleString</code>方法都会返回正则表达式的字面量形式，无论RegExp对象创建的方式是哪种。</p>
-<pre><code class="js">
-var pattern = new RegExp("\\[bc\\]at","gi");
+<pre><code class="js"><!--
+-->var pattern = new RegExp("\\[bc\\]at","gi");
 pattern.toString();//"/\[bc\]at/gi"
 pattern.toLocaleString();//"/\[bc\]at/gi"
 </code></pre>
@@ -851,8 +851,8 @@ pattern.toLocaleString();//"/\[bc\]at/gi"
             <ol class="followed_code">
             	<li>
             		<p>函数声明，这种方式会因为宿主环境的解析器会先对于函数声明的预先读取而后再按文档顺序读取代码，而使得函数声明被提升（function declaration hoisting）。这样就可以在函数声明之前的位置调用这个函数了。</p>
-<pre><code class="js">
-//函数声明
+<pre><code class="js"><!--
+-->//函数声明
 function sayHi() {
     console.log('hi');
 }
@@ -865,16 +865,16 @@ function sum(num1, num2) {
             	</li>
             	<li>
             		<p>另一种就是常见的函数表达式方式，直接通过赋值操作符给函数变量赋值。这种方式在以后的匿名函数（拉姆达函数）以及闭包时常用到，非常重要。[<a href="#pro_js_web_dev">1</a>P175]</p>
-<pre><code class="js">
-var sayHi = function () {
+<pre><code class="js"><!--
+-->var sayHi = function () {
 	 console.log('hi');
 };
 </code></pre>
             	</li>
             </ol>
             <p class="followed_code">当然在通过函数表达式和函数声明的结合使用也可以创建一个函数，而且主要用于递归。这种创建方式叫做命名函数表达式。这种方式必须对创建的函数对象用一对圆括号包裹，因为就算是函数表达式，如果后面创建的函数对象有了名字，解析器就将<code class="inline_code">fucntion</code>关键字理解为函数声明的开始了，部分浏览器会抛错（如safari）。[<a href="#pro_js_web_dev">1</a>P112P185]</p>
-<pre><code class="js">
-//递归阶乘函数
+<pre><code class="js"><!--
+-->//递归阶乘函数
 var factorial = (function f(num) {
     if (num &lt;= 1) {
         return 1;
@@ -893,8 +893,8 @@ var fibonacci = (function f(index) {
 </code></pre>
 			<p class="followed_code"><strong>注意：</strong>函数内的<code class="inline_code">return</code>语句并非必须的，在ES中可以通过匿名函数与闭包实现外部环境访问函数内部的变量和函数，并且通过引用类型也可以使得在函数内部的变化反映到函数外部。</p>
 			<p class="followed_code">每个Function实例对象都包含自己的属性：<code class="inline_code">length</code>命名参数的个数、<code class="inline_code">name</code>函数名的字符串表示、<code class="inline_code">arguments</code>类数组的传入参数存储对象、<code class="inline_code">caller</code>指向函数的调用者的指针、<code class="inline_code">prototype</code>指向函数对应的原型（主要用于构造函数）。当然Function类型实例的原型也有自己的属性和方法，后面讲几个重要的。</p>
-<pre><code class="js">
-function say(){}//创建一个函数实例对象
+<pre><code class="js"><!--
+-->function say(){}//创建一个函数实例对象
 //say实例的自有属性
 Object.getOwnPropertyNames(say);//["length", "name", "arguments", "caller", "prototype"]，实例的属性
 say.hasOwnProperty("length");//true
@@ -908,16 +908,16 @@ Object.getOwnPropertyNames(Function.prototype);//["length", "name", "arguments",
 Object.getPrototypeOf(say) === Function.prototype;//true，实例的原型就是Function构造函数对应的原型
 </code></pre>
 			<p class="followed_code"><code class="inline_code">arguments</code>是函数实例的重要属性，ES的函数可以接受任意数量的传入参数，主要归功于这个类数组的对象。函数的调用者向函数传递参数时，所有的参数都是由<code class="inline_code">arguments</code>接受后，再传入函数的，所以传入函数的参数可以通过<code class="inline_code">arguments</code>的数组访问形式来访问。<code class="inline_code">arguments</code>对象也有个<code class="inline_code">length</code>属性，用于记录传入参数的个数（注意与函数实例的<code class="inline_code">length</code>属性区分），通常是排在传入参数作为的属性的列表后。再后面就是<code class="inline_code">arguments</code>对象的<code class="inline_code">callee</code>属性，它保存了一个指向拥有这个<code class="inline_code">arguments</code>对象的函数的指针（注意与函数实例的<code class="inline_code">caller</code>属性区分）。</p>
-<pre><code class="js">
-Object.getOwnPropertyNames([1,2]);//["0", "1", "length"]，这是一个Array类型实例
+<pre><code class="js"><!--
+-->Object.getOwnPropertyNames([1,2]);//["0", "1", "length"]，这是一个Array类型实例
 (function(){console.log(arguments)})("hello");//["hello"]，一个匿名函数的arguments属性
 (function(){console.log(Object.getOwnPropertyNames(arguments))})("hello");//["0", "length", "callee"]//arguments对象的属性
 (function(){console.log(arguments instanceof Array)})();//false，不是Array类型实例
 (function(){console.log(arguments instanceof Object)})();//true，是Object类型实例
 </code></pre>
 			<p class="followed_code">通过使用<code class="inline_code">arguments</code>的<code class="inline_code">callee</code>属性可以为一个递归函数消除耦合（解耦，也可以直接使用命名函数表达式）。</p>
-<pre><code class="js">
-function factorial(num) {
+<pre><code class="js"><!--
+-->function factorial(num) {
     if (num &lt;= 1) {
         return 1;
     } else {
@@ -926,8 +926,8 @@ function factorial(num) {
 }
 </code></pre>
 			<p class="followed_code">书上说<code class="inline_code">this</code>是函数内部的属性[<a href="#pro_js_web_dev">1</a>P114]，可是实际上它不只存在于函数内部，而是存在于作用域的变量对象中，每个函数只不过是表示包含函数内部作用域的对象而已。而这个<code class="inline_code">this</code>的作用就在于，它存储了指向它所在执行环境的包含环境的指针（是不是挺绕的？对于函数的<code class="inline_code">this</code>来说就是指向作为这个函数的调用者的执行环境的变量对象。还觉得绕，可以参考函数的<code class="inline_code">caller</code>属性来理解）。所以全局环境的变量对象下也有<code class="inline_code">this</code>属性，不过全局环境<code class="inline_code">Global</code>对象或<code class="inline_code">window</code>对象是在作用域末端，所以它们的<code class="inline_code">this</code>只能指向它们本身。但是由于<code class="inline_code">this</code>是动态的只有在具体执行时才能观察到，<strong>所以暂无确凿的证据，仅作为个人理解</strong>。<strong>要注意</strong>严格模式下，如果不使用<code class="inline_code">apply()</code>或<code class="inline_code">call()</code>来指定环境对象，<code class="inline_code">this</code>值不会转为window，而是<code class="inline_code">undefined</code>[<a href="#pro_js_web_dev">1</a>P117]。</p>
-<pre><code class="js">
-"this" in say;//false，可能非函数实例属性
+<pre><code class="js"><!--
+-->"this" in say;//false，可能非函数实例属性
 "this" in Function;//false，可能非Function构造函数属性
 "this" in Function.prototype;//false，可能非Function原型属性
 (function(){var saythis = this;console.log(saythis)})("hello");//Window {external: Object, chrome: Object, document: document, hljs: Object, speechSynthesis: SpeechSynthesis…}
@@ -935,8 +935,8 @@ function factorial(num) {
 var saythis = this; console.log(saythis)//Window {external: Object, chrome: Object, document: document, hljs: Object, saythis: Window…}
 </code></pre>
 			<p class="followed_code">另外关于<code class="inline_code">this</code>的真正作用，<code class="inline_code">this</code>只是表示包含它的变量对象内的其他属性有权访问它指向的作用域内的属性。而通过调用函数的<code class="inline_code">call()</code>或<code class="inline_code">apply()</code>方法我们可以明显的感知到这一点。从下面的测试代码可以看出，被修改的<code class="inline_code">this</code>只是扩充了当前作用域（也就是当前环境的作用域链前端指向的范围更广了），而并没有改变原有作用域链。</p>
-<pre><code class="js">
-var o = {name:'Tom'};
+<pre><code class="js"><!--
+-->var o = {name:'Tom'};
 var name = 'Jerry';
 function sayname (nameV) {
 	console.log('^');
@@ -965,8 +965,8 @@ gradpaFunc();
 // gradpaFunc.call(o);
 </code></pre>
 			<p class="followed_code">通过结合使用函数实例的<code class="inline_code">caller</code>属性和函数的<code class="inline_code">arguments</code>属性的<code class="inline_code">callee</code>属性，我们可以实现更加松散的耦合。松散的耦合可以使得函数对象任意赋值给其他变量（实际上是拷贝的指向函数对象的指针），而不用担心循环引用会出错。</p>
-<pre><code class="js">
-function outer () {
+<pre><code class="js"><!--
+-->function outer () {
 	 inner();//outer()在内部调用inner()
 }
 function inner () {
@@ -975,8 +975,8 @@ function inner () {
 outer();
 </code></pre>
 			<p class="followed_code">再来讲，Function原型提供的两个方法：<code class="inline_code">Function.prototype.apply (thisArg, argArray)</code>和<code class="inline_code">Function.prototype.call (thisArg [ , arg1 [ , arg2, … ] ] )</code>。两者都接受可以改变函数包含执行环境里的<code class="inline_code">this</code>值，并且它们的第一个参数都是作为待扩充的作用域的变量对象。<code class="inline_code">apply()</code>的第二个参数可以是Array的实例，也可以是<code class="inline_code">arguments</code>对象。<code class="inline_code">call()</code>的第二个参数以及后面的所有参数则是参数列表形式全部列出来，而不是数组形式。</p>
-<pre><code class="js">
-var o = {sum:0};
+<pre><code class="js"><!--
+-->var o = {sum:0};
 function sumOf (num1, num2) {
 	this.sum = num1+num2;
 	return this.sum;
@@ -995,8 +995,8 @@ applySum2(13,14);
 callSum(15,16);
 </code></pre>
 			<p class="followed_code">ES 5还提供了一个Function原型的方法<code class="inline_code">Function.prototype.bind (thisArg [, arg1 [, arg2, …]])</code>。这个方法看起来跟<code class="inline_code">call()</code>方法没什么两样，但是实际上<code class="inline_code">bind()</code>只进行了作用域扩充（还可以同时传参）并返回扩充后的函数（代码），而没有像<code class="inline_code">apply()</code>和<code class="inline_code">call()</code>那样可以在扩充完作用域后直接执行函数。<code class="inline_code">bind()</code>还有一个有趣的用法：通过它的第二个参数，可以实现多次向函数传递参数，而不是通常的方式在函数执行时一次性传递参数列表。</p>
-<pre><code class="js">
-var person = {name:'Tom'};
+<pre><code class="js"><!--
+-->var person = {name:'Tom'};
 function sayName (greeting) {
 	console.log(greeting+this.name+"!");
 }
@@ -1009,8 +1009,8 @@ sayName.call(person,'How\'re you?');//How're you?Tom!，直接执行了
 </code></pre>
             <h3 id="basic_built_in_type">基本内置类型</h3>
             <p class="followed_code">ES的基本内置类型与对应的原始值相似，但是基本内置类型都是对象。而实际上，每当读取到一个原始值时，后台就会建立一个对应的基本内置类型的对象进行操作/处理，所以才有了原始值不是对象却有方法的情况。而当后台对暂时创建的基本内置类型对象的操作完成并返回结果后，这个对象会马上被销毁，所以我们无法向原始值修改属性和方法，而且用<code class="inline_code">typeof</code>检测的结果也是对应基本类型的而非引用类型的。[<a href="#pro_js_web_dev">1</a>P119]</p>
-<pre><code class="js">
-typeof (new Boolean(true));//"object"
+<pre><code class="js"><!--
+-->typeof (new Boolean(true));//"object"
 typeof true;//"boolean"
 typeof (new Number(123));//"object"
 typeof 123;//"number"
@@ -1019,8 +1019,8 @@ typeof "hello";//"string"
 </code></pre>
             <h4 id="boolean_object">Boolean对象</h4>
             <p class="followed_code">Boolean类型对象通常容易跟原始值混淆而引起误解，很少使用。这个类型使用<code class="inline_code">new</code>操作符加<code class="inline_code">Boolean()</code>构造函数来创建实例。在无参数传入时，创建的实例的原始值属性<code class="inline_code">[[PrimitiveValue]]</code>默认是<code class="inline_code">false</code>。Boolean类型对象也有几个基本的转换方法：<code class="inline_code">valueOf()</code>、<code class="inline_code">toString()</code>和<code class="inline_code">toLocaleString()</code>。虽然其他引用类型都有这三个方法，但是它们在Array、Boolean、Number、String四个类型实例中的功能有差异。</p>
-<pre><code class="js">
-var bool = new Boolean(true);
+<pre><code class="js"><!--
+-->var bool = new Boolean(true);
 bool.valueOf();//true
 bool.toString();//"true"
 bool.toLocaleString();//"true"
@@ -1032,16 +1032,16 @@ bool;//Boolean {[[PrimitiveValue]]: false}
 </code></pre>
             <h4 id="number_object">Number对象</h4>
             <p class="followed_code">Number对象也是后台调用的，很少直接创建（也是只能用<code class="inline_code">new</code>操作符和构造函数创建）。该类型的实例也有三个转换方法。跟其他引用类型有差异。</p>
-<pre><code class="js">
-var num = new Number(5);
+<pre><code class="js"><!--
+-->var num = new Number(5);
 num.valueOf();//5
 num.toString();//"5"
 num.toLocaleString();//"5"
 num;//Number {[[PrimitiveValue]]: 5}
 </code></pre>
             <p class="followed_code">ES还为Number对象提供了三个格式化它们的原始值属性<code class="inline_code">[[PrimitiveValue]]</code>为字符串的方式：<code class="inline_code">Number.prototype.toFixed (fractionDigits)</code>接受参数设置小数点后的精度（会有四舍五入）；<code class="inline_code">Number.prototype.toExponential (fractionDigits)</code>转为科学计数法，接收的参数也设置小数点后的精度（会有四舍五入）；<code class="inline_code">Number.prototype.toPrecision (precision)</code>前两者的“适配版”，接受的参数不是小数点后的精度而是有效数值部分的长度，有小数位且数值不长就用<code class="inline_code">toFixed()</code>的方式格式化，无小数位且数值不长就用普通形式格式化，数值长就用<code class="inline_code">toExponential()</code>的方式格式化。</p>
-<pre><code class="js">
-var num = 10.12345;
+<pre><code class="js"><!--
+-->var num = 10.12345;
 num.toFixed(3);//"10.123"
 num.toFixed(4);//10.1235"，注意四舍五入
 num.toExponential(1);//"1.0e+1"
@@ -1057,8 +1057,8 @@ num.toPrecision(7);//"10.12345"
 </code></pre>
             <h4 id="string_object">String对象</h4>
     		<p class="followed_code">String类型是最常用的类型，其实例的创建方法前面几种引用类型对象，使用<code class="inline_code">new</code>操作符和<code class="inline_code">String()</code>构造函数。并且每个实例都有一个<code class="inline_code">length</code>属性，存储了字符串原始值属性<code class="inline_code">[[PrimitiveValue]]</code>包含的字符个数。</p>
-<pre><code class="js">
-var str = new String();
+<pre><code class="js"><!--
+-->var str = new String();
 str;//String {length: 0, [[PrimitiveValue]]: ""}
 var str = new String("hello");
 str;//String {0: "h", 1: "e", 2: "l", 3: "l", 4: "o", length: 5, [[PrimitiveValue]]: "hello"}
@@ -1098,12 +1098,12 @@ str.length;//5
     					</tbody>
     				</table>
     				<p><code class="inline_code">concat()</code>字符串拼接方法，跟Array类型的拼接方法相似。以参数列表的形式，接受多个字符串参数，返回拼接后的字符串。但是实践中更多的是用加号操作符<code class="inline_code">+</code>进行拼接。</p>
-<pre><code class="js">
-'hello'.concat(' world','!',' I',' love',' javascript.');//"hello world! I love javascript."
+<pre><code class="js"><!--
+-->'hello'.concat(' world','!',' I',' love',' javascript.');//"hello world! I love javascript."
 </code></pre>
     				<p><code class="inline_code">substring(indexA,indexB)</code>子串截取方法，从原字符串中截取从索引为A的位置（从0开始）到索引为B的位置之前（包含A不包含B位置的字符）的子串，如果省略第二个参数，取到字符串结束。如果参数为负数，则将其置零；如果第一个参数大于第二个参数，则互换。省略第二参数则从第一参数表示的位置取到字符串结束</p>
-<pre><code class="js">
-var str = 'Hello world! I love JavaScript';
+<pre><code class="js"><!--
+-->var str = 'Hello world! I love JavaScript';
 str.substring(4, 10);//"o worl"
 str.substring(10, 4);//"o worl"
 str.substring(4, -10);//"Hell"，等价于str.substring(0, 4);
@@ -1111,8 +1111,8 @@ str.substring(-4, 10);//"Hello worl"，等价于str.substring(0, 10);
 str.substring(10);//"d! I love JavaScript"
 </code></pre>
     				<p><code class="inline_code">slice(indexA,indexB)</code>子串截取方法，跟substring相同，可以接受负参数，但是负的表示从字符串末尾（倒数1开始）开始数，也可以理解为字符串长度<code class="inline_code">str.length</code>加上这个负数得到的结果为等价参数。第一个参数大于第二个参数不会自动互换。省略第二参数则从第一参数表示的位置取到字符串结束</p>
-<pre><code class="js">
-str.length;//30
+<pre><code class="js"><!--
+-->str.length;//30
 str.slice(4, 10);//"o worl"
 str.slice(-4, 10);//""，等价于str.slice(26, 10);
 str.slice(-26, 10);//"o worl"，等价于str.slice(4, 10);
@@ -1121,8 +1121,8 @@ str.slice(10, 4);//""
 str.slice(10);//"d! I love JavaScript"
 </code></pre>
     				<p><code class="inline_code">substr(index, length)</code>子串截取方法，从某个索引位置取某个长度的字符串，第一个参数去负数时跟<code class="inline_code">slice()</code>的负值处理相同，省略第二个参数则取到字符串结束。</p>
-<pre><code class="js">
-str.substr(4,10);//"o world! I"
+<pre><code class="js"><!--
+-->str.substr(4,10);//"o world! I"
 str.substr(10,4);//"d! I"
 str.substr(-4,10);//"ript"，等价于str.substr(26,10);
 str.substr(26,10);//"ript"
@@ -1161,19 +1161,24 @@ str.substr(4,-10);//""
     				</table>
     				<p><code class="inline_code">match(regexp)</code>接受一个字面量的正则表达式或者一个RegExp对象，返回所有匹配到的的子串组成的数组。</p>
     				<p>其跟<code class="inline_code">regexp.exec(str)</code>类似，两者都是在设置了全局匹配后<code class="inline_code">g
-    				</code>才能进行多个匹配，也都会以数组返回匹配到的子串，匹配失败都会返回<code class="inline_code">null</code>。但是区别也是明显的：其一，<code class="inline_code">match(regexp)</code>是一次性全部匹配完然后返回匹配项组成的数组的，而<code class="inline_code">exec(str)</code>则是每执行一次向后匹配一次（即分步匹配）；其二，<code class="inline_code">match(regexp)</code>不能返回匹配项的捕获组，但<code class="inline_code">regexp.exec(str)</code>可以；其三，<code class="inline_code">match(regexp)</code>返回的数组没有<code class="inline_code">index</code>和<code class="inline_code">input</code>两个属性，但<code class="inline_code">regexp.exec(str)</code>返回的数组则有（这一点书的例子有误）。</p>
+    				</code>才能进行多个匹配，也都会以数组返回匹配到的子串，匹配失败都会返回<code class="inline_code">null</code>。但是区别也是明显的：其一，<code class="inline_code">match(regexp)</code>是一次性全部匹配完然后返回匹配项组成的数组的，而<code class="inline_code">exec(str)</code>则是每执行一次向后匹配一次（即分步匹配）；其二，<code class="inline_code">match(regexp)</code>只能在非全局模式才能返回匹配项的捕获组而且只是第一个匹配项的，但<code class="inline_code">regexp.exec(str)</code>可以分步匹配得到每个匹配项的捕获组；其三，<code class="inline_code">match(regexp)</code>返回的数组只有在非全局模式且设置了捕获组时才有<code class="inline_code">index</code>和<code class="inline_code">input</code>两个属性，但<code class="inline_code">regexp.exec(str)</code>返回的数组不论是全局模式还是非全局模式、也不论是否设置捕获组都有这两个属性。</p>
     				<p>综上，在需要筛选出所有匹配项的时候用<code class="inline_code">match(regexp)</code>，而在需要对每个匹配项进行单个处理的时候用<code class="inline_code">regexp.exec(str)</code>。</p>
-<pre><code class="js">
-//match方法匹配失败
+<pre><code class="js"><!--
+-->//match方法匹配失败
 var text = 'cat, bat, sat, fat';
 var pattern = /ab/g;
 text.match(pattern);//null
+//match方法获取捕获组，只能用非g全局模式，只能得到第一个匹配项的捕获组
+var text = 'scpcat, sprbat, sphsat, spifat';
+var pattern = /(s.*?p).*?(at)/;
+text.match(pattern);//["scpcat", "scp", "at"]
+Object.getOwnPropertyNames(text.match(pattern));//"0", "1", "2", "length", "index", "input"]
 //match方法返回数组
 var pattern = /.(at)/g;
 text.match(pattern);//["cat", "bat", "sat", "fat"]
-Object.getOwnPropertyNames(matches);//["0", "1", "2", "3", "length"]
+Object.getOwnPropertyNames(text.match(pattern));//["0", "1", "2", "3", "length"]
 //exec方法返回数组
-pattern.exec(text);//["cat", "at"]
+var matches = pattern.exec(text);//["cat", "at"]
 Object.getOwnPropertyNames(matches);//["0", "1", "length", "index", "input"]
 pattern.exec(text);//["bat", "at"]
 pattern.exec(text);//["sat", "at"]
@@ -1181,8 +1186,8 @@ pattern.exec(text);//["fat", "at"]
 pattern.exec(text);//null
 </code></pre>
     				<p><code class="inline_code">search(regexp)</code>的处理方式跟<code class="inline_code">match(regexp)</code>相同，但是返回值是第一个匹配项的位置/索引，如果没找到则返回-1。</p>
-<pre><code class="js">
-var text = 'cat, bat, sat, fat';
+<pre><code class="js"><!--
+-->var text = 'cat, bat, sat, fat';
 var pattern = /ab/g;
 text.search(pattern);//-1
 var pattern = /ba/g;
@@ -1226,24 +1231,24 @@ text.search(pattern);//5
     					</tbody>
     				</table>
     				<p>如果只向<code class="inline_code">replace()</code>传入字符串作为匹配和替换的参数，则只能替换第一个匹配到的子串。</p>
-<pre><code class="js">
-var text = 'cat, bat, sat, fat';
+<pre><code class="js"><!--
+-->var text = 'cat, bat, sat, fat';
 text.replace('a','ra');//"crat, bat, sat, fat"
 </code></pre>
     				<p>如果第一个参数是正则表达式，并且设置了全局模式<code class="inline_code">g</code>，则可以对整个字符串中的匹配项进行替换。</p>
-<pre><code class="js">
-var text = 'cat, bat, sat, fat';
+<pre><code class="js"><!--
+-->var text = 'cat, bat, sat, fat';
 var pattern = /at/g;
 text.replace(pattern,'rat');//crat, brat, srat, frat"
 </code></pre>
 					<p>上面的例子也可以用捕获组配合字符序列来更简洁地使用。</p>
-<pre><code class="js">
-var pattern = /(at)/g;
+<pre><code class="js"><!--
+-->var pattern = /(at)/g;
 text.replace(pattern,'r$1');//"crat, brat, srat, frat"
 </code></pre>
 					<p><code class="inline_code">replace()</code>的第二个参数可以是一个替换函数。下面是一段书上关于转义HTML代码的例子[<a href="#pro_js_web_dev">1</a>P128]。这时每次<code class="inline_code">replace</code>方法匹配到一个字符时，都会将匹配的字符match、这个字符在原字符串的位置pos和源字符串传入替换函数originalText，替换函数再根据匹配到的字符进行比较并返回相应结果替换该匹配到的字符，比较失败的不返回结果。</p>
-<pre><code class="js">
-function htmlEscape(text){
+<pre><code class="js"><!--
+-->function htmlEscape(text){
     return text.replace(/[&lt;&gt;&quot;&amp;]/g, function(match, pos, originalText){
         switch(match){
             case "&lt;":
@@ -1260,8 +1265,8 @@ function htmlEscape(text){
 htmlEscape("&lt;p class=\"greeting\"&gt;Hello world!&lt;/p&gt;");//&amp;lt;p class=&amp;quot;greeting&amp;quot;&amp;gt;Hello world!&amp;lt;/p&amp;gt;
 </code></pre>
 	    			<p><code class="inline_code">split()</code>分隔字符串的方法，可以接受两个参数：第一个参数可以是作为分隔符的待匹配的字符串或者正则表达式，第二个参数可选，用于指定返回的数组的大小。操作后会返回分隔出来的字符串组成的数组。</p>
-<pre><code class="js">
-var colorText = "red, green, blue, yellow";
+<pre><code class="js"><!--
+-->var colorText = "red, green, blue, yellow";
 colorText.split(",");//["red", " green", " blue", " yellow"]
 colorText.split(",", 2);//["red", " green"]
 colorText.split(/[,]/);//["red", " green", " blue", " yellow"]
@@ -1289,8 +1294,8 @@ colorText.split(/[,]/);//["red", " green", " blue", " yellow"]
     						</tr>
     					</tbody>
     				</table>
-<pre><code class="js">
-var str = 'Hello world!';
+<pre><code class="js"><!--
+-->var str = 'Hello world!';
 str.charAt(4);//"o"
 str[4];//"o"
 str.charCodeAt(4);//111
@@ -1318,8 +1323,8 @@ str.charCodeAt(4);//111
     						</tr>
     					</tbody>
     				</table>
-<pre><code class="js">
-var str = 'Hello world!';
+<pre><code class="js"><!--
+-->var str = 'Hello world!';
 tr.indexOf("lo");//3
 str.indexOf("lo", 3);//3
 str.indexOf("lo", 4);//-1
@@ -1360,8 +1365,8 @@ str.lastIndexOf("o");//7
     						</tr>
     					</tbody>
     				</table>
-<pre><code class="js">
-var str = 'Hello world!';
+<pre><code class="js"><!--
+-->var str = 'Hello world!';
 str.toLowerCase();//"hello world!"
 str.toUpperCase();//"HELLO WORLD!"
 str.toLocaleLowerCase();//"hello world!"
@@ -1458,20 +1463,20 @@ str.toLocaleUpperCase();//"HELLO WORLD!"
     					</tbody>
     				</table>
     		<p class="followed_code"><code class="inline_code">str1.localeCompare(str2)</code>将原字符串与作为参数传入的字符串比较，大于则返回1，等于返回0，小于返回-1。均是以单个字符的编码比较大小的，相当于C语言的<code class="inline_code">strcmp(x,y)</code></p>
-<pre><code class="js">
-var color = 'fuchsia';
+<pre><code class="js"><!--
+-->var color = 'fuchsia';
 color.localeCompare('maroon');//-1
 color.localeCompare('aqua');//1
 color.localeCompare('fuchsia');//0
 </code></pre>
     		<p class="followed_code">ES 5提供了一个<code class="inline_code">trim()</code>方法来得到一个删除了前后空白符（包括空格、tab缩进、回车等）的新字符串。</p>
-<pre><code class="js">
-var str = ' \nabc de f g \t ';
+<pre><code class="js"><!--
+-->var str = ' \nabc de f g \t ';
 str.trim();//"abc de f g"
 </code></pre>
     		<p class="followed_code"><code class="inline_code">String()</code>构造函数还包含一个静态方法<code class="inline_code">fromCharCode()</code>，可以接受多个字符编码（数值形式）进行拼接得到一个字符串。这个方法可以跟前面的子串定位方法<code class="inline_code">charCodeAt(pos)</code>结合可以实现一对编码和解码的函数。</p>
-<pre><code class="js">
-var greeting = 'hello world';
+<pre><code class="js"><!--
+-->var greeting = 'hello world';
 function charToCode (str) {
 	var arr = [];
 	for (var i = 0; i &lt; str.length; i++) {
@@ -1497,29 +1502,29 @@ codeToChar(charToCode(greeting));//"hello world"
             <ol class="followed_code">
                 <li id="uri_encode_decode">
                     <p>URI编码方法<code class="inline_code">encodeURI(uriText)</code>和<code class="inline_code">encodeURIComponent(uriText)</code>，都可对URI使用特殊的UTF-8编码替换所有无效字符。前者主要用于对整个URI编码，不会对本身属于URI的特殊字符进行编码；后者主要用于对URI中的某一段进行编码，会将任何非标准字符进行编码。</p>
-<pre><code class="js">
-var uri = "http://www.wrox.com/illegal value.htm#start";
+<pre><code class="js"><!--
+-->var uri = "http://www.wrox.com/illegal value.htm#start";
 encodeURI(uri);//"http://www.wrox.com/illegal%20value.htm#start"
 encodeURIComponent(uri);//"http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start"
 </code></pre>
                     <p>URI解码方法<code class="inline_code">decodeURI(uriText)</code>和<code class="inline_code">decodeURIComponent(uriText)</code>，分别对应以上两个编码方法。</p>
-<pre><code class="js">
-var uri = "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start";
+<pre><code class="js"><!--
+-->var uri = "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start";
 decodeURI(uri);//http%3A%2F%2Fwww.wrox.com%2Fillegal value.htm%23start
 decodeURIComponent(uri);//http://www.wrox.com/illegal value.htm#start
 </code></pre>
                 </li>
                 <li id="eval_method">
                     <p><code class="inline_code">eval(jsCodeStr)</code>是ES中最强大的一个方法。它接受一个将要执行的ES代码的字符串作为参数。通过<code class="inline_code">eval()</code>执行的代码会被认为是本次调用<code class="inline_code">eval()</code>的包含环境的一部分，因此这段被执行的代码具有与该包含环境相同的作用域链。<code class="inline_code">eval(jsCodeStr)</code>的参数jsCodeStr中定义的任何变量和函数都不会被提升（因为被包含在字符串中），传入字符串中的代码只在<code class="inline_code">eval()</code>被执行时创建。</p>
-<pre><code class="js">
-var msg = "hello world";
+<pre><code class="js"><!--
+-->var msg = "hello world";
 eval("msg;");//"hello world"
 eval("var msg = 'hello world';");
 msg;//"hello world"
 </code></pre>
                     <p>另外，在使用JSON文件序列化时，要兼容IE旧版本可以利用<code class="inline_code">eval()</code>函数来实现兼容的<code class="inline_code">JSON.parse()</code>方法，如下：</p>
-<pre><code class="js">
-if(!window.JSON){
+<pre><code class="js"><!--
+-->if(!window.JSON){
 	window.JSON = {
 		parse: function(sJSON){
 			return eval('('+sJSON+')');
@@ -1533,16 +1538,16 @@ if(!window.JSON){
             </ol>
             <p class="followed_code">Global对象的属性。包含了ES定义的基本类型及其值（<code class="inline_code">undefined</code>、<code class="inline_code">NaN</code>和<code class="inline_code">Infinity</code>）、所有内置类型的构造函数。</p>
             <p>window对象。因为ES没有定义如何直接访问Global对象，但是在浏览器中window对象包含了Global对象的实现（另外还有非ES的BOM属性等等）。通常要获得Global对象可以通过一下代码实现：</p>
-<pre><code class="js">
-var global = function(){
+<pre><code class="js"><!--
+-->var global = function(){
 	return this;
 }();
 </code></pre>
             <h4 id="math_object">Math对象</h4>
             <p class="followed_code">Math对象不像其他引用类型对象，Math对象本身就只是一个实例对象，而不是该类型的构造函数名命名的对象。</p>
             <p class="followed_code">而其他类型，比如Array类型，虽然我们平时都说某个对象是Array类型的实例，但实际上Array只是这个类型的构造函数名，这个类型的原型要通过访问该构造函数<code class="inline_code">Array</code>对象的<code class="inline_code">prototype</code>属性来访问<code class="inline_code">Array.prototype</code></p>
-<pre><code class="js">
-Array.prototype;//[]
+<pre><code class="js"><!--
+-->Array.prototype;//[]
 Math.prototype;//undefined
 Math.constructor;//function Object(){[native code]}
 </code></pre>
@@ -1592,18 +1597,18 @@ Math.constructor;//function Object(){[native code]}
 				</tbody>
 			</table>
 			<p class="followed_code">求最值方法：<code class="inline_code">Math.max ( [ value1 [ , value2 [ , … ] ] ] )</code>和<code class="inline_code">Math.min ( [ value1 [ , value2 [ , … ] ] ] )</code>。两者都接受任意多个数值参数（一定要是数值的），返回相应最大或最小数值</p>
-<pre><code class="js">
-Math.max(3, 54, 32, 16);//54
+<pre><code class="js"><!--
+-->Math.max(3, 54, 32, 16);//54
 Math.min(3, 54, 32, 16);//3
 </code></pre>
 			<p class="followed_code">还可以利用每个函数都有的方法<code class="inline_code">apply()</code>来直接导入一个数组作为这两个最值方法的参数列表。但是要注意<code class="inline_code">apply()</code>的第一个参数要是<code class="inline_code">Math</code>对象，这样这两个最值方法才能正确调用Math对象内的属性。</p>
-<pre><code class="js">
-var values = [3 , 54, 32, 16];
+<pre><code class="js"><!--
+-->var values = [3 , 54, 32, 16];
 Math.max.apply(Math, values);
 </code></pre>
 			<p class="followed_code">舍入方法：<code class="inline_code">Math.ceil(value)</code>向上取整；<code class="inline_code">Math.floor(value)</code>向下取整；<code class="inline_code">Math.round(value)</code>四舍五入。这三个方法也只接受数值，并返回对应舍/入值。<strong>注意：</strong><code class="inline_code">Math.round(value)</code>方法无法作为构造函数使用，就跟Math对象无构造函数、无该类原型类似，它们都没有对应的原型，只是分别从Function类型和Object类型继承了相关属性和方法</p>
-<pre><code class="js">
-"prototype" in Math.round;//false
+<pre><code class="js"><!--
+-->"prototype" in Math.round;//false
 "prototype" in Math;//false
 Math.round.prototype;//undefined
 Math.prototype;//undefined

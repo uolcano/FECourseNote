@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>the collection of create object function</title>
+</head>
+
+<body>
+    <header>
+        <h1>设计模式·创建对象的多种玩法</h1>
+    </header>
+    <script type="text/javascript">
+    // 说不出是什么模式
+    function createPerson(name) {
+        function Person() {
+            this.name = name;
+        }
+        Person.prototype.sayHi = function(greeting) {
+            console.log(greeting + ' ' + this.name);
+        }
+        return new Person();
+    }
+    var person = createPerson('jerry');
+    </script>
+</body>
+
+</html>

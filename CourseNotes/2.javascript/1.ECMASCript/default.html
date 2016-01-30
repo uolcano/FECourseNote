@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>default page</title>
+    <!-- 包含highlight.js引入 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css">
+    <link rel="stylesheet" href="../../highlight.js/monokai-sublime.css">
+</head>
+<body>
+	(header>h1#top)+(nav>ul>li)+(article>((section.main_content>p.topdeclare+(h2[id=""]+h3[id=""]*4)*2)+section>h3[id="reference"]{参考}+ol>li[id=""]*4))+(footer>(h3{说明}+p+p{&copy;uolcano}))
+    <!-- 情景一，从本地文件引入 -->
+    <script src="../../highlight.js/highlight.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 情景二，从bootcdn引入 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>
+    hljs.initHighlightingOnLoad();
+    </script>
+</body>
+</html>

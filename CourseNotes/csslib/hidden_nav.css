@@ -14,12 +14,13 @@ nav {
     right: 0px;
     top: 10px;
     max-height: 97%;
-    overflow-x: hidden;
+    overflow-x: visible;
     overflow-y: auto;
 }
 
 nav li {
     list-style-type: none;
+    width: 200px;
 }
 
 
@@ -48,8 +49,9 @@ nav a:active {
 
 nav a:hover {
     color: #ee8;
-    /*background: #6aa;*/
-    animation: linkStyle 1s linear both alternate;
+    background: #6aa;
+    transition: color 1s cubic-bezier(0, -1, 0.5, 3), background 2s linear;
+    /*animation: linkStyle 1s linear both alternate;*/
 }
 
 @keyframes linkStyle {
@@ -63,7 +65,6 @@ nav a:hover {
 
 nav>ul {
     display: none;
-    width: 200px;
 }
 
 nav:hover>ul,
@@ -81,4 +82,14 @@ nav::before {
 
 nav:hover::before {
     display: none;
+}
+
+/*显示/隐藏子列表*/
+
+nav>ul ol {
+    display: none;
+}
+
+nav li:hover>ol {
+    display: block;
 }
