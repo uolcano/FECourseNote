@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Test</title>
+    <style type="text/css">
+    #container {
+    background: #cca;
+    opacity: 0.9;
+    width: 660px;
+    height: 400px;
+}
+    canvas {
+        border: 2px dashed red;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <canvas id="canvas" width='300' height='300'></canvas>
+        <canvas id="canvasClock" width='300' height='300'></canvas>
+        <button id="btn">draw canvas</button>
+    </div>
+    <script type="text/javascript">
+    function drawCircle(id) {
+        var canvas = this.document.getElementById(id); //获取canvas DOM对戏那个
+        if (canvas.getContext) { //判断浏览器支持
+            var ctx = canvas.getContext('2d'); //获取canvas渲染2d上下文
+            ctx.strokeStyle = '#4d4e53'; //设置描线颜色
+            ctx.fillStyle = '#6a83ff'; //设置填充颜色
+            ctx.lineWidth = 10; //描线宽度
+            ctx.beginPath(); //开启描绘路径
+            ctx.arc(150, 150, 100, 0, Math.PI * 2, false); //描绘一个圆
+            ctx.stroke(); //描线填充
+            ctx.fill(); //图形填充
+        }
+    }
+
+    function draw() {
+        var canvas = document.getElementById('canvasClock');
+        if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            var x = 75;
+            var y = 75;
+            var radius = 50;
+            var startAngle = 0;
+            var endAngle = 0;
+            var color = 255;
+            var intervalID = setInterval(function() {
+                color = Math.abs(color - 1) % 255;
+                ctx.strokeStyle = 'rgb(255, ' + color + ', ' + color + ')';
+                ctx.lineWidth = 10;
+                ctx.beginPath();
+                ctx.arc(x, y, radius, startAngle, endAngle += (Math.PI / 180) * (360 / 255), false);
+                startAngle = endAngle;
+                ctx.stroke();
+                ctx.restore();
+                if (endAngle >= 2 * Math.PI) {
+                    clearInterval(intervalID);
+                }
+            }, 10);
+        }
+    }
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click', drawCircle.bind(window, 'canvas'), false);
+    btn.addEventListener('click', draw, false);
+    </script>
+</body>
+
+</html>

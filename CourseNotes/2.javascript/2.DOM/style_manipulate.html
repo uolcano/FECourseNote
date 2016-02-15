@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>style manipulation</title>
+    <link rel="stylesheet" href="test.css" title="linkTitle">
+    <style type="text/css" media="screen">
+    @import url('import.css') screen;
+    div {
+        background-color: #fac;
+        width: 300px;
+        height: 300px;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="color:maroon;">sample</div>
+    <script type="text/javascript">
+    var div = document.getElementsByTagName('div')[0];
+    (function(argument) {
+        /* inline style
+         */
+        // property and method
+        div.style.color = 'navy';
+        //          CSSStyleDeclaration
+        //              ↓
+        // element  {   style   }
+        div.style instanceof CSSStyleDeclaration;
+        div.style.cssText; //获取整个内联样式的CSS属性声明列表的字符串形式，可读/写
+        div.style.length; //CSS属性声明个数
+        div.style[0]; //获取CSS属性名
+        div.style.item(0); //获取CSS属性名
+        div.style['color']; //获取对应的CSS属性值
+        div.style.parentRule; //*       useless
+        div.style.getPropertyValue('color'); //获取对应的CSS属性值，同div.style['color'];
+        // div.style.getPropertyCSSValue('color')); // invald
+        div.style.setProperty('text-decoration', 'underline', ''); //添加一条CSS属性声明
+        div.style.removeProperty('text-decoration'); //删除对应的CSS属性声明，返回删除的属性声明的属性值
+        document.defaultView.getComputedStyle(div, null) //just for Firefox3.6-
+        instanceof CSSStyleDeclaration;
+        window.getComputedStyle(div, null) //获取指定元素的所有样式的计算值
+        instanceof CSSStyleDeclaration;
+
+        /* style sheets
+         */
+        // element node type inherit
+        //*                   Node
+        //*                     v
+        //*                 Element
+        //*                     v
+        //*                 HTMLElement
+        //*                 v        v
+        //*     HTMLLinkElement     HTMLStyleElement
+        //*         ↓                   ↓
+        //*         link                style
+        var link = document.getElementsByTagName('link')[0];
+        link instanceof HTMLLinkElement;
+        var style = document.getElementsByTagName('style')[0];
+        style instanceof HTMLStyleElement;
+        HTMLLinkElement.prototype instanceof HTMLElement;
+        HTMLStyleElement.prototype instanceof HTMLElement;
+        HTMLElement.prototype instanceof Element;
+        Element.prototype instanceof Node;
+
+        // style type inherit
+        //*                                             StyleSheet
+        //*                                                 v
+        //*         StyleSheetList                  ----CSSStyleSheet----
+        //*                 ↓                       ↓                   ↓
+        //* document.styleSheets    {   link_stylesheets    ,   style_stylesheets｛cssRules｝ }
+        document.styleSheets instanceof StyleSheetList;
+        document.styleSheets[0] instanceof CSSStyleSheet;
+        CSSStyleSheet.prototype instanceof StyleSheet;
+        //property and method of StyleSheet types
+        document.styleSheets[0].disabled; //是否禁用该CSS规则，true为禁用，false不禁用
+        document.styleSheets[0].href; //通过<link/>外部引入的CSS规则的引用地址
+        document.styleSheets[0].media //当前样式表支持的所有媒体类型的集合
+        instanceof MediaList;
+        document.styleSheets[1].media[0]; // "screen"
+        document.styleSheets[0].ownerNode //指向拥有当前样式表的节点
+            === link;
+        document.styleSheets[1].ownerNode === style;
+        document.styleSheets[0].parentStyleSheet; //*   useless
+        document.styleSheets[0].title; //ownerNode中title属性的值
+        document.styleSheets[0].type; //表示样式表类型的字符串"text/css"
+        //property and method of CSSStyleSheet types
+        // *    <link/> stylesheet cannot access the cssRules
+        // *    only <style> stylesheet can do
+        document.styleSheets[1].cssRules; //样式表中包含的样式规则的集合
+        document.styleSheets[1].ownerRule; //*      useless
+        // *    cannot insert or delete rule at @import rule's position
+        document.styleSheets[1].insertRule('div{border:3px dashed maroon;}', 1); //向cssRules集合中指定的位置插入rule字符串，添加CSS规则
+        document.styleSheets[1].deleteRule(1); //删除cssRules中指定位置的CSS规则
+        // cssRules
+        // cssRules inherit
+        //*                             --CSSRule--
+        //*                             v         v
+        //* CSSRuleList     CSSImportRule   CSSStyleRule
+        //*         ↓               ↓               ↓
+        //*     cssRules {      import_rule ,   innternal_rule  }
+        document.styleSheets[1].cssRules instanceof CSSRuleList;
+        document.styleSheets[1].cssRules[0] instanceof CSSImportRule; // @import style
+        CSSImportRule.prototype instanceof CSSRule;
+        document.styleSheets[1].cssRules[1] instanceof CSSStyleRule; // internal style
+        CSSStyleRule.prototype instanceof CSSRule;
+        //property and method of CSSStyleRule types
+        document.styleSheets[1].cssRules[1].cssText; //返回整条CSS规则的字符串形式（包括选择器和属性声明列表），只读
+        document.styleSheets[1].cssRules[1].parentStyleSheet //当前规则所属的样式表
+            === document.styleSheets[1];
+        document.styleSheets[1].cssRules[1].parentRule; //*     useless
+        document.styleSheets[1].cssRules[1].selectorText; //返回当前CSS规则的选择器的字符串形式
+        //* CSSStyleRule        CSSStyleDeclaration
+        //*         ↓               ↓
+        //* innternal_rule  {   style   }
+        document.styleSheets[1].cssRules[1].style //跟内联样式的style属性相同用法
+        instanceof CSSStyleDeclaration;
+        document.styleSheets[1].cssRules[1].type; //表示规则类型的常量值，对于样式规则，其值是1
+        //
+        link.sheet //通过HTMLLinkElement类型的元素节点的sheet属性也可以访问对应样式表
+            === document.styleSheets[0];
+        style.sheet //通过HTMLStyleElement类型的元素节点的sheet属性也可以访问对应样式表
+            === document.styleSheets[1];
+    })
+    </script>
+</body>
+
+</html>

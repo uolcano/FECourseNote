@@ -8,8 +8,8 @@ code.js {
     font-family: cursive, sans-serif;
     margin: 0 2px;
     padding: 0 4px;
-    background: #ece;
-    box-shadow: inset 0 0 1px 2px #a8a;
+    background: linear-gradient(155deg, #ceeeec, #ccccec);
+    box-shadow: 1px 1px 2px 1px #aac, inset 1px 1px 1px 0 #ceccec;
     border-radius: 3px;
 }
 /*含代码表格样式*/

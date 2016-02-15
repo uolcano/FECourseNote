@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>element dragging simulation</title>
+    <style type="text/css">
+    #dragElem {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        background: #eac;
+        cursor: move;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="dragElem">drag me!</div>
+    <script type="text/javascript">
+    /*
+     * something to improve:
+     * 1.over boundary
+     * 2.disable select text
+     */
+    // compatible event-processing functions
+    var addEvent = document.addEventListener ?
+        function(elem, type, listener, useCapture) {
+            elem.addEventListener(type, listener, useCapture);
+        } :
+        function(elem, type, listener, useCapture) {
+            elem.attachEvent('on' + type, listener);
+        };
+    var delEvent = document.removeEventListener ?
+        function(elem, type, listener, useCapture) {
+            elem.removeEventListener(type, listener, useCapture);
+        } :
+        function(elem, type, listener, useCapture) {
+            elem.detachEvent('on' + type, listener);
+        };
+        //the dragged element
+    var elem = document.getElementById('dragElem');
+    //the related offset
+    var getX = 0,
+        getY = 0,
+        moving = !1;//determe whether the element can be moved
+    var mouseDownHandler = function(event) {
+        event = event || window.event;
+        getX = event.clientX;
+        getY = event.clientY;
+        moving = !0;
+        console.log('begin: ' + getX + '|' + getY);
+    };
+    var mouseMoveHandler = function(event) {
+        if (!moving) {
+            return;
+        }
+        event = event || window.event;
+        var moveX = event.clientX,
+            moveY = event.clientY;
+        //0 by default
+        var left = parseInt(elem.style.left) || 0,
+            top = parseInt(elem.style.top) || 0;
+        //the position of element plus the offset of the pointer moving
+        elem.style.left = left + (moveX - getX) + 'px';
+        elem.style.top = top + (moveY - getY) + 'px';
+        // set the pointer position to the moved position
+        getX = moveX;
+        getY = moveY;
+        console.log('move: ' + getX + '|' + getY);
+    };
+    var mouseUpHandler = function(event) {
+        moving = !1;
+        console.log('done: ' + getX + '|' + getY)
+    };
+    addEvent(elem, 'mousedown', mouseDownHandler, false);
+    addEvent(elem, 'mousemove', mouseMoveHandler, false);
+    addEvent(elem, 'mouseup', mouseUpHandler, false);
+    </script>
+</body>
+
+</html>

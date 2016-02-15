@@ -847,7 +847,7 @@ pattern.toLocaleString();//"/\[bc\]at/gi"
             </ol>
             <h3 id="function_type">Function类型</h3>
             <p>ES的函数也是对象，是Function类型的实例，拥有自己的属性和方法。同时因为函数是对象，所以实际上函数名只是保存了指向Function实例对象的指针，函数名可以赋值，而指针指向的实例对象则不变。并且，重要的一点是，因为没有其他面向对象语言那样的函数标记（即通过不同的形参组合来区分同名函数的不同功能），所以对一个函数变量重复赋值函数只会覆盖掉上一次赋值的代码。</p>
-            <p class="followed_code">函数创建有两种方式：</p>
+            <p class="followed_code">函数创建有三种方式：</p>
             <ol class="followed_code">
             	<li>
             		<p>函数声明，这种方式会因为宿主环境的解析器会先对于函数声明的预先读取而后再按文档顺序读取代码，而使得函数声明被提升（function declaration hoisting）。这样就可以在函数声明之前的位置调用这个函数了。</p>
@@ -864,13 +864,20 @@ function sum(num1, num2) {
 </code></pre>
             	</li>
             	<li>
-            		<p>另一种就是常见的函数表达式方式，直接通过赋值操作符给函数变量赋值。这种方式在以后的匿名函数（拉姆达函数）以及闭包时常用到，非常重要。[<a href="#pro_js_web_dev">1</a>P175]</p>
+            		<p>第二种就是常见的函数表达式方式，直接通过赋值操作符给函数变量赋值。这种方式在以后的匿名函数（拉姆达函数）以及闭包时常用到，非常重要。[<a href="#pro_js_web_dev">1</a>P175]</p>
 <pre><code class="js"><!--
 -->var sayHi = function () {
 	 console.log('hi');
 };
 </code></pre>
             	</li>
+                <li>
+                    <p>最后一种是，最不常用的通过Function构造函数创建函数。<code class="inline_code">Function()</code>可接受字符串作为参数：而最后的字符串是创建的函数的内部代码；可以接受多个字符串，每个字符串就是为创建的函数指定命名参数。</p>
+<pre><code class="js"><!--
+-->var func = Function('a', 'b', 'var c = 10; console.log(a + b + c);');
+func(1,3);//14
+</code></pre>
+                </li>
             </ol>
             <p class="followed_code">当然在通过函数表达式和函数声明的结合使用也可以创建一个函数，而且主要用于递归。这种创建方式叫做命名函数表达式。这种方式必须对创建的函数对象用一对圆括号包裹，因为就算是函数表达式，如果后面创建的函数对象有了名字，解析器就将<code class="inline_code">fucntion</code>关键字理解为函数声明的开始了，部分浏览器会抛错（如safari）。[<a href="#pro_js_web_dev">1</a>P112P185]</p>
 <pre><code class="js"><!--
@@ -1246,7 +1253,7 @@ text.replace(pattern,'rat');//crat, brat, srat, frat"
 -->var pattern = /(at)/g;
 text.replace(pattern,'r$1');//"crat, brat, srat, frat"
 </code></pre>
-					<p><code class="inline_code">replace()</code>的第二个参数可以是一个替换函数。下面是一段书上关于转义HTML代码的例子[<a href="#pro_js_web_dev">1</a>P128]。这时每次<code class="inline_code">replace</code>方法匹配到一个字符时，都会将匹配的字符match、这个字符在原字符串的位置pos和源字符串传入替换函数originalText，替换函数再根据匹配到的字符进行比较并返回相应结果替换该匹配到的字符，比较失败的不返回结果。</p>
+					<p><code class="inline_code">replace()</code>的第二个参数可以是一个替换函数。下面是一段书上关于转义HTML代码的例子[<a href="#pro_js_web_dev">1</a>P128]。这时每次<code class="inline_code">replace</code>方法匹配到一个字符时，都会将匹配的字符match、（如果replace的第一个参数有捕获组，则这里参数个数对应捕获组的个数）、这个字符在原字符串的位置pos和源字符串传入替换函数originalText，替换函数再根据匹配到的字符进行比较并返回相应结果替换该匹配到的字符，比较失败的不返回结果。</p>
 <pre><code class="js"><!--
 -->function htmlEscape(text){
     return text.replace(/[&lt;&gt;&quot;&amp;]/g, function(match, pos, originalText){
