@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+    <style type="text/css">
+    .outer{border: 1px solid #acacac;min-width: 400px;float:left;font: 0.9em 'Microsoft Yahei'; border-radius: 5px; box-shadow: 5px 5px 3px 1px #acacac;}
+    .row{border-bottom: 1px solid #acacac; padding: 3px 8px;}
+    .row:last-child{border-bottom-style: none;}
+    .row:nth-child(odd){background-color: #ececec;}
+    .row:nth-child(even){background-color: #fff;}
+    .row .innercol, .bookstore>:first-child{color:#aaa;}
+    .row, .part {display: flex;justify-content: flex-start;}
+    .part>:last-child, .out>.innercol+div {align-self: center;flex:1 0 auto;text-align: center;}
+    .no1 {width: 60%;}
+    .no2 {width: 40%;}
+    .innercol{}
+    .bookstore {flex-flow:column;}
+    .bookstore>:last-child{align-self: center;}
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="out row">
+            <div class="part no1">
+                <div class="innercol">
+                    <div>作者</div>
+                    <div>auther</div>
+                </div>
+                <div>森友治</div>
+            </div>
+            <div class="part no2">
+	            <div class="innercol">
+	                <div>译者</div>
+	                <div>translator</div>
+	            </div>
+            <div>null</div>
+            </div>
+        </div>
+        <div class="out row">
+            <div class="part no1">
+	            <div class="innercol">
+	                <div>出版社</div>
+	                <div>press</div>
+	            </div>
+	            <div>中国摄影出版社</div>
+            </div>
+            <div class="part no2">
+	            <div class="innercol">
+	                <div>设计</div>
+	                <div>design</div>
+	            </div>
+	            <div>null</div>
+            </div>
+        </div>
+        <div class="out row">
+            <div class="innercol">
+                <div>版本信息</div>
+                <div>edition statement</div>
+            </div>
+            <div>系列有三本，均为一版</div>
+        </div>
+        <div class="row bookstore">
+            <div>购买书店book store</div>
+            <div>url</div>
+        </div>
+    </div>
+</body>
+
+</html>

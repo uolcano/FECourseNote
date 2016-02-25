@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 由于background-image引入的图片无法在devtool中观察到尺寸，
+只能通过设置10px循环间隔的交织背景，进行肉眼测量 -->
+<head>
+    <meta charset="UTF-8">
+    <title>background-size test</title>
+    <style type="text/css">
+    .bgi{
+        width:600px;
+        height: 300px;
+        /* 183 X 220, linux_penguin.jpg */
+        background-image: url('linux_penguin.jpg');
+        /* 200 X 200, luoxiaohei.png */
+        /*background-image: url('luoxiaohei.png'); */
+        background-repeat: no-repeat;
+    }
+    .no2 {
+        background-size: 90% 90%;
+        /*margin-left: -20px;*/
+        border: 20px dotted lime;
+        padding: 10px;
+        /* 便于观察尺寸 */
+        box-sizing: border-box;
+        /* 设置里的值content-box/padding-box/border-box */
+        background-origin: content-box;
+    }
+    .related {
+        width:600px;
+        height:600px;
+        border:1px solid aqua;
+        background-image: repeating-linear-gradient(rgba(255,255,255, 0.5), rgba(255,255,255, 0.5) 10px, rgba(125,125,125,0.5) 10px, rgba(125,125,125,0.5) 20px), repeating-linear-gradient(90deg,rgba(255,255,255, 0.5), rgba(255,255,255, 0.5) 10px, rgba(125,125,125,0.5) 10px, rgba(125,125,125,0.5) 20px);
+        background-size: 100%, 100%;
+    }
+    </style>
+</head>
+<body>
+    <div class="related"><div class="bgi no1"></div><div class="bgi no2"></div></div>
+</body>
+</html>

@@ -22,7 +22,7 @@ function getElementsByClassName(elem, clazz) {
         var list = elem.getElementsByTagName('*'),
             result = [];
         for (var i = 0, len = list.length; i < len; i++) {
-            if ((' ' + list[i] + ' ').indexOf(' ' + clazz + ' ') != -1) {
+            if ((' ' + list[i].className + ' ').indexOf(' ' + clazz + ' ') != -1) {
                 result.push(list[i]);
             }
         };

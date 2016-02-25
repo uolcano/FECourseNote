@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>本地图片预览</title>
+    <meta charset="utf-8"/>
+    <style>
+      .demo{width:615px;margin:10px auto;border:1px solid #ddd;}
+      .v-box{height:300px;background:#fff;}
+      .v-box .itbox{float:left;width:90px;height:90px;line-height:85px;margin:5px;text-align:center;border:1px solid #D9DADB;}
+      .v-box .itbox img{width:auto;height:auto;max-width:100%;max-height:100%;vertical-align:middle;}
+      .b-box{position:relative;height:40px;line-height:40px;text-align:right;border-top:2px solid #C0D0E1;background:#E0EAF4;}
+      .b-box .add{margin-right:10px;padding:5px 10px;border:1px solid #C0C0C0;background:#AAAAAA;cursor:pointer;}
+      .f-hidden{position:absolute;top:0;left:0;width:0;height:0;overflow:hidden;visibility:hidden;}
+    </style>
+    <script>
+        function addEvent(node,event,handler){
+            if (!!node.addEventListener){
+                node.addEventListener(event,handler,!1);
+            }else{
+                node.attachEvent('on'+event,handler);
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <div class="demo">
+      <div class="v-box" id="vbox">
+        <!--
+        <div class="itbox"><img/></div>
+        -->
+      </div>
+      <div class="b-box">
+        <label for="image" class="add">添加</label>
+        <form class="f-hidden">
+          <input type="file" name="image" id="image" accept="image/*" multiple/>
+        </form>
+      </div>
+    </div>
+    <script>
+        // 高版本浏览器支持
+        // 低版本浏览器可以先上传图片至服务器或者采用flash支持
+        function file2dataurl(file,callback){
+            if (!window.FileReader){
+                throw 'Browser not support File API !';
+            }
+            // FileReader构造函数创建一个对象
+            // 利用FileReader对象的readAsDataURL方法
+            // 可以使得传入的文件对象的result特性赋值为对应的url
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(event){
+                callback(event.target.result);
+            };
+        }
+        // 添加预览图片
+        function appendImage(url){
+            // 添加预览图片容器
+            var div = document.createElement('div');
+            div.className = 'itbox';
+            document.getElementById('vbox').appendChild(div);
+            // 添加预览图片
+            var image = new Image();
+            div.appendChild(image);
+            image.src = url;
+        }
+        // 文件选择
+        addEvent(
+            document.getElementById('image'),
+            'change',function(event){
+                if (!event.target){
+                    throw 'Browser not support!';
+                }
+                //只有在传入文件时有效，即过了事件触发就不能访问到了
+                var list = event.target.files;
+                // console.log(list);
+                if (!list||!list.length){
+                    return;
+                }
+                for(var i=0,l=list.length;i<l;i++){
+                    file2dataurl(list[i],appendImage);
+                }
+                event.target.parentNode.reset();
+            }
+        );
+    </script>
+  </body>
+</html>

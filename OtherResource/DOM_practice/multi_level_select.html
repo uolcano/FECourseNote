@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>级联选择器</title>
+    <meta charset="utf-8"/>
+    <style>
+      .demo select{width:200px;margin-right:10px;}
+    </style>
+    <script>
+        function addEvent(node,event,handler){
+            if (!!node.addEventListener){
+                node.addEventListener(event,handler,!1);
+            }else{
+                node.attachEvent('on'+event,handler);
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <form class="demo" name="demoForm">
+      <select name="chapter">
+        <option>请选择章目录</option>
+      </select>
+      <select name="section">
+        <option>请选择节目录</option>
+      </select>
+    </form>
+    <script>
+        // 数据定义
+        var chapters = [ 
+            {text:'1. DOM基础',value:'1'}, 
+            {text:'2. 事件模型',value:'2'} 
+        ]; 
+        var sections = { 
+            1:[ 
+                {text:'1.1 文档树',value:'1.1'}, 
+                {text:'1.2 节点操作',value:'1.2'}, 
+                {text:'1.3 元素遍历',value:'1.3'}, 
+                {text:'1.4 样式操作',value:'1.4'}, 
+                {text:'1.5 属性操作',value:'1.5'}, 
+                {text:'1.6 表单操作',value:'1.6'} 
+            ], 
+            2:[ 
+                {text:'2.1 事件类型',value:'2.1'}, 
+                {text:'2.2 事件模型',value:'2.2'}, 
+                {text:'2.3 事件应用',value:'2.3'} 
+            ] 
+        }; 
+        var demoForm = document.forms.demoForm;
+        // 填充选择器
+        function fillSelect(select,list){ 
+            for(var i=select.length-1;i>0;i--){ 
+                // 删除上次选中的第二级多选框的除第一项之外的所有项
+                // 从最后一项开始倒序移除option节点
+                select.remove(i); 
+            }
+            for(var i=0,l=list.length,data;i<l;i++){
+                // 通过传入的section对象的一个属性数组，
+                // 添加option选项
+                data = list[i];
+                // 利用属性数组的每项对象的text和value填充option
+                var option = new Option(
+                    data.text,data.value
+                ); 
+                select.add(option); 
+            }
+        }
+        // 切换章目录
+        addEvent(
+            demoForm.chapter,
+            'change',function(event){
+                var value = demoForm.chapter.value, 
+                    list = sections[value]||[]; 
+                // 通过第一级多选框change事件触发改变第二级多选框的
+                // 根据第一级多选框的选中项决定第二级多选框的填充项
+                fillSelect(demoForm.section,list); 
+            }
+        );
+        fillSelect(demoForm.chapter,chapters); //填充第一级多选框
+    </script>
+  </body>
+</html>

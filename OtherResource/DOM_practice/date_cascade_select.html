@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>date cascade list</title>
+    <script type="text/javascript" src='datedata.js'></script>
+    <!-- // <script type="text/javascript" src='yearJSON.js' defer='defer'></script> -->
+    <script type="text/javascript">
+    // compatibel addEvent
+    function addEvent(node, event, handler) {
+        if (!!node.addEventListener) {
+            node.addEventListener(event, handler, !1);
+        } else {
+            node.attachEvent('on' + event, handler);
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <form id="datelist">
+        <select name="year" id="year">
+            <option value="0">--</option>
+            <!--<option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>-->
+        </select>
+        <label for='year'>年</label>
+        <select name="month" id="month">
+            <option value="0">--</option>
+            <!--<option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>-->
+        </select>
+        <label for='month'>月</label>
+        <select name="date" id="date">
+            <option value="0">--</option>
+        </select>
+        <label for='date'>日</label>
+    </form>
+    <script type="text/javascript">
+    var datelist = document.getElementById('datelist');
+
+    /* 
+     *  the insert object must be formatted as { text: "", value: ""}.
+     *  the obj.text must be one more than the dateData.year.maxYear,
+     *  or be one less than the dateData.year.minYear.
+     */
+    function manipDataYear(insObj) {
+        // accept only string type with digits
+        if (typeof insObj.text === "string" && typeof(ins = Number(insObj.text)) === "number") {//get hthe year number of the insert year
+            var max = Number(dateData.year.maxYear),// extract the maximun year stored in the dateData array.
+                min = Number(dateData.year.minYear),// extract the minimun year stored in the dateData array.
+                ins;
+            if (insObj.text === insObj.value && ins > 0 && ins <= MAXYEAR) {
+                if (ins > max) { //insert in the last of the array
+                    dateData.year.maxYear = insObj.text - 1 + 1; // convert to number type
+                    dateData.year.push(insObj);
+                } else if (ins < min) { // insert in the first of the array
+                    dateData.year.minYear = insObj.text - 1 + 1; // convert to number type
+                    dateData.year.unshift(insObj);
+                } else {
+                    console.log('ERROR: The array has had the same year inside!');
+                }
+            } else {
+                console.log('ERROR: Inserted year data invalid!');
+            }
+        } else {
+            console.log('ERROR: Need for formatted object like { text: "", value: ""}');
+        }
+    }
+
+    /* 
+     *  the function has two mode:
+     *  1.can accept two parameter as the earliest year and the latest year, 
+     *    e.g. loadYear(1970, 2000) will show years form 1970 to 2000
+     *  2.or one parameter as end to the current year and start from yearPara1 years ago, 
+     *    e.g. loadYear(30) will show years from 1986(if the current year is 2016) to 2016.
+     */
+    function loadYear(yearPara1, yearPara2) {
+        var preYear, nextYear, runYear;
+        if (arguments.length > 1) {
+            preYear = yearPara1;
+            nextYear = yearPara2;
+        } else {
+            var curYear = (new Date()).getFullYear();
+            preYear = curYear - yearPara1;
+            nextYear = curYear;
+        }
+        runYear = preYear;
+        // actively produce the dateData.year and load to the page DOM tree
+        while (runYear <= nextYear) {
+            var date = {};
+            date.text = "" + runYear;
+            date.value = "" + runYear;
+            manipDataYear(date);
+            runYear++;
+        }
+    }
+
+    // function calcYear(preYear, nextYear) {
+    //     if (dateData.year.length) {
+    //         dateDate.year = yearJSON;
+    //     }
+    // }
+
+    /*
+     *  active produce the dateData.date based on the selected year and month
+     */
+    function calcDate(year, month) {
+        //remove the dateData.date items
+        for (var i = 0, len = dateData.date.length; i < len; i++) {
+            dateData.date[i] = null;
+        }
+        dateData.date = [];
+        //recalculate the date
+        var date = new Date(year, month, 0); //be care of month 0
+        for (var i = 1; i <= date.getDate(); i++) { //be care of i = 0
+            dateData.date[i - 1] = {};
+            dateData.date[i - 1].text = '' + i;
+            dateData.date[i - 1].value = '' + i;
+        }
+    }
+
+    /*
+     *  create some specified options and insert them into the select element
+     */
+    function fillSelect(select, list) {
+        for (var i = select.length - 1; i > 0; i--) {
+            select.remove(i);
+        }
+        for (var i = 0, len = list.length, data; i < len; i++) {
+            data = list[i];
+            var option = new Option(data.text, data.value);
+            select.add(option);
+        }
+    }
+    addEvent(window, 'load', function(event) {
+        // create specified years' data(such as 30) and insert into dateData.year
+        loadYear(30);
+        // as with the loaded dateData.year, fill the select of the year part
+        fillSelect(datelist.year, dateData.year);
+        // when select the select of the year part, create the select of the month part
+        addEvent(datelist.year, 'change', function(event) {
+            fillSelect(datelist.month, (datelist.year.value === '0') ? [] : dateData.month);
+            fillSelect(datelist.date, []);
+        });
+        // when select the select the month part, create the select of the date part
+        addEvent(datelist.month, 'change', function(event) {
+            var year = datelist.year.value,
+                month = datelist.month.value;
+            calcDate(year, month); //be care of month 0
+            fillSelect(datelist.date, dateData.date);
+        });
+        // fillSelect(datelist.month, []);
+    });
+    </script>
+</body>
+
+</html>

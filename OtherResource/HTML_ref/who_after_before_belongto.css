@@ -13,7 +13,8 @@ section:first-child>:last-child .sample {
 
 article span::before {
     content: "A span: ";
-    display: block;
+    display: inline-block;
+    font-weight: bold;
 }
 
 article span::after {

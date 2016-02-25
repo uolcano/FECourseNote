@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>@提示</title>
+    <meta charset="utf-8"/>
+    <style>
+      .demo{position:relative;width:500px;margin:10px auto;}
+      .demo textarea{width:100%;height:200px;}
+      .demo p{margin:5px 0;text-align:right;}
+      .demo p input{padding:5px 10px;}
+      .demo textarea,.m-hack{font-size:14px;line-height:140%;word-wrap:break-word;padding:0;}
+      .m-hack{visibility:hidden;position:absolute;top:0;left:0;width:500px;height:200px;border:1px solid #aaa;white-space:pre-wrap;}
+      .m-list{position:absolute;width:100px;margin:0;padding:0;background:#fff;border:1px solid #C0C0C0;overflow:hidden;}
+      .m-list li{margin:0;padding:5px 10px;}
+      .m-list li:hover{background:#2D7DCA;color:#fff;}
+    </style>
+    <script>
+        function addEvent(node,event,handler){
+            if (!!node.addEventListener){
+                node.addEventListener(event,handler,!1);
+            }else{
+                node.attachEvent('on'+event,handler);
+            }
+        }
+    </script>
+  </head>
+  <body>
+    <form class="demo" name="demoForm">
+      <textarea name="content"></textarea>
+      <p><input type="button" value="提交"/></p>
+      <div class="m-hack" id="hackDiv"></div>
+    </form>
+    <ul class="m-list" id="nameList" style="display:none;">
+      <li>张三</li>
+      <li>李四</li>
+      <li>赵五</li>
+      <li>孙六</li>
+    </ul>
+    <script>
+        var demoForm = document.forms.demoForm;
+        function doShowAtList(pos,callback){
+            var box = document.getElementById('nameList');
+            box.onclick = function(event){
+                var target = event.target||event.srcElement;
+                if (target.tagName==='LI'){
+                    box.style.display = 'none';
+                    callback(target.innerHTML);
+                }
+            };
+            box.style.top = demoForm.offsetTop+pos.top+'px';
+            box.style.left = demoForm.offsetLeft+pos.left+'px';
+            box.style.display = '';
+        }
+        // IE下使用document.selection.createRange()兼容
+        function getPosition(value){
+            var hack = document.getElementById('hackDiv');
+            hack.textContent = value;
+            var span = document.createElement('span');
+            hack.appendChild(span);
+            var ret = {
+                top:span.offsetTop+span.offsetHeight,
+                left:span.offsetLeft
+            };
+            hack.innerHTML = '';
+            return ret;
+        }
+        // input事件IE8-使用propertychange事件兼容
+        addEvent(
+            demoForm.content,
+            'input',function(event){
+                // IE下使用createTextRange兼容
+                var target = event.target, 
+                    cursor = target.selectionStart; //选中内容的起始位置，这里是光标的位置
+                    // console.log(cursor);
+                if (target.value.charAt(cursor-1)==='@'){
+                    var value = target.value.substr(0,cursor);
+                    doShowAtList(
+                        getPosition(value),function(name){ 
+                            var end = cursor+name.length; 
+                            // setRangeText设置'end'表示在插入文本后
+                            // 光标停留在出入位置的后面
+                            target.setRangeText(
+                                name,cursor,end,'end'
+                            );
+                            target.focus();
+                        }
+                    );
+                } 
+            } 
+        );
+        // 选中获取
+        demoForm.content.addEventListener('select', function (event) {
+            var target = event.target,
+            string = target.value,
+            start=target.selectionStart,
+            end = target.selectionEnd;
+            console.log(string.substring(start, end));
+        })
+    </script>
+  </body>
+</html>

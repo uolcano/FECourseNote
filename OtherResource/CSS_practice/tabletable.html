@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+    <style type="text/css">
+    table{font: 0.9em 'Microsoft Yahei';}
+	table, tr, td {border-collapse: collapse;}
+	.outer {min-width: 400px;box-shadow: 5px 5px 3px 1px #acacac;}
+	.outer, .outer>tbody>tr {border: 1px solid #acacac;}
+    .outer>tbody>tr:nth-child(odd){background-color: #ececec;}
+    .outer>tbody>tr:nth-child(even){background-color: #fff;}
+    .inner {margin: 3px 8px;}
+    .book-infor-content, .ver-info+td{padding-left:10px;}
+    .inner tr>td:first-child{color:#aaa;}
+	.inner tr>td.url {padding-left:50px;color:inherit;}
+    }
+    </style>
+</head>
+
+<body>
+    <table class="outer">
+        <tr>
+            <td>
+                <table class="inner">
+                    <tr>
+                        <td class="book-infor-title">作者</td>
+                        <td rowspan="2" class="book-infor-content">森友治</td>
+                    </tr>
+                    <tr>
+                        <td class="book-infor-title">auther</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="inner">
+                    <tr>
+                        <td class="book-infor-title">译者</td>
+                        <td rowspan="2" class="book-infor-content">null</td>
+                    </tr>
+                    <tr>
+                        <td class="book-infor-title">translator</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="inner">
+                    <tr>
+                        <td class="book-infor-title">出版社</td>
+                        <td rowspan="2" class="book-infor-content">中国摄影出版社</td>
+                    </tr>
+                    <tr>
+                        <td class="book-infor-title">press</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table class="inner">
+                    <tr>
+                        <td class="book-infor-title">设计</td>
+                        <td rowspan="2" class="book-infor-content">null</td>
+                    </tr>
+                    <tr>
+                        <td class="book-infor-title">design</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table class="inner">
+                    <tr>
+                        <td class="ver-info">版本信息</td>
+                        <td rowspan="2">系列有三本，均为一版</td>
+                    </tr>
+                    <tr>
+                        <td>edition statement</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table class="inner">
+                    <tr>
+                        <td>购买书店</td>
+                    </tr>
+                    <tr>
+                        <td class="url">url</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
